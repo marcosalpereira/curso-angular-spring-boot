@@ -1,0 +1,7416 @@
+[//]: # (0)
+### introdução ao framework angular
+
+<div class="center">
+    <img src="img/angular.png"
+        width="500" height="500"
+        style="border: none; box-shadow: none;" />
+</div>
+
+---
+
+[//]: # (2)
+
+### apresentação
+
+- Nome
+- Experiência
+- Expectativa
+
+--
+
+[//]: # (2/2)
+
+### horários
+
+- 08:10 - 11:50
+- Intervalo (15’) as 10:00 - [egg timer](https://e.ggtimer.com/15minutes)
+
+--
+
+[//]: # (2/3)
+
+### suporte?
+
+<!--
+  (PRÓXIMO SLIDE) Explicar sobre "como tirar dúvidas?".
+  -->
+
+<div class="center">
+  ![](img/estou-confuso.gif)
+  <br>
+  Está com dúvidas ou dificuldades?
+</div>
+
+--
+
+[//]: # (2/4)
+
+### contatos
+
+<!--
+  Explicar sobre "como tirar dúvidas?".
+  1) chat.serpro - https://chat.serpro.gov.br/channel/curso-introducao-angular
+  2) Colegas que podem apoiar
+  3) Intervalo tentamos fazer juntos
+  -->
+
+chat.serpro:
+
+- [#curso-introducao-angular](https://chat.serpro.gov.br/channel/curso-introducao-angular)
+- [#angularjs](https://chat.serpro.gov.br/channel/angularjs)
+- [#frontend](https://chat.serpro.gov.br/channel/frontend)
+
+--
+
+[//]: # (2/5)
+
+<!--
+  Explicar sobre os níveis do curso e dos participantes.
+  - Não é bem "introdução".
+  - Vamos oscilar entre assuntos "superficiais" e "aprofundados".
+  - "Otimizações prematuras é a raiz de todo o mal"
+  - Mas não leia como "não faça otimizações!" ;)
+ -->
+
+### "introdução"?
+
+<div class="center">
+  <br>
+  ![](img/nao-sei-o-que-estou-fazendo-mas-funciona.gif)
+</div>
+
+--
+
+[//]: # (2/6)
+
+### como aproveitar melhor o curso?
+
+<!--
+  Sugestão: a imagem ajuda a falar sobre como aproveitar melhor o curso, incentivar a execução dos exercícios e convidar alguém para dar o próximo treinamento!
+-->
+
+<div class="center" style="margin: 0 auto; max-width: 80%;">
+  ![](img/avg-retention.jpeg)
+</div>
+
+---
+
+[//]: # (3)
+
+### agenda
+
+- Introdução
+- Arquitetura
+- The Tour of Heroes - [exemplo](https://lynookokpqe.angular.stackblitz.io)
+- Aprofundando os Conceitos
+- Publicação (deploy)
+- Bônus?
+
+---
+
+[//]: # (4)
+
+### arquitetura / introdução
+
+- Arquiteturas Web Tradicionais
+- Arquiteturas Web Modernas
+- Angular
+  - O que é?
+  - A História
+  - Visão Geral da Arquitetura
+
+--
+
+[//]: # (4/2)
+
+### arquiteturas web tradicionais
+
+- Primeiros servidores Web (anos 90) eram simples servidores de arquivos estáticos
+- No entanto, surge a demanda por conteúdos dinâmicos em resposta à ação do usuário (ex: formulários)
+- Servidores Web passam a gerar páginas HTML em resposta às requisições HTTP
+  - CGI
+  - Web Application Containers
+
+--
+
+[//]: # (4/3)
+
+### arquiteturas web tradicionais
+
+- CGI: Common Gateway Interface
+  - interface padrão para a delegação de requisições para aplicações externas
+  - Para cada requisição, o servidor cria um novo processo
+- Web Application Containers
+  - Padrões especificam como um container hospeda e executa aplicações Web (ex: Java EE)
+  - Requisições são atendidas por um pool de threads
+
+--
+
+[//]: # (4/4)
+
+### arquiteturas web tradicionais - imagem
+
+<div class="center" style="margin: 0 auto; max-width: 80%;">
+  ![Legacy](img/legacy-arch.png)
+</div>
+
+--
+
+[//]: # (4/5)
+
+### arquiteturas web tradicionais - desvantagens
+
+- Servidor Web é responsável pela construção das páginas Web e pela lógica de negócio
+- O estado do cliente (sessão) é mantido no servidor
+- Maior uso de recursos computacionais (processamento e memória)
+- Quanto maior o número de clientes, maior o tempo de resposta
+- **Baixa escalabilidade**
+
+---
+
+[//]: # (5)
+
+### arquiteturas web modernas
+
+- SPA: *Single Page Application* ou **Aplicação de uma Única Página**
+- Todos os recursos (HTML, Javascript, CSS) são recuperados de uma única vez ou carregados dinamicamente conforme a necessidade (em resposta à ação do usuário)
+- Não há **_reloads_** ou transferência de controle para outra página
+- A ideia é prover uma **UX similar** a de uma **aplicação nativa** (desktop / mobile)
+- Frameworks Javascripts
+  - AngularJS, Angular, ReactJS, Vue.js, Ember.js, Meteor.js (...)
+  - https://hackernoon.com/5-best-javascript-frameworks-in-2017-7a63b3870282
+
+--
+
+[//]: # (5/2)
+
+### arquiteturas web modernas
+
+- TSA: *Thin Server Architecure*
+- Servidor delega a lógica de construção das páginas Web para o cliente
+  - Renderização dinâmica de páginas HTML
+  - Fluxos e navegação entre páginas e etc.
+- Somente a lógica de negócio é implementada no lado servidor
+  - Regras de negócio, persistência, segurança e etc
+
+--
+
+[//]: # (5/3)
+
+### arquiteturas web modernas
+
+- SOFEA: *Service-Oriented Front-End Architecture*
+- É um padrão arquitetural e não uma implementação
+- Princípios:
+  - Download da aplicação (HTML, Javascript, CSS) de uma única vez
+  - Toda lógica da apresentação é responsabilidade do cliente
+  - Toda comunicação com o servidor deve ser feito via serviços (REST, SOAP, GraphQL e etc)
+- Padrão de-facto para aplicações na nuvem
+
+--
+
+[//]: # (5/4)
+
+### arquiteturas web modernas - imagem
+
+<div class="center">
+  ![](img/modern-app.png)
+</div>
+
+--
+
+[//]: # (5/5)
+
+### arquiteturas web modernas
+
+- Servidor Web é responsável somente pela lógica de negócio
+- Melhor UX: depois do download da aplicação, somente dados são trafegados
+- Maior interoperabilidade e reuso de serviços (APIs)
+- **Alta escalabilidade**
+
+--
+
+[//]: # (5/6)
+
+### escalabilidade
+
+<div class="center">
+  ![](img/vertical_vs_horizontal_scaling.png)
+</div>
+
+---
+
+[//]: # (6)
+
+### Partiu angular!!!
+<img src="img/angular.png"
+    width="500" height="500"
+    style="border: none; box-shadow: none;" />
+
+---
+
+[//]: # (7)
+
+### angular: o que é?
+
+- É uma plataforma open-source para o desenvolvimento front-end de aplicações Web
+  - Framework para a implementação de SPA
+- Baseado em TypeScript
+  - Linguagem de programação
+  - É um super-conjunto do JavaScript com suporte a tipificação
+  - Browsers não executam TypeScript, por isso o código deve ser **transpilado** para JavaScript
+- Mantido pela Google e por uma comunidade de indivíduos e organizações
+- É o resultado da reescrita total do AngularJS
+
+--
+
+[//]: # (7/2)
+
+### angular: a história
+
+- AngularJS (ou Angular 1) surgiu em 2009
+  - Atualmente na versão 1.7 e ainda bastante popular na comunidade
+  - 58.000+ estrelas e 1500+ contribuidores no GitHub
+- Extensão do HTML para apresentação de conteúdo dinâmico
+  - **Two-way Data Binding:** sincronia entre model e view
+  - **Controllers:** definição do comportamento da aplicação
+  - **Directives:** sintaxe HTML (tags, atributos, classes CSS) específica para a aplicação
+  - **Dependency Injection:** descrição declarativa de dependências, facilitando o reuso e a testabilidade de componentes
+- https://angularjs.org
+
+--
+
+[//]: # (7/3)
+
+### angular: a história
+
+- Em 2014, a equipe do AngularJS anunciou o desenvolvimento do Angular2
+  - Versão final foi lançada em 14 de setembro 2016
+- "AngularJS" passa a ser conhecido somente como "Angular"
+  - A incompatibilidade com a versão 1 gerou bastante controvérsia
+- Foco em produtividade, desempenho e maior proximidade com Web Components
+  - http://blog.angular-university.io/introduction-to-angular2-the-main-goals/
+- Em 2016, o Angular 4 foi anunciado
+  - Versão final foi lançada em 23 de março de 2017
+  - Versão 3 foi "pulada" para o alinhamento de versão dos componentes internos
+- https://angular.io
+
+--
+
+[//]: # (7/4)
+
+### angular: visão geral da arquitetura
+
+- Uma aplicação Angular é composta por:
+  - **Templates:** HTML com sintaxe Angular;
+  - **Components:** controlam a visão e a interação com o usuário;
+  - **Services:** encapsulam um valor, função ou funcionalidade;
+  - **Modules:** empacotam tudo isso de uma forma coesa.
+
+--
+
+[//]: # (7/5)
+
+<div class="center">
+  ![](img/angular-arch.png)
+</div>
+
+--
+
+[//]: # (7/6)
+
+### não se assuste!
+
+<div class="center">
+  ![](img/one-eye-blinking.gif)
+</div>
+
+---
+
+[//]: # (8)
+
+### instalação
+
+- Pré-requisitos
+- Angular CLI
+- A Anatomia de uma Aplicação Angular
+- Suporte a Browsers
+
+--
+
+[//]: # (8/2)
+
+### pré-requisitos
+
+- Node.js
+  - Ambiente de execução JavaScript
+    - Assíncrono e orientado a eventos
+  - Versão v8.9.x ou superior
+    - `$ node -v`
+- npm: Node Package Manager
+  - Gestão de dependências e bibliotecas JavaScript
+  - Versão 5.x.x ou superior
+    - `$ npm -v`
+
+--
+
+[//]: # (8/3)
+
+### pré-requisitos
+
+- nvm: Node Version Manager
+  - Script para a gestão de múltiplas versões do Node.js e npm
+  - `$ nvm --version`
+
+--
+
+[//]: # (8/4)
+
+### [exercício 01](../exercicios/exercicio-01)
+
+- Objetivo: instalar nvm, Node.js e npm
+- Tempo: [15’](https://e.ggtimer.com/15minutes)
+
+---
+
+[//]: # (9)
+
+### angular cli
+
+- Ferramentas CLI são uma tendência no desenvolvimento de aplicações Frontend
+  - Scaffolding, scripting, automação de processos etc
+- Angular CLI permite criar aplicações Angular rapidamente
+  - Funcionalidades para facilitar o desenvolvimento (por exemplo: hot-reload, serve, test etc)
+  - Seguindo as boas práticas e convenções
+- Para instalar o Angular CLI:
+  - `$ npm install -g @angular/cli`
+- Para criar uma novo projeto Angular:
+  - `$ ng new app-exemplo`
+
+---
+
+[//]: # (10)
+
+### a anatomia da aplicação
+
+- O projeto criado pelo Angular CLI possui vários arquivos
+  - Os arquivos mais importantes estão nas pastas **src** e **e2e**
+  - Os outros arquivos configuram o ambiente de desenvolvimento e raramente mudam
+- Pasta **src**
+  - Contém o código-fonte da aplicação (arquivos TypeScript, HTML, CSS)
+- Pasta **e2e**
+  - Pasta com os testes ponto-a-ponto (end-to-end) da aplicação
+  - Testes e2e são escritos em Jasmine e são executados com protractor
+
+--
+
+[//]: # (10/2)
+
+### a anatomia da aplicação
+
+| ARQUIVO           | DESCRIÇÃO                                                                                                               |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| src/app/          | Arquivos da aplicação Angular. Ex: app.component.ts, app.module.ts                                                      |
+| node_modules/     | Bibliotecas JavaScript instaladas via npm.                                                                              |
+| package.json      | Identifica as dependências npm do projeto. Lista também os comandos para executar a aplicação, testes unitários e mais. |
+| src/assets/       | Arquivos estáticos importados pela aplicação (por exemplo: CSS, imagens, fontes etc).                                   |
+| src/environments/ | Arquivos de definição de variáveis de ambientes utilizadas no processo de construção da aplicação.                      |
+
+--
+
+[//]: # (10/3)
+
+### a anatomia da aplicação
+
+| ARQUIVO          | DESCRIÇÃO                                                                                                                      |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| src/styles.css   | Descreve as regras de estilo CSS globais da aplicação.                                                                         |
+| src/index.html   | A página única da aplicação. Carrega alguns scripts essenciais em uma ordem pré-definida e depois carrega a aplicação Angular. |
+| src/favicon.ico  | O ícone da aplicação que aparece na aba do browser.                                                                            |
+| src/polyfills.ts | Arquivo que configura os Polyfills utilizados pela aplicação.                                                                  |
+
+--
+
+[//]: # (10/4)
+
+### a anatomia da aplicação
+
+| ARQUIVO                | DESCRIÇÃO                                                                                                                   |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| src/main.ts            | Arquivo que configura a compilação da aplicação com o compilador JIT e inicializa o módulo principal da aplicação.          |
+| src/test.ts            | Arquivos de configuração para a execução de testes unitários com Karma.                                                     |
+| src/tsconfig.app.json  | Descreve como o compilador TypeScript transpila o código-fonte para JavaScript.                                             |
+| src/tsconfig.spec.json | Descreve como o compilador TypeScript transpila o código-fonte para JavaScript (usado para a execução de testes unitários). |
+
+--
+
+[//]: # (10/5)
+
+### a anatomia da aplicação
+
+| ARQUIVO          | DESCRIÇÃO                                                                                                |
+| ---------------- | -------------------------------------------------------------------------------------------------------- |
+| src/typings.d.ts | Arquivo de definição de tipos TypeScript para as bibliotecas JavaScript que não definiram seus tipos.    |
+| karma.conf.js    | Arquivo de configuração para a execução de testes unitários com Karma.                                   |
+| .editorconfig    | Configurações padronizadas usadas por diversos editores de código. [Veja mais.](http://editorconfig.org) |
+| .gitignore       | Arquivos e pastas que o GIT deve ignorar.                                                                |
+
+--
+
+[//]: # (10/6)
+
+### a anatomia da aplicação
+
+| ARQUIVO           | DESCRIÇÃO                                                                                                          |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------ |
+| e2e/              | Pasta com os testes ponto-a-ponto (end-to-end) da aplicação, escritos em Jasmine e executados com protractor.       |
+| protractor.conf.js | Configuração do protractor (para a execução de testes e2e).                                                         |
+| README.md         | Instruções básicas de como usar o Angular CLI para desenvolver a aplicação.                                        |
+| tsconfig.json     | Descreve como o compilador TypeScript transpila o código-fonte para JavaScript (usado para a integração com IDEs). |
+
+--
+
+[//]: # (10/7)
+
+### a anatomia da aplicação
+
+| ARQUIVO      | DESCRIÇÃO                                                                                                                              |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| tslint.json  | Arquivo de configuração do validador de código-fonte TypeScript. Define regras de validação de acordo com o guia de estilo do Angular. |
+| angular.json | Arquivo de configuração do Angular CLI.                                                                                                |
+
+---
+
+[//]: # (11)
+
+### [exercício 02](../exercicios/exercicio-02)
+
+- Objetivo: instalar o Angular CLI, criar e rodar a primeira aplicação Angular
+- Tempo: [15’](https://e.ggtimer.com/15minutes)
+
+- [Complemento](../exercicios/exercicio-02b) - versionar no [git.serpro](https://git.serpro/)
+- Tempo: [10’](https://e.ggtimer.com/10minutes)
+
+---
+
+[//]: # (12)
+
+### suporte a browsers
+
+- Angular suporta a maioria dos browsers mais recentes
+  ![](img/suporte-browsers.png)
+- A integração contínua do Angular roda testes unitários em todos esses browsers
+
+--
+
+[//]: # (12/2)
+
+### suporte a browsers
+
+- Angular é construído baseado nos padrões mais modernos da plataforma Web
+  - Nem todos os browsers suportam essas funcionalidades
+- _Polyfills_
+  - Scripts que implementam as funcionalidades que não são suportadas pelo browser
+  - Dependendo do browser alvo e das funcionalidades do Angular que sua aplicação precisa, você irá carregar um ou mais polyfills
+  - Polyfills não transformam um navegador lento e antigo em um navegador rápido e moderno!
+
+--
+
+[//]: # (12/3)
+
+### suporte a browsers
+
+- Polyfills obrigatórios para rodar uma aplicação Angular, de acordo com o browser:
+
+  ![](img/polyf-req.png)
+
+--
+
+[//]: # (12/4)
+
+### suporte a browsers
+
+- Polyfills opcionais de acordo com a funcionalidade e browser:
+  ![](img/polyf-opc.png)
+
+---
+
+[//]: # (13)
+
+### arquitetura
+
+<!-- Ref: https://angular.io/guide/architecture -->
+
+- Visão Geral
+- Módulos
+- Componentes
+- Templates
+- Metadata
+- Data Binding
+- Diretivas
+- Serviços
+- Injeção de Dependências
+
+--
+
+[//]: # (13/2)
+
+### visão geral
+
+- Para escrever uma aplicação Angular, você compõe **templates** HTML, que são gerenciados por **componentes**, que por sua vez se comunicam com **serviços**.
+- Os **templates** são compostos por **diretivas** e expressões especiais próprias do Angular
+- Os **componentes** gerenciam o comportamento dos **templates** por meio do **data binding**
+  - Propriedades e eventos
+- Os **serviços** são responsáveis por tarefas específicas e bem-definidas da aplicação
+  - Componentes são mantidos "limpos"
+
+--
+
+[//]: # (13/3)
+
+### visão geral
+
+- Os **templates**, **componentes** e **serviços** são empacotados em **módulos**
+  - Blocos coesos e dedicados a um conjunto de funcionalidades relacionadas
+- **Metadados** são decoradores TypeScript que descrevem como o Angular deve processar as classes, identificando-as como **componentes**, **diretivas** e **módulos**.
+- **Serviços** são instanciados pelo mecanismo de **injeção de dependências**
+  - Esse mecanismo mantém um container de instâncias criadas e as reusa apropriadamente
+
+--
+
+[//]: # (13/4)
+
+### visão geral
+
+<div class="center">
+  ![](img/angular-arch.png)
+</div>
+
+---
+
+[//]: # (14)
+
+### módulos
+
+- O Angular possui um sistema próprio de modularização
+  - Angular Modules ou NgModules
+- Toda aplicação Angular possui pelo menos um módulo (chamado de "**root module**")
+  - Por padrão, é o **AppModule**
+- Em aplicações pequenas, o **AppModule** pode ser o único módulo da aplicação
+- Em aplicações maiores, é comum que existam vários módulos
+  - Cada módulo é responsável por um conjunto de funcionalidades (domínio)
+
+--
+
+[//]: # (14/2)
+
+### módulos
+
+- Um módulo é uma classe com o decorador `@NgModule`, que descreve o módulo
+- As principais propriedades do decorador `@NgModule` são:
+  - **declarations**: declara as classes de visão (componentes, diretivas ou pipes) do módulo;
+  - **exports**: um subconjunto do **declarations** que pode ser usado em outros módulos;
+  - **imports**: declara os módulos cujas classes exportadas são utilizadas neste módulo;
+  - **providers**: declara como instanciar os serviços que são utilizados em toda a aplicação;
+  - **bootstrap**: declara a visão principal da aplicação ("**root** **component**")
+
+--
+
+[//]: # (14/3)
+
+### módulos
+
+- Exemplo de um **root module**
+
+```javascript
+// src/app/app.module.ts
+
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule } from "@angular/forms"; // <-- o "NgModel" faz parte do "FormsModule"
+
+import { AppComponent } from "./app.component";
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule // <-- importe o "FormsModule"
+  ],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
+
+--
+
+[//]: # (14/4)
+
+### módulos
+
+- Para executar a aplicação, é feito o **_bootstrap_** do **_root module_** como abaixo
+
+```javascript
+// src/main.ts
+
+import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+import { AppModule } from "./app/app.module";
+platformBrowserDynamic().bootstrapModule(AppModule);
+```
+
+--
+
+[//]: # (14/5)
+
+### módulos
+
+- JavaScript também tem seu sistema de modularização
+  - É totalmente diferente e independente da modularização do Angular
+- No JavaScript, cada arquivo é um módulo
+  - Todos os objetos definidos no arquivo pertencem ao módulo
+  - Um objeto é público quando é marcado com a palavra-chave **export**
+  - Um módulo acessa os objetos públicos de outros módulos usando a expressão **import**
+- Os dois sistemas de modularização são complementares e são utilizados em conjunto para escrever uma aplicação Angular
+
+--
+
+[//]: # (14/6)
+
+### módulos
+
+- O Angular é embarcado com uma coleção de módulos JavaScript (biblioteca Angular)
+  - Prefixo **@angular**
+  - São instaladas com **npm** e declaradas com a expressão **import**
+
+```javascript
+import { Component } from "@angular/core";
+```
+
+--
+
+[//]: # (14/7)
+
+### módulos frequentes - part 1
+
+<!-- TODO: transformar em tabela -->
+<!-- - https://angular.io/guide/frequent-ngmodules -->
+
+| NgModule | Importado de | Quando usar? |
+|-|-|-|
+| `BrowserModule` | `@angular/platform-browser` | Quando você for executar seu app em navegadores |
+| `CommonModule` | `@angular/common` | Quando for usar `NgIf`, `NgFor` |
+
+--
+
+[//]: # (14/8)
+
+### módulos frequentes - part 2
+
+| NgModule | Importado de | Quando usar? |
+|-|-|-|
+| `FormsModule` | `@angular/forms` | Quando for construir forms orientados a template (com `NgModel`) |
+| `ReactiveFormsModule` | `@angular/forms` | Quando for construir forms reativos |
+
+--
+
+[//]: # (14/9)
+
+### módulos frequentes - part 3
+
+| NgModule | Importado de | Quando usar? |
+|-|-|-|
+| `RouterModule` | `@angular/router` | Quando for usar `RouterLink`, `.forRoot()`, and `.forChild()` |
+| `HttpClientModule` | `@angular/common/http` | Quando for se comunicar com servidores |
+
+---
+
+[//]: # (15)
+
+### componentes
+
+- Um **componente** é uma classe JavaScript que controla um pedaço da tela chamada **visão**
+- O **componente** interage com a visão através de propriedades e métodos
+
+```javascript
+export class HeroListComponent implements OnInit {
+  heroes: Hero[];
+  selectedHero: Hero;
+
+  constructor(private heroService: HeroService) { }
+
+  ngOnInit() {
+    this.heroes = this.heroService.getHeroes();
+  }
+
+  onSelect(hero: Hero) {
+    this.selectedHero = hero;
+  }
+}
+```
+
+--
+
+[//]: # (15/2)
+
+### componentes
+
+- Os **componentes** são criados, atualizados e destruídos pelo Angular conforme a necessidade
+- A aplicação pode agir em cada um desses momentos com os **lifecycle hooks**
+- **ngOnInit, ngOnChanges, ngOnDestroy...**
+
+```javascript
+export class PeekABoo implements OnInit {
+  constructor(private logger: LoggerService) { }
+
+  // implement OnInit's `ngOnInit` method
+  ngOnInit() { this.logIt(`OnInit`); }
+
+  logIt(msg: string) {
+    this.logger.log(`#${nextId++} ${msg}`);
+  }
+}
+```
+
+---
+
+[//]: # (16)
+
+### templates
+
+- O **template** define como o Angular deve renderizar o **componente**
+- É semelhante a um HTML simples, mas pode ter marcações próprias do Angular
+
+```html
+<h2>Lista de Heróis</h2>
+<p>Selecione um herói da lista abaixo:</p>
+<ul>
+  <li *ngFor="let hero of heroes">
+    <span>{{hero.name}}</span>
+    <button type="button" (click)="selectHero(hero)">Selecionar</button>
+  </li>
+  <!-- <li *ngFor="let hero of heroes" (click)="selectHero(hero)"> -->
+  <!-- ATENÇÃO: use elementos acessíveis por padrão! -->
+</ul>
+<hero-detail *ngIf="selectedHero" [hero]="selectedHero"></hero-detail>
+```
+
+--
+
+[//]: # (16/2)
+
+### templates
+
+- A **interpolação** avalia uma expressão e a converte para uma string
+
+```html
+<p>A soma de 1 + 1 é {{1 + 1}}</p>
+```
+
+- Geralmente, a expressão é uma propriedade do **componente**
+
+```html
+<h3>
+    {{title}}
+    <!-- NÃO! <img src="{{heroImageUrl}}" alt="...">  (interpolação) -->
+    <img [src]="heroImageUrl" alt="..."> <!-- property binding -->
+</h3>
+```
+<!--  problema é que se for usado src={{heroImageUrl}} e a variável demorar para "resolvida", a tag image irá ser renderizada com erro e, após a resolução da variável, a imagem poderá carregar corretamente -->
+
+- A expressão também pode invocar métodos do **componente**
+
+--
+
+[//]: # (16/3)
+
+### templates
+
+<!-- TODO: criar um stackblitz para mostrar os erros no console -->
+
+- Uma **expressão** (_expression_) produz um valor que é atribuído a uma propriedade
+  - Propriedade de um elemento HTML, de um **componente** ou de uma **diretiva**
+
+```html
+{{title}}
+<span [hidden]="!isChanged">changed</span>
+```
+
+- As **expressões** não produzem efeitos colaterais (além de atualizar a propriedade, é claro)
+- Sintaxe semelhante ao JavaScript
+- Proibido: new; incremento e decremento (++ e –-); atribuições (=, +=, -=, …); encadeamento de expressões (; ou ,);
+
+--
+
+[//]: # (16/4)
+
+### templates
+
+- Uma **ação** (_statement_) responde a um evento
+  - Evento gerado por um elemento HTML, um **componente** ou uma **diretiva**
+
+```html
+<button type="button" (click)="deleteHero()">
+  Remover herói
+</button>
+```
+
+- As **ações** produzem efeitos colaterais
+  - Atualizam o _estado da aplicação_ a partir da interação do usuário
+- Sintaxe semelhante ao JavaScript
+  - Proibido: new; incremento e decremento (++ e –); operadores de atribuição (+=, -=, …)
+  - Permitido: atribuição básica (=); encadeamento de expressões (; ou ,)
+
+--
+
+[//]: # (16/5)
+
+### templates
+
+- Elementos customizados no **template** representam novos componentes
+- Cria-se um componente filho na hierarquia de componentes
+
+<div class="center">
+  ![](img/comp-hier.png)
+</div>
+
+---
+
+[//]: # (17)
+
+### metadados
+
+- Os **metadados** descrevem como o Angular deve processar uma classe
+  - Um **componente** na verdade é uma simples classe JavaScript
+  - Só é de fato um **componente** quando é decorado com os **metadados** do Angular
+
+```javascript
+@Component({
+  selector: 'hero-list', // uso: <hero-list></hero-list>
+  templateUrl: '/hero-list.component.html'.
+  providers: [ HeroService ]
+})
+export class HeroListComponent implements OnInit {
+/* ... */
+}
+```
+
+--
+
+[//]: # (17/2)
+
+### metadados
+
+- `@Component`
+  - **selector**: nome do elemento customizado (seletor CSS) que diz ao Angular onde criar e inserir uma instância do componente
+  - **templateUrl**: caminho para o template do componente
+  - **providers**: array de "fábricas" dos serviços utilizados pelo componente
+- Outros **metadados** comuns:
+  - `@Injectable`: marca uma classe como "disponível" para instanciação pelo Angular
+  - `@Input`: usada na comunicação entre componentes (pai → filho)
+  - `@Output`: usada na comunicação entre componentes (filho → pai)
+
+--
+
+[//]: # (17/3)
+
+### metadados
+
+- Juntos, o **template**, os **metadados** e o **componente** formam uma **visão**
+
+<div class="center">
+  ![Metadados](img/57.png)
+</div>
+
+
+---
+
+[//]: # (18)
+
+### data binding
+
+- **Data binding** é um mecanismo para coordenar a interação entre **template** e **componente**
+- Existem 4 formas de se fazer **data binding** e cada forma tem uma direção
+
+<div class="center">
+  ![Formas Data Binding](img/formas-data-bind.png)
+</div>
+
+--
+
+[//]: # (18/2)
+
+### data binding
+
+```html
+<li>{{hero.name}}</li>
+<hero-detail [hero]="selectedHero"></hero-detail>
+<button type="button" (click)="selectHero(hero)">Selecionar</button>
+```
+
+- A expressão **{{hero.name}}** é uma **interpolação**
+  - O valor da propriedade **hero.name** do componente é exibida no DOM
+- A expressão **[hero]** é um **binding de propriedade**
+  - O valor da propriedade **selectedHero** do componente é passado para a propriedade **hero** do componente filho
+- A expressão **(click)** é um **binding de evento**
+  - O método **selectHero** é invocado quando o usuário clica no elemento `<button>`
+
+--
+
+[//]: # (18/3)
+
+### data binding
+
+```html
+<input [(ngModel)]="hero.name">
+```
+
+- A expressão **[(ngModel)]** é um **two-way data binding**
+- Combina o **binding de propriedade** e o **binding de evento** em uma notação única
+- O valor da propriedade **hero.name** do componente é exibida no elemento **input**
+- As mudanças no valor do elemento **input** são enviadas de volta ao componente
+
+--
+
+[//]: # (18/4)
+
+### data binding
+
+- O **data binding** tem um importante papel na comunicação entre **template** e **componente**
+- O **data binding** também é importante na comunicação entre componentes pai e filho
+
+  <img src="img/61-1.png" /> <img src="img/61-2.png" width="358px" height="219px"/>
+
+---
+
+[//]: # (19)
+
+### diretivas
+
+- Uma **diretiva** é uma classe com o decorador `@Directive`
+- As **diretivas** transformam o **template**, dando seu caráter dinâmico
+- Um **componente** é uma **diretiva** com um **template**!
+- As **diretivas** podem ser classificadas em dois tipos:
+  - **Estruturais**: alteram o DOM adicionando, removendo ou trocando elementos
+  - **De Atributo**: alteram a aparência ou comportamento de um elemento que já existe
+
+--
+
+[//]: # (19/2)
+
+### diretivas
+
+- **ngFor**, **ngIf** e **ngSwitch** são **diretivas** **estruturais** embarcadas com o Angular
+- **ngFor** cria um elemento para cada item de uma lista
+- **ngIf** inclui (ou não) um elemento no DOM
+- **ngSwitch** inclui um único elemento a partir de uma lista de possíveis elementos
+
+```html
+<li *ngFor="let hero of heroes">{{hero.name}}</li>
+<hero-detail *ngIf="selectedHero"></hero-detail>
+<div [ngSwitch]="hero?.emotion">
+  <app-happy-hero    *ngSwitchCase="'happy'"    [hero]="hero"></app-happy-hero>
+  <app-sad-hero      *ngSwitchCase="'sad'"      [hero]="hero"></app-sad-hero>
+  <app-confused-hero *ngSwitchCase="'confused'" [hero]="hero"></app-confused-hero>
+  <app-unknown-hero  *ngSwitchDefault           [hero]="hero"></app-unknown-hero>
+</div>
+```
+
+--
+
+[//]: # (19/3)
+
+### diretivas
+
+O asterisco é um **_Syntactic Sugar_**. Uma sintaxe mais simples que é traduzida para uma construção mais complexa. [Exemplo](https://stackblitz.com/edit/angular-syntax-sugar)
+
+```html
+<!-- usar o syntactic sugar: -->
+<div *ngIf="hero" >{{hero.name}}</div>
+
+<!-- é igual a isso: -->
+<div template="ngIf hero">{{hero.name}}</div>
+
+<!-- e igual a isso: -->
+<ng-template [ngIf]="hero">
+  <div>{{hero.name}}</div>
+</ng-template>
+```
+
+--
+
+[//]: # (19/4)
+
+### diretivas
+
+- **ngModel**, **ngStyle** e **ngClass** são **diretivas de atributo** embarcadas com o Angular
+- **ngModel**: implementa o **two-way data binding** em um elemento (tipicamente um **input**)
+- **ngStyle**: definição dinâmica de regras CSS (inline) em um elemento
+- **ngClass**: atribuição dinâmica de classes CSS em um elemento
+
+```html
+<div [ngStyle]="currentStyles">
+  This div is initially italic, normal weight, and extra large (24px).
+</div>
+<div [ngClass]="currentClasses">This div is initially saveable, unchanged, and special</div>
+```
+
+--
+
+[//]: # (19/5)
+
+### diretivas
+
+- Você pode criar suas próprias **diretivas** customizadas
+- As **diretivas** customizadas devem ser declaradas em um **módulo** da aplicação
+- Ao nomear suas **diretivas**, sempre utilize um prefixo (o prefixo "ng" já é reservado)
+
+```html
+<p myHighlight>Highlight me!</p>
+```
+
+```javascript
+import { Directive, ElementRef } from '@angular/core';
+
+@Directive({ selector: '[myHighlight]' })
+export class HighlightDirective {
+  constructor(private el: ElementRef) {
+    el.nativeElement.style.backgroundColor = 'yellow';
+  }
+}
+```
+
+--
+
+[//]: # (19/6)
+
+### diretivas
+
+- As **diretivas** customizadas podem responder a eventos do elemento "hospedeiro"
+
+```javascript
+import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+
+@HostListener('mouseenter') onMouseEnter() {
+  this.highlight('yellow');
+}
+@HostListener('mouseleave') onMouseLeave() {
+  this.highlight(null);
+}
+private highlight(color: string) {
+  this.el.nativeElement.style.backgroundColor = color;
+}
+```
+
+--
+
+[//]: # (19/7)
+
+### diretivas
+
+- As **diretivas** customizadas podem receber parâmetros de entrada
+- Data binding com **@Input**
+
+```javascript
+// exemplo 1
+@Input() highlightColor: string;
+
+// exemplo 2
+@Input('myHighlight') highlightColor: string;
+```
+
+```html
+<!-- exemplo 1 -->
+<p myHightlight highlightColor="yellow">Highlighted in yellow</p>
+<p myHightlight [highlightColor]="'orange'">Highlighted in orange</p>
+
+<!-- exemplo 2 -->
+<p [myHightlight]="color">Highlighted me</p>
+```
+
+---
+
+[//]: # (20)
+
+### serviços
+
+- Os **serviços** encapsulam um valor, função ou funcionalidade de que a aplicação precisa
+  - Ou seja: quase tudo pode ser um **serviço**!
+- Um **serviço** é tipicamente uma classe com uma responsabilidade bem-definida
+  - Exemplos: logging, recuperação de dados, cálculo de taxas etc
+- Os **componentes** são grandes consumidores de **serviços**
+  - Um **componente** deve ser "enxuto" e, por isso, delega tarefas não triviais para os **serviços**
+  - Os **serviços** estão disponíveis para uso pelos **componentes** através da **injeção de dependências**
+
+--
+
+[//]: # (20/2)
+
+### serviços
+
+- Não há nada de especial em um **serviço**
+- É uma classe JavaScript comum
+- Não existe uma classe base do Angular da qual se deve herdar
+- Não é necessário "registrar" um **serviço** em nenhum lugar
+
+```javascript
+export class Logger {
+  log(msg: any) {
+    console.log(msg);
+  }
+  error(msg: any) {
+    console.error(msg);
+  }
+  warn(msg: any) {
+    console.warn(msg);
+  }
+}
+```
+
+--
+
+[//]: # (20/3)
+
+### injeção de dependências
+
+- A **injeção de dependências** é uma forma de, ao se criar uma nova instância de uma classe, prover instâncias das dependências dessa classe
+- Comumente, o Angular usa a **injeção de dependências** para prover aos **componentes** os **serviços** dos quais necessitam
+- O Angular sabe quais são esses **serviços** pela assinatura do construtor do **componente**
+
+```javascript
+constructor(private service: HeroService) {}
+```
+
+--
+
+[//]: # (20/4)
+
+### injeção de dependências
+
+- O Angular mantém um container de instâncias de **serviços** criadas anteriormente
+- Quando um **componente** é criado, seus **serviços** são recuperados desse **container**
+  - Se um **serviço** não está no container, uma nova instância é criada e adicionada ao container
+
+![](img/inject.png)
+
+--
+
+[//]: # (20/5)
+
+### injeção de dependências
+
+- Você deve dizer ao Angular como criar novas instâncias de um **serviço**
+- Isto é, você deve registrar uma fábrica do **serviço**
+- A fábrica é algo que pode criar ou retornar uma instância do **serviço**
+- Tipicamente, é a própria classe do **serviço**
+- Você pode registrar a fábrica em **módulos** ou em **componentes**
+  - Em um **módulo**, a mesma instância do **serviço** é disponível para todos os **componentes** desse **módulo** (_singleton_)
+  - Em um **componente**, uma nova instância do **serviço** será criada para cada nova instância do **componente**
+
+--
+
+[//]: # (20/6)
+
+### injeção de dependências
+
+- Fábrica no nível de **módulo**
+
+```javascript
+@NgModule({
+  // ...outras partes do metadado do módulo
+  providers: [
+    BackendService,
+    HeroService,
+    Logger
+  ],
+  // outras partes do metadado do módulo...
+})
+```
+
+- Fábrica no nível de **componente**
+
+```javascript
+@Component({
+  selector: 'hero-list',
+  templateUrl: './hero-list.component.html',
+  providers: [ HeroService ]
+})
+```
+
+---
+
+[//]: # (21)
+
+### the tour of heroes
+
+- Introdução
+- O Editor de Heróis
+- O Padrão Mestre/Detalhe
+- Componentes
+- Serviços
+- Navegação
+- HTTP
+
+---
+
+[//]: # (22)
+
+### toh - introdução
+
+- Objetivo: construir uma aplicação para a gestão de super-heróis de uma "agência de RH"
+- _The Tour of Heroes_ é uma aplicação Web básica que mostra:
+  - como obter e exibir uma lista de heróis
+  - como editar um herói selecionado
+  - como navegar entre as diversas páginas
+
+--
+
+[//]: # (22/2)
+
+### toh - introdução
+
+- Abrange conceitos fundamentais
+  - **Directives** para exibir e/ou esconder elementos
+  - **Components** para controlar os eventos do usuário
+  - **One-way Data Binding** para exibir dados somente leitura
+  - **Two-way Data Binding** para atualizar o modelo a partir de campos editáveis
+  - **Pipes** para formatação de dados
+  - **Services** para recuperar dados de APIs
+  - **Routing** para a navegação da aplicação
+
+--
+
+[//]: # (22/3)
+
+### toh - introdução - dashboard
+
+Dashboard:
+
+![Dashboard](img/dashboar.png)
+
+--
+
+[//]: # (22/4)
+
+### toh - introdução - lista de heróis
+
+<img data-src="img/hero-list.png" height="400px" />
+
+
+--
+
+[//]: # (22/5)
+
+### toh - introdução - editor de herói
+
+![Editor de Herói](img/mag-detail.png)
+
+--
+
+[//]: # (22/6)
+
+### toh - introdução - navegação
+
+![Navegação](img/mag-detail-2.png)
+
+--
+
+[//]: # (22/7)
+
+### toh - introdução - demonstração
+
+
+<img data-src="img/demo.gif" height="400px"/>
+
+Referência: [versão oficial](https://stackblitz.com/angular/lynookokpqe)
+
+---
+
+[//]: # (23)
+
+### o editor de heróis
+
+- Objetivo: criar página para a edição de um herói
+- 1º apresentamos
+- 2º fazemos o exercício
+- Pré-requisito: Node.js e npm
+
+--
+
+[//]: # (23/2)
+
+### o editor de heróis
+
+```bash
+# Use o Angular CLI para criar um projeto:
+ng new app-exemplo
+
+# Deixe a aplicação rodando
+cd app-exemplo
+ng serve --open
+
+# "ng serve"
+#   executa o compilador TS em "watch mode"
+#   quando uma mudança é detectada, o código é recompilado automaticamente
+# "--open" abre a aplicação direto no browser
+#   quando uma mudança é detectada, o browser recebe um aviso e recarrega a página
+
+```
+
+--
+
+[//]: # (23/3)
+
+### o editor de heróis
+
+- Vamos exibir os detalhes de um herói
+- Abra o arquivo **app.component.ts** e adicione duas novas propriedades:
+  - **title:** o nome da aplicação;
+  - **hero:** o herói "Hulk";
+
+```javascript
+export class AppComponent {
+  title = "Tour of Heroes";
+  hero = "Hulk";
+}
+```
+
+--
+
+[//]: # (23/4)
+
+### o editor de heróis
+
+- Agora, abrao o arquivo definido na propriedade `templateUrl` do decorador e substitua pelo conteúdo abaixo:
+
+```html
+<h1>{{ title }}</h1>
+<h2>{{ hero }} details!</h2>
+```
+
+- _One-way Data Binding_
+- Interpolação de dados com `{{ ... }}`
+
+--
+
+[//]: # (23/5)
+
+### o editor de heróis
+
+- Crie uma classe `Hero` com as propriedades **id** e **name**, como abaixo
+- Adicione a classe no topo do arquivo **app.component.ts**, logo após o **import**
+
+```javascript
+export class Hero {
+  id: number;
+  name: string;
+}
+```
+
+--
+
+[//]: # (23/6)
+
+### o editor de heróis
+
+- Refatore a propriedade **hero**, mudando seu tipo de **string** para a nova classe **Hero**
+- Inicialize o herói com um **id** igual a **1** e **name** igual a **Hulk**
+
+```javascript
+hero: Hero = {
+  id: 1,
+  name: "Hulk"
+};
+```
+
+--
+
+[//]: # (23/7)
+
+### o editor de heróis
+
+- Com a refatoração, atualize o templateUrl para fazer referência à propriedade **name** do herói
+
+```html
+<h1>{{title}}</h1>
+<h2>{{hero.name}} details!</h2>
+```
+
+--
+
+[//]: # (23/8)
+
+### o editor de heróis
+
+Agora, altere o template para exibir também o **id** do herói conforme abaixo:
+
+```html
+<h1>{{title}}</h1>
+<h2>{{hero.name}} details!</h2>
+<div>id: {{hero.id}}</div>
+<div>nome: {{hero.name}}</div>
+```
+
+--
+
+[//]: # (23/9)
+
+### o editor de heróis
+
+- Agora, vamos permitir que o usuário edite o nome do herói, adicionando um `input`
+  - O input deve exibir a propriedade **name** e também atualizá-la (_Two-way Binding_)
+- Refatore o `div` da propriedade **name** no template como abaixo
+
+```html
+<div>
+  <label for="hero-name">Nome:</label>
+  <input id="hero-name" [(ngModel)]="hero.name" placeholder="Nome do herói">
+</div>
+```
+
+--
+
+[//]: # (23/10)
+
+### o editor de heróis
+
+- `[(ngModel)]` é a sintaxe Angular para indicar o binding com a propriedade **hero.name**
+  - Fluxo bidirecional: do modelo para a visão e vice-versa
+- A aplicação quebrou! - `"ngModel … isn’t a known property of input."`
+- `NgModel` é uma **diretiva** válida do Angular
+  - Pertence ao módulo `FormsModule` (opcional)
+
+--
+
+[//]: # (23/11)
+
+### o editor de heróis
+
+- Abra o arquivo `app.module.ts`
+  - Inclua um `import` para `FormsModule` da biblioteca `@angular/forms`
+  - Inclua o módulo `FormsModule` ao array de `imports` do `@NgModule`
+    - O módulo agora está disponível para todos os componentes da aplicação
+- JavaScript import vs Angular imports - [documentação](https://angular.io/guide/ngmodule-vs-jsmodule#javascript-modules)
+
+--
+
+[//]: # (23/12)
+
+### o editor de heróis
+
+AppModule:
+
+```javascript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; // Passo 1) Importe o FormsModule (javascript)
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule // Passo 2) Importe o FormsModule (angular)
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+--
+
+[//]: # (23/13)
+
+### o que aprendemos
+
+- _One-way Data Binding_ para a interpolação de dados `{{ }}`
+- _Two-way Data Binding_ para a edição de dados com `ngModel`
+
+---
+
+[//]: # (24)
+
+### [exercício 03](../exercicios/exercicio-03)
+
+- Objetivo: implementar a edição de um herói
+- Tempo: [30’](https://e.ggtimer.com/30minutes)
+
+---
+
+[//]: # (25)
+
+### o padrão mestre/detalhe
+
+- Objetivo: listagem de heróis no padrão mestre/detalhe
+- Deixe a aplicação rodando:
+
+```sh
+# Na pasta raiz do projeto, execute:
+npm start
+```
+
+--
+
+[//]: # (25/2)
+
+### mestre/detalhe - lista
+
+- A primeira coisa a fazer é criar a lista de heróis
+- Crie um **array** de tipo **Hero** no arquivo **app.component.ts**
+  - **Hero** é a classe que definimos anteriormente
+- Eventualmente, a aplicação irá recuperar a lista de heróis a partir de um Web Service
+
+--
+
+[//]: # (25/3)
+
+### mestre/detalhe - lista
+
+- Array de heróis
+
+```javascript
+const HEROES: Hero[] = [
+  { id: 11, name: 'Spider-Man' },
+  { id: 12, name: 'Captain America' },
+  { id: 13, name: 'Hulk' },
+  { id: 14, name: 'Thor' },
+  { id: 15, name: 'Iron Man' },
+  { id: 16, name: 'Luke Cage' },
+  { id: 17, name: 'Doctor Strange' },
+  { id: 18, name: 'Daredevil' },
+  { id: 19, name: 'Ant-Man' },
+  { id: 20, name: 'Wolverine' }
+];
+```
+
+--
+
+[//]: # (25/4)
+
+### mestre/detalhe - lista
+
+- Exponha o array para o template, crie uma propriedade **heroes** no **AppComponent**
+
+```javascript
+export class AppComponent {
+  ...
+  heroes = HEROES;
+  ...
+}
+```
+
+--
+
+[//]: # (25/5)
+
+### mestre/detalhe - lista
+
+- Vamos agora exibir a lista de heróis no template
+- Comece inserindo o seguinte trecho HTML entre o título e os detalhes do herói
+
+```html
+<h2>Meus heróis</h2>
+<ul class="heroes">
+  <li>
+    <!-- cada herói virá aqui -->
+  </li>
+</ul>
+```
+
+--
+
+[//]: # (25/6)
+
+### mestre/detalhe - lista
+
+- A ideia é fazer o binding entre o array de heróis e o template
+- Como exibir os dados de cada herói individualmente?
+  - Laço de repetição!
+- Modifique a tag `<li></li>`, adicionando a diretiva `*ngFor`
+
+```html
+<li *ngFor="let hero of heroes">
+```
+
+--
+
+[//]: # (25/7)
+
+### mestre/detalhe - lista
+
+- O asterisco indica que o elemento `li` e seus filhos são um template
+- A diretiva `ngFor` itera sobre o array e renderiza uma instância do template para cada herói
+- O trecho `let hero` identifica a variável que guarda o valor do item corrente em cada iteração
+  - Você pode fazer referência a essa variável no template
+- Adicione o elemento `span` abaixo, que usa a variável hero, para exibir a lista de heróis
+
+```html
+<li *ngFor="let hero of heroes">
+  <span class="badge">{{hero.id}}</span> {{hero.name}}
+</li>
+```
+
+--
+
+[//]: # (25/8)
+
+### mestre/detalhe - css
+
+- Pensando na usabilidade, vamos adicionar regras de estilo CSS para
+  - Destacar o herói na navegação do ponteiro do mouse
+  - Destacar o herói selecionado
+- Defina a propriedade **styles** no decorador **@Component** como a seguir
+  - Lembre-se do _backtick_ ou acento grave (`)
+
+--
+
+[//]: # (25/9)
+
+### mestre/detalhe - css
+
+- CSS da lista de heróis
+
+```javascript
+styles: [
+  `
+  .selected {
+    background-color: #CFD8DC !important;
+    color: white;
+  }
+  .heroes {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 15em;
+  }
+  .heroes li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    background-color: #EEE;
+    margin: .5em;
+    padding: .3em 0;
+    height: 1.6em;
+    border-radius: 4px;
+  }
+  .heroes li.selected:hover {
+    background-color: #BBD8DC !important;
+    color: white;
+  }
+  .heroes li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+    left: .1em;
+  }
+  .heroes .text {
+    position: relative;
+    top: -3px;
+  }
+  .heroes .badge {
+    display: inline-block;
+    font-size: small;
+    color: white;
+    padding: 0.8em 0.7em 0 0.7em;
+    background-color: #607D8B;
+    line-height: 1em;
+    position: relative;
+    left: -1px;
+    top: -4px;
+    height: 1.8em;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+  }
+`
+];
+```
+
+--
+
+[//]: # (25/10)
+
+### mestre/detalhe - css
+
+- O arquivo está ficando muito grande!
+  - É possível mover as regras de estilo CSS para um arquivo separado
+- Escopo do CSS
+  - Somente para o componente
+  - Não afeta o HTML externo
+
+--
+
+[//]: # (25/11)
+
+### mestre/detalhe
+
+- Nesse momento, estamos exibindo a lista de heróis bem como um herói ao final da página
+  - No entanto, não há ligação entre a lista e o herói exibido
+- Queremos que ao se escolher um herói da lista, seja exibido o detalhe do herói selecionado
+- Padrão mestre/detalhe
+  - **Mestre** é a lista de heróis
+  - **Detalhe** é o herói selecionado
+
+--
+
+[//]: # (25/12)
+
+### mestre/detalhe - select hero
+
+- Para capturar o evento de click, adicione a expressão `(click)` no elemento **&lt;li&gt;** como abaixo
+
+```html
+<li *ngFor="let hero of heroes" (click)="onSelect(hero)">
+  ...
+</li>
+```
+
+--
+
+[//]: # (25/13)
+
+### mestre/detalhe - detalhes
+
+- Os parênteses identificam que queremos capturar o evento **click** do elemento **&lt;li&gt;**
+- Eventos JavaScript (keyup, keydown, keypress, focus, blur...)
+- Expressão **onSelect(hero)**
+- Identifica que deve ser disparado o método **onSelect** do componente **AppComponent**
+- Passa a variável **hero** do template (a mesma utilizada na diretiva **ngFor**) como parâmetro
+
+--
+
+[//]: # (25/14)
+
+### mestre/detalhe - detalhes
+
+- Troque a propriedade **hero** pela propriedade **selectedHero**
+
+```javascript
+selectedHero: Hero;
+```
+
+- Adicione o método **onSelect** como abaixo
+
+```javascript
+onSelect(hero: Hero): void {
+  this.selectedHero = hero;
+}
+```
+
+--
+
+[//]: # (25/15)
+
+### mestre/detalhe - detalhes
+
+- Atualize o template para referenciar a nova propriedade **selectedHero**
+
+```html
+<h2>{{selectedHero.name}} details!</h2>
+<div>id: {{selectedHero.id}}</div>
+<div>
+  <label for="hero-name">Nome:</label>
+  <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="Nome do herói">
+</div>
+```
+
+--
+
+[//]: # (25/16)
+
+### mestre/detalhe - erro!
+
+- A aplicação quebrou!
+  - A propriedade **selectedHero** não foi inicializada e só terá valor após a seleção de um herói
+  - Angular não pode exibir os atributos de uma propriedade não inicializada
+    - EXCEPTION: TypeError: Cannot read property 'name' of undefined in [null]
+- Solução: só exibir o HTML do herói selecionado se houver de fato um herói selecionado
+  - Diretiva **ngIf**
+
+--
+
+[//]: # (25/17)
+
+### mestre/detalhe - erro!
+
+- Mova o conteúdo do HTML do herói selecionado para dentro de um novo elemento **&lt;div&gt;**
+- Adicione a diretiva **ngIf** ao &lt;div&gt; como abaixo
+
+```html
+<div *ngIf="selectedHero">
+  <h2>{{selectedHero.name}} details!</h2>
+  <div>id: {{selectedHero.id}}</div>
+  <div>
+    <label for="hero-name">Nome:</label>
+    <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="Nome do herói">
+  </div>
+</div>
+```
+
+--
+
+[//]: # (25/18)
+
+### mestre/detalhe - erro resolvido
+
+- A aplicação voltou a funcionar!
+- Sem um herói selecionado, a diretiva **ngIf** remove o &lt;div&gt; (e seus filhos) da árvore DOM
+- Quando o usuário seleciona um herói, a diretiva **ngIf** insere o &lt;div&gt; na árvore DOM
+  - O conteúdo é avaliado, e os bindings são feitos
+
+--
+
+[//]: # (25/19)
+
+### mestre/detalhe - class.selected
+
+- No CSS que definimos, há uma regra para destacar o herói selecionado da lista (**.selected**)
+  - Vamos aplicar essa classe ao herói quando ele é selecionado
+- Adicione a expressão [class.selected] ao elemento &lt;li&gt; como abaixo
+
+```html
+<li *ngFor="let hero of heroes"
+  [class.selected]="hero === selectedHero"
+  (click)="onSelect(hero)">
+  <span class="badge">{{hero.id}}</span> {{hero.name}}
+</li>
+```
+
+--
+
+[//]: # (25/20)
+
+### mestre/detalhe - class.selected
+
+- Expressão [class.selected] = "hero === selectedHero"
+- Quando a expressão é avaliada como **true**, a classe CSS **selected** é adicionada
+- Quando a expressão é avaliada como **false**, a classe CSS **selected** é removida
+
+--
+
+[//]: # (25/21)
+
+### o que aprendemos
+
+- Utilizamos a diretiva **ngFor** para exibir uma lista de heróis
+- Fizemos o binding do evento **click** para a seleção de um herói da lista
+- Utilizamos a diretiva **ngIf** para controlar a exibição de elementos HTML na árvore DOM
+
+---
+
+[//]: # (26)
+
+### [exercício 04](../exercicios/exercicio-04)
+
+- Objetivo: implementar a listagem de heróis
+- Tempo: [45’](https://e.ggtimer.com/45minutes)
+
+---
+
+[//]: # (27)
+
+### componentes
+
+- Objetivo: refatorar a aplicação para o uso de vários componentes
+- Deixe a aplicação rodando:
+
+```sh
+# Na pasta raiz do projeto, execute:
+npm start
+```
+
+--
+
+[//]: # (27/2)
+
+### componentes
+
+- Nesse momento, o componente `AppComponent` está fazendo tudo!
+  - No começo, exibia os detalhes de um herói
+  - Agora, implementa o padrão mestre/detalhe de heróis
+  - No futuro, teremos novos requisitos e funcionalidades
+- É **inviável** manter tudo em um só componente
+  - Vamos refatorar a aplicação em sub-componentes
+  - Cada componente tem uma única responsabilidade
+- Eventualmente, o componente `AppComponent` será somente uma "casca" para os sub-componentes
+
+--
+
+[//]: # (27/3)
+
+### componentes - herodetail
+
+- Adicione um arquivo **hero-detail.component.ts** na pasta **src/app/**
+  - Esse arquivo irá conter a implementação do novo componente **HeroDetailComponent**
+- A nomenclatura deve seguir os padrões definidos no guia de estilo do Angular
+  - O nome do componente deve seguir o padrão **upper camel case** com o sufixo **Component**. Ex.: `HeroDetailComponent`
+  - O nome do arquivo deve seguir o padrão **lower dash case** e ter a extensão **.component.ts**. Ex.: `hero-detail.component.ts`
+
+--
+
+[//]: # (27/4)
+
+### componentes - herodetail
+
+- Comece com o seguinte conteúdo
+
+```javascript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'hero-detail',
+})
+export class HeroDetailComponent { }
+```
+
+--
+
+[//]: # (27/5)
+
+### componentes - herodetail
+
+- Para definir um componente, você sempre irá importar o símbolo **Component**
+- O decorador **@Component** define os metadados do componente
+- A propriedade **selector** define a tag HTML que identifica esse componente (Ex.: `<hero-detail/>`)
+- Exporte o componente para que ele possa ser importado em outro lugar
+
+--
+
+[//]: # (27/6)
+
+### componentes - herodetail template
+
+- Crie o arquivo de template: `hero-detail.component.html`
+- Recorte e cole o conteúdo do template do **AppComponent** referente ao detalhe do herói
+- Crie a propriedade **templateUrl** nos metadados do **HeroDetailComponent** e aponte para o arquivo HTML
+- Substitua a palavra "**selectedHero**" por "**hero**"
+
+--
+
+[//]: # (27/7)
+
+### componentes
+
+Template (`hero-detail.component.html`)
+
+```html
+<div *ngIf="hero">
+    <h2>{{hero.name}} details!</h2>
+    <div>id: {{hero.id}}</div>
+    <div>
+        <label for="hero-name">Nome:</label>
+        <input id="hero-name" placeholder="Nome do herói" [(ngModel)]="hero.name">
+    </div>
+</div>
+```
+
+--
+
+[//]: # (27/8)
+
+### componentes - herodetailscomponent
+
+- Adicione a propriedade **hero** ao componente **HeroDetailComponent**
+
+```javascript
+export class HeroDetailComponent {
+  hero: Hero; // <-- adicione esta propriedade
+}
+```
+
+- A propriedade é do tipo **Hero**, a classe que definimos no arquivo **app.component.ts**
+- Os dois componentes precisam referenciar a mesma classe
+- O guia de estilo do Angular recomenda uma classe por arquivo
+
+--
+
+[//]: # (27/9)
+
+### componentes - hero class
+
+- Mova a classe **Hero** do arquivo **app.component.ts** para seu próprio arquivo **hero.ts**
+
+```javascript
+export class Hero {
+  id: number;
+  name: string;
+}
+```
+
+- Importe a classe **Hero** nos componentes **AppComponent** e **HeroDetailComponent**
+
+```javascript
+import { Hero } from "./hero";
+```
+
+--
+
+[//]: # (27/10)
+
+### componentes - hero binding
+
+- O **AppComponent** irá dizer ao **HeroDetailComponent** qual herói deve ser exibido
+  - Binding entre as propriedades **selectedHero** (**AppComponent**) e **hero **(**HeroDetailComponent**)
+
+```html
+<hero-detail [hero]="selectedHero"></hero-detail>
+```
+
+- Expressão `[hero]="selectedHero"`
+  - A propriedade **hero** deve ser declarada como uma propriedade de **input**
+
+--
+
+[//]: # (27/11)
+
+### componentes - hero input
+
+- Importe o símbolo **Input** da biblioteca **@angular/core**
+
+```javascript
+import { Component, Input } from "@angular/core";
+```
+
+- Inclua o decorador **@Input** à propriedade **hero**
+
+```javascript
+  @Input() hero: Hero;
+}
+```
+
+--
+
+[//]: # (27/12)
+
+### componentes - herodetailcomponent
+
+- `HeroDetailComponent`:
+
+```javascript
+import { Component, Input } from '@angular/core';
+import { Hero } from './hero';
+
+@Component({
+  selector: 'hero-detail',
+  templateUrl: './hero-detail.component.html'
+})
+export class HeroDetailComponent {
+  @Input() hero: Hero;
+}
+```
+
+--
+
+[//]: # (27/13)
+
+### componentes - declaração
+
+- Todo componente deve ser declarado em um (e somente em um) módulo
+- Abra o arquivo **app.module.ts** e importe o **HeroDetailComponent**
+
+```javascript
+import { HeroDetailComponent } from "./hero-detail.component";
+```
+
+- Para que um componente possa ser referenciado por outros componentes, ele precisa ser declarado em um módulo
+
+--
+
+[//]: # (27/14)
+
+### componentes - declaração
+
+- Adicione o **HeroDetailComponent** ao array **declarations** do módulo
+
+```javascript
+declarations: [
+  AppComponent,
+  HeroDetailComponent
+],
+```
+
+--
+
+[//]: # (27/15)
+
+### componentes
+
+- Para finalizar, inclua a tag **&lt;hero-detail&gt;** no template do **AppComponent** como abaixo
+
+```html
+<h1>{{title}}</h1>
+
+<h2>Meus heróis</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes"
+    [class.selected]="hero === selectedHero"
+    (click)="onSelect(hero)">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+
+<hero-detail [hero]="selectedHero"></hero-detail>
+```
+
+--
+
+[//]: # (27/16)
+
+### componentes
+
+- A aplicação continua exibindo uma lista selecionável de heróis, e toda vez que um herói é selecionado, os detalhes do herói escolhido são exibidos no padrão mestre/detalhe
+- O que mudou?
+  - Refatoramos o AppComponent em dois componentes
+  - Simplificamos o AppComponent, reduzindo suas responsabilidades
+  - Podemos evoluir o `HeroDetailComponent` sem nos preocupar com o AppComponent
+  - Podemos evoluir o AppComponent sem nos preocupar com o `HeroDetailComponent`
+  - Podemos reusar o `HeroDetailComponent` em outros componentes
+
+--
+
+[//]: # (27/17)
+
+### o que aprendemos
+
+- Criamos um componente reusável
+- Aprendemos a usar um componente que recebe uma entrada de dados
+- Aprendemos a declarar um componente em um módulo Angular
+- Aprendemos a fazer um binding entre um componente pai e um componente filho
+
+---
+
+[//]: # (28)
+
+### [exercício 05](../exercicios/exercicio-05)
+
+- Objetivo: refatorar a aplicação, criando o HeroDetailComponent
+- Tempo: [45’](https://e.ggtimer.com/45minutes)
+
+---
+
+[//]: # (29)
+
+### serviços
+
+- Objetivo: criar um serviço reutilizável para gerenciar as informações a respeito dos heróis
+- Deixe a aplicação rodando:
+
+```sh
+# Na pasta raiz do projeto, execute:
+npm start
+```
+
+--
+
+[//]: # (29/2)
+
+### serviços
+
+- A aplicação está evoluindo
+  - Novos componentes vão usar as informações a respeito dos heróis
+- Ao invés de copiar e colar o mesmo código, vamos criar um único serviço reutilizável
+  - O serviço será injetado nos componentes
+- Serviços separados dos componentes
+  - Componentes "limpos" e focados na visão
+  - Mais fácil de testar
+
+--
+
+[//]: # (29/3)
+
+### serviços
+
+- Onde paramos
+
+```
+app-exemplo/
+├── node_modules
+│   ├── ...
+├── package.json
+├── src/
+│   ├── app/
+│   │   ├── app.component.css
+│   │   ├── app.component.html
+│   │   ├── app.component.spec.ts
+│   │   ├── app.component.ts
+│   │   ├── app.module.ts
+│   │   ├── hero-detail.component.html
+│   │   ├── hero-detail.component.ts
+│   │   └── hero.ts
+│   ├── ...
+│   ├── main.ts
+│   ├── styles.css
+│   ├── ...
+```
+
+--
+
+[//]: # (29/4)
+
+### serviços
+
+- Crie um arquivo **hero.service.ts** na pasta **src/app/**
+  - O nome do arquivo deve seguir o padrão **lower dash case** com o sufixo **.service.ts**
+  - O nome da classe deve seguir o padrão **upper camel case** com o sufixo **Service**
+
+```javascript
+import { Injectable } from "@angular/core";
+@Injectable()
+export class HeroService {}
+```
+
+--
+
+[//]: # (29/5)
+
+### serviços
+
+- Adicione o stub do método **getHeroes**
+  - O serviço pode recuperar os dados de qualquer lugar (ex: web service, local storage...)
+  - Você pode mudar a forma de recuperar os dados sem mexer nos componentes
+
+```javascript
+@Injectable()
+export class HeroService {
+  getHeroes(): void {} // stub
+}
+```
+
+--
+
+[//]: # (29/6)
+
+### serviços
+
+- Mova o array **HEROES** do **app.component.ts** para um novo arquivo **mock-heroes.ts**
+  - Importe a classe **Hero**, já que o array usa esse tipo
+
+```javascript
+import { Hero } from "./hero";
+
+export const HEROES: Hero[] = [
+  { id: 11, name: "Mr. Nice" },
+  { id: 12, name: "Narco" },
+  { id: 13, name: "Bombasto" },
+  { id: 14, name: "Celeritas" },
+  { id: 15, name: "Magneta" },
+  { id: 16, name: "RubberMan" },
+  { id: 17, name: "Dynama" },
+  { id: 18, name: "Dr IQ" },
+  { id: 19, name: "Magma" },
+  { id: 20, name: "Tornado" }
+];
+```
+
+--
+
+[//]: # (29/7)
+
+### serviços
+
+- No **app.component.ts**, inclua a propriedade **heroes**, onde antes havia o array **HEROES**
+
+```javascript
+heroes: Hero[];
+```
+
+--
+
+[//]: # (29/8)
+
+### serviços
+
+- De volta ao **HeroService**, importe o array **HEROES** e retorne-o no método **getHeroes**
+
+```javascript
+import { Injectable } from "@angular/core";
+import { Hero } from "./hero";
+import { HEROES } from "./mock-heroes";
+@Injectable()
+export class HeroService {
+  getHeroes(): Hero[] {
+    return HEROES;
+  }
+}
+```
+
+--
+
+[//]: # (29/9)
+
+### serviços
+
+- Estamos prontos para usar o **HeroService** nos componentes da aplicação
+- Importe o **HeroService** no **app.component.ts**
+
+```javascript
+import { HeroService } from "./hero.service";
+```
+
+- Já importamos a classe… Mas como vamos obter uma instância do serviço?
+
+```javascript
+heroService = new HeroService(); // don't do this
+```
+
+--
+
+[//]: # (29/10)
+
+### serviços
+
+- Criar uma nova instância não é o ideal nesse caso
+  - O componente precisa saber como criar um **HeroService**
+    - Se o construtor mudar, você precisa refatorar todos os componentes que o usam
+  - Toda vez que você usa o **new**, uma nova instância é criada
+    - Como implementar e compartilhar cache de heróis?
+  - Você está se "prendendo" a uma implementação específica de um **HeroService**
+    - Trocar a implementação é mais custosa
+
+--
+
+[//]: # (29/11)
+
+### serviços
+
+- Vamos injetar o **HeroService**. Adicione, então, um construtor no **AppComponent**
+
+```javascript
+constructor(private heroService: HeroService) { }
+```
+
+- O construtor em si não faz nada, mas o parâmetro privado sim!
+  - Define uma propriedade privada, chamada **heroService**
+  - Identifica essa propriedade como um ponto de injeção de um **HeroService**
+- Dessa forma, o Angular sabe que deve fornecer uma instância de **HeroService** sempre que criar uma instância de **AppComponent**
+
+--
+
+[//]: # (29/12)
+
+### serviços
+
+- O Angular ainda não sabe como criar um **HeroService**
+  - EXCEPTION: No provider for HeroService! (AppComponent -&gt; HeroService)
+- Para ensiná-lo como criar um **HeroService**, adicione o array **providers** como abaixo
+  - Uma nova instância de um **HeroService** será criada quando um **AppComponent** for criado
+  - O **AppComponent** e seus componentes filhos podem usar o serviço
+
+```javascript
+providers: [HeroService];
+```
+
+--
+
+[//]: # (29/13)
+
+### serviços
+
+- Adicione o método **getHeroes** no **AppComponent**
+
+```javascript
+getHeroes(): void {
+  this.heroes = this.heroService.getHeroes();
+}
+```
+
+- Quando devemos chamar o método **getHeroes**?
+  - O construtor não deve conter lógica complexa, nem depender de serviços externos!
+  - O construtor deve ser usado para inicializações de propriedades
+
+--
+
+[//]: # (29/14)
+
+### serviços
+
+- Lifecycle hook
+  - Permite que a aplicação atue em momentos críticos no ciclo de vida do componente
+    - Na criação, após cada mudança, e na destruição do componente
+  - Cada momento é representado por uma interface com um único método
+    - Quando o componente implementa uma dessas interfaces, o Angular chama o método no momento apropriado
+
+--
+
+[//]: # (29/15)
+
+### serviços
+
+- Interface **OnInit**
+  - Angular chama o método ngOnInit na criação do componente
+
+```javascript
+import { OnInit } from "@angular/core"; // <-- importe o símbolo "OnInit"
+export class AppComponent implements OnInit {
+  // <-- implemente a interface "OnInit"
+  ngOnInit(): void {
+    // <-- adicione o método "ngOnInit()"
+  }
+}
+```
+
+--
+
+[//]: # (29/16)
+
+### serviços
+
+- Implemente o método **ngOnInit** para inicializar a lista de heróis
+  - Não esqueça do "import" e do "implements"
+
+```javascript
+ngOnInit(): void {
+  this.getHeroes();
+}
+```
+
+- A aplicação deve funcionar normalmente, exibindo a lista de heróis conforme esperado
+
+--
+
+[//]: # (29/17)
+
+### serviços
+
+- Nesse momento, o **HeroService** devolve imediatamente uma lista de heróis mockados
+  - A assinatura é síncrona
+  - Na vida real, as informações a respeito dos heróis serão recuperadas a partir de uma API
+    - Servidor externo
+    - Usuários não precisam esperar pela resposta do servidor
+    - Você não deve bloquear a interface durante a espera pela resposta
+
+--
+
+[//]: # (29/18)
+
+### serviços
+
+- **Promises**
+  - Técnica assíncrona para coordenar a visão com a espera por uma resposta
+  - É a promessa de se chamar uma função callback quando os resultados estiverem prontos
+- Modifique o método **getHeroes** do **HeroService** para retornar uma promessa
+
+```javascript
+getHeroes(): Promise<Hero[]> {
+  return Promise.resolve(HEROES);
+}
+```
+
+--
+
+[//]: # (29/19)
+
+### serviços
+
+- Como consequência, devemos modificar o método **getHeroes** do **AppComponent**
+  - O retorno não é mais um array de heróis, mas sim uma promessa
+- Implemente a função callback, passando-a como parâmetro do método **then** da promessa
+  - Arrow Functions (ES2015)
+
+```javascript
+getHeroes(): void {
+  this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+}
+```
+
+--
+
+[//]: # (29/20)
+
+### variações tratamento da resposta do promise...
+
+```
+this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+
+// Se for especificar o tipo do argumento
+this.heroService.getHeroes().then((heroes: Hero[]) => this.heroes = heroes);
+
+// Se for especificar o tipo do argumento e com mais de uma linha de codigo
+this.heroService.getHeroes().then((heroes: Hero[]) => {
+  console.log('resposta', heroes);
+  this.heroes = heroes;
+});
+```
+
+--
+
+[//]: # (29/21)
+
+### serviços
+
+- Para simular uma conexão mais lenta, adicione o método **getHeroesSlowly** no **HeroService**
+
+```javascript
+getHeroesSlowly(): Promise<Hero[]> {
+  return new Promise(resolve => {
+    // Simulate server latency with 2 second delay
+    setTimeout(() => resolve(this.getHeroes()), 2000);
+  });
+}
+```
+
+--
+
+[//]: # (29/22)
+
+### serviços
+
+- No **AppComponent**, troque a chamada do **getHeroes** pelo **getHeroesSlowly**
+- Qual é o comportamento da aplicação?
+
+--
+
+[//]: # (29/23)
+
+### o que aprendemos
+
+- Criamos uma classe de serviço que pode ser reutilizada por vários componentes
+- Usamos o **ngOnInit** para inicializar a lista de heróis
+- Projetamos o serviço para retornar uma promessa (mesmo que ainda usando mocks)
+- Projetamos o componente para agir no retorno dessa promessa
+
+---
+
+[//]: # (30)
+
+### [exercício 06](../exercicios/exercicio-06)
+
+- Objetivo: criar um serviço reutilizável para gerenciar as informações a respeito de heróis
+- Tempo: [45’](https://e.ggtimer.com/45minutes)
+
+---
+
+[//]: # (31)
+
+### navegação / rotas
+
+- Objetivo: usar o componente de roteamento e aprender a navegar entre as visões
+- Deixe a aplicação rodando:
+
+```sh
+# Na pasta raiz do projeto, execute:
+npm start
+```
+
+--
+
+[//]: # (31/2)
+
+### navegação
+
+- Chegaram novos requisitos para a nossa aplicação
+  - O cliente quer um Dashboard, que mostra o top 4 dos heróis
+  - Deve ser possível navegar entre a visão da lista de heróis e o Dashboard
+  - Ao se clicar no nome do herói, devem ser exibidos os detalhes do herói em uma nova visão
+  - Deve ser possível exibir a visão dos detalhes do herói a partir de um **deep link**
+    - Links contextuais que podem ser compartilhados (email, favoritos, etc)
+
+--
+
+[//]: # (31/3)
+
+### navegação
+
+- Objetivo
+
+![](img/navegacao.png)
+
+--
+
+[//]: # (31/4)
+
+### navegação
+
+- Onde paramos
+
+```
+app-exemplo/
+|
+|-- node_modules/
+|-- src/
+|  |-- app/
+|  |  |-- app.component.ts
+|  |  |-- app.module.ts
+|  |  |-- hero.ts
+|  |  |-- hero-detail.component.ts
+|  |  |-- hero.service.ts
+|  |  |-- mock-heroes.ts
+|  |-- index.html
+|  |-- main.ts
+|  |-- styles.css
+|  |-- ...
+|-- package.json
+|-- ...
+```
+
+--
+
+[//]: # (31/5)
+
+### navegação
+
+- Plano de ação
+  - Transformar o **AppComponent** numa "casca" para lidar somente com a navegação
+  - Mover a lógica a respeito da listagem de heróis para um novo componente
+  - Adicionar navegação
+  - Criar um novo componente para o Dashboard
+  - Incluir o Dashboard na estrutura de navegação da aplicação
+
+--
+
+[//]: # (31/6)
+
+### navegação
+
+- A versão atual da aplicação está carregando e exibindo imediamente a lista de heróis
+- A nova versão deve permitir a escolha entre a lista de heróis e o dashboard
+  - Deve exibir o dashboard como padrão
+- O **AppComponent** deve somente lidar com a navegação da aplicação
+  - Vamos mover a lógica da listagem de heróis para o seu próprio componente
+
+--
+
+[//]: # (31/7)
+
+### navegação
+
+- Renomeie o componente **AppComponent** para **HeroesComponent**
+  - Renomeie o arquivo "app.component.ts" para "heroes.component.ts"
+  - Renomeie o componente "AppComponent" para "HeroesComponent"
+  - Renomeie o selector "app-root" para "my-heroes"
+
+```javascript
+@Component({
+  selector: "my-heroes"
+})
+export class HeroesComponent implements OnInit {}
+```
+
+--
+
+[//]: # (31/8)
+
+### navegação
+
+- Crie um novo componente **AppComponent**
+  - Crie o arquivo **src/app/app.component.ts**
+    - Defina a classe **AppComponent** (lembre-se de exportá-la)
+    - Adicione o decorador **@Component** com o selector **app-root**
+    - Mova os seguintes trechos do **HeroesComponent** para o novo **AppComponent**
+      - A propriedade **title**
+      - O trecho do **template** com o **&lt;h1&gt;**
+    - Adicione uma tag **&lt;my-heroes&gt;** no template, logo abaixo do** &lt;h1&gt;**
+
+--
+
+[//]: # (31/9)
+
+### navegação
+
+- Crie um novo componente **AppComponent** (continuação)
+  - Adicione o **HeroesComponent** ao array **declarations** do **AppModule**
+    - Dessa forma, o Angular reconhece a tag &lt;my-heroes&gt; em qualquer visão
+  - Adicione o **HeroService** ao array **providers** do **AppModule**
+    - Dessa forma, o Angular irá injetar a mesma instância do **HeroService** em todos os componentes que o utilizam
+    - Remova o **HeroService** do array **providers** do **HeroesComponent**
+  - Lembre-se de incluir as expressões **import** necessárias no **AppComponent**
+
+--
+
+[//]: # (31/10)
+
+### navegação
+
+- AppComponent
+
+```javascript
+import { Component } from "@angular/core";
+
+@Component({
+  selector: "app-root",
+  template: `
+      <h1>{{title}}</h1>
+      <my-heroes></my-heroes>
+    `
+})
+export class AppComponent {
+  title = "Tour of Heroes";
+}
+```
+
+--
+
+[//]: # (31/11)
+
+### navegação
+
+- AppModule
+
+```javascript
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule } from "@angular/forms";
+
+import { AppComponent } from "./app.component";
+import { HeroDetailComponent } from "./hero-detail.component";
+import { HeroesComponent } from "./heroes.component"; // <-- importe o "HeroesComponent"
+import { HeroService } from "./hero.service";
+
+@NgModule({
+  imports: [BrowserModule, FormsModule],
+  declarations: [
+    AppComponent,
+    HeroDetailComponent,
+    HeroesComponent // <-- adicione o "HeroesComponent" ao "declarations"
+  ],
+  providers: [HeroService],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
+
+--
+
+[//]: # (31/12)
+
+### navegação
+
+- Vamos agora adicionar a navegação
+  - Para isso, vamos usar o **RouterModule**
+    - É um módulo Angular opcional e deve ser importado para ser utilizado
+- Antes de continuar, verifique se existe um elemento &lt;base href="..."&gt; no index.html
+  - Esse elemento é usado como prefixo nas URLs relativas (CSS, scripts e imagens)
+
+```html
+<head>
+  <base href="/">
+```
+
+--
+
+[//]: # (31/13)
+
+### navegação
+
+- Para configurar a navegação da aplicação, vamos definir "rotas"
+- Uma rota define qual é a visão que deve ser exibida de acordo com a URL
+  - O usuário pode clicar em um link ou colar a URL na barra de navegação do browser
+- As rotas são definidas por um array
+- Cada elemento do array de rotas é definido pelas seguintes partes:
+  - **path**: o router checa esse caminho com a URL na barra de navegação do browser
+  - **component**: define o componente que deve ser criado quando se navega para essa rota
+
+--
+
+[//]: # (31/14)
+
+### navegação
+
+- O trecho a seguir mostra como definir a primeira rota de navegação da aplicação
+
+```javascript
+import { RouterModule } from "@angular/router";
+RouterModule.forRoot([
+  {
+    path: "heroes",
+    component: HeroesComponent
+  }
+]);
+```
+
+--
+
+[//]: # (31/15)
+
+### navegação
+
+- AppModule
+
+```javascript
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router"; // <-- importe o símbolo "RouterModule"
+
+import { AppComponent } from "./app.component";
+import { HeroDetailComponent } from "./hero-detail.component";
+import { HeroesComponent } from "./heroes.component";
+import { HeroService } from "./hero.service";
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot([
+      // <-- importe o "RouterModule" na nossa aplicação
+      {
+        // <-- e configure a nossa primeira rota
+        path: "heroes",
+        component: HeroesComponent
+      }
+    ])
+  ],
+  declarations: [AppComponent, HeroDetailComponent, HeroesComponent],
+  providers: [HeroService],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
+
+--
+
+[//]: # (31/16)
+
+### navegação
+
+- Para exibir os componentes na navegação, adicione a tag **&lt;router-outlet&gt;** no template
+  - O **RouterOutlet** é uma diretiva do **RouterModule**
+  - É abaixo desse elemento que o router exibe o componente associado à rota
+- Para navegar entre as visões, adicione um atributo **routerLink** nos elementos **&lt;a&gt;**
+  - O **RouterLink** também é uma diretiva do **RouterModule**
+  - O valor do atributo deve ser o **path** da rota de navegação
+
+--
+
+[//]: # (31/17)
+
+### navegação
+
+- Atualize o **template** do **AppComponent** como abaixo
+
+```javascript
+template: `
+   <h1>{{title}}</h1>
+   <a routerLink="/heroes">Heroes</a>
+   <router-outlet></router-outlet>
+ `;
+```
+
+--
+
+[//]: # (31/18)
+
+### navegação
+
+- AppComponent
+
+```javascript
+import { Component } from "@angular/core";
+
+@Component({
+  selector: "app-root",
+  template: `
+      <h1>{{title}}</h1>
+      <a routerLink="/heroes">Heroes</a>
+      <router-outlet></router-outlet>
+    `
+})
+export class AppComponent {
+  title = "Tour of Heroes";
+}
+```
+
+--
+
+[//]: # (31/19)
+
+### navegação
+
+- Continuando com os requisitos, vamos criar um novo componente para o Dashboard
+
+```javascript
+import { Component } from "@angular/core";
+@Component({
+  selector: "my-dashboard",
+  template: "<h3>My Dashboard</h3>"
+})
+export class DashboardComponent {}
+```
+
+--
+
+[//]: # (31/20)
+
+### navegação
+
+- Configure uma nova rota para o **DashboardComponent**
+  - Para isso, adicione uma nova definição de rota ao array de rotas no **AppModule**
+
+```javascript
+{
+  path: 'dashboard',
+  component: DashboardComponent
+},
+```
+
+--
+
+[//]: # (31/21)
+
+### navegação
+
+- Inclua o **DashboardComponent** ao array **declarations** do **AppModule**
+
+```javascript
+declarations: [
+  AppComponent,
+  DashboardComponent, // <-- adicione o DashboardComponent ao array declarations
+  HeroDetailComponent,
+  HeroesComponent
+],
+```
+
+--
+
+[//]: # (31/22)
+
+### navegação
+
+- Para exibir o Dashboard no início da aplicação, vamos usar uma rota de redirecionamento
+- Adicione uma nova definição de rota ao array de rotas como abaixo
+
+```javascript
+{
+  path: '',
+  redirectTo: '/dashboard',
+  pathMatch: 'full'
+},
+```
+
+--
+
+[//]: # (31/23)
+
+### navegação
+
+- Atualize o template do **AppComponent**, adicionando um link para o Dashboard
+
+```javascript
+template: `
+   <h1>{{title}}</h1>
+   <nav>
+     <a routerLink="/dashboard">Dashboard</a>
+     <a routerLink="/heroes">Heroes</a>
+   </nav>
+   <router-outlet></router-outlet>
+ `;
+```
+
+--
+
+[//]: # (31/24)
+
+### navegação
+
+- Vamos agora implementar de fato o dashboard, que deve apresentar o top 4 dos heróis
+- Para isso, troque a propriedade **template** pela **templateUrl** no **DashboardComponent**
+
+```javascript
+Component({
+  selector: "my-dashboard",
+  templateUrl: "./dashboard.component.html"
+});
+```
+
+--
+
+[//]: # (31/25)
+
+### navegação
+
+- Crie o arquivo **dashboard.component.html** com o conteúdo abaixo
+
+```html
+<h3>Top Heroes</h3>
+<div class="grid grid-pad">
+  <div *ngFor="let hero of heroes" class="col-1-4">
+    <div class="module hero">
+      <h4>{{hero.name}}</h4>
+    </div>
+  </div>
+</div>
+```
+
+--
+
+[//]: # (31/26)
+
+### navegação
+
+- Para popular o array de heróis do **DashboardComponent**, vamos reutilizar o **HeroService**
+- **HeroService** está declarado no array **providers** do **AppModule**
+  - Criamos um **singleton** disponível para todos os componentes da aplicação
+- No arquivo **dashboard.component.ts**, adicione os **import** necessários
+
+```javascript
+import { Component, OnInit } from "@angular/core";
+import { Hero } from "./hero";
+import { HeroService } from "./hero.service";
+```
+
+--
+
+[//]: # (31/27)
+
+### navegação
+
+- Implemente a classe **DashboardComponent** como abaixo
+  - Definição de propriedades
+  - Injeção de dependência
+  - Inicialização de variáveis
+
+```javascript
+export class DashboardComponent implements OnInit {
+  heroes: Hero[] = [];
+  constructor(private heroService: HeroService) { }
+  ngOnInit(): void {
+    this.heroService.getHeroes()
+      .then(heroes => this.heroes = heroes.slice(1, 5));
+  }
+}
+```
+
+--
+
+[//]: # (31/28)
+
+### navegação
+
+- Nesse momento, os detalhes do herói selecionado estão sendo exibidos abaixo da listagem
+- Queremos exibir os detalhes do herói em uma página separada
+  - Navegável a partir da página de dashboard, da página de listagem e de um deep link
+- Podemos adicionar uma nova rota no **app.module.ts** como nos outros exemplos
+  - No entanto, essa rota é diferente, pois precisamos dizer **qual herói** devemos detalhar
+- Vamos então configurar uma **rota parametrizada**
+  - Vamos adicionar o id do herói ao caminho da URL
+  - Por exemplo: a URL **/detail/11** deve exibir o herói com id **11**
+
+--
+
+[//]: # (31/29)
+
+### navegação
+
+- Configure a seguinte rota no arquivo **app.module.ts**
+  - Os dois-pontos no caminho indica que o **:id** é um parâmetro
+
+```javascript
+{
+  path: 'detail/:id',
+  component: HeroDetailComponent
+},
+```
+
+--
+
+[//]: # (31/30)
+
+### navegação
+
+- HeroDetailComponent
+
+```javascript
+import { Component, Input } from "@angular/core";
+import { Hero } from "./hero";
+
+@Component({
+  selector: "hero-detail",
+  template: `
+    <div *ngIf="hero">
+      <h2>{{hero.name}} details!</h2>
+      <div>
+        <label>id: </label>{{hero.id}}
+      </div>
+      <div>
+        <label>name: </label>
+        <input [(ngModel)]="hero.name" placeholder="name"/>
+      </div>
+    </div>
+  `
+})
+export class HeroDetailComponent {
+  @Input() hero: Hero;
+}
+```
+
+--
+
+[//]: # (31/31)
+
+### navegação
+
+- Não vamos mais receber o herói como input
+- Agora devemos usar o **id** da URL para recuperar o herói a partir do **HeroService**
+- Para isso, adicione os seguintes **import**
+
+```javascript
+// Keep the Input import for now, you'll remove it later:
+import { Component, Input, OnInit } from "@angular/core";
+import { ActivatedRoute, ParamMap } from "@angular/router";
+import { Location } from "@angular/common";
+import { HeroService } from "./hero.service";
+```
+
+--
+
+[//]: # (31/32)
+
+### navegação
+
+- Crie o construtor para a injeção das dependências **HeroService**, **ActivatedRoute** e **Location**
+
+```javascript
+constructor(
+  private heroService: HeroService,
+  private route: ActivatedRoute,
+  private location: Location
+) {}
+```
+
+--
+
+[//]: # (31/33)
+
+### navegação
+
+- Importe o operador **switchMap **da biblioteca rxjs (The Reactive Extensions for Javascript)
+
+```javascript
+import { switchMap } from "rxjs/operators";
+```
+
+- Implemente a interface **OnInit**
+
+```javascript
+export class HeroDetailComponent implements OnInit {
+```
+
+--
+
+[//]: # (31/34)
+
+### navegação - recuperando dados da rota
+
+- Implemente o método **ngOnInit** como abaixo
+
+```javascript
+ngOnInit(): void {
+    this.route.paramMap
+      .pipe(
+        switchMap((params: ParamMap) => this.heroService.getHero(+params.get('id')))
+      )
+      .subscribe((hero: Hero) => this.hero = hero);
+}
+```
+
+--
+
+[//]: # (31/35)
+
+### navegação - recuperando dados da rota - usando snapshot
+
+```javascript
+  ngOnInit(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.heroService.getHero(id)
+      .then(hero => this.hero = hero);
+  }
+```
+
+--
+
+[//]: # (31/36)
+
+### navegação
+
+- O operador **switchMap** mapeia o **id** (parâmetro da rota) para o resultado da chamada ao método **HeroService.getHero**
+- Se o usuário navegar para este componente enquanto a requisição ainda estiver processando, o **switchMap** cancela a requisição anterior e faz uma nova chamada ao **getHero**
+- O operador **+** converte o parâmetro da rota (que sempre é uma String) para um número
+- O operador **subscribe** registra uma função callback que será executada automaticamente após o resultado dos serviços assíncronos
+
+--
+
+[//]: # (31/37)
+
+### navegação
+
+- Implemente o método **HeroService.getHero**
+  - Reusa o método **getHeroes** e filtra o resultado pelo **id**
+
+```javascript
+getHero(id: number): Promise<Hero> {
+  return this.getHeroes()
+             .then(heroes => heroes.find(hero => hero.id === id));
+}
+```
+
+--
+
+[//]: # (31/38)
+
+### navegação
+
+- O usuário pode chegar à página de detalhes a partir das outras visões
+- Para retornar um passo no histórico de navegação, implemente o método **goBack**
+  - Usa o serviço **Location** que injetamos anteriormente
+
+```javascript
+goBack(): void {
+  this.location.back();
+}
+```
+
+--
+
+[//]: # (31/39)
+
+### navegação
+
+- Migre o **template** do **HeroDetailComponent** para seu próprio arquivo
+
+```html
+<div *ngIf="hero">
+  <h2>{{hero.name}} details!</h2>
+  <div>
+    <label>id: </label>{{hero.id}}</div>
+  <div>
+    <label>name: </label>
+    <input [(ngModel)]="hero.name" placeholder="name" />
+  </div>
+  <button (click)="goBack()">Back</button>
+</div>
+```
+
+--
+
+[//]: # (31/40)
+
+### navegação
+
+- Atualize os metadados do **HeroDetailComponent** para referenciar o template
+
+```javascript
+@Component({
+  selector: 'hero-detail',
+  templateUrl: './hero-detail.component.html',
+})
+```
+
+--
+
+[//]: # (31/41)
+
+### navegação
+
+- Abra o **dashboard.component.html** e troque o **&lt;div&gt;** dos heróis por um elemento **&lt;a&gt;**
+  - Dessa vez, o **routerLink** usa uma expressão de um link parametrizado
+
+```html
+<a *ngFor="let hero of heroes"  [routerLink]="['/detail', hero.id]"  class="col-1-4">
+```
+
+--
+
+[//]: # (31/42)
+
+### navegação
+
+- Nesse momento, quase 20 linhas de código do AppModule estão dedicados à navegação
+  - Quanto mais visões, mais regras são definidas
+  - Opcionalmente, ainda podemos incluir lógica para o controle de autorização da navegação
+- É uma boa ideia refatorar as configurações de rota para sua própria classe
+  - **RouterModule.forRoot** cria um módulo de navegação
+  - Por convenção, um módulo de navegação ser nomeado a partir do nome do módulo que define os componentes navegáveis, com a palavra "Routing"
+  - Vamos então criar o módulo **AppRoutingModule**
+
+--
+
+[//]: # (31/43)
+
+### navegação
+
+- AppRoutingModule
+
+```javascript
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+
+import { DashboardComponent } from "./dashboard.component";
+import { HeroesComponent } from "./heroes.component";
+import { HeroDetailComponent } from "./hero-detail.component";
+
+const routes: Routes = [
+  { path: "", redirectTo: "/dashboard", pathMatch: "full" },
+  { path: "dashboard", component: DashboardComponent },
+  { path: "detail/:id", component: HeroDetailComponent },
+  { path: "heroes", component: HeroesComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}
+```
+
+--
+
+[//]: # (31/44)
+
+### navegação
+
+- Características típicas de um módulo de navegação
+  - Definir as rotas em uma variável
+  - Declarar o **RouterModule.forRoot(routes)** no **imports**
+  - Declarar o **RouterModule** no **exports**
+    - Para que os componentes tenham acesso às diretivas e serviços do **RouterModule**
+  - Sem array **declarations** (é responsabilidade do **AppModule**)
+  - Adicionar serviços de guarda (controle de autorização) no array **providers**
+    - Na nossa aplicação, não há controle de autorização
+
+--
+
+[//]: # (31/45)
+
+### navegação
+
+- Atualize o **AppModule** para usar o novo módulo **AppRoutingModule**
+  - Remova as definições de rota (foram movidas para o **AppRoutingModule**)
+  - Inclua um JavaScript **import** para o novo arquivo **app-routing.module.ts**
+  - Inclua o **AppRoutingModule** ao array **imports** nos metadados do **AppModule**
+
+--
+
+[//]: # (31/46)
+
+### navegação
+
+- Agora, vamos refatorar o **HeroesComponent** para também navegar para a visão de detalhes
+
+```javascript
+template: `
+  <h1>{{title}}</h1>
+  <h2>My Heroes</h2>
+  <ul class="heroes">
+    <li *ngFor="let hero of heroes"
+      [class.selected]="hero === selectedHero"
+      (click)="onSelect(hero)">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </li>
+  </ul>
+  <hero-detail [hero]="selectedHero"></hero-detail>
+`,
+```
+
+--
+
+[//]: # (31/47)
+
+### navegação
+
+- Apague o **&lt;h1&gt;** e substitua o **&lt;hero-detail&gt;** pelo seguinte trecho ("mini detalhe")
+  - Pipe **uppercase**
+
+```html
+<div *ngIf="selectedHero">
+  <h2>
+    {{selectedHero.name | uppercase}} is my hero
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>
+```
+
+![](img/mr-nice.png)
+
+--
+
+[//]: # (31/48)
+
+### navegação
+
+- O arquivo do componente está ficando muito grande
+- Antes de continuar, separe o HTML e o CSS da lógica do componente
+  - Crie o arquivo **heroes.component.html** e mova o conteúdo da propriedade **template**
+    - Não copie os backticks!
+  - Crie o arquivo **heroes.component.css** e mova o conteúdo da propriedade **styles**
+    - Não copie os backticks!
+
+--
+
+[//]: # (31/49)
+
+### navegação
+
+- Atualize os metadados do **HeroesComponent** para usar os novos arquivos
+  - Propriedades** templateUrl** e **styleUrls**
+
+```javascript
+@Component({
+  selector: 'my-heroes',
+  templateUrl: './heroes.component.html',
+  styleUrls: [ './heroes.component.css' ]
+})
+```
+
+--
+
+[//]: # (31/50)
+
+### navegação
+
+- Agora, com o componente mais enxuto, podemos implementar o método **gotoDetail**
+  - Importe o **Router** da biblioteca Angular
+  - Adicione o **Router** ao construtor (junto com o **HeroService**)
+
+```javascript
+gotoDetail(): void {
+  this.router.navigate(['/detail', this.selectedHero.id]);
+}
+```
+
+--
+
+[//]: # (31/51)
+
+### navegação
+
+- HeroesComponent
+
+```javascript
+export class HeroesComponent implements OnInit {
+  heroes: Hero[];
+  selectedHero: Hero;
+
+  constructor(
+    private router: Router,
+    private heroService: HeroService) { }
+
+  getHeroes(): void {
+    this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+  }
+
+  ngOnInit(): void {
+    this.getHeroes();
+  }
+
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
+
+  gotoDetail(): void {
+    this.router.navigate(['/detail', this.selectedHero.id]);
+  }
+}
+```
+
+--
+
+[//]: # (31/52)
+
+### navegação
+
+- Atendemos a todos os requisitos de navegação!
+  - Podemos navegar do dashboard para os detalhes
+  - Podemos navegar da lista de heróis para o "mini detalhe" e, por sua vez, para os detalhes
+  - Podemos navegar dos detalhes de volta para a visão anterior
+- A aplicação está funcionando, mas precisa de estilo!
+- Crie três novos arquivos CSS
+  - **hero-detail.component.css**
+  - **dashboard-component.css**
+  - **app-component.css**
+
+--
+
+[//]: # (31/53)
+
+### navegação
+
+- hero-detail.component.css
+
+```css
+label {
+  display: inline-block;
+  width: 3em;
+  margin: 0.5em 0;
+  color: #607d8b;
+  font-weight: bold;
+}
+input {
+  height: 2em;
+  font-size: 1em;
+  padding-left: 0.4em;
+}
+button {
+  margin-top: 20px;
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #ccc;
+  cursor: auto;
+}
+```
+
+--
+
+[//]: # (31/54)
+
+### navegação
+
+- dashboard.component.css
+
+```css
+[class*="col-"] {
+  float: left;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+[class*="col-"]:last-of-type {
+  padding-right: 0;
+}
+a {
+  text-decoration: none;
+}
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+h3 {
+  text-align: center;
+  margin-bottom: 0;
+}
+h4 {
+  position: relative;
+}
+.grid {
+  margin: 0;
+}
+.col-1-4 {
+  width: 25%;
+}
+.module {
+  padding: 20px;
+  text-align: center;
+  color: #eee;
+  max-height: 120px;
+  min-width: 120px;
+  background-color: #607d8b;
+  border-radius: 2px;
+}
+.module:hover {
+  background-color: #eee;
+  cursor: pointer;
+  color: #607d8b;
+}
+.grid-pad {
+  padding: 10px 0;
+}
+.grid-pad > [class*="col-"]:last-of-type {
+  padding-right: 20px;
+}
+@media (max-width: 600px) {
+  .module {
+    font-size: 10px;
+    max-height: 75px;
+  }
+}
+@media (max-width: 1024px) {
+  .grid {
+    margin: 0;
+  }
+  .module {
+    min-width: 60px;
+  }
+}
+```
+
+--
+
+[//]: # (31/55)
+
+### navegação
+
+- app.component.css
+
+```css
+h1 {
+  font-size: 1.2em;
+  color: #999;
+  margin-bottom: 0;
+}
+h2 {
+  font-size: 2em;
+  margin-top: 0;
+  padding-top: 0;
+}
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+nav a:visited,
+a:link {
+  color: #607d8b;
+}
+nav a:hover {
+  color: #039be5;
+  background-color: #cfd8dc;
+}
+nav a.active {
+  color: #039be5;
+}
+```
+
+--
+
+[//]: # (31/56)
+
+### navegação
+
+- Modifique o **template** do **AppComponent** como abaixo
+  - Diretiva **routerLinkActive**
+
+```javascript
+template: `
+  <h1>{{title}}</h1>
+  <nav>
+    <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+    <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+  </nav>
+  <router-outlet></router-outlet>
+`,
+```
+
+--
+
+[//]: # (31/57)
+
+### navegação
+
+- Quando adicionamos regras CSS a um componente, estamos juntando tudo o que o componente precisa em um único lugar
+  - Mais fácil de empacotar e reusar
+- No entanto, também podemos criar regras CSS fora de um componente
+  - Estilos básicos, para toda a aplicação
+- Crie o arquivo **styles.css** na pasta **/src**
+
+--
+
+[//]: # (31/58)
+
+### navegação
+
+- styles.css
+
+```css
+/* Master Styles */
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+h2,
+h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+body {
+  margin: 2em;
+}
+body,
+input[text],
+button {
+  color: #888;
+  font-family: Cambria, Georgia;
+}
+a {
+  cursor: pointer;
+  cursor: hand;
+}
+button {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #aaa;
+  cursor: auto;
+}
+/* Navigation link styles */
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+nav a:visited,
+a:link {
+  color: #607d8b;
+}
+nav a:hover {
+  color: #039be5;
+  background-color: #cfd8dc;
+}
+nav a.active {
+  color: #039be5;
+}
+/* everywhere else */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+```
+
+--
+
+[//]: # (31/59)
+
+### o que aprendemos
+
+- Aprendemos a usar o Router para navegar entre diferentes componentes
+- Aprendemos a usar links "estáticos" e parametrizados
+- Reutilizamos um serviço entre vários componentes
+- Refatoramos os componentes para separar HTML e CSS
+- Usamos um pipe para formatar a saída de dados
+
+---
+
+[//]: # (32)
+
+### [exercício 07](../exercicios/exercicio-07)
+
+- Objetivo: implementar os novos requisitos da aplicação
+- Tempo: [60’](https://e.ggtimer.com/60minutes)
+
+---
+
+[//]: # (33)
+
+### http
+
+- Aprendemos bastante e já temos as fundações para construir uma aplicação Angular
+- No entanto, ainda estamos trabalhando com dados mockados
+- Vamos, então, refatorar a aplicação para manipular dados de um servidor remoto, substituindo os mocks
+
+- Deixe a aplicação rodando:
+
+```sh
+# Na pasta raiz do projeto, execute:
+npm start
+```
+
+--
+
+[//]: # (33/2)
+
+### http
+
+- Para realizar requisições HTTP, vamos usar o **HttpClientModule**
+  - É um módulo **opcional** e deve ser importado na aplicação
+  - Biblioteca **@angular/common/http**
+- Adicione o **HttpClientModule** ao array **imports** nos metadados do **AppModule**
+  - Permite o uso do **HttpClientModule** em qualquer lugar da aplicação
+
+--
+
+[//]: # (33/3)
+
+### http
+
+- Em uma aplicação real, a aplicação irá usar o **HttpModule** para se comunicar com um servidor remoto
+- Para evitar o trabalho de criar uma API, vamos simular a existência dessa API através do
+  [Json Server](https://github.com/typicode/json-server).
+
+Como Instalar:
+
+```
+npm install -g json-server
+```
+
+--
+
+[//]: # (33/4)
+
+### http
+
+- Para simular os dados da aplicação, vamos criar o arquivo `db.json`. Note que o Herói **Zero** não existia antes!
+
+```
+echo '{
+  "heroes":
+  [
+    { "id": 0,  "name": "Zero" },
+    { "id": 11, "name": "Mr. Nice" },
+    { "id": 12, "name": "Narco" },
+    { "id": 13, "name": "Bombasto" },
+    { "id": 14, "name": "Celeritas" },
+    { "id": 15, "name": "Magneta" },
+    { "id": 16, "name": "RubberMan" },
+    { "id": 17, "name": "Dynama" },
+    { "id": 18, "name": "Dr IQ" },
+    { "id": 19, "name": "Magma" },
+    { "id": 20, "name": "Tornado" }
+  ]
+}' > db.json
+```
+
+--
+
+[//]: # (33/5)
+
+Para simular um contexto para a aplicação api vamos definir uma rota customizada com o nome de '/api'
+
+```
+echo '{
+  "/api/*": "/$1"
+}' > routes.json
+```
+
+Para executar o servidor execute o comando:
+
+```
+json-server --watch --routes routes.json db.json
+```
+
+--
+
+[//]: # (33/6)
+
+Após a subida do servidor, pode-se fazer requisições do tipo:
+
+`GET /api/heroes`
+
+> Irá mostrar todos os heróis
+
+`GET /api/heroes/19`
+
+> Irá mostrar os dados do herói com "id" igual a 19
+
+```
+curl http://localhost:3000/api/heroes
+```
+
+```
+curl http://localhost:3000/api/heroes/19
+```
+
+--
+
+[//]: # (33/7)
+
+### http
+
+- AppModule
+
+```javascript
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http"; // <-- importe o símbolo "HttpClientModule"
+
+import { AppRoutingModule } from "./app-routing.module";
+
+import { AppComponent } from "./app.component";
+import { DashboardComponent } from "./dashboard.component";
+import { HeroesComponent } from "./heroes.component";
+import { HeroDetailComponent } from "./hero-detail.component";
+import { HeroService } from "./hero.service";
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule, // <-- inclua o módulo "HttpClientModule" no imports
+    AppRoutingModule
+  ],
+  declarations: [
+    AppComponent,
+    DashboardComponent,
+    HeroDetailComponent,
+    HeroesComponent
+  ],
+  providers: [HeroService],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
+
+--
+
+[//]: # (33/8)
+
+### http
+
+- A implementação atual do **HeroService** retorna uma promessa com heróis mockados
+
+```javascript
+getHeroes(): Promise<Hero[]> {
+  return Promise.resolve(HEROES);
+}
+```
+
+--
+
+[//]: # (33/9)
+
+### http
+
+- Converta o método **getHeroes**
+  - HTTP
+
+```javascript
+  private baseUrl = 'http://localhost:3000/api/heroes';  // URL to web api
+
+  constructor(private http: HttpClient) { }
+
+  getHeroes(): Promise<Hero[]> {
+    const url = this.baseUrl;
+    return this.http.get<Hero[]>(url).toPromise().catch(this.handleError);
+  }
+
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error); // for demo purposes only
+    return Promise.reject(error.message || error);
+  }
+```
+
+--
+
+[//]: # (33/10)
+
+### http
+
+- Adicione os **imports**:
+
+```javascript
+import { HttpClient } from "@angular/common/http";
+```
+
+--
+
+[//]: # (33/11)
+
+### http
+
+- O método http.get retorna um **Observable** (classe da biblioteca RxJS)
+  - Usar classes **Observable** é uma forma de gerenciar fluxos assíncronos
+- Convertemos um objeto **Observable** para o tipo **Promise** através do método **toPromise()**
+
+```javascript
+// Exemplo
+new Observable().toPromise();
+```
+
+--
+
+[//]: # (33/12)
+
+### http
+
+- `HttpClient.get` retorna o corpo da resposta como um objeto JSON não tipado por default.
+  - Aplicando o especificador de tipos opcional, `Hero[]`, nos dá como resultado um objeto tipado: Nosso array de heróis.
+  - Essa é a forma que o **Json Server** devolve os dados
+  - Na vida real, você irá usar a definição do contrato da API
+
+--
+
+[//]: # (33/13)
+
+### http
+
+- Na função **catch** da promessa, os possíveis erros são capturados
+  - Os erros são repassados para o método **handleError**, que simplesmente registra um log
+
+```javascript
+private handleError(error: any): Promise<any> {
+  console.error('An error occurred', error); // for demo purposes only
+  return Promise.reject(error.message || error);
+}
+```
+
+- O tratamento de erro é um ponto crítico em qualquer aplicação
+  - Erros sempre vão acontecer!
+  - Na vida real, os erros devem ser tratados conforme a necessidade da aplicação
+
+--
+
+[//]: # (33/14)
+
+### http
+
+- Verifique agora o método **HeroService.getHero**
+  - Na implementação atual, ele reusa o método **getHeroes** para filtrar o herói procurado
+  - Pode até funcionar em simulações, mas é ineficiente em aplicações reais
+- A maioria das APIs suportam uma requisição get-by-id para recuperar um único recurso
+  - Por exemplo: api/heroes/11 recupera o herói com id 11
+
+--
+
+[//]: # (33/15)
+
+### http
+
+- Atualize o método **HeroService.getHero** como abaixo
+
+```javascript
+getHero(id: number): Promise<Hero> {
+  const url = `${this.baseUrl}/${id}`;
+  return this.http.get<Hero>(url).toPromise().catch(this.handleError);
+ }
+```
+
+--
+
+[//]: # (33/16)
+
+### http
+
+- Fizemos várias mudanças ao **HeroService**
+  - As alterações modificaram a implementação interna dos métodos **getHeroes** e **getHero**
+  - As assinaturas dos métodos não foram modificadas
+  - Por isso, não será necessário alterar nenhum outro componente
+
+--
+
+[//]: # (33/17)
+
+### http
+
+- Tente editar o nome de um herói qualquer na página de detalhe do herói
+  - Na medida que você digita, o nome do herói no cabeçalho é atualizado
+  - Porém, se você clicar no botão de voltar, as atualizações são perdidas
+- O que mudou?
+  - Antes, estávamos usando uma lista de mocks compartilhada por toda a aplicação
+    - As atualizações eram aplicadas diretamente à lista de mocks
+  - Agora, estamos recuperando a lista a partir de um servidor remoto
+    - Se quisermos persistir as atualizações, temos que enviá-las de volta ao servidor
+
+--
+
+[//]: # (33/18)
+
+### http
+
+- Para salvar as alterações, adicione um botão ao final do template do **HeroDetailComponent**
+
+```html
+<button (click)="save()">Save</button>
+```
+
+- Inclua o método **save** correspondente ao HeroDetailComponent
+
+```javascript
+save(): void {
+  this.heroService.update(this.hero)
+    .then(() => this.goBack());
+}
+```
+
+--
+
+[//]: # (33/19)
+
+### http
+
+- Crie o novo método **update** no **HeroService**
+
+```javascript
+update(hero: Hero): Promise<Hero> {
+  const url = `${this.baseUrl}/${hero.id}`;
+  const body = hero;
+  return this.http.put<Hero>(url, body).toPromise().catch(this.handleError);
+}
+```
+
+--
+
+[//]: # (33/20)
+
+### http
+
+- A estrutura geral do método **update** é semelhante a do **getHeroes**, com algumas mudanças
+  - É usado um **PUT** ao invés de um **GET**
+  - Para identificar qual herói deve ser atualizado, o **id** é parametrizado na URL
+  - O corpo da requisição, o herói informado, é passado como o segundo argumento do método `put`;
+  - As mudanças agora estão sendo persistidas no lado servidor
+  - Volte ao browser e teste a edição
+
+--
+
+[//]: # (33/21)
+
+### http
+
+- Vamos agora permitir a criação de um novo herói
+  - Para isso, precisamos de um formulário com o nome do herói e um botão de adicionar
+- Inclua o seguinte trecho HTML no template do **HeroesComponent**
+
+```html
+<div>
+  <label>Hero name:</label> <input #heroName />
+  <button (click)="add(heroName.value); heroName.value=''">Add</button>
+</div>
+```
+
+--
+
+[//]: # (33/22)
+
+### http
+
+- Implemente o método **add** correspondente no **HeroesComponent**
+
+```javascript
+add(name: string): void {
+  name = name.trim();
+  if (!name) { return; }
+  this.heroService.create(name)
+    .then(hero => {
+      this.heroes.push(hero);
+      this.selectedHero = null;
+    });
+}
+```
+
+--
+
+[//]: # (33/23)
+
+### http
+
+- Inclua o novo método **create** no **HeroService**
+
+```javascript
+create(name: string): Promise<Hero> {
+  const url = this.baseUrl;
+  const body: Hero = {
+    id: undefined,
+    name: name
+  };
+  return this.http.post<Hero>(url, body).toPromise().catch(this.handleError);
+}
+```
+
+--
+
+[//]: # (33/24)
+
+### http
+
+- Para permitir a exclusão de heróis, adicione um &lt;button&gt; no template do **HeroesComponent**
+
+```html
+<li *ngFor="let hero of heroes" (click)="onSelect(hero)"
+    [class.selected]="hero === selectedHero">
+  <span class="badge">{{hero.id}}</span>
+  <span>{{hero.name}}</span>
+  <button class="delete"
+    (click)="delete(hero); $event.stopPropagation()">x</button>
+</li>
+```
+
+--
+
+[//]: # (33/25)
+
+### http
+
+- Crie o método **delete** no **HeroesComponent**
+
+```javascript
+delete(hero: Hero): void {
+  this.heroService
+      .delete(hero.id)
+      .then(() => {
+        this.heroes = this.heroes.filter(h => h !== hero);
+        if (this.selectedHero === hero) { this.selectedHero = null; }
+      });
+}
+```
+
+--
+
+[//]: # (33/26)
+
+### http
+
+- Adicione uma regra de estilo CSS para o botão de exclusão
+
+```css
+button.delete {
+  float: right;
+  margin-top: -2px;
+  margin-right: 0.8em;
+  background-color: gray !important;
+  color: white;
+}
+```
+
+--
+
+[//]: # (33/27)
+
+### http
+
+- Implemente o novo método **HeroService.delete**
+
+```javascript
+delete(id: number): Promise<void> {
+  const url = `${this.baseUrl}/${id}`;
+  return this.httpClient.delete<void>(url).toPromise().catch(this.handleError);
+}
+```
+
+--
+
+[//]: # (33/28)
+
+### http
+
+- **Promises** processam um único evento assíncrono
+  - A função callback é chamada uma única vez
+- **Observables** processam um fluxo de eventos assíncronos
+  - A função callback é chamada uma vez para cada evento
+  - Operadores parecidos com array (map, forEach, reduce...)
+  - Eventos podem ser cancelados
+- Os métodos http.get, http.post, http.put e http.delete retornam o tipo Observable
+  - Como não precisamos encadear requisições (eventos), convertemos os resultados para o tipo Promise
+
+--
+
+[//]: # (33/29)
+
+### http
+
+- Na funcionalidade de pesquisa de heróis, vamos adicionar um novo elemento &lt;input&gt;
+  - Esse elemento é o filtro de pesquisa, onde o usuário irá digitar o nome do herói
+  - Enquanto o usuário digita, iremos enviar requisições HTTP para o serviço de pesquisa
+- Nesse cenário, é possível enviar uma requisição e, antes que a resposta chegue, enviar uma nova requisição ao servidor
+  - A requisição antiga não nos interessa mais e pode ser cancelada
+  - Para isso, vamos usar o tipo **Observable**
+
+--
+
+[//]: # (33/30)
+
+### http
+
+- Vamos adicionar um novo método ao `HeroService`:
+
+```javascript
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
+```
+
+```javascript
+search(term: string): Observable<Hero[]> {
+  const url = `${this.baseUrl}/?name_like=${term}`;
+  return this.http.get<Hero[]>(url);
+}
+```
+
+--
+
+[//]: # (33/31)
+
+### http
+
+- A pesquisa é similar à consulta de heróis.
+  - Introduzimos um parâmetro "name_like" na query string da URL
+- Não estamos mais convertendo o resultado do http.get para o tipo Promise
+  - Estamos devolvendo o próprio tipo **Observable**
+
+--
+
+[//]: # (33/32)
+
+### http
+
+<div class="center">
+  ![](img/observable-search.png)
+</div>
+
+--
+
+[//]: # (33/33)
+
+
+### http
+
+- Vamos agora criar o novo componente **HeroSearchComponent**, começando pelo seu template
+
+Crie, então, o arquivo `hero-search.component.html` com o seguinte conteúdo:
+
+```html
+<div id="search-component">
+  <h4>Hero Search</h4>
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <div>
+    <div *ngFor="let hero of heroes | async"
+         (click)="gotoDetail(hero)" class="search-result" >
+      {{hero.name}}
+    </div>
+  </div>
+</div>
+```
+
+--
+
+[//]: # (33/34)
+
+Opcionalmente, poderíamos usar CLI do angular para criarmos o nosso arquivo:
+
+```
+ng g c hero-search --flat --no-spec
+```
+
+```
+create src/app/hero-search.component.css (0 bytes)
+create src/app/hero-search.component.html (30 bytes)
+create src/app/hero-search.component.ts (288 bytes)
+update src/app/app.module.ts (404 bytes)
+```
+
+- Para mais informações:
+  - [https://github.com/angular/angular-cli/wiki](https://github.com/angular/angular-cli/wiki)
+
+--
+
+[//]: # (33/35)
+
+### http
+
+- Um evento keyup é disparado enquanto o usuário digita
+  - Binding com o método **search** do componente
+- Em seguida, vamos ver que a propriedade **heroes** do componente não é mais um array
+  - A propriedade é do tipo **Observable**
+  - Como o **ngFor** não trabalha com **Observables**, temos que usar o pipe **async**
+    - O pipe traduz o **Observable** no array de heróis esperado pelo **ngFor**
+
+--
+
+[//]: # (33/36)
+
+### http
+
+- Crie também as regras de estilo CSS
+
+```css
+.search-result {
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  width: 195px;
+  height: 16px;
+  padding: 5px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.search-result:hover {
+  color: #eee;
+  background-color: #607d8b;
+}
+
+#search-box {
+  width: 200px;
+  height: 20px;
+}
+```
+
+--
+
+[//]: # (33/37)
+
+### http
+
+- HeroSearchComponent
+
+```javascript
+import { Component, OnInit } from '@angular/core';
+import { Router }            from '@angular/router';
+
+import { Observable, Subject, of }   from 'rxjs';
+
+// Observable operators
+import { catchError, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { HeroSearchService } from './hero-search.service';
+import { Hero } from './hero';
+
+@Component({
+  selector: 'app-hero-search',
+  templateUrl: './hero-search.component.html',
+  styleUrls: [ './hero-search.component.css' ],
+  providers: [HeroSearchService]
+})
+export class HeroSearchComponent implements OnInit {
+  heroes: Observable<Hero[]>;
+  private searchTerms = new Subject<string>();
+
+  constructor(
+    private heroSearchService: HeroSearchService,
+    private router: Router) {}
+
+  // Push a search term into the observable stream.
+  search(term: string): void {
+    this.searchTerms.next(term);
+  }
+
+  ngOnInit(): void {
+    this.heroes = this.searchTerms
+      .pipe(
+        debounceTime(300),        // wait 300ms after each keystroke before considering the term
+        distinctUntilChanged(),   // ignore if next search term is same as previous
+        switchMap(term => term   // switch to new observable each time the term changes
+          // return the http search observable
+          ? this.heroSearchService.search(term)
+          // or the observable of empty heroes if there was no search term
+          : of<Hero[]>([])),
+        catchError(error => {
+          // TODO: add real error handling
+          console.log(error);
+          return of<Hero[]>([]);
+        })
+      );
+  }
+
+  gotoDetail(hero: Hero): void {
+    let link = ['/detail', hero.id];
+    this.router.navigate(link);
+  }
+}
+```
+
+--
+
+[//]: # (33/38)
+
+### http
+
+- Vamos avaliar o novo componente por partes, começando na propriedade **searchTerms**
+  - Um **Subject** é um produtor de eventos de um fluxo **Observable**
+  - A propriedade **searchTerms** produz um **Observable** de strings (o filtro de pesquisa)
+  - Cada chamada ao método **search** coloca uma nova string no fluxo (ao chamar o método **next**)
+
+--
+
+[//]: # (33/39)
+
+### http
+
+- Temos que converter o fluxo de strings (**searchTerms**) em um fluxo de array de heróis (**Hero[]**)
+
+```javascript
+heroes: Observable<Hero[]>;
+
+ngOnInit(): void {
+  this.heroes = this.searchTerms
+    .pipe(
+      debounceTime(300),        // espera 300ms antes de criar um novo evento
+      distinctUntilChanged(),   // ignora o evento se o termo de pesquisa é o mesmo do evento anterior
+      switchMap(term => term   // muda para o novo observable toda vez que o termo de pesquisa mudar, descartando os eventos anteriores
+        // devolve o observable do método http
+        ? this.heroSearchService.search(term)
+        // ou um observable vazio, caso nenhum termo de pesquisa tenha sido informado
+        : of<Hero[]>([])),
+      catchError(error => {
+        // TODO: adicionar tratamento de erro
+        console.log(error);
+        return of<Hero[]>([]);
+      })
+    );
+}
+```
+
+--
+
+[//]: # (33/40)
+
+### http
+
+- Para diminuir a quantidade de requisições HTTP, usamos alguns operadores **Observable**
+  - **debounceTime**: espera pelo fluxo pausar por um tempo, antes de passar um novo evento;
+  - **distinctUntilChanged**: só envia uma nova requisição caso o filtro tenha de fato mudado;
+  - **switchMap**: chama o serviço de pesquisa para cada evento do fluxo; retorna somente **Observable** mais recente, cancelando e descartando os anteriores.
+
+--
+
+[//]: # (33/41)
+
+### http
+
+- Adicione o elemento &lt;hero-search&gt; no final do template do dashboard
+
+```html
+<h3>Top Heroes</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let hero of heroes"  [routerLink]="['/detail', hero.id]"  class="col-1-4">
+    <div class="module hero">
+      <h4>{{hero.name}}</h4>
+    </div>
+  </a>
+</div>
+<app-hero-search></app-hero-search>
+```
+
+--
+
+[//]: # (33/42)
+
+### http
+
+- Por fim, inclua o **HeroSearchComponent** no array **declarations** do **AppModule**
+  - Não esqueça de importar o componente (JavaScript **import**)
+
+```javascript
+import { HeroSearchComponent } from "./hero-search.component";
+```
+
+```javascript
+declarations: [
+  //...
+  HeroSearchComponent
+],
+```
+
+--
+
+[//]: # (33/43)
+
+### http
+
+- Rode a aplicação novamente, e verifique o comportamento da pesquisa no dashboard
+
+<div class="center">
+  ![](img/search.png)
+</div>
+
+---
+
+[//]: # (34)
+
+### [exercício 08](../exercicios/exercicio-08)
+
+- Objetivo: refatorar a aplicação para se integrar com uma API de heróis
+- Tempo: [60’](https://e.ggtimer.com/60minutes)
+
+---
+
+[//]: # (35)
+
+### aprofundando os conceitos
+
+- Templates & Data Binding
+- Lifecycle Hooks
+- Interação entre Componentes
+- Diretivas de Atributo
+- Diretivas Estruturais
+- Pipes
+- Formulários
+- Segurança
+
+---
+
+[//]: # (36)
+
+### templates & data binding
+
+- A linguagem de um template Angular é HTML
+- Quase toda a sintaxe HTML é uma sintaxe de template válida
+  - O elemento `<script>` são proibidos
+  - Alguns elementos não fazem sentido (ex: `<html>`, `<body>`)
+- Você pode extender o vocabulário HTML
+  - Componentes e diretivas aparecem como novos elementos e atributos
+- A aplicação modifica os valores do DOM dinamicamente com **data binding**
+
+--
+
+[//]: # (36/2)
+
+### templates & data binding
+
+- Tipos de **binding**
+
+| Direção                    | Sintaxe                                                             | Tipo                                              |
+| -------------------------- | ------------------------------------------------------------------- | ------------------------------------------------- |
+| One-way (_source-to-view_) | `{{expression}}` `[target]="expression"` `bind-target="expression"` | Interpolação, propriedade, atributo, class, style |
+
+--
+
+[//]: # (36/3)
+### templates & data binding
+
+- Tipos de **binding**
+
+| Direção                    | Sintaxe                                                             | Tipo                                              |
+| -------------------------- | ------------------------------------------------------------------- | ------------------------------------------------- |
+| One-way (_view-to-source_) | `(target)="statement"` `on-target="statement"`                      | Evento                                            |
+| Two-way                    | `[(target)]="expression"` `bindon-target="expression"`              | Two-way                                           |
+
+--
+
+[//]: # (36/4)
+
+### templates & data binding
+
+- Alvos do **binding**
+
+| Tipo        | Alvo       | Exemplo                                                    |
+| ----------- | ---------- | ---------------------------------------------------------- |
+| Propriedade | Elemento   | `<img [src]="heroImageUrl">`                               |
+| Propriedade | Componente | `<app-hero-detail [hero]="currentHero"></app-hero-detail>` |
+| Propriedade | Diretiva   | `<div [ngClass]="{'special': isSpecial}"></div>`           |
+
+--
+
+[//]: # (36/5)
+
+### templates & data binding
+
+Alvos do **binding**
+
+| Tipo   | Alvo       | Exemplo                                                              |
+| ------ | ---------- | -------------------------------------------------------------------- |
+| Evento | Elemento   | `<button (click)="onSave()">Save</button>`                           |
+| Evento | Componente | `<app-hero-detail (deleteRequest)="deleteHero()"></app-hero-detail>` |
+| Evento | Diretiva   | `<div (myClick)="clicked=$event" clickable>click me</div>`           |
+
+--
+
+[//]: # (36/6)
+
+### templates & data binding
+
+Alvos do **binding**
+
+| Tipo     | Alvo                 | Exemplo                                                |
+| -------- | -------------------- | ------------------------------------------------------ |
+| Two-way  | Evento e propriedade | `<input [(ngModel)]="name">`                           |
+| Atributo | Atributo (exceção)   | `<button [attr.aria-label]="help">help</button>`       |
+
+--
+
+[//]: # (36/7)
+### templates & data binding
+
+Alvos do **binding**
+
+| Tipo     | Alvo                 | Exemplo                                                |
+| -------- | -------------------- | ------------------------------------------------------ |
+| Class    | Propriedade `class`  | `<div [class.special]="isSpecial">Special</div>`       |
+| Style    | Propriedade `style`  | `<button [style.color]="isSpecial ? 'red' : 'green'">` |
+
+--
+
+[//]: # (36/8)
+
+### templates & data binding
+
+- Atributos HTML vs. Propriedades DOM
+  - Alguns atributos tem uma propriedade correspondente (ex: `id`)
+  - Alguns atributos não tem uma propriedade correspondente (ex: `colspan`)
+  - Algumas propriedades não tem um atributo correspondente (ex: `textContext`)
+  - Alguns atributos parecem ter um atributo correspondente... mas não é bem assim!
+- Atributos HTML inicializam as propriedades DOM
+  - Os valores das propriedades podem mudar
+  - Os valores dos atributos não mudam
+
+--
+
+[//]: # (36/9)
+
+### templates & data binding
+
+```html
+<input type="text" value="Bob">
+```
+
+- Ao renderizar o `input`, o navegador cria um nó DOM com a propriedade `value`
+  - O valor da propriedade `value` é inicializada com `Bob`
+- Quando o usuário digita `Sally` no `input`:
+  - O valor da propriedade `value` muda para `Sally`
+  - O valor do atributo `value` continua inalterado
+
+```javascript
+input.getAttribute('value') \\ retorna "Bob"
+```
+
+- O atributo HTML `value` especifica o valor **inicial**
+- A propriedade DOM `value` é o valor **atual**
+
+--
+
+[//]: # (36/10)
+
+### templates & data binding
+
+- O **binding** funciona com propriedades (e eventos) e não com atributos!
+- No entanto, é possível fazer **binding** de atributos quando não existe uma propriedade correspondente (é a única exceção!)
+
+```html
+<tr><td colspan="{{1 + 1}}">Three-Four</td></tr>
+```
+
+```javascript
+Template parse errors:
+Can't bind to 'colspan' since it isn't a known native property
+```
+
+```html
+<tr><td [attr.colspan]="1 + 1">One-Two</td></tr>
+```
+
+- O **binding** de atributos é comumente utilizado para os atributos ARIA
+
+```html
+<!-- create and set an aria attribute for assistive technology -->
+<button [attr.aria-label]="actionName">{{actionName}} with Aria</button>
+```
+
+--
+
+[//]: # (36/11)
+
+### templates & data binding
+
+- Variáveis de referência de template (`#var`)
+  - Comumente guardam uma referência a um elemento DOM dentro do template
+  - Também podem referenciar componentes ou diretivas
+- Usamos o símbolo `#` para declarar uma variável de referência
+
+```html
+<input #phone placeholder="phone number">
+```
+
+- A variável pode ser utilizada em qualquer lugar do template
+
+```html
+<!-- phone refers to the input element; pass its `value` to an event handler -->
+<button (click)="callPhone(phone.value)">Call</button>
+```
+
+--
+
+[//]: # (36/12)
+
+### templates & data binding
+
+- Operadores de expressões
+- Pipes (`|`): transformam a expressão (por exemplo: moedas, uppercase, ordenação de lista etc)
+
+```html
+<div>Title through uppercase pipe: {{title | uppercase}}</div>
+```
+
+- Safe navigation (`?.`): guarda contra valores `null` ou `undefined`
+
+```html
+<!-- No hero, no problem! -->
+The null hero's name is {{nullHero?.name}}
+```
+
+--
+
+[//]: # (36/13)
+### templates & data binding
+
+- Non-null assertion (`!`): suspende o _strict null check_ do TypeScript
+
+```html
+<!--No hero, no text -->
+<div *ngIf="hero">
+  The hero's name is {{hero!.name}}
+</div>
+```
+
+---
+
+[//]: # (37)
+
+### lifecycle hooks
+
+- O Angular gerencia o ciclo de vida dos componentes
+- Responsável por criar, renderizar, checar por mudanças e destruir os componentes
+- Os **lifecycle hooks** permitem que a aplicação atue nesses momentos cruciais
+
+<div class="center">
+  ![Lifecycle Hooks](img/hooks-in-sequence.png)
+</div>
+
+--
+
+[//]: # (37/2)
+
+### lifecycle hooks
+
+- Para atuar em cada um desses momentos, o desenvolvedor deve implementar uma das interfaces do **lifecycle hook** definidas na biblioteca `core` do Angular
+- Cada interface tem um método hook único
+  - O nome do método é o nome da interface com o prefixo `ng`
+  - Por exemplo: a interface `OnInit` especifica o método `ngOnInit()`
+- O Angular chama esses métodos no momento apropriado
+
+```javascript
+export class PeekABoo implements OnInit {
+  constructor(private logger: LoggerService) { }
+  ngOnInit() { this.logIt(`OnInit`); }
+  logIt(msg: string) {
+    this.logger.log(`#${nextId++} ${msg}`);
+  }
+}
+```
+
+--
+
+[//]: # (37/3)
+
+### lifecycle hooks
+
+- A sequência do **lifecycle hook**
+
+| Hook            | Propósito                                                                                                                                                                 | Timing                                                                |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `ngOnChanges()` | Responde quando o Angular (re)seta propriedades de input. O método recebe um objeto `SimpleChanges` com os valores atual e anterior das propriedades que foram alteradas. | Antes do `ngOnInit()` e toda vez que uma (ou mais) propriedade mudar. |
+
+--
+
+[//]: # (37/4)
+
+### lifecycle hooks
+
+- A sequência do **lifecycle hook**
+
+| Hook         | Propósito                                                                            | Timing                                                 |
+| ------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------ |
+| `ngOnInit()` | Inicializa o componente (ou diretiva) após o Angular setar as propriedades de input. | Chamado uma única vez, após o primeiro `ngOnChanges()` |
+
+--
+
+[//]: # (37/5)
+
+### lifecycle hooks
+
+- A sequência do **lifecycle hook**
+
+| Hook          | Propósito                                                                 | Timing                                                                                      |
+| ------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `ngDoCheck()` | Detecta e atua após mudanças que o Angular não consegue detectar sozinho. | Chamado durante toda detecção de mudança, imediatamente após `ngOnChanges()` e `ngOnInit()` |
+
+--
+
+[//]: # (37/6)
+
+### lifecycle hooks
+
+- A sequência do **lifecycle hook**
+
+| Hook                   | Propósito                                                                      | Timing                                                                    |
+| ---------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
+| `ngAfterContentInit()` | Responde após o Angular projetar o conteúdo ao componente dentro da sua visão. | Chamado uma única vez após o primeiro `ngDoCheck()` (somente componentes) |
+
+--
+
+[//]: # (37/7)
+
+### lifecycle hooks
+
+- A sequência do **lifecycle hook**
+
+| Hook                      | Propósito                                                                              | Timing                                                                                               |
+| ------------------------- | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ngAfterContentChecked()` | Responde após o Angular checar o conteúdo projetado ao componente dentro da sua visão. | Chamado depois do `ngAfterContentInit()` e após todo `ngDoCheck()` subsequente (somente componentes) |
+
+--
+
+[//]: # (37/8)
+
+### lifecycle hooks
+
+- A sequência do **lifecycle hook**
+
+| Hook                | Propósito                                                                           | Timing                                                                                |
+| ------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `ngAfterViewInit()` | Responde após a inicialização da visão do componente e dos seus componentes filhos. | Chamado uma única vez após o primeiro `ngAfterContentChecked()` (somente componentes) |
+
+--
+
+[//]: # (37/9)
+
+### lifecycle hooks
+
+- A sequência do **lifecycle hook**
+
+| Hook                   | Propósito                                                                      | Timing                                                                                                        |
+| ---------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| `ngAfterViewChecked()` | Responde após a checagem da visão do componente e dos seus componentes filhos. | Chamado depois do `ngAfterViewInit()` e após todo `ngAfterContentChecked()` subsequente (somente componentes) |
+
+--
+
+[//]: # (37/10)
+
+### lifecycle hooks
+
+- A sequência do **lifecycle hook**
+
+| Hook            | Propósito                                                   | Timing                                                                      |
+| --------------- | ----------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `ngOnDestroy()` | Limpeza do componente (ou diretiva) antes de ser destruído. | Chamado logo antes de o componente (ou diretiva) ser destruído pelo Angular |
+
+---
+
+[//]: # (38)
+
+### [exercício 09](../exercicios/exercicio-09)
+
+- Objetivo: demonstrar o uso dos lifecycle hooks em uma série de exemplos
+- Tempo: [30’](https://e.ggtimer.com/30minutes)
+
+---
+
+[//]: # (39)
+
+### interação entre componentes
+
+- Cenários comuns na comunicação entre componentes pai e filho
+  - Binding de propriedade com `@Input`
+  - Emissão de eventos com `@Output`
+  - Variáveis de referência com `#var`
+  - Injeção do componente filho com `@ViewChild()`
+  - Comunicação via serviços
+
+--
+
+[//]: # (39/2)
+
+### interação entre componentes
+
+- Binding de propriedade com `@Input`
+
+```javascript
+@Component({
+  selector: "hero-child",
+  template: `
+    <h3>{{hero.name}} says:</h3>
+    <p>I, {{hero.name}}, am at your service, {{masterName}}.</p>
+  `
+})
+export class HeroChildComponent {
+  @Input() hero: Hero;
+  @Input("master") masterName: string;
+}
+```
+
+--
+
+[//]: # (39/3)
+
+### interação entre componentes
+
+- Binding de propriedade com `@Input`
+
+```javascript
+@Component({
+  selector: "hero-parent",
+  template: `
+    <h2>{{master}} controls {{heroes.length}} heroes</h2>
+    <hero-child *ngFor="let hero of heroes"
+      [hero]="hero"
+      [master]="master">
+    </hero-child>
+  `
+})
+export class HeroParentComponent {
+  heroes = HEROES;
+  master = "Master";
+}
+```
+
+--
+
+[//]: # (39/4)
+
+### interação entre componentes
+
+- Interceptando mudanças na propriedade de input com **setter**
+  - Componente filho detecta as mudanças à propriedade de input e atua quando necessário
+
+```javascript
+@Component({
+  selector: 'name-child',
+  template: '<h3>"{{name}}"</h3>'
+})
+export class NameChildComponent {
+  private _name = '';
+
+  @Input()
+  set name(name: string) {
+    this._name = (name && name.trim()) || '<no name set>';
+  }
+
+  get name(): string { return this._name; }
+}
+```
+
+--
+
+[//]: # (39/5)
+
+### interação entre componentes
+
+- Interceptando mudanças na propriedade de input com **setter**
+  - Componente filho detecta as mudanças à propriedade de input e atua quando necessário
+
+```javascript
+@Component({
+  selector: "name-parent",
+  template: `
+  <h2>Master controls {{names.length}} names</h2>
+  <name-child *ngFor="let name of names" [name]="name"></name-child>
+  `
+})
+export class NameParentComponent {
+  // Displays 'Mr. IQ', '<no name set>', 'Bombasto'
+  names = ["Mr. IQ", "   ", "  Bombasto  "];
+}
+```
+
+--
+
+[//]: # (39/6)
+
+### interação entre componentes
+
+- Interceptando mudanças na propriedade de input com `ngOnChanges()`
+  - Componente filho detecta as mudanças às propriedades de input e atua quando necessário
+
+<pre><code class="hljs small">
+@Component({
+  selector: "version-child",
+  template: `
+    <h3>Version {{major}}.{{minor}}</h3>
+    <h4>Change log:</h4>
+    <ul>
+      <li *ngFor="let change of changeLog">{{change}}</li>
+    </ul>
+  `
+})
+export class VersionChildComponent implements OnChanges {
+  @Input() major: number;
+  @Input() minor: number;
+  changeLog: string[] = [];
+
+  ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+    let log: string[] = [];
+    for (let propName in changes) {
+      let changedProp = changes[propName];
+      let to = JSON.stringify(changedProp.currentValue);
+      if (changedProp.isFirstChange()) {
+        log.push(`Initial value of ${propName} set to ${to}`);
+      } else {
+        let from = JSON.stringify(changedProp.previousValue);
+        log.push(`${propName} changed from ${from} to ${to}`);
+      }
+    }
+    this.changeLog.push(log.join(", "));
+  }
+}
+</code></pre>
+
+--
+
+[//]: # (39/7)
+
+### interação entre componentes
+
+- Interceptando mudanças na propriedade de input com `ngOnChanges()`
+  - Componente filho detecta as mudanças às propriedades de input e atua quando necessário
+
+<pre><code class="hljs small">
+@Component({
+  selector: "version-parent",
+  template: `
+    <h2>Source code version</h2>
+    <button (click)="newMinor()">New minor version</button>
+    <button (click)="newMajor()">New major version</button>
+    <version-child [major]="major" [minor]="minor"></version-child>
+  `
+})
+export class VersionParentComponent {
+  major = 1;
+  minor = 23;
+
+  newMinor() {
+    this.minor++;
+  }
+
+  newMajor() {
+    this.major++;
+    this.minor = 0;
+  }
+}
+</code></pre>
+
+--
+
+[//]: # (39/8)
+
+### interação entre componentes
+
+- Emissão de eventos com `@Output`
+  - O componente filho emite um evento quando alguma coisa acontece
+  - O componente pai faz um binding de evento para reagir quando necessário
+
+<pre><code class="hljs small">
+@Component({
+  selector: 'my-voter',
+  template: `
+    <h4>{{name}}</h4>
+    <button (click)="vote(true)"  [disabled]="voted">Agree</button>
+    <button (click)="vote(false)" [disabled]="voted">Disagree</button>
+  `
+})
+export class VoterComponent {
+  @Input()  name: string;
+  @Output() onVoted = new EventEmitter<boolean>();
+  voted = false;
+
+  vote(agreed: boolean) {
+    this.onVoted.emit(agreed);
+    this.voted = true;
+  }
+}
+</code></pre>
+
+--
+
+[//]: # (39/9)
+
+### interação entre componentes
+
+- Emissão de eventos com `@Output`
+  - O componente filho emite um evento quando alguma coisa acontece
+  - O componente pai faz um binding de evento para reagir quando necessário
+
+<pre><code class="hljs small">
+@Component({
+  selector: "vote-taker",
+  template: `
+    <h2>Should mankind colonize the Universe?</h2>
+    <h3>Agree: {{agreed}}, Disagree: {{disagreed}}</h3>
+    <my-voter *ngFor="let voter of voters"
+      [name]="voter"
+      (onVoted)="onVoted($event)">
+    </my-voter>
+  `
+})
+export class VoteTakerComponent {
+  agreed = 0;
+  disagreed = 0;
+  voters = ["Mr. IQ", "Ms. Universe", "Bombasto"];
+
+  onVoted(agreed: boolean) {
+    agreed ? this.agreed++ : this.disagreed++;
+  }
+}
+</code></pre>
+
+--
+
+[//]: # (39/10)
+
+### interação entre componentes
+
+- Variáveis de referência com `#var`
+  - O componente pai cria uma variável para ler as propriedades e executar métodos do componente filho
+
+<pre><code class="hljs small">
+@Component({
+  selector: 'countdown-timer',
+  template: '<p>{{message}}</p>'
+})
+export class CountdownTimerComponent implements OnInit, OnDestroy {
+
+  intervalId = 0;
+  message = '';
+  seconds = 11;
+
+  clearTimer() { clearInterval(this.intervalId); }
+
+  ngOnInit()    { this.start(); }
+  ngOnDestroy() { this.clearTimer(); }
+
+  start() { this.countDown(); }
+  stop()  {
+    this.clearTimer();
+    this.message = `Holding at T-${this.seconds} seconds`;
+  }
+
+  private countDown() {
+    this.clearTimer();
+    this.intervalId = window.setInterval(() => {
+      this.seconds -= 1;
+      if (this.seconds === 0) {
+        this.message = 'Blast off!';
+      } else {
+        if (this.seconds < 0) { this.seconds = 10; } // reset
+        this.message = `T-${this.seconds} seconds and counting`;
+      }
+    }, 1000);
+  }
+}
+</code></pre>
+
+--
+
+[//]: # (39/11)
+
+### interação entre componentes
+
+- Variáveis de referência com `#var`
+  - O componente pai cria uma variável para ler as propriedades e executar métodos do componente filho
+
+```javascript
+@Component({
+  selector: "countdown-parent-lv",
+  template: `
+  <h3>Countdown to Liftoff (via local variable)</h3>
+  <button (click)="timer.start()">Start</button>
+  <button (click)="timer.stop()">Stop</button>
+  <div class="seconds">{{timer.seconds}}</div>
+  <countdown-timer #timer></countdown-timer>
+  `,
+  styleUrls: ["demo.css"]
+})
+export class CountdownLocalVarParentComponent {}
+```
+
+--
+
+[//]: # (39/12)
+
+### interação entre componentes
+
+- Injeção do componente filho com `@ViewChild()`
+  - O componente pai injeta o componente filho para ler suas propriedades e executar seus métodos
+
+<pre><code class="hljs small">
+@Component({
+  selector: 'countdown-parent-vc',
+  template: `
+  <h3>Countdown to Liftoff (via ViewChild)</h3>
+  <button (click)="start()">Start</button>
+  <button (click)="stop()">Stop</button>
+  <div class="seconds">{{ seconds() }}</div>
+  <countdown-timer></countdown-timer>
+  `,
+  styleUrls: ['demo.css']
+})
+export class CountdownViewChildParentComponent implements AfterViewInit {
+
+  @ViewChild(CountdownTimerComponent)
+  private timerComponent: CountdownTimerComponent;
+
+  seconds() { return 0; }
+
+  ngAfterViewInit() {
+    // Redefine `seconds()` to get from the `CountdownTimerComponent.seconds` ...
+    // but wait a tick first to avoid one-time devMode
+    // unidirectional-data-flow-violation error
+    setTimeout(() => this.seconds = () => this.timerComponent.seconds, 0);
+  }
+
+  start() { this.timerComponent.start(); }
+  stop() { this.timerComponent.stop(); }
+}
+</code></pre>
+
+--
+
+[//]: # (39/13)
+
+### interação entre componentes
+
+- Comunicação via serviços
+  - Os componentes pai e filho compartilham um serviço cuja interface permite a comunicação bidirecional
+
+<pre><code class="hljs small">
+@Injectable()
+export class MissionService {
+
+  // Observable string sources
+  private missionAnnouncedSource = new Subject<string>();
+  private missionConfirmedSource = new Subject<string>();
+
+  // Observable string streams
+  missionAnnounced$ = this.missionAnnouncedSource.asObservable();
+  missionConfirmed$ = this.missionConfirmedSource.asObservable();
+
+  // Service message commands
+  announceMission(mission: string) {
+    this.missionAnnouncedSource.next(mission);
+  }
+
+  confirmMission(astronaut: string) {
+    this.missionConfirmedSource.next(astronaut);
+  }
+}
+</code></pre>
+
+--
+
+[//]: # (39/14)
+
+### interação entre componentes
+
+- Comunicação via serviços
+  - Os componentes pai e filho compartilham um serviço cuja interface permite a comunicação bidirecional
+
+<pre><code class="hljs small">
+@Component({
+  selector: 'mission-control',
+  template: `
+    <h2>Mission Control</h2>
+    <button (click)="announce()">Announce mission</button>
+    <my-astronaut *ngFor="let astronaut of astronauts"
+      [astronaut]="astronaut">
+    </my-astronaut>
+    <h3>History</h3>
+    <ul>
+      <li *ngFor="let event of history">{{event}}</li>
+    </ul>
+  `,
+  providers: [MissionService]
+})
+export class MissionControlComponent {
+  astronauts = ['Lovell', 'Swigert', 'Haise'];
+  history: string[] = [];
+  missions = ['Fly to the moon!',
+              'Fly to mars!',
+              'Fly to Vegas!'];
+  nextMission = 0;
+
+  constructor(private missionService: MissionService) {
+    missionService.missionConfirmed$.subscribe(
+      astronaut => {
+        this.history.push(`${astronaut} confirmed the mission`);
+      });
+  }
+
+  announce() {
+    let mission = this.missions[this.nextMission++];
+    this.missionService.announceMission(mission);
+    this.history.push(`Mission "${mission}" announced`);
+    if (this.nextMission >= this.missions.length) { this.nextMission = 0; }
+  }
+}
+</code></pre>
+
+--
+
+[//]: # (39/15)
+
+### interação entre componentes
+
+- Comunicação via serviços
+  - Os componentes pai e filho compartilham um serviço cuja interface permite a comunicação bidirecional
+
+<pre><code class="hljs small">
+@Component({
+  selector: 'my-astronaut',
+  template: `
+    <p>
+      {{astronaut}}: <strong>{{mission}}</strong>
+      <button
+        (click)="confirm()"
+        [disabled]="!announced || confirmed">
+        Confirm
+      </button>
+    </p>
+  `
+})
+export class AstronautComponent implements OnDestroy {
+  @Input() astronaut: string;
+  mission = '<no mission announced>';
+  confirmed = false;
+  announced = false;
+  subscription: Subscription;
+
+  constructor(private missionService: MissionService) {
+    this.subscription = missionService.missionAnnounced$.subscribe(
+      mission => {
+        this.mission = mission;
+        this.announced = true;
+        this.confirmed = false;
+    });
+  }
+
+  confirm() {
+    this.confirmed = true;
+    this.missionService.confirmMission(this.astronaut);
+  }
+
+  ngOnDestroy() {
+    // prevent memory leak when component destroyed
+    this.subscription.unsubscribe();
+  }
+}
+</code></pre>
+
+---
+
+[//]: # (40)
+
+### [exercício 10](../exercicios/exercicio-10)
+
+- Objetivo: demonstrar as formas de interação entre componentes
+- Tempo: [60’](https://e.ggtimer.com/60minutes)
+
+---
+
+[//]: # (41)
+
+### diretivas estruturais
+
+- As diretivas estruturais são responsáveis pelo layout HTML.
+  - Mudam a estrutura do DOM: adicionando, removendo ou manipulando elementos
+- Uma diretiva estrutural é aplicada a um elemento "host"
+  - A diretiva faz o que deve fazer a esse elemento (e a seus descendentes)
+- Você só pode aplicar uma única diretiva estrutural a um elemento "host"
+
+```html
+<div *ngIf="hero" >{{hero.name}}</div>
+```
+
+--
+
+[//]: # (41/2)
+
+### diretivas estruturais
+
+- As diretivas estruturais mais comuns embarcadas com Angular são: `NgIf`, `NgFor` e `NgSwitch`
+
+```html
+<div *ngIf="hero" >{{hero.name}}</div>
+
+<ul>
+  <li *ngFor="let hero of heroes">{{hero.name}}</li>
+</ul>
+
+<div [ngSwitch]="hero?.emotion">
+  <happy-hero    *ngSwitchCase="'happy'"    [hero]="hero"></happy-hero>
+  <sad-hero      *ngSwitchCase="'sad'"      [hero]="hero"></sad-hero>
+  <confused-hero *ngSwitchCase="'confused'" [hero]="hero"></confused-hero>
+  <unknown-hero  *ngSwitchDefault           [hero]="hero"></unknown-hero>
+</div>
+```
+
+--
+
+[//]: # (41/3)
+
+### diretivas estruturais
+
+- O asterisco é um _syntactic sugar_
+  - É uma construção simplificada para algo um pouco mais complicado
+
+```html
+<div *ngIf="hero" >{{hero.name}}</div>
+
+<div template="ngIf hero">{{hero.name}}</div>
+
+<ng-template [ngIf]="hero">
+  <div>{{hero.name}}</div>
+</ng-template>
+```
+
+--
+
+[//]: # (41/4)
+
+### diretivas estruturais
+
+- O asterisco é um _syntactic sugar_
+  - É uma construção simplificada para algo um pouco mais complicado
+
+```html
+<div *ngFor="let hero of heroes; let i=index; let odd=odd; trackBy: trackById" [class.odd]="odd">
+  ({{i}}) {{hero.name}}
+</div>
+
+<div template="ngFor let hero of heroes; let i=index; let odd=odd; trackBy: trackById" [class.odd]="odd">
+  ({{i}}) {{hero.name}}
+</div>
+
+<ng-template ngFor let-hero [ngForOf]="heroes" let-i="index" let-odd="odd" [ngForTrackBy]="trackById">
+  <div [class.odd]="odd">({{i}}) {{hero.name}}</div>
+</ng-template>
+```
+
+--
+
+[//]: # (41/5)
+
+### diretivas estruturais
+
+- Prefira sempre a sintaxe com o asterisco, já que ela é mais simples do que as outras formas
+- Use o `<ng-container>` ou um container HTML nativo quando não há um elemento "host"
+- Os elementos `<div>` e `<span>` são os containers HTML nativos mais comuns
+
+```html
+<div *ngIf="hero" >{{hero.name}}</div>
+
+<p>
+  I turned the corner
+  <span *ngIf="hero">
+    and saw {{hero.name}}. I waved
+  </span>
+  and continued on my way.
+</p>
+```
+
+--
+
+[//]: # (41/6)
+
+### diretivas estruturais
+
+- O `<ng-container>` é um elemento de agrupamento que não interfere com os estilos ou layout
+  - O Angular não inclui o elemento `<ng-container>` no DOM
+
+```html
+<p>
+  I turned the corner
+  <ng-container *ngIf="hero">
+    and saw {{hero.name}}. I waved
+  </ng-container>
+  and continued on my way.
+</p>
+```
+
+--
+
+[//]: # (41/7)
+
+### diretivas estruturais
+
+- Um elemento `<select>` espera elementos filhos `<option>`
+  - O dropdown abaixo vai ser renderizado vazio
+  - O navegador não exibe os `<option>` dentro de um `<span>`
+
+```html
+<div>
+  Pick your favorite hero
+  (<label><input type="checkbox" checked (change)="showSad = !showSad">show sad</label>)
+</div>
+<select [(ngModel)]="hero">
+  <span *ngFor="let h of heroes">
+    <span *ngIf="showSad || h.emotion !== 'sad'">
+      <option [ngValue]="h">{{h.name}} ({{h.emotion}})</option>
+    </span>
+  </span>
+</select>
+```
+
+--
+
+[//]: # (41/8)
+
+### diretivas estruturais
+
+- A solução é usar o `<ng-container>`
+
+```html
+<div>
+  Pick your favorite hero
+  (<label><input type="checkbox" checked (change)="showSad = !showSad">show sad</label>)
+</div>
+<select [(ngModel)]="hero">
+  <ng-container *ngFor="let h of heroes">
+    <ng-container *ngIf="showSad || h.emotion !== 'sad'">
+      <option [ngValue]="h">{{h.name}} ({{h.emotion}})</option>
+    </ng-container>
+  </ng-container>
+</select>
+```
+
+--
+
+[//]: # (41/9)
+
+### diretivas estruturais
+
+- Você pode escrever a sua própria diretiva estrutural
+
+```javascript
+@Directive({ selector: '[myUnless]'})
+export class UnlessDirective {
+
+  constructor(
+  private templateRef: TemplateRef<any>,
+  private viewContainer: ViewContainerRef) { }
+
+  (...)
+
+}
+```
+
+```html
+<p *myUnless="condition">Show this sentence unless the condition is true.</p>
+```
+
+---
+
+[//]: # (42)
+
+### [exercício 11](../exercicios/exercicio-11)
+
+- Objetivo: criar nossa própria diretiva estrutural
+- Tempo: [30’](https://e.ggtimer.com/30minutes)
+
+---
+
+[//]: # (43)
+
+### diretivas de atributo
+
+- Uma diretiva de atributo modifica a aparência ou comportamento de um elemento DOM
+  - Elas são usadas como atributos de elementos
+- Diretivas de atributos embarcadas com o Angular: `NgClass`, `NgStyle` e `NgModel`
+
+--
+
+[//]: # (43/2)
+
+### diretivas de atributo
+
+- O binding de classe é uma boa forma para adicionar ou remover uma única classe CSS
+
+```html
+<div [class.special]="isSpecial">The class binding is special</div>
+```
+
+--
+
+[//]: # (43/3)
+
+### diretivas de atributo
+
+- Para adicionar ou remover mais de uma classe CSS ao mesmo tempo, a diretiva `NgClass` é mais apropriada
+
+```html
+<div [ngClass]="currentClasses">This div is initially saveable, unchanged, and special</div>
+```
+
+```javascript
+currentClasses: {};
+setCurrentClasses() {
+  this.currentClasses =  {
+    'saveable': this.canSave,
+    'modified': !this.isUnchanged,
+    'special':  this.isSpecial
+  };
+}
+```
+
+--
+
+[//]: # (43/4)
+
+### diretivas de atributo
+
+- O binding de estilo é uma boa forma para adicionar ou remover um único estilo CSS inline
+
+```html
+<div [style.font-size]="isSpecial ? 'x-large' : 'smaller'" >
+  This div is x-large or smaller.
+</div>
+```
+
+--
+
+[//]: # (43/5)
+
+### diretivas de atributo
+
+- Para adicionar ou remover mais de um estilo CSS inline ao mesmo tempo, a diretiva `NgStyle` é mais apropriada
+
+```html
+<div [ngStyle]="currentStyles">
+  This div is initially italic, normal weight, and extra large (24px).
+</div>
+```
+
+```javascript
+currentStyles: {};
+setCurrentStyles() {
+  this.currentStyles = {
+    'font-style':  this.canSave      ? 'italic' : 'normal',
+    'font-weight': !this.isUnchanged ? 'bold'   : 'normal',
+    'font-size':   this.isSpecial    ? '24px'   : '12px'
+  };
+}
+```
+
+--
+
+[//]: # (43/6)
+
+### diretivas de atributo
+
+- A diretiva `NgModel` permite o two-way data binding em elementos de formulários
+
+```html
+<input [(ngModel)]="currentHero.name">
+```
+
+- É um _syntactic sugar_ para a mesma construção do binding de propriedade e eventos juntos
+
+```html
+<input [value]="currentHero.name"
+       (input)="currentHero.name=$event.target.value" >
+```
+
+--
+
+[//]: # (43/7)
+
+### diretivas de atributo
+
+- Você pode escrever a sua própria diretiva de atributo
+
+```javascript
+@Directive({ selector: "[myHighlight]" })
+export class HighlightDirective {
+  constructor(el: ElementRef) {
+    el.nativeElement.style.backgroundColor = "yellow";
+  }
+}
+```
+
+```html
+<p myHighlight>Highlight me!</p>
+```
+
+---
+
+[//]: # (44)
+
+### [exercício 12](../exercicios/exercicio-12)
+
+- Objetivo: criar nossa própria diretiva de atributo
+- Tempo: [45’](https://e.ggtimer.com/45minutes)
+
+---
+
+[//]: # (45)
+
+### pipes
+
+- Um pipe transforma dados de entrada para uma saída com um formato desejado
+- Operador pipe (`|`)
+
+```html
+<p>The hero's birthday is {{ birthday | date }}</p>
+```
+
+--
+
+[//]: # (45/2)
+
+### pipes
+
+- Por padrão, o Angular é embarcado com alguns pipes
+  - `DatePipe`, `UpperCasePipe`, `LowerCasePipe`, `CurrencyPipe` e `PercentPipe`
+  - Podem ser utilizados em qualquer template
+- Para usar os pipes `DatePipe` e `CurrencyPipe` no Safari e outros navegadores antigos, é necessário utilizar um polyfill
+
+```html
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>
+```
+
+--
+
+[//]: # (45/3)
+
+### pipes
+
+- Um pipe pode aceitar qualquer número de parâmetros opcionais
+- Para passar parâmetros para um pipe, utiliza-se os dois-pontos (`:`) após o nome do pipe, seguido pelo valor do parâmetro
+  - `currency:'EUR'`
+- Se o pipe aceitar múltiplos parâmetros, os valores são separados por dois-pontos
+  - `slice:1:5`
+
+```html
+<p>The hero's birthday is {{ birthday | date:"MM/dd/yy" }} </p>
+```
+
+--
+
+[//]: # (45/4)
+
+### pipes
+
+- Pipes podem ser encadeados para o uso combinado
+- Por exemplo, para exibir a data de aniversário em caixa alta, é possível utilizar o `DatePipe` combinado com o `UpperCasePipe`
+
+```html
+The chained hero's birthday is
+{{ birthday | date:'fullDate' | uppercase}}
+
+<!-- exibe: FRIDAY, APRIL 15, 1988 -->
+```
+
+--
+
+[//]: # (45/5)
+
+### pipes
+
+- Você pode escrever seu próprio pipes
+
+```javascript
+import { Pipe, PipeTransform } from "@angular/core";
+/*
+ * Raise the value exponentially
+ * Takes an exponent argument that defaults to 1.
+ * Usage:
+ *   value | exponentialStrength:exponent
+ * Example:
+ *   {{ 2 | exponentialStrength:10 }}
+ *   formats to: 1024
+*/
+@Pipe({ name: "exponentialStrength" })
+export class ExponentialStrengthPipe implements PipeTransform {
+  transform(value: number, exponent: string): number {
+    let exp = parseFloat(exponent);
+    return Math.pow(value, isNaN(exp) ? 1 : exp);
+  }
+}
+```
+
+--
+
+[//]: # (45/6)
+
+### pipes
+
+- Um pipe é uma classe anotada com o decorador `@Pipe`
+- A classe pipe deve implementar a interface `PipeTransform`
+  - O método `transform` aceita um valor de entrada (seguido pelos parâmetros opcionais) e devolve um valor transformado
+- Existe um argumento adicional ao método `transform` para cada parâmetro opcional passado para o pipe
+- O pipe deve ser incluído no array `declarations` do `AppModule` para que os componentes possam utilizá-lo
+
+--
+
+[//]: # (45/7)
+
+### pipes
+
+- Existem duas categorias de pipes
+  - Pipes **puros** (padrão)
+  - Pipes **impuros**
+- Angular executa um pipe puro somente quando detecta uma _mudança pura_
+  - Uma mudança a um tipo primitivo (`String`, `Number`, `Boolean`, `Symbol`)
+  - Uma mudança a uma referência a um objeto (`Date`, `Array`, `Function`, `Object`)
+  - A mudança a uma propriedade de um objeto é ignorada
+    - Por exemplo: adicionar ou remover um item de um Array
+
+--
+
+[//]: # (45/8)
+
+### pipes
+
+- A detecção de uma mudança pura pode parecer restritiva, mas em compensação é **muito rápida**
+  - Checar a referência de um objeto é rápido
+  - Checar por mudanças internas a um objeto, descendo por sua hierarquia de propriedades, pode ser muito lento
+- Por essa razão, prefira sempre um pipe **puro** a um pipe **impuro**
+  - Se for necessário, você pode usar um pipe impuro
+
+--
+
+[//]: # (45/9)
+
+### pipes
+
+- Pipes impuros são executados durante todo ciclo de detecção de mudança
+  - Ele é chamado frequentemente
+  - Tão frequente quanto um keystroke ou um mouse-move
+- Com isso em mente, utilize pipes impuros com muito cuidado
+  - Pipes impuros podem degradar a experiência do usuário
+
+```javascript
+@Pipe({
+  name: "flyingHeroesImpure",
+  pure: false
+})
+export class FlyingHeroesImpurePipe extends FlyingHeroesPipe {}
+```
+
+--
+
+[//]: # (45/10)
+
+### pipes
+
+- O Angular não fornece mais pipes para o filtro ou a ordenação de listas
+  - No AngularJS, esses pipes eram conhecidos como `filter` e `orderBy`
+- A ausência desses pipes é proposital
+  - Não tinham uma boa performance
+  - Não permitiam uma minificação mais agressiva
+- Ambos os pipes utilizavam parâmetros que referenciavam propriedades de objetos
+  - Os pipes teriam que ser impuros!
+- A recomendação é que a lógica de filtragem e ordenação faça parte dos componentes da aplicação
+
+---
+
+[//]: # (46)
+
+### [exercício 13](../exercicios/exercicio-13)
+
+- Objetivo: criar nosso próprio pipe
+- Tempo: [30’](https://e.ggtimer.com/30minutes)
+
+---
+
+[//]: # (47)
+
+### formulários
+
+- Formulários são o pilar das aplicações comerciais.
+- São usados para fazer login, fazer um pedido, reservar um vôo, agendar uma reunião e executar inúmeras outras tarefas.
+- Um formulário deve guiar o usuário de forma eficiente e eficaz no processo de entrada de dados.
+
+--
+
+[//]: # (47/2)
+
+### formulários
+
+- Para desenvolver um bom formulário, você deve ter habilidade no design de aplicações Web
+  - Fora do escopo do curso
+- O suporte do Angular no desenvolvimento de formulários envolve técnicas como:
+  - _Two-way data binding_
+  - Rastramento de mudanças
+  - Validação
+  - Tratamento de erros
+
+--
+
+[//]: # (47/3)
+
+### formulários
+
+- Angular oferece duas tecnologias de construção de formulários:
+  - _Template-driven_
+  - _Reactive_
+- As duas tecnologias pertencem à mesma biblioteca e até compartilham um conjunto comum de classes para o controle de formulários
+- Divergem na filosofia, no estilo e na técnica de programação.
+- Biblioteca `@angular/forms`
+  - `ReactiveFormsModule`
+  - `FormsModule`
+
+--
+
+[//]: # (47/4)
+
+### formulários
+
+- Formulários _Reactive_
+  - Gestão explícita do fluxo de dados entre o modelo de dados (non-UI) e o modelo de formulários (UI)
+- Facilitam o uso do estilo "reativo" de programação
+  - Você controla as atualizações de valores e de validações dos elementos dos formulários
+  - O modelo de dados é imutável (idealmente)
+  - Facilita a implementação de testes e validações
+- Na prática, os componentes criam e manipulam objetos `FormControl`, que representam a estrutura do formulário
+
+--
+
+[//]: # (47/5)
+
+### formulários
+
+- Formulários _Template-driven_
+  - É feito um _data binding_ entre os elementos HTML e o modelo de dados (diretiva `ngModel`)
+  - Os componentes não criam nem manipulam objetos `FormControl`
+  - Você não atualiza explicitamente os valores dos elementos do formulário (diretiva `ngModel`)
+  - O modelo de dados é mutável
+- Na prática, você escreve menos código, mas pode complicar o desenvolvimento em cenários mais avançados
+
+--
+
+[//]: # (47/6)
+
+### formulários
+
+- Qual é o melhor: _Reactive_ ou _Template-driven_?
+- **Nenhuma** das técnicas é a melhor!
+  - São dois paradigmas diferentes, cada um com suas forças e fraquezas
+  - Escolha a que é melhor pra você
+- Você pode até usar as duas abordagens na mesma aplicação
+
+--
+
+[//]: # (47/7)
+
+### formulários
+
+- Vamos criar o seguinte formulário usando a técnica _Template-driven_:
+
+<div class="center">
+  ![](img/hero-form-1.png)
+  ![](img/hero-form-2.png)
+</div>
+
+--
+
+[//]: # (47/8)
+
+### formulários
+
+- `Hero`:
+
+```javascript
+export class Hero {
+
+  constructor(
+    public id: number,
+    public name: string,
+    public power: string,
+    public alterEgo?: string
+  ) {  }
+
+}
+```
+
+--
+
+[//]: # (47/9)
+
+### formulários
+
+- `HeroFormComponent`:
+
+<pre><code class="hljs medium">
+import { Component } from "@angular/core";
+
+import { Hero } from "../hero";
+
+@Component({
+  selector: "app-hero-form",
+  templateUrl: "./hero-form.component.html",
+  styleUrls: ["./hero-form.component.css"]
+})
+export class HeroFormComponent {
+  powers = ["Really Smart", "Super Flexible", "Super Hot", "Weather Changer"];
+
+  model = new Hero(18, "Dr IQ", this.powers[0], "Chuck Overstreet");
+
+  submitted = false;
+
+  onSubmit() {
+    this.submitted = true;
+  }
+
+  // TODO: Remove this when we're done
+  get diagnostic() {
+    return JSON.stringify(this.model);
+  }
+}
+</code></pre>
+
+--
+
+[//]: # (47/10)
+
+### formulários
+
+- `AppModule`:
+
+```javascript
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule } from "@angular/forms";
+
+import { AppComponent } from "./app.component";
+import { HeroFormComponent } from "./hero-form/hero-form.component";
+
+@NgModule({
+  imports: [BrowserModule, FormsModule],
+  declarations: [AppComponent, HeroFormComponent],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
+
+--
+
+[//]: # (47/11)
+
+### formulários
+
+- `hero-form.component.html`: HTML puro (ainda sem Angular)
+
+```html
+<div class="container">
+    <h1>Hero Form</h1>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="alterEgo">Alter Ego</label>
+        <input type="text" class="form-control" id="alterEgo">
+      </div>
+
+      <button type="submit" class="btn btn-success">Submit</button>
+
+    </form>
+</div>
+```
+
+--
+
+[//]: # (47/12)
+
+### formulários
+
+- `hero-form.component.html`
+  - Adicionando poderes com `*ngFor`
+
+```html
+<div class="form-group">
+  <label for="power">Hero Power</label>
+  <select class="form-control" id="power" required>
+    <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+  </select>
+</div>
+```
+
+--
+
+[//]: # (47/13)
+
+### formulários
+
+- `hero-form.component.html`
+  - Adicionando poderes com `*ngFor`
+
+<div class="center">
+  ![](img/hero-form-3.png)
+</div>
+
+--
+
+[//]: # (47/14)
+
+### formulários
+
+- `hero-form.component.html`
+  - Adicionando _two-way data binding_
+
+<pre><code class="hljs small">
+{{diagnostic}}
+<div class="form-group">
+  <label for="name">Name</label>
+  <input type="text" class="form-control" id="name"
+         required
+         [(ngModel)]="model.name" name="name">
+</div>
+
+<div class="form-group">
+  <label for="alterEgo">Alter Ego</label>
+  <input type="text"  class="form-control" id="alterEgo"
+         [(ngModel)]="model.alterEgo" name="alterEgo">
+</div>
+
+<div class="form-group">
+  <label for="power">Hero Power</label>
+  <select class="form-control"  id="power"
+          required
+          [(ngModel)]="model.power" name="power">
+    <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+  </select>
+</div>
+</code></pre>
+
+--
+
+[//]: # (47/15)
+
+### formulários
+
+- `hero-form.component.html`
+  - Adicionando _two-way data binding_
+
+<div class="center">
+  ![](img/ng-model-in-action-2.png)
+</div>
+
+--
+
+[//]: # (47/16)
+
+### formulários
+
+- A diretiva `ngModel` é mais do que _two-way data binding_
+- Atualiza o controle com classes CSS especiais de acordo com o seu estado
+
+| Estado                              | `true`     | `false`      |
+| ----------------------------------- | ---------- | ------------ |
+| O controle foi visitado?            | ng-touched | ng-untouched |
+| O valor do controle foi modificado? | ng-dirty   | ng-pristine  |
+| O valor do controle é válido?       | ng-valid   | ng-invalid   |
+
+--
+
+[//]: # (47/17)
+
+### formulários
+
+```html
+<input type="text" class="form-control" id="name"
+  required
+  [(ngModel)]="model.name" name="name"
+  #spy>
+<br>TODO: remove this: {{spy.className}}
+```
+
+<div class="center">
+  ![](img/control-state-transitions-anim.gif)
+</div>
+
+--
+
+[//]: # (47/18)
+
+### formulários
+
+- Usar as classes CSS para mudar a aparência do controle conforme o estado
+  ![](img/validity-required-indicator.png)
+
+```css
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid #42a948; /* green */
+}
+
+.ng-invalid:not(form) {
+  border-left: 5px solid #a94442; /* red */
+}
+```
+
+--
+
+[//]: # (47/19)
+
+### formulários
+
+- Mudar a aparência indica que algo está errado, mas...
+- O usuário não sabe o que fazer para corrigir o erro!
+- Queremos exibir uma mensagem de erro para ajudar o usuário a fazer as correções necessárias
+
+<div class="center">
+  ![](img/name-required-error.png)
+</div>
+
+--
+
+[//]: # (47/20)
+
+### formulários
+
+```html
+<label for="name">Name</label>
+<input type="text" class="form-control" id="name"
+       required
+       [(ngModel)]="model.name" name="name"
+       #name="ngModel">
+<div [hidden]="name.valid || name.pristine"
+     class="alert alert-danger">
+  Name is required
+</div>
+```
+
+--
+
+[//]: # (47/21)
+
+### formulários
+
+- Por fim, o usuário deve conseguir submeter o formulário após preenchê-lo
+  - Para isso, vamos usar um botão do tipo `submit`
+- Faça um binding do evento `ngSubmit` do formulário com o método `onSubmit()` do componente:
+
+```html
+<form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+```
+
+- O botão `submit` é desabilitado se o formulário não estiver válido
+
+```html
+<button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+```
+
+---
+
+[//]: # (48)
+
+### [exercício 14](../exercicios/exercicio-14)
+
+- Objetivo: criar um formulário na abordagem _template-driven_
+- Tempo: [45’](https://e.ggtimer.com/45minutes)
+
+---
+
+[//]: # (49)
+
+### formulários
+
+- Classes de controle de formulário (`@angular/forms`)
+
+| Nome              | Descrição                                                                                                                                                 |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AbstractControl` | É a classe abstrata base para as classes concretas: `FormControl`, `FormGroup` e `FormArray`. Provê propriedades e comportamentos comuns às três classes. |
+
+--
+
+[//]: # (49/2)
+
+### formulários
+
+- Classes de controle de formulário (`@angular/forms`)
+
+| Nome          | Descrição                                                                                                                                                            |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `FormControl` | Gerencia o valor e validação de um controle de formulário individual. Corresponde a um elemento de formulário HTML (como um `<input>`ou um `<select>`, por exemplo). |
+
+--
+
+[//]: # (49/3)
+
+### formulários
+
+- Classes de controle de formulário (`@angular/forms`)
+
+| Nome        | Descrição                                                                                                                                               |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `FormGroup` | Gerencia o valor e validação de um grupo de instâncias do tipo `AbstractControl`. Dentre as propriedades do grupo, são incluídos os controles "filhos". |
+
+--
+
+[//]: # (49/4)
+
+### formulários
+
+- Classes de controle de formulário (`@angular/forms`)
+
+| Nome        | Descrição                                                                                                  |
+| ----------- | ---------------------------------------------------------------------------------------------------------- |
+| `FormArray` | Gerencia o valor e validação de um array (indexado numericamente) de instâncias do tipo `AbstractControl`. |
+
+--
+
+[//]: # (49/5)
+
+### formulários
+
+- `FormControl`
+
+```javascript
+import { FormControl } from "@angular/forms";
+export class HeroDetailComponent1 {
+  name = new FormControl();
+}
+```
+
+```html
+<h2>Hero Detail</h2>
+<h3><i>Just a FormControl</i></h3>
+<label class="center-block">Name:
+  <input class="form-control" [formControl]="name">
+</label>
+```
+
+--
+
+[//]: # (49/6)
+
+### formulários
+
+- `FormControl`
+
+![](img/just-formcontrol.png)
+
+--
+
+[//]: # (49/7)
+
+### formulários
+
+- `FormGroup`
+
+```javascript
+import { FormControl, FormGroup } from "@angular/forms";
+export class HeroDetailComponent2 {
+  heroForm = new FormGroup({
+    name: new FormControl()
+  });
+}
+```
+
+```html
+<h2>Hero Detail</h2>
+<h3><i>FormControl in a FormGroup</i></h3>
+<form [formGroup]="heroForm" novalidate>
+  <div class="form-group">
+    <label class="center-block">Name:
+      <input class="form-control" formControlName="name">
+    </label>
+  </div>
+</form>
+<p>Form value: {{ heroForm.value | json }}</p>
+```
+
+--
+
+[//]: # (49/8)
+
+### formulários
+
+- `FormGroup`
+
+![](img/json-output.png)
+
+--
+
+[//]: # (49/9)
+
+### formulários
+
+- Em aplicações reais, os formulários crescem rapidamente. Para facilitar o desenvolvimento e a manutenção dos formulários, usamos o `FormBuilder`.
+- A classe `FormBuilder` ajuda a reduzir a repetição ao gerenciar os detalhes de construção de controles para você.
+
+--
+
+[//]: # (49/10)
+
+### formulários
+
+- Para usar o `FormBuilder`, você precisa importá-lo e injetá-lo no construtor:
+
+```javascript
+import { FormBuilder, FormGroup } from '@angular/forms';
+
+export class HeroDetailComponent3 {
+  heroForm: FormGroup; // <--- heroForm is of type FormGroup
+
+  constructor(private fb: FormBuilder) { // <--- inject FormBuilder
+    this.createForm();
+  }
+
+  createForm() {
+    this.heroForm = this.fb.group({
+      name: '', // <--- the FormControl called "name"
+    });
+  }
+}
+```
+
+--
+
+[//]: # (49/11)
+
+### formulários
+
+- Validação de formulários
+
+```javascript
+this.heroForm = this.fb.group({
+  name: ["", Validators.required]
+});
+```
+
+```html
+<p>Form value: {{ heroForm.value | json }}</p>
+<p>Form status: {{ heroForm.status | json }}</p>
+```
+
+--
+
+[//]: # (49/12)
+
+### formulários
+
+- Validação de formulários
+
+![](img/validators-json-output.png)
+
+--
+
+[//]: # (49/13)
+
+### formulários
+
+- Mais FormControl`s
+
+<pre><code class="hljs medium">
+export class HeroDetailComponent4 {
+  heroForm: FormGroup;
+  states = states;
+
+  constructor(private fb: FormBuilder) {
+    this.createForm();
+  }
+
+  createForm() {
+    this.heroForm = this.fb.group({
+      name: ['', Validators.required ],
+      street: '',
+      city: '',
+      state: '',
+      zip: '',
+      power: '',
+      sidekick: ''
+    });
+  }
+}
+</code></pre>
+
+--
+
+[//]: # (49/14)
+
+### formulários
+
+- Mais `FormControl`s
+
+```html
+<h2>Hero Detail</h2>
+<h3><i>A FormGroup with multiple FormControls</i></h3>
+<form [formGroup]="heroForm" novalidate>
+  <div class="form-group">
+    <label class="center-block">Name:
+      <input class="form-control" formControlName="name">
+    </label>
+  </div>
+  <div class="form-group">
+    <label class="center-block">Street:
+      <input class="form-control" formControlName="street">
+    </label>
+  </div>
+  <div class="form-group">
+    <label class="center-block">City:
+      <input class="form-control" formControlName="city">
+    </label>
+  </div>
+  <div class="form-group">
+    <label class="center-block">State:
+      <select class="form-control" formControlName="state">
+          <option *ngFor="let state of states" [value]="state">{{state}}</option>
+      </select>
+    </label>
+  </div>
+  <div class="form-group">
+    <label class="center-block">Zip Code:
+      <input class="form-control" formControlName="zip">
+    </label>
+  </div>
+  <div class="form-group radio">
+    <h4>Super power:</h4>
+    <label class="center-block"><input type="radio" formControlName="power" value="flight">Flight</label>
+    <label class="center-block"><input type="radio" formControlName="power" value="x-ray vision">X-ray vision</label>
+    <label class="center-block"><input type="radio" formControlName="power" value="strength">Strength</label>
+  </div>
+  <div class="checkbox">
+    <label class="center-block">
+      <input type="checkbox" formControlName="sidekick">I have a sidekick.
+    </label>
+  </div>
+</form>
+
+
+<p>Form value: {{ heroForm.value | json }}</p>
+```
+
+--
+
+[//]: # (49/15)
+
+### formulários
+
+- `FormGroup` aninhados
+
+```javascript
+export class HeroDetailComponent5 {
+  heroForm: FormGroup;
+  states = states;
+
+  constructor(private fb: FormBuilder) {
+    this.createForm();
+  }
+
+  createForm() {
+    this.heroForm = this.fb.group({ // <-- the parent FormGroup
+      name: ['', Validators.required ],
+      address: this.fb.group({ // <-- the child FormGroup
+        street: '',
+        city: '',
+        state: '',
+        zip: ''
+      }),
+      power: '',
+      sidekick: ''
+    });
+  }
+}
+```
+
+--
+
+[//]: # (49/16)
+
+### formulários
+
+- `FormGroup` aninhados
+
+```html
+<div formGroupName="address" class="well well-lg">
+  <h4>Secret Lair</h4>
+  <div class="form-group">
+    <label class="center-block">Street:
+      <input class="form-control" formControlName="street">
+    </label>
+  </div>
+  <div class="form-group">
+    <label class="center-block">City:
+      <input class="form-control" formControlName="city">
+    </label>
+  </div>
+  <div class="form-group">
+    <label class="center-block">State:
+      <select class="form-control" formControlName="state">
+        <option *ngFor="let state of states" [value]="state">{{state}}</option>
+      </select>
+    </label>
+  </div>
+  <div class="form-group">
+    <label class="center-block">Zip Code:
+      <input class="form-control" formControlName="zip">
+    </label>
+  </div>
+</div>
+```
+
+--
+
+[//]: # (49/17)
+
+### formulários
+
+- Inspecionando propriedades do `FormControl`
+
+```html
+<p>Name value: {{ heroForm.get('name').value }}</p>
+```
+
+```html
+<p>Street value: {{ heroForm.get('address.street').value}}</p>
+```
+
+--
+
+[//]: # (49/18)
+
+### formulários
+
+| Propriedade           | Descrição                                                                                                                       |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `myControl.value`     | o valor do `FormControl`.                                                                                                       |
+| `myControl.status`    | o status de validação do `FormControl`. Valores possíveis: `VALID`, `INVALID`, `PENDING`, ou `DISABLED`.                        |
+| `myControl.pristine`  | `true` se o usuário não fez nenhuma mudança ao elemento UI. É oposto à propriedade `myControl.dirty`.                           |
+| `myControl.untouched` | `true` se o usuário ainda não "entrou" no elemento UI e disparou seu evento `blur`. É oposto à propriedade `myControl.touched`. |
+
+---
+
+[//]: # (50)
+
+### [exercício 15](../exercicios/exercicio-15)
+
+- Objetivo: criar um formulário na abordagem _reactive_
+- Tempo: [45’](https://e.ggtimer.com/45minutes)
+
+---
+
+[//]: # (51)
+
+### segurança
+
+- O Angular já vem embarcado com proteções contra as vulnerabilidades e ataques mais comuns
+  - OWASP Guide Project
+- Não é responsável por segurança em nível de aplicação
+  - Autenticação: quem é esse usuário?
+  - Autorização: o que esse usuário pode fazer?
+
+--
+
+[//]: # (51/2)
+
+### segurança
+
+- Mantenha-se atualizado com as últimas versões das bibliotecas Angular
+  - As bibliotecas são atualizadas regularmente, e essas atualizações podem corrigir defeitos de segurança de versões anteriores
+- Não modifique a sua cópia do Angular
+  - Versões customizadas tendem a não acompanhar as atualizações das bibliotecas
+  - Ao invés disso, compartilhe suas melhorias com a comunidade
+- Não use APIs do Angular marcadas com "Security Risk"
+
+--
+
+[//]: # (51/3)
+
+### segurança
+
+- Cross-Site Scripting (XSS)
+  - Permite a injeção de código malicioso em páginas web
+  - O código malicioso pode roubar dados confidenciais do usuário
+  - O código malicioso pode realizar ações como se fosse o usuário
+- Para previnir ataques XSS, você deve previnir que o código malicioso seja injetado no DOM
+  - Tags `<script>`, `<img onerror="...">`, `<a href="javascript:...">`
+
+--
+
+[//]: # (51/4)
+
+### segurança
+
+- Por padrão, o Angular trata todos os valores como _não seguros_
+- Quando um valor é inserido no DOM, o Angular **sanitiza** valores não seguros
+  - Binding de propriedade, atributo, estilo, classe
+  - Interpolação
+- Sanitização é a inspeção e a modificação de um valor não seguro para inserção no DOM
+  - Na maioria das vezes, a sanitização não modifica o valor
+  - A sanitização depende do contexto
+    - Um valor seguro em CSS pode ser perigoso na URL
+
+--
+
+[//]: # (51/5)
+
+### segurança
+
+- O Angular define os seguintes contextos de segurança XSS:
+  - **HTML** é usado para sanitizar um valor como HTML (ex: binding para `innerHtml`)
+  - **Style** é usado no binding de CSS na propriedade `style`
+  - **URL** é usado para propriedades URL (ex: `<a href>`)
+  - **Resource URL** é usado para URLs que serão carregadas e executadas como código (ex: `<script src>`)
+- Em modo de desenvolvimento, o Angular exibe uma mensagem no console quando um valor é modificado por conta da sanitização
+
+--
+
+[//]: # (51/6)
+
+### segurança
+
+- Exemplo de sanitização
+
+```html
+<h3>Binding innerHTML</h3>
+<p>Bound value:</p>
+<p class="e2e-inner-html-interpolated">{{htmlSnippet}}</p>
+<p>Result of binding to innerHTML:</p>
+<p class="e2e-inner-html-bound" [innerHTML]="htmlSnippet"></p>
+```
+
+```javascript
+export class InnerHtmlBindingComponent {
+  // For example, a user/attacker-controlled value from a URL.
+  htmlSnippet = 'Template <script>alert("0wned")</script> <b>Syntax</b>';
+}
+```
+
+--
+
+[//]: # (51/7)
+
+### segurança
+
+- O conteúdo de interpolação nunca é interpretado
+  - Ao invés de executar o código, são exibidos os sinais `<` e `>`
+- O Angular automaticamente sanitiza o valor do binding da propriedade `innerHtml`
+  - As tags `<script>` são removidas
+  - O conteúdo seguro é mantido e impresso normalmente
+
+![](img/binding-inner-html.png)
+
+--
+
+[//]: # (51/8)
+
+### segurança
+
+- Às vezes, a aplicação precisa impedir a sanitização automática do Angular
+  - Inclusão de código executável
+  - Exibir um `<iframe>` de uma URL
+  - Construir URLs dinamicamente
+- Você pode dizer ao Angular que você já inspecionou o valor previamente
+  - Cuidado! Se você confiar em um valor que pode ser malicioso, você está introduzindo uma vulnerabilidade de segurança
+
+--
+
+[//]: # (51/9)
+
+### segurança
+
+- Para marcar um valor como seguro, injete o `DomSanitizer` e chame um dos métodos:
+  - `bypassSecurityTrustHtml`
+  - `bypassSecurityTrustScript`
+  - `bypassSecurityTrustStyle`
+  - `bypassSecurityTrustUrl`
+  - `bypassSecurityTrustResourceUrl`
+- Lembre-se que a sanitização depende do contexto
+
+--
+
+[//]: # (51/10)
+
+### segurança
+
+```html
+<h4>An untrusted URL:</h4>
+<p><a class="e2e-dangerous-url" [href]="dangerousUrl">Click me</a></p>
+<h4>A trusted URL:</h4>
+<p><a class="e2e-trusted-url" [href]="trustedUrl">Click me</a></p>
+```
+
+```javascript
+constructor(private sanitizer: DomSanitizer) {
+  this.dangerousUrl = 'javascript:alert("Hi there")';
+  this.trustedUrl = sanitizer.bypassSecurityTrustUrl(this.dangerousUrl);
+```
+
+--
+
+[//]: # (51/11)
+
+### segurança
+
+![](img/bypass-security-component.png)
+
+--
+
+[//]: # (51/12)
+
+### segurança
+
+- Cross-site Request Forgery (XSRF ou CSRF)
+  - O usuário visita um site com código malicioso que faz requisições indevidas para o servidor atacado
+
+--
+
+[//]: # (51/13)
+
+### segurança
+
+- Cenário de ataque:
+  - Assuma que o usuário está logado na aplicação `bank.com`
+  - O usuário é enganado e clica em um link no email que abre o `evil.com` em uma nova aba
+  - A página `evil.com` imediamente envia requisições para o `bank.com`
+    - A requisição pode ser um pedido de transferência de dinheiro, por exemplo
+  - O navegador automaticamente envia os cookies do `bank.com` na requisição
+  - Se o servidor do `bank.com` não estiver protegido contra ataques XSRF, ele não sabe a diferença entre as requisições
+
+--
+
+[//]: # (51/14)
+
+### segurança
+
+- Uma técnica anti-XSRF comum é o uso de tokens de autenticação
+  - Os tokens são gerados randomicamente pelo servidor
+  - O cliente lê esse cookie e o adiciona em um cabeçalho em todas as requisições subsequentes
+  - O servidor verifica a existência e compara os valores do cookie e do cabeçalho
+  - A requisição é rejeita caso os valores não existam ou caso sejam diferentes
+- O `HttpClient` tem suporte nativo para a implementação dessa técnica no lado cliente
+
+---
+
+[//]: # (52)
+
+### publicação
+
+- Visão Geral
+- A Publicação Mais Simples Possível
+- Otimização para Ambientes Produtivos
+- Configuração no Lado Cliente
+- Configuração no Lado Servidor
+
+--
+
+[//]: # (52/2)
+
+### visão geral
+
+- Como preparar uma aplicação Angular para publicá-la em um servidor remoto?
+- Técnicas variam de "mais fácil" (porém não otimizado) a "mais complexo" (e otimizado)
+- Como usar ferramentas de empacotamento para auxiliar esse processo
+- Configurações do lado cliente e do lado servidor para melhorar o desempenho da aplicação
+
+--
+
+[//]: # (52/3)
+
+### a publicação mais simples possível
+
+- A publicação mais simples possível é copiar o ambiente de desenvolvimento
+  - A aplicação Angular já está rodando localmente
+  - Você só irá copiá-la para um servidor remoto, onde outras pessoas podem acessá-la
+- Essa não é uma publicação otimizada e, portanto, não deve ser usada para produção
+  - No entanto, é boa o suficiente para compartilhar o progresso e ideias com outras pessoas
+
+```bash
+ng build
+```
+
+--
+
+[//]: # (52/4)
+
+### otimização para ambientes produtivos
+
+- Apesar de funcionar, a publicação a partir do ambiente de desenvolvimento **não é otimizada**
+  - O código está cheio de comentários e espaços em branco para facilitar a leitura e o debugging
+  - O browser carrega bibliotecas inteiras, ao invés de somente as partes necessárias
+- Como consequência, a aplicação pode demorar alguns segundos para ser carregada
+- Isso importa? Depende da sua aplicação!
+
+--
+
+[//]: # (52/5)
+
+### otimização para ambientes produtivos
+
+- Ferramentas e técnicas para ajudar a reduzir a quantidade de requisições e o tamanho das respostas:
+  - **Compilação AOT**: pré-compilação dos templates Angular
+  - **Bundling**: concatenação dos módulos e dependências
+  - **Inlining**: mesclagem do HTML e CSS dentro dos componentes
+  - **Minification**: remoção do excesso de espaços em branco e comentários, etc
+  - **Uglification**: reescrita do código usando nomes curtos de variáveis e funções
+  - **Eliminação de código morto**: remoção de módulos, libs e código não referenciados
+  - **Splitting**: separação dos módulos (async. com base em regras)
+
+--
+
+[//]: # (52/6)
+
+### otimização para ambientes produtivos
+
+- O **compilador AOT** pré-compila os componentes e seus templates durante a fase de construção da sua aplicação
+- Como resultado, as aplicações são carregadas muito mais rápido
+  - Não há compilação **Just-in-Time (JIT)** dos componentes no lado cliente
+  - Não há requisição para recuperar templates (que já estão embarcados aos componentes)
+  - Não é necessário fazer o download do compilador Angular
+  - O compilador descarta as diretivas Angular que não são utilizadas
+
+--
+
+[//]: # (52/7)
+
+### otimização para ambientes produtivos
+
+- **Webpack** é uma ferramenta popular de empacotamento com um rico ecossistema de plugins
+  - Inlining, bundling, minifying, uglifying e até mesmo a compilação AOT
+- É um **bundler** de módulos
+  - Um **bundle** é um arquivo JavaScript que incorpora vários ativos que devem ser servidos juntos em uma única resposta
+  - Um **bundle** pode incluir JavaScript, CSS, HTML etc
+- **Webpack** varre a sua aplicação, construindo um grafo de dependências, e emitindo um ou mais **bundles**
+
+--
+
+[//]: # (52/8)
+
+### otimização para ambientes produtivos
+
+- **Webpack**, por si só, entende somente JavaScript
+  - Com a definição de regras, é possível criar **bundles** de qualquer tipo de arquivo
+  - JavaScript, TypeScript, CSS, SASS, LESS, imagens, HTML, fonts etc
+- Você especifica o que o **Webpack** deve fazer no arquivo de configuração **webpack.config.js**
+- **Webpack** define uma pipeline de construção com fases bem-definidas
+  - Você pode usar plugins para adicionar comportamento à pipeline
+- Aplicações criadas com o Angular CLI já vem embarcadas com o **Webpack** internamente
+
+--
+
+[//]: # (52/9)
+
+<!--
+  ATENÇÃO: no angular-cli 6 tivemos as seguintes mudanças no `ng build`:
+  - foi removida flag `--target`
+  - a flag `--environment` agora é `--configuration`
+  -
+-->
+
+### otimização para ambientes produtivos
+
+- Ambientes x "Build Once"
+
+```bash
+# build de dev
+ng build
+
+# build de prod - esses comandos são equivalentes
+ng build --prod --configuration=production
+ng build --prod -c=production
+ng build --prod
+```
+
+<small><strong>atençao</strong> para as mudanças no `@angular/cli`</small>
+<br>
+<small>as "configurations" estão no `angular.json`</small>
+<br>
+<small>referência do `ng build` - https://github.com/angular/angular-cli/wiki/build</small>
+
+--
+
+[//]: # (52/10)
+
+### pro-tip - build
+
+<!--
+  Melhorias nos scripts:
+  "start": ng serve --host 0.0.0.0
+  "build": ng build --prod --base-href="/pasta/sub-pasta/"
+-->
+
+1. **não use** `ng build` direto do console.
+1. **use** `npm start`, `npm build` ou `npm run <script>`
+1. Melhorias na task `start`
+1. Melhorias na task `build`
+
+
+```bash
+# Apresentar comandos:
+npm start
+npm build
+npm run build:hom
+```
+
+---
+
+[//]: # (53)
+
+### configuração no lado cliente
+
+- O `<base href>` especifica o caminho base para URLs relativas
+  - Usado na resolução de imagens, scripts, CSS etc
+  - Usado pelo router na navegação
+- Em desenvolvimento, o **index.html** está na pasta raiz da aplicação
+  - Por isso, você deve especificar `<base href="/">`
+- Em ambientes produtivos, você pode precisar usar uma subpasta
+  - Por exemplo: `http://www.mysite.com/my/app`
+  - Assim, você deve especificar `--base-href="/my/app"`
+- Se o `<base href>` for mal configurado, você verá erros do tipo `404 - Not Found`
+
+--
+
+[//]: # (53/2)
+
+### configuração no lado cliente
+
+- Por padrão, a aplicação Angular é executada no **modo de desenvolvimento**
+
+```javascript
+Angular is running in the development mode. Call enableProdMode() to enable the production mode.
+```
+
+- Usar o **modo de produção** irá tornar a aplicação mais rápida ao desabilitar verificações especificas de desenvolvimento
+
+```javascript
+import { enableProdMode } from "@angular/core";
+
+// Enable production mode unless running locally
+if (!/localhost/.test(document.location.host)) {
+  enableProdMode();
+}
+```
+
+--
+
+[//]: # (53/3)
+
+### configuração no lado cliente
+
+- O tempo de loading da aplicação pode ser diminuído drasticamente com o carregamento tardio de módulos
+- Somente os módulos essenciais são carregados no início da aplicação
+- Os demais módulos são carregados posteriormente
+  - Somente quando o módulo é de fato utilizado (**lazy loading**)
+  - Depois que a aplicação é totalmente carregada (**preloading**)
+
+--
+
+[//]: # (53/4)
+
+### configuração no lado cliente
+
+- Configuração de rotas com **lazy loading**
+
+```javascript
+{
+  path: 'admin',
+  loadChildren: 'app/admin/admin.module#AdminModule',
+},
+```
+
+- Quando o router navegar para a rota `admin`, o `AdminModule` é carregado dinamicamente
+  - O **lazy loading** só acontece uma única vez (na primeira requisição à rota)
+  - O módulo `AdminModule` ficam disponíveis para todas as requisições subsequentes
+- O `AppModule` não deve importar ou fazer referência ao `AdminModule`
+
+--
+
+[//]: # (53/5)
+
+### configuração no lado cliente
+
+- O `AppModule` é carregado quando a aplicação é iniciada (**eager loading**)
+- O `AdminModule` é carregado somente quando ele é utilizado (**lazy loading**)
+- O **preloading** está entre essas duas formas de carregamento de módulos
+  - Carrega módulos que não são essenciais, mas que serão usados dentro dos próximos minutos após o início da aplicação
+
+--
+
+[//]: # (53/6)
+
+### configuração no lado cliente
+
+- O router verifica, após cada navegação, se existe algum módulo não carregado disponível para o **preloading**
+- O router utiliza uma estratégia de preloading para decidir:
+  - Se deve carregar algum módulo não carregado
+  - Quais módulos devem ser carregados
+- O Angular é embarcado com duas estratégias de preloading:
+  - Sem preloading de módulos
+  - Preloading de todos os módulos lazy
+- Também é possível criar sua própria estratégia de preloading
+
+--
+
+[//]: # (53/7)
+
+### configuração no lado cliente
+
+- Configuração de rotas com **preloading**
+
+```javascript
+RouterModule.forRoot(appRoutes, {
+  preloadingStrategy: PreloadAllModules
+});
+```
+
+- Isso irá dizer ao router para fazer o preloading de todos os módulos lazy
+
+---
+
+[//]: # (54)
+
+### configuração no lado servidor
+<!--
+  Referência: https://angular.io/guide/deployment#production-servers
+-->
+
+
+- As aplicações Angular são candidatas perfeitas para serem publicadas em um servidor HTML estático
+  - Não é necessário criar as páginas dinamicamente no lado do servidor
+  - As visões são construídas dinamicamente no lado do cliente
+- Se a aplicação usa o router do Angular, é necessário configurar o servidor HTML para devolver a página `index.html` quando um arquivo que não existe é solicitado
+  - Isso permite o uso de **deep links**
+  - Por exemplo: http://www.mysite.com/heroes/42
+- O servidor de desenvolvimento já é pré-configurado com esse fallback
+
+--
+
+[//]: # (54/2)
+
+### configuração no lado servidor
+
+- Configuração apache
+
+```bash
+RewriteEngine On
+# If an existing asset or directory is requested go to it as it is
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+RewriteRule ^ - [L]
+
+# If the requested resource doesn't exist, use index.html
+RewriteRule ^ /index.html
+```
+
+--
+
+[//]: # (54/3)
+
+### configuração no lado servidor
+
+- Configuração nginx
+
+```bash
+try_files $uri $uri/ /index.html;
+```
+
+--
+
+[//]: # (54/4)
+
+### configuração no lado servidor
+
+- Comumente, a aplicação Angular é publicada em um servidor diferente do servidor da API backend
+- Por exemplo, na estação de trabalho do desenvolvedor:
+  - A aplicação Angular é publicada em http://localhost:4200
+  - A API é publicada em http://localhost:8080
+- Cross-Origin Resource Sharing (CORS)
+  - Por padrão, os navegadores bloqueiam uma requisição para outro servidor
+  - O servidor deve permitir a requisição explicitamente
+    - https://enable-cors.org
+
+--
+
+[//]: # (54/5)
+
+### configuração no lado servidor
+
+- Configuração apache
+
+```bash
+Header set Access-Control-Allow-Origin "*"
+```
+
+--
+
+[//]: # (54/6)
+
+### configuração no lado servidor
+
+- Configuração nginx
+
+<pre><code class="hljs medium">
+#
+# Wide-open CORS config for nginx
+#
+location / {
+     if ($request_method = 'OPTIONS') {
+        add_header 'Access-Control-Allow-Origin' '*';
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+        #
+        # Custom headers and headers various browsers *should* be OK with but aren't
+        #
+        add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range';
+        #
+        # Tell client that this pre-flight info is valid for 20 days
+        #
+        add_header 'Access-Control-Max-Age' 1728000;
+        add_header 'Content-Type' 'text/plain; charset=utf-8';
+        add_header 'Content-Length' 0;
+        return 204;
+     }
+     if ($request_method = 'POST') {
+        add_header 'Access-Control-Allow-Origin' '*';
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+        add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range';
+        add_header 'Access-Control-Expose-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range';
+     }
+     if ($request_method = 'GET') {
+        add_header 'Access-Control-Allow-Origin' '*';
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+        add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range';
+        add_header 'Access-Control-Expose-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range';
+     }
+}
+</code></pre>
+
+--
+
+[//]: # (54/7)
+
+### configuração no lado servidor
+
+- Configuração Demoiselle 3
+
+```java
+demoiselle.security.corsEnabled=true
+
+demoiselle.security.paramsHeaderCors.Access-Control-Allow-Headers=origin, content-type, accept, Authorization, Content-Range
+demoiselle.security.paramsHeaderCors.Access-Control-Allow-Credentials=true
+demoiselle.security.paramsHeaderCors.Access-Control-Allow-Origin=*
+demoiselle.security.paramsHeaderCors.Access-Control-Allow-Methods=HEAD, OPTIONS, TRACE, GET, POST, PUT, PATCH, DELETE
+demoiselle.security.paramsHeaderCors.Access-Control-Max-Age=86400
+```
+
+---
+
+[//]: # (55)
+### tópicos complementares
+
+- [Stories](https://github.com/angular/angular-cli/wiki/stories)
+- [Library](https://github.com/angular/angular-cli/wiki/stories-create-library) | +nexus
+- [Múltiplos Projetos](https://github.com/angular/angular-cli/wiki/stories-multiple-projects) (sub-apps)
+- UI - [Bootstrap](https://github.com/angular/angular-cli/wiki/stories-include-bootstrap) | [Angular Material](https://github.com/angular/angular-cli/wiki/stories-include-angular-material)
+- TDD - [Code Coverage](https://github.com/angular/angular-cli/wiki/stories-code-coverage)
+
+---
+
+[//]: # (56)
+
+### referências
+
+- Angular Docs: [https://angular.io/docs](https://angular.io/docs)
+- Angular CLI: [https://cli.angular.io](https://cli.angular.io)
+- Stackblits
+- Compodocs
+
+---
+
+[//]: # (57)
+
+### perguntas
+
+## placeholder
+
+<div class="center">
+    <i class="fa fa-question fa-8x fa-spin"></i>
+</div>
+
+
+
+
+
+
+

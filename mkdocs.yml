@@ -1,0 +1,39 @@
+site_name: Introdução ao Framework Angular
+repo_url: 'https://git.serpro/dedat/deat3/cursos/angular'
+docs_dir: 'docs'
+site_url: 'https://dedat.gitpages.serpro/deat3/angular'
+site_dir: 'site'
+theme:
+  name: 'material'
+  custom_dir: 'theme'
+extra_css:
+    - 'stylesheets/extra.css'
+markdown_extensions:
+  - admonition
+  - footnotes
+  - codehilite(linenums=true)
+  - toc(permalink=true)
+  - pymdownx.betterem(smart_enable=all)
+  - pymdownx.mark
+  - pymdownx.superfences
+  - pymdownx.details
+  - markdown.extensions.attr_list
+pages:
+  - 'Home': 'index.md'
+  - 'Exercícios':
+    - '01 - Instalação': 'exercicios/exercicio-01.md'
+    - '02 - Primeira Aplicação Angular': 'exercicios/exercicio-02.md'
+    - '02 - (complemento) Git.Serpro': 'exercicios/exercicio-02b.md'
+    - '03 - O Editor de Heróis': 'exercicios/exercicio-03.md'
+    - '04 - O Padrão Mestre/Detalhe': 'exercicios/exercicio-04.md'
+    - '05 - Componentes': 'exercicios/exercicio-05.md'
+    - '06 - Serviços': 'exercicios/exercicio-06.md'
+    - '07 - Navegação': 'exercicios/exercicio-07.md'
+    - '08 - HTTP': 'exercicios/exercicio-08.md'
+    - '09 - Lifecycle Hooks': 'exercicios/exercicio-09.md'
+    - '10 - Interação entre Componentes': 'exercicios/exercicio-10.md'
+    - '11 - Diretivas Estruturais': 'exercicios/exercicio-11.md'
+    - '12 - Diretivas de Atributo': 'exercicios/exercicio-12.md'
+    - '13 - Pipes': 'exercicios/exercicio-13.md'
+    - '14 - Template-Driven Forms': 'exercicios/exercicio-14.md'
+    - '15 - Reactive Forms': 'exercicios/exercicio-15.md'

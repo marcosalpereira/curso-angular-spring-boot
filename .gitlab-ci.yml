@@ -1,0 +1,30 @@
+variables:
+  GIT_SSL_NO_VERIFY: "true"
+
+stages:
+  - reveal-deps
+  - pages
+
+reveal-deps:
+  image: node:8
+  stage: reveal-deps
+  script:
+    - npm install
+  artifacts:
+    expire_in: 20 min
+    paths:
+      - node_modules
+
+pages:
+  image: hub.estaleiro.serpro/pipeline/python:3-alpine
+  stage: pages
+  dependencies:
+    - reveal-deps
+  before_script:
+    - pipi -r mkdocs-deps.txt
+  script:
+    - ./build.sh
+  artifacts:
+    paths:
+      - public
+
