@@ -23,7 +23,6 @@ pages:
   - 'Exercícios':
     - '01 - Instalação': 'exercicios/exercicio-01.md'
     - '02 - Primeira Aplicação Angular': 'exercicios/exercicio-02.md'
-    - '02 - (complemento) Git.Serpro': 'exercicios/exercicio-02b.md'
     - '03 - O Editor de Heróis': 'exercicios/exercicio-03.md'
     - '04 - O Padrão Mestre/Detalhe': 'exercicios/exercicio-04.md'
     - '05 - Componentes': 'exercicios/exercicio-05.md'

@@ -1,155 +1,15 @@
 [//]: # (0)
-### introdução ao framework angular
+### Curso Angular + Spring Boot
 
-<div class="center">
-    <img src="img/angular.png"
-        width="500" height="500"
-        style="border: none; box-shadow: none;" />
-</div>
+* Objetivos macros
+  * Angular
+  * Spring Boot
+  * **Construção Aplicação Completa**
 
 ---
 
 [//]: # (2)
-
-### apresentação
-
-- Nome
-- Experiência
-- Expectativa
-
---
-
-[//]: # (2/2)
-
-### horários
-
-- 08:10 - 11:50
-- Intervalo (15’) as 10:00 - [egg timer](https://e.ggtimer.com/15minutes)
-
---
-
-[//]: # (2/3)
-
-### suporte?
-
-<!--
-  (PRÓXIMO SLIDE) Explicar sobre "como tirar dúvidas?".
-  -->
-
-<div class="center">
-  ![](img/estou-confuso.gif)
-  <br>
-  Está com dúvidas ou dificuldades?
-</div>
-
---
-
-[//]: # (2/4)
-
-### contatos
-
-<!--
-  Explicar sobre "como tirar dúvidas?".
-  1) chat.serpro - https://chat.serpro.gov.br/channel/curso-introducao-angular
-  2) Colegas que podem apoiar
-  3) Intervalo tentamos fazer juntos
-  -->
-
-chat.serpro:
-
-- [#curso-introducao-angular](https://chat.serpro.gov.br/channel/curso-introducao-angular)
-- [#angularjs](https://chat.serpro.gov.br/channel/angularjs)
-- [#frontend](https://chat.serpro.gov.br/channel/frontend)
-
---
-
-[//]: # (2/5)
-
-<!--
-  Explicar sobre os níveis do curso e dos participantes.
-  - Não é bem "introdução".
-  - Vamos oscilar entre assuntos "superficiais" e "aprofundados".
-  - "Otimizações prematuras é a raiz de todo o mal"
-  - Mas não leia como "não faça otimizações!" ;)
- -->
-
-### "introdução"?
-
-<div class="center">
-  <br>
-  ![](img/nao-sei-o-que-estou-fazendo-mas-funciona.gif)
-</div>
-
---
-
-[//]: # (2/6)
-
-### como aproveitar melhor o curso?
-
-<!--
-  Sugestão: a imagem ajuda a falar sobre como aproveitar melhor o curso, incentivar a execução dos exercícios e convidar alguém para dar o próximo treinamento!
--->
-
-<div class="center" style="margin: 0 auto; max-width: 80%;">
-  ![](img/avg-retention.jpeg)
-</div>
-
----
-
-[//]: # (3)
-
-### agenda
-
-- Introdução
-- Arquitetura
-- The Tour of Heroes - [exemplo](https://lynookokpqe.angular.stackblitz.io)
-- Aprofundando os Conceitos
-- Publicação (deploy)
-- Bônus?
-
----
-
-[//]: # (4)
-
-### arquitetura / introdução
-
-- Arquiteturas Web Tradicionais
-- Arquiteturas Web Modernas
-- Angular
-  - O que é?
-  - A História
-  - Visão Geral da Arquitetura
-
---
-
-[//]: # (4/2)
-
 ### arquiteturas web tradicionais
-
-- Primeiros servidores Web (anos 90) eram simples servidores de arquivos estáticos
-- No entanto, surge a demanda por conteúdos dinâmicos em resposta à ação do usuário (ex: formulários)
-- Servidores Web passam a gerar páginas HTML em resposta às requisições HTTP
-  - CGI
-  - Web Application Containers
-
---
-
-[//]: # (4/3)
-
-### arquiteturas web tradicionais
-
-- CGI: Common Gateway Interface
-  - interface padrão para a delegação de requisições para aplicações externas
-  - Para cada requisição, o servidor cria um novo processo
-- Web Application Containers
-  - Padrões especificam como um container hospeda e executa aplicações Web (ex: Java EE)
-  - Requisições são atendidas por um pool de threads
-
---
-
-[//]: # (4/4)
-
-### arquiteturas web tradicionais - imagem
 
 <div class="center" style="margin: 0 auto; max-width: 80%;">
   ![Legacy](img/legacy-arch.png)
@@ -157,7 +17,7 @@ chat.serpro:
 
 --
 
-[//]: # (4/5)
+[//]: # (2/2)
 
 ### arquiteturas web tradicionais - desvantagens
 
@@ -169,7 +29,7 @@ chat.serpro:
 
 ---
 
-[//]: # (5)
+[//]: # (3)
 
 ### arquiteturas web modernas
 
@@ -179,38 +39,23 @@ chat.serpro:
 - A ideia é prover uma **UX similar** a de uma **aplicação nativa** (desktop / mobile)
 - Frameworks Javascripts
   - AngularJS, Angular, ReactJS, Vue.js, Ember.js, Meteor.js (...)
-  - https://hackernoon.com/5-best-javascript-frameworks-in-2017-7a63b3870282
 
 --
 
-[//]: # (5/2)
+[//]: # (3/2)
 
 ### arquiteturas web modernas
 
-- TSA: *Thin Server Architecure*
 - Servidor delega a lógica de construção das páginas Web para o cliente
   - Renderização dinâmica de páginas HTML
   - Fluxos e navegação entre páginas e etc.
 - Somente a lógica de negócio é implementada no lado servidor
   - Regras de negócio, persistência, segurança e etc
-
---
-
-[//]: # (5/3)
-
-### arquiteturas web modernas
-
-- SOFEA: *Service-Oriented Front-End Architecture*
-- É um padrão arquitetural e não uma implementação
-- Princípios:
-  - Download da aplicação (HTML, Javascript, CSS) de uma única vez
-  - Toda lógica da apresentação é responsabilidade do cliente
-  - Toda comunicação com o servidor deve ser feito via serviços (REST, SOAP, GraphQL e etc)
 - Padrão de-facto para aplicações na nuvem
 
 --
 
-[//]: # (5/4)
+[//]: # (3/3)
 
 ### arquiteturas web modernas - imagem
 
@@ -220,7 +65,7 @@ chat.serpro:
 
 --
 
-[//]: # (5/5)
+[//]: # (3/4)
 
 ### arquiteturas web modernas
 
@@ -231,7 +76,7 @@ chat.serpro:
 
 --
 
-[//]: # (5/6)
+[//]: # (3/5)
 
 ### escalabilidade
 
@@ -241,16 +86,7 @@ chat.serpro:
 
 ---
 
-[//]: # (6)
-
-### Partiu angular!!!
-<img src="img/angular.png"
-    width="500" height="500"
-    style="border: none; box-shadow: none;" />
-
----
-
-[//]: # (7)
+[//]: # (4)
 
 ### angular: o que é?
 
@@ -265,40 +101,7 @@ chat.serpro:
 
 --
 
-[//]: # (7/2)
-
-### angular: a história
-
-- AngularJS (ou Angular 1) surgiu em 2009
-  - Atualmente na versão 1.7 e ainda bastante popular na comunidade
-  - 58.000+ estrelas e 1500+ contribuidores no GitHub
-- Extensão do HTML para apresentação de conteúdo dinâmico
-  - **Two-way Data Binding:** sincronia entre model e view
-  - **Controllers:** definição do comportamento da aplicação
-  - **Directives:** sintaxe HTML (tags, atributos, classes CSS) específica para a aplicação
-  - **Dependency Injection:** descrição declarativa de dependências, facilitando o reuso e a testabilidade de componentes
-- https://angularjs.org
-
---
-
-[//]: # (7/3)
-
-### angular: a história
-
-- Em 2014, a equipe do AngularJS anunciou o desenvolvimento do Angular2
-  - Versão final foi lançada em 14 de setembro 2016
-- "AngularJS" passa a ser conhecido somente como "Angular"
-  - A incompatibilidade com a versão 1 gerou bastante controvérsia
-- Foco em produtividade, desempenho e maior proximidade com Web Components
-  - http://blog.angular-university.io/introduction-to-angular2-the-main-goals/
-- Em 2016, o Angular 4 foi anunciado
-  - Versão final foi lançada em 23 de março de 2017
-  - Versão 3 foi "pulada" para o alinhamento de versão dos componentes internos
-- https://angular.io
-
---
-
-[//]: # (7/4)
+[//]: # (4/2)
 
 ### angular: visão geral da arquitetura
 
@@ -310,25 +113,17 @@ chat.serpro:
 
 --
 
-[//]: # (7/5)
+[//]: # (4/3)
+### angular: visão geral da arquitetura
+
 
 <div class="center">
   ![](img/angular-arch.png)
 </div>
 
---
-
-[//]: # (7/6)
-
-### não se assuste!
-
-<div class="center">
-  ![](img/one-eye-blinking.gif)
-</div>
-
 ---
 
-[//]: # (8)
+[//]: # (5)
 
 ### instalação
 
@@ -339,7 +134,7 @@ chat.serpro:
 
 --
 
-[//]: # (8/2)
+[//]: # (5/2)
 
 ### pré-requisitos
 
@@ -355,7 +150,7 @@ chat.serpro:
 
 --
 
-[//]: # (8/3)
+[//]: # (5/3)
 
 ### pré-requisitos
 
@@ -365,7 +160,7 @@ chat.serpro:
 
 --
 
-[//]: # (8/4)
+[//]: # (5/4)
 
 ### [exercício 01](../exercicios/exercicio-01)
 
@@ -374,7 +169,7 @@ chat.serpro:
 
 ---
 
-[//]: # (9)
+[//]: # (6)
 
 ### angular cli
 
@@ -390,7 +185,7 @@ chat.serpro:
 
 ---
 
-[//]: # (10)
+[//]: # (7)
 
 ### a anatomia da aplicação
 
@@ -405,7 +200,7 @@ chat.serpro:
 
 --
 
-[//]: # (10/2)
+[//]: # (7/2)
 
 ### a anatomia da aplicação
 
@@ -419,7 +214,7 @@ chat.serpro:
 
 --
 
-[//]: # (10/3)
+[//]: # (7/3)
 
 ### a anatomia da aplicação
 
@@ -432,7 +227,7 @@ chat.serpro:
 
 --
 
-[//]: # (10/4)
+[//]: # (7/4)
 
 ### a anatomia da aplicação
 
@@ -445,7 +240,7 @@ chat.serpro:
 
 --
 
-[//]: # (10/5)
+[//]: # (7/5)
 
 ### a anatomia da aplicação
 
@@ -458,7 +253,7 @@ chat.serpro:
 
 --
 
-[//]: # (10/6)
+[//]: # (7/6)
 
 ### a anatomia da aplicação
 
@@ -471,7 +266,7 @@ chat.serpro:
 
 --
 
-[//]: # (10/7)
+[//]: # (7/7)
 
 ### a anatomia da aplicação
 
@@ -482,19 +277,16 @@ chat.serpro:
 
 ---
 
-[//]: # (11)
+[//]: # (8)
 
 ### [exercício 02](../exercicios/exercicio-02)
 
 - Objetivo: instalar o Angular CLI, criar e rodar a primeira aplicação Angular
 - Tempo: [15’](https://e.ggtimer.com/15minutes)
 
-- [Complemento](../exercicios/exercicio-02b) - versionar no [git.serpro](https://git.serpro/)
-- Tempo: [10’](https://e.ggtimer.com/10minutes)
-
 ---
 
-[//]: # (12)
+[//]: # (9)
 
 ### suporte a browsers
 
@@ -504,7 +296,7 @@ chat.serpro:
 
 --
 
-[//]: # (12/2)
+[//]: # (9/2)
 
 ### suporte a browsers
 
@@ -517,7 +309,7 @@ chat.serpro:
 
 --
 
-[//]: # (12/3)
+[//]: # (9/3)
 
 ### suporte a browsers
 
@@ -527,7 +319,7 @@ chat.serpro:
 
 --
 
-[//]: # (12/4)
+[//]: # (9/4)
 
 ### suporte a browsers
 
@@ -536,7 +328,7 @@ chat.serpro:
 
 ---
 
-[//]: # (13)
+[//]: # (10)
 
 ### arquitetura
 
@@ -554,7 +346,7 @@ chat.serpro:
 
 --
 
-[//]: # (13/2)
+[//]: # (10/2)
 
 ### visão geral
 
@@ -567,7 +359,7 @@ chat.serpro:
 
 --
 
-[//]: # (13/3)
+[//]: # (10/3)
 
 ### visão geral
 
@@ -579,7 +371,7 @@ chat.serpro:
 
 --
 
-[//]: # (13/4)
+[//]: # (10/4)
 
 ### visão geral
 
@@ -589,7 +381,7 @@ chat.serpro:
 
 ---
 
-[//]: # (14)
+[//]: # (11)
 
 ### módulos
 
@@ -603,7 +395,7 @@ chat.serpro:
 
 --
 
-[//]: # (14/2)
+[//]: # (11/2)
 
 ### módulos
 
@@ -617,7 +409,7 @@ chat.serpro:
 
 --
 
-[//]: # (14/3)
+[//]: # (11/3)
 
 ### módulos
 
@@ -645,7 +437,7 @@ export class AppModule {}
 
 --
 
-[//]: # (14/4)
+[//]: # (11/4)
 
 ### módulos
 
@@ -661,7 +453,7 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 
 --
 
-[//]: # (14/5)
+[//]: # (11/5)
 
 ### módulos
 
@@ -675,7 +467,7 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 
 --
 
-[//]: # (14/6)
+[//]: # (11/6)
 
 ### módulos
 
@@ -689,7 +481,7 @@ import { Component } from "@angular/core";
 
 --
 
-[//]: # (14/7)
+[//]: # (11/7)
 
 ### módulos frequentes - part 1
 
@@ -703,7 +495,7 @@ import { Component } from "@angular/core";
 
 --
 
-[//]: # (14/8)
+[//]: # (11/8)
 
 ### módulos frequentes - part 2
 
@@ -714,7 +506,7 @@ import { Component } from "@angular/core";
 
 --
 
-[//]: # (14/9)
+[//]: # (11/9)
 
 ### módulos frequentes - part 3
 
@@ -725,7 +517,7 @@ import { Component } from "@angular/core";
 
 ---
 
-[//]: # (15)
+[//]: # (12)
 
 ### componentes
 
@@ -751,7 +543,7 @@ export class HeroListComponent implements OnInit {
 
 --
 
-[//]: # (15/2)
+[//]: # (12/2)
 
 ### componentes
 
@@ -774,7 +566,7 @@ export class PeekABoo implements OnInit {
 
 ---
 
-[//]: # (16)
+[//]: # (13)
 
 ### templates
 
@@ -789,15 +581,13 @@ export class PeekABoo implements OnInit {
     <span>{{hero.name}}</span>
     <button type="button" (click)="selectHero(hero)">Selecionar</button>
   </li>
-  <!-- <li *ngFor="let hero of heroes" (click)="selectHero(hero)"> -->
-  <!-- ATENÇÃO: use elementos acessíveis por padrão! -->
 </ul>
 <hero-detail *ngIf="selectedHero" [hero]="selectedHero"></hero-detail>
 ```
 
 --
 
-[//]: # (16/2)
+[//]: # (13/2)
 
 ### templates
 
@@ -812,29 +602,22 @@ export class PeekABoo implements OnInit {
 ```html
 <h3>
     {{title}}
-    <!-- NÃO! <img src="{{heroImageUrl}}" alt="...">  (interpolação) -->
-    <img [src]="heroImageUrl" alt="..."> <!-- property binding -->
 </h3>
 ```
-<!--  problema é que se for usado src={{heroImageUrl}} e a variável demorar para "resolvida", a tag image irá ser renderizada com erro e, após a resolução da variável, a imagem poderá carregar corretamente -->
 
 - A expressão também pode invocar métodos do **componente**
 
+```html
+<h3>
+    {{getTitle()}}
+</h3>
+```
+
 --
 
-[//]: # (16/3)
+[//]: # (13/3)
 
 ### templates
-
-<!-- TODO: criar um stackblitz para mostrar os erros no console -->
-
-- Uma **expressão** (_expression_) produz um valor que é atribuído a uma propriedade
-  - Propriedade de um elemento HTML, de um **componente** ou de uma **diretiva**
-
-```html
-{{title}}
-<span [hidden]="!isChanged">changed</span>
-```
 
 - As **expressões** não produzem efeitos colaterais (além de atualizar a propriedade, é claro)
 - Sintaxe semelhante ao JavaScript
@@ -842,7 +625,7 @@ export class PeekABoo implements OnInit {
 
 --
 
-[//]: # (16/4)
+[//]: # (13/4)
 
 ### templates
 
@@ -861,22 +644,9 @@ export class PeekABoo implements OnInit {
   - Proibido: new; incremento e decremento (++ e –); operadores de atribuição (+=, -=, …)
   - Permitido: atribuição básica (=); encadeamento de expressões (; ou ,)
 
---
-
-[//]: # (16/5)
-
-### templates
-
-- Elementos customizados no **template** representam novos componentes
-- Cria-se um componente filho na hierarquia de componentes
-
-<div class="center">
-  ![](img/comp-hier.png)
-</div>
-
 ---
 
-[//]: # (17)
+[//]: # (14)
 
 ### metadados
 
@@ -897,8 +667,8 @@ export class HeroListComponent implements OnInit {
 
 --
 
-[//]: # (17/2)
-
+[//]: # (14/2)
+ PAREI AQUI
 ### metadados
 
 - `@Component`
@@ -912,7 +682,7 @@ export class HeroListComponent implements OnInit {
 
 --
 
-[//]: # (17/3)
+[//]: # (14/3)
 
 ### metadados
 
@@ -925,7 +695,7 @@ export class HeroListComponent implements OnInit {
 
 ---
 
-[//]: # (18)
+[//]: # (15)
 
 ### data binding
 
@@ -938,7 +708,7 @@ export class HeroListComponent implements OnInit {
 
 --
 
-[//]: # (18/2)
+[//]: # (15/2)
 
 ### data binding
 
@@ -957,7 +727,7 @@ export class HeroListComponent implements OnInit {
 
 --
 
-[//]: # (18/3)
+[//]: # (15/3)
 
 ### data binding
 
@@ -972,7 +742,7 @@ export class HeroListComponent implements OnInit {
 
 --
 
-[//]: # (18/4)
+[//]: # (15/4)
 
 ### data binding
 
@@ -983,7 +753,7 @@ export class HeroListComponent implements OnInit {
 
 ---
 
-[//]: # (19)
+[//]: # (16)
 
 ### diretivas
 
@@ -996,7 +766,7 @@ export class HeroListComponent implements OnInit {
 
 --
 
-[//]: # (19/2)
+[//]: # (16/2)
 
 ### diretivas
 
@@ -1018,7 +788,7 @@ export class HeroListComponent implements OnInit {
 
 --
 
-[//]: # (19/3)
+[//]: # (16/3)
 
 ### diretivas
 
@@ -1039,7 +809,7 @@ O asterisco é um **_Syntactic Sugar_**. Uma sintaxe mais simples que é traduzi
 
 --
 
-[//]: # (19/4)
+[//]: # (16/4)
 
 ### diretivas
 
@@ -1057,7 +827,7 @@ O asterisco é um **_Syntactic Sugar_**. Uma sintaxe mais simples que é traduzi
 
 --
 
-[//]: # (19/5)
+[//]: # (16/5)
 
 ### diretivas
 
@@ -1082,7 +852,7 @@ export class HighlightDirective {
 
 --
 
-[//]: # (19/6)
+[//]: # (16/6)
 
 ### diretivas
 
@@ -1104,7 +874,7 @@ private highlight(color: string) {
 
 --
 
-[//]: # (19/7)
+[//]: # (16/7)
 
 ### diretivas
 
@@ -1130,7 +900,7 @@ private highlight(color: string) {
 
 ---
 
-[//]: # (20)
+[//]: # (17)
 
 ### serviços
 
@@ -1144,7 +914,7 @@ private highlight(color: string) {
 
 --
 
-[//]: # (20/2)
+[//]: # (17/2)
 
 ### serviços
 
@@ -1169,7 +939,7 @@ export class Logger {
 
 --
 
-[//]: # (20/3)
+[//]: # (17/3)
 
 ### injeção de dependências
 
@@ -1183,7 +953,7 @@ constructor(private service: HeroService) {}
 
 --
 
-[//]: # (20/4)
+[//]: # (17/4)
 
 ### injeção de dependências
 
@@ -1195,7 +965,7 @@ constructor(private service: HeroService) {}
 
 --
 
-[//]: # (20/5)
+[//]: # (17/5)
 
 ### injeção de dependências
 
@@ -1209,7 +979,7 @@ constructor(private service: HeroService) {}
 
 --
 
-[//]: # (20/6)
+[//]: # (17/6)
 
 ### injeção de dependências
 
@@ -1239,7 +1009,7 @@ constructor(private service: HeroService) {}
 
 ---
 
-[//]: # (21)
+[//]: # (18)
 
 ### the tour of heroes
 
@@ -1253,7 +1023,7 @@ constructor(private service: HeroService) {}
 
 ---
 
-[//]: # (22)
+[//]: # (19)
 
 ### toh - introdução
 
@@ -1265,7 +1035,7 @@ constructor(private service: HeroService) {}
 
 --
 
-[//]: # (22/2)
+[//]: # (19/2)
 
 ### toh - introdução
 
@@ -1280,7 +1050,7 @@ constructor(private service: HeroService) {}
 
 --
 
-[//]: # (22/3)
+[//]: # (19/3)
 
 ### toh - introdução - dashboard
 
@@ -1290,7 +1060,7 @@ Dashboard:
 
 --
 
-[//]: # (22/4)
+[//]: # (19/4)
 
 ### toh - introdução - lista de heróis
 
@@ -1299,7 +1069,7 @@ Dashboard:
 
 --
 
-[//]: # (22/5)
+[//]: # (19/5)
 
 ### toh - introdução - editor de herói
 
@@ -1307,7 +1077,7 @@ Dashboard:
 
 --
 
-[//]: # (22/6)
+[//]: # (19/6)
 
 ### toh - introdução - navegação
 
@@ -1315,7 +1085,7 @@ Dashboard:
 
 --
 
-[//]: # (22/7)
+[//]: # (19/7)
 
 ### toh - introdução - demonstração
 
@@ -1326,7 +1096,7 @@ Referência: [versão oficial](https://stackblitz.com/angular/lynookokpqe)
 
 ---
 
-[//]: # (23)
+[//]: # (20)
 
 ### o editor de heróis
 
@@ -1337,7 +1107,7 @@ Referência: [versão oficial](https://stackblitz.com/angular/lynookokpqe)
 
 --
 
-[//]: # (23/2)
+[//]: # (20/2)
 
 ### o editor de heróis
 
@@ -1359,7 +1129,7 @@ ng serve --open
 
 --
 
-[//]: # (23/3)
+[//]: # (20/3)
 
 ### o editor de heróis
 
@@ -1377,7 +1147,7 @@ export class AppComponent {
 
 --
 
-[//]: # (23/4)
+[//]: # (20/4)
 
 ### o editor de heróis
 
@@ -1393,7 +1163,7 @@ export class AppComponent {
 
 --
 
-[//]: # (23/5)
+[//]: # (20/5)
 
 ### o editor de heróis
 
@@ -1409,7 +1179,7 @@ export class Hero {
 
 --
 
-[//]: # (23/6)
+[//]: # (20/6)
 
 ### o editor de heróis
 
@@ -1425,7 +1195,7 @@ hero: Hero = {
 
 --
 
-[//]: # (23/7)
+[//]: # (20/7)
 
 ### o editor de heróis
 
@@ -1438,7 +1208,7 @@ hero: Hero = {
 
 --
 
-[//]: # (23/8)
+[//]: # (20/8)
 
 ### o editor de heróis
 
@@ -1453,7 +1223,7 @@ Agora, altere o template para exibir também o **id** do herói conforme abaixo:
 
 --
 
-[//]: # (23/9)
+[//]: # (20/9)
 
 ### o editor de heróis
 
@@ -1470,7 +1240,7 @@ Agora, altere o template para exibir também o **id** do herói conforme abaixo:
 
 --
 
-[//]: # (23/10)
+[//]: # (20/10)
 
 ### o editor de heróis
 
@@ -1482,7 +1252,7 @@ Agora, altere o template para exibir também o **id** do herói conforme abaixo:
 
 --
 
-[//]: # (23/11)
+[//]: # (20/11)
 
 ### o editor de heróis
 
@@ -1494,7 +1264,7 @@ Agora, altere o template para exibir também o **id** do herói conforme abaixo:
 
 --
 
-[//]: # (23/12)
+[//]: # (20/12)
 
 ### o editor de heróis
 
@@ -1523,7 +1293,7 @@ export class AppModule { }
 
 --
 
-[//]: # (23/13)
+[//]: # (20/13)
 
 ### o que aprendemos
 
@@ -1532,7 +1302,7 @@ export class AppModule { }
 
 ---
 
-[//]: # (24)
+[//]: # (21)
 
 ### [exercício 03](../exercicios/exercicio-03)
 
@@ -1541,7 +1311,7 @@ export class AppModule { }
 
 ---
 
-[//]: # (25)
+[//]: # (22)
 
 ### o padrão mestre/detalhe
 
@@ -1555,7 +1325,7 @@ npm start
 
 --
 
-[//]: # (25/2)
+[//]: # (22/2)
 
 ### mestre/detalhe - lista
 
@@ -1566,7 +1336,7 @@ npm start
 
 --
 
-[//]: # (25/3)
+[//]: # (22/3)
 
 ### mestre/detalhe - lista
 
@@ -1589,7 +1359,7 @@ const HEROES: Hero[] = [
 
 --
 
-[//]: # (25/4)
+[//]: # (22/4)
 
 ### mestre/detalhe - lista
 
@@ -1605,7 +1375,7 @@ export class AppComponent {
 
 --
 
-[//]: # (25/5)
+[//]: # (22/5)
 
 ### mestre/detalhe - lista
 
@@ -1623,7 +1393,7 @@ export class AppComponent {
 
 --
 
-[//]: # (25/6)
+[//]: # (22/6)
 
 ### mestre/detalhe - lista
 
@@ -1638,7 +1408,7 @@ export class AppComponent {
 
 --
 
-[//]: # (25/7)
+[//]: # (22/7)
 
 ### mestre/detalhe - lista
 
@@ -1656,7 +1426,7 @@ export class AppComponent {
 
 --
 
-[//]: # (25/8)
+[//]: # (22/8)
 
 ### mestre/detalhe - css
 
@@ -1668,7 +1438,7 @@ export class AppComponent {
 
 --
 
-[//]: # (25/9)
+[//]: # (22/9)
 
 ### mestre/detalhe - css
 
@@ -1730,7 +1500,7 @@ styles: [
 
 --
 
-[//]: # (25/10)
+[//]: # (22/10)
 
 ### mestre/detalhe - css
 
@@ -1742,7 +1512,7 @@ styles: [
 
 --
 
-[//]: # (25/11)
+[//]: # (22/11)
 
 ### mestre/detalhe
 
@@ -1755,7 +1525,7 @@ styles: [
 
 --
 
-[//]: # (25/12)
+[//]: # (22/12)
 
 ### mestre/detalhe - select hero
 
@@ -1769,7 +1539,7 @@ styles: [
 
 --
 
-[//]: # (25/13)
+[//]: # (22/13)
 
 ### mestre/detalhe - detalhes
 
@@ -1781,7 +1551,7 @@ styles: [
 
 --
 
-[//]: # (25/14)
+[//]: # (22/14)
 
 ### mestre/detalhe - detalhes
 
@@ -1801,7 +1571,7 @@ onSelect(hero: Hero): void {
 
 --
 
-[//]: # (25/15)
+[//]: # (22/15)
 
 ### mestre/detalhe - detalhes
 
@@ -1818,7 +1588,7 @@ onSelect(hero: Hero): void {
 
 --
 
-[//]: # (25/16)
+[//]: # (22/16)
 
 ### mestre/detalhe - erro!
 
@@ -1831,7 +1601,7 @@ onSelect(hero: Hero): void {
 
 --
 
-[//]: # (25/17)
+[//]: # (22/17)
 
 ### mestre/detalhe - erro!
 
@@ -1851,7 +1621,7 @@ onSelect(hero: Hero): void {
 
 --
 
-[//]: # (25/18)
+[//]: # (22/18)
 
 ### mestre/detalhe - erro resolvido
 
@@ -1862,7 +1632,7 @@ onSelect(hero: Hero): void {
 
 --
 
-[//]: # (25/19)
+[//]: # (22/19)
 
 ### mestre/detalhe - class.selected
 
@@ -1880,7 +1650,7 @@ onSelect(hero: Hero): void {
 
 --
 
-[//]: # (25/20)
+[//]: # (22/20)
 
 ### mestre/detalhe - class.selected
 
@@ -1890,7 +1660,7 @@ onSelect(hero: Hero): void {
 
 --
 
-[//]: # (25/21)
+[//]: # (22/21)
 
 ### o que aprendemos
 
@@ -1900,7 +1670,7 @@ onSelect(hero: Hero): void {
 
 ---
 
-[//]: # (26)
+[//]: # (23)
 
 ### [exercício 04](../exercicios/exercicio-04)
 
@@ -1909,7 +1679,7 @@ onSelect(hero: Hero): void {
 
 ---
 
-[//]: # (27)
+[//]: # (24)
 
 ### componentes
 
@@ -1923,7 +1693,7 @@ npm start
 
 --
 
-[//]: # (27/2)
+[//]: # (24/2)
 
 ### componentes
 
@@ -1938,7 +1708,7 @@ npm start
 
 --
 
-[//]: # (27/3)
+[//]: # (24/3)
 
 ### componentes - herodetail
 
@@ -1950,7 +1720,7 @@ npm start
 
 --
 
-[//]: # (27/4)
+[//]: # (24/4)
 
 ### componentes - herodetail
 
@@ -1967,7 +1737,7 @@ export class HeroDetailComponent { }
 
 --
 
-[//]: # (27/5)
+[//]: # (24/5)
 
 ### componentes - herodetail
 
@@ -1978,7 +1748,7 @@ export class HeroDetailComponent { }
 
 --
 
-[//]: # (27/6)
+[//]: # (24/6)
 
 ### componentes - herodetail template
 
@@ -1989,7 +1759,7 @@ export class HeroDetailComponent { }
 
 --
 
-[//]: # (27/7)
+[//]: # (24/7)
 
 ### componentes
 
@@ -2008,7 +1778,7 @@ Template (`hero-detail.component.html`)
 
 --
 
-[//]: # (27/8)
+[//]: # (24/8)
 
 ### componentes - herodetailscomponent
 
@@ -2026,7 +1796,7 @@ export class HeroDetailComponent {
 
 --
 
-[//]: # (27/9)
+[//]: # (24/9)
 
 ### componentes - hero class
 
@@ -2047,7 +1817,7 @@ import { Hero } from "./hero";
 
 --
 
-[//]: # (27/10)
+[//]: # (24/10)
 
 ### componentes - hero binding
 
@@ -2063,7 +1833,7 @@ import { Hero } from "./hero";
 
 --
 
-[//]: # (27/11)
+[//]: # (24/11)
 
 ### componentes - hero input
 
@@ -2082,7 +1852,7 @@ import { Component, Input } from "@angular/core";
 
 --
 
-[//]: # (27/12)
+[//]: # (24/12)
 
 ### componentes - herodetailcomponent
 
@@ -2103,7 +1873,7 @@ export class HeroDetailComponent {
 
 --
 
-[//]: # (27/13)
+[//]: # (24/13)
 
 ### componentes - declaração
 
@@ -2118,7 +1888,7 @@ import { HeroDetailComponent } from "./hero-detail.component";
 
 --
 
-[//]: # (27/14)
+[//]: # (24/14)
 
 ### componentes - declaração
 
@@ -2133,7 +1903,7 @@ declarations: [
 
 --
 
-[//]: # (27/15)
+[//]: # (24/15)
 
 ### componentes
 
@@ -2156,7 +1926,7 @@ declarations: [
 
 --
 
-[//]: # (27/16)
+[//]: # (24/16)
 
 ### componentes
 
@@ -2170,7 +1940,7 @@ declarations: [
 
 --
 
-[//]: # (27/17)
+[//]: # (24/17)
 
 ### o que aprendemos
 
@@ -2181,7 +1951,7 @@ declarations: [
 
 ---
 
-[//]: # (28)
+[//]: # (25)
 
 ### [exercício 05](../exercicios/exercicio-05)
 
@@ -2190,7 +1960,7 @@ declarations: [
 
 ---
 
-[//]: # (29)
+[//]: # (26)
 
 ### serviços
 
@@ -2204,7 +1974,7 @@ npm start
 
 --
 
-[//]: # (29/2)
+[//]: # (26/2)
 
 ### serviços
 
@@ -2218,7 +1988,7 @@ npm start
 
 --
 
-[//]: # (29/3)
+[//]: # (26/3)
 
 ### serviços
 
@@ -2247,7 +2017,7 @@ app-exemplo/
 
 --
 
-[//]: # (29/4)
+[//]: # (26/4)
 
 ### serviços
 
@@ -2263,7 +2033,7 @@ export class HeroService {}
 
 --
 
-[//]: # (29/5)
+[//]: # (26/5)
 
 ### serviços
 
@@ -2280,7 +2050,7 @@ export class HeroService {
 
 --
 
-[//]: # (29/6)
+[//]: # (26/6)
 
 ### serviços
 
@@ -2306,7 +2076,7 @@ export const HEROES: Hero[] = [
 
 --
 
-[//]: # (29/7)
+[//]: # (26/7)
 
 ### serviços
 
@@ -2318,7 +2088,7 @@ heroes: Hero[];
 
 --
 
-[//]: # (29/8)
+[//]: # (26/8)
 
 ### serviços
 
@@ -2338,7 +2108,7 @@ export class HeroService {
 
 --
 
-[//]: # (29/9)
+[//]: # (26/9)
 
 ### serviços
 
@@ -2357,7 +2127,7 @@ heroService = new HeroService(); // don't do this
 
 --
 
-[//]: # (29/10)
+[//]: # (26/10)
 
 ### serviços
 
@@ -2371,7 +2141,7 @@ heroService = new HeroService(); // don't do this
 
 --
 
-[//]: # (29/11)
+[//]: # (26/11)
 
 ### serviços
 
@@ -2388,7 +2158,7 @@ constructor(private heroService: HeroService) { }
 
 --
 
-[//]: # (29/12)
+[//]: # (26/12)
 
 ### serviços
 
@@ -2404,7 +2174,7 @@ providers: [HeroService];
 
 --
 
-[//]: # (29/13)
+[//]: # (26/13)
 
 ### serviços
 
@@ -2422,7 +2192,7 @@ getHeroes(): void {
 
 --
 
-[//]: # (29/14)
+[//]: # (26/14)
 
 ### serviços
 
@@ -2434,7 +2204,7 @@ getHeroes(): void {
 
 --
 
-[//]: # (29/15)
+[//]: # (26/15)
 
 ### serviços
 
@@ -2453,7 +2223,7 @@ export class AppComponent implements OnInit {
 
 --
 
-[//]: # (29/16)
+[//]: # (26/16)
 
 ### serviços
 
@@ -2470,7 +2240,7 @@ ngOnInit(): void {
 
 --
 
-[//]: # (29/17)
+[//]: # (26/17)
 
 ### serviços
 
@@ -2483,7 +2253,7 @@ ngOnInit(): void {
 
 --
 
-[//]: # (29/18)
+[//]: # (26/18)
 
 ### serviços
 
@@ -2500,7 +2270,7 @@ getHeroes(): Promise<Hero[]> {
 
 --
 
-[//]: # (29/19)
+[//]: # (26/19)
 
 ### serviços
 
@@ -2517,7 +2287,7 @@ getHeroes(): void {
 
 --
 
-[//]: # (29/20)
+[//]: # (26/20)
 
 ### variações tratamento da resposta do promise...
 
@@ -2536,7 +2306,7 @@ this.heroService.getHeroes().then((heroes: Hero[]) => {
 
 --
 
-[//]: # (29/21)
+[//]: # (26/21)
 
 ### serviços
 
@@ -2553,7 +2323,7 @@ getHeroesSlowly(): Promise<Hero[]> {
 
 --
 
-[//]: # (29/22)
+[//]: # (26/22)
 
 ### serviços
 
@@ -2562,7 +2332,7 @@ getHeroesSlowly(): Promise<Hero[]> {
 
 --
 
-[//]: # (29/23)
+[//]: # (26/23)
 
 ### o que aprendemos
 
@@ -2573,7 +2343,7 @@ getHeroesSlowly(): Promise<Hero[]> {
 
 ---
 
-[//]: # (30)
+[//]: # (27)
 
 ### [exercício 06](../exercicios/exercicio-06)
 
@@ -2582,7 +2352,7 @@ getHeroesSlowly(): Promise<Hero[]> {
 
 ---
 
-[//]: # (31)
+[//]: # (28)
 
 ### navegação / rotas
 
@@ -2596,7 +2366,7 @@ npm start
 
 --
 
-[//]: # (31/2)
+[//]: # (28/2)
 
 ### navegação
 
@@ -2609,7 +2379,7 @@ npm start
 
 --
 
-[//]: # (31/3)
+[//]: # (28/3)
 
 ### navegação
 
@@ -2619,7 +2389,7 @@ npm start
 
 --
 
-[//]: # (31/4)
+[//]: # (28/4)
 
 ### navegação
 
@@ -2647,7 +2417,7 @@ app-exemplo/
 
 --
 
-[//]: # (31/5)
+[//]: # (28/5)
 
 ### navegação
 
@@ -2660,7 +2430,7 @@ app-exemplo/
 
 --
 
-[//]: # (31/6)
+[//]: # (28/6)
 
 ### navegação
 
@@ -2672,7 +2442,7 @@ app-exemplo/
 
 --
 
-[//]: # (31/7)
+[//]: # (28/7)
 
 ### navegação
 
@@ -2690,7 +2460,7 @@ export class HeroesComponent implements OnInit {}
 
 --
 
-[//]: # (31/8)
+[//]: # (28/8)
 
 ### navegação
 
@@ -2705,7 +2475,7 @@ export class HeroesComponent implements OnInit {}
 
 --
 
-[//]: # (31/9)
+[//]: # (28/9)
 
 ### navegação
 
@@ -2719,7 +2489,7 @@ export class HeroesComponent implements OnInit {}
 
 --
 
-[//]: # (31/10)
+[//]: # (28/10)
 
 ### navegação
 
@@ -2742,7 +2512,7 @@ export class AppComponent {
 
 --
 
-[//]: # (31/11)
+[//]: # (28/11)
 
 ### navegação
 
@@ -2773,7 +2543,7 @@ export class AppModule {}
 
 --
 
-[//]: # (31/12)
+[//]: # (28/12)
 
 ### navegação
 
@@ -2790,7 +2560,7 @@ export class AppModule {}
 
 --
 
-[//]: # (31/13)
+[//]: # (28/13)
 
 ### navegação
 
@@ -2804,7 +2574,7 @@ export class AppModule {}
 
 --
 
-[//]: # (31/14)
+[//]: # (28/14)
 
 ### navegação
 
@@ -2822,7 +2592,7 @@ RouterModule.forRoot([
 
 --
 
-[//]: # (31/15)
+[//]: # (28/15)
 
 ### navegação
 
@@ -2861,7 +2631,7 @@ export class AppModule {}
 
 --
 
-[//]: # (31/16)
+[//]: # (28/16)
 
 ### navegação
 
@@ -2874,7 +2644,7 @@ export class AppModule {}
 
 --
 
-[//]: # (31/17)
+[//]: # (28/17)
 
 ### navegação
 
@@ -2890,7 +2660,7 @@ template: `
 
 --
 
-[//]: # (31/18)
+[//]: # (28/18)
 
 ### navegação
 
@@ -2914,7 +2684,7 @@ export class AppComponent {
 
 --
 
-[//]: # (31/19)
+[//]: # (28/19)
 
 ### navegação
 
@@ -2931,7 +2701,7 @@ export class DashboardComponent {}
 
 --
 
-[//]: # (31/20)
+[//]: # (28/20)
 
 ### navegação
 
@@ -2947,7 +2717,7 @@ export class DashboardComponent {}
 
 --
 
-[//]: # (31/21)
+[//]: # (28/21)
 
 ### navegação
 
@@ -2964,7 +2734,7 @@ declarations: [
 
 --
 
-[//]: # (31/22)
+[//]: # (28/22)
 
 ### navegação
 
@@ -2981,7 +2751,7 @@ declarations: [
 
 --
 
-[//]: # (31/23)
+[//]: # (28/23)
 
 ### navegação
 
@@ -3000,7 +2770,7 @@ template: `
 
 --
 
-[//]: # (31/24)
+[//]: # (28/24)
 
 ### navegação
 
@@ -3016,7 +2786,7 @@ Component({
 
 --
 
-[//]: # (31/25)
+[//]: # (28/25)
 
 ### navegação
 
@@ -3035,7 +2805,7 @@ Component({
 
 --
 
-[//]: # (31/26)
+[//]: # (28/26)
 
 ### navegação
 
@@ -3052,7 +2822,7 @@ import { HeroService } from "./hero.service";
 
 --
 
-[//]: # (31/27)
+[//]: # (28/27)
 
 ### navegação
 
@@ -3074,7 +2844,7 @@ export class DashboardComponent implements OnInit {
 
 --
 
-[//]: # (31/28)
+[//]: # (28/28)
 
 ### navegação
 
@@ -3089,7 +2859,7 @@ export class DashboardComponent implements OnInit {
 
 --
 
-[//]: # (31/29)
+[//]: # (28/29)
 
 ### navegação
 
@@ -3105,7 +2875,7 @@ export class DashboardComponent implements OnInit {
 
 --
 
-[//]: # (31/30)
+[//]: # (28/30)
 
 ### navegação
 
@@ -3137,7 +2907,7 @@ export class HeroDetailComponent {
 
 --
 
-[//]: # (31/31)
+[//]: # (28/31)
 
 ### navegação
 
@@ -3155,7 +2925,7 @@ import { HeroService } from "./hero.service";
 
 --
 
-[//]: # (31/32)
+[//]: # (28/32)
 
 ### navegação
 
@@ -3171,7 +2941,7 @@ constructor(
 
 --
 
-[//]: # (31/33)
+[//]: # (28/33)
 
 ### navegação
 
@@ -3189,7 +2959,7 @@ export class HeroDetailComponent implements OnInit {
 
 --
 
-[//]: # (31/34)
+[//]: # (28/34)
 
 ### navegação - recuperando dados da rota
 
@@ -3207,7 +2977,7 @@ ngOnInit(): void {
 
 --
 
-[//]: # (31/35)
+[//]: # (28/35)
 
 ### navegação - recuperando dados da rota - usando snapshot
 
@@ -3221,7 +2991,7 @@ ngOnInit(): void {
 
 --
 
-[//]: # (31/36)
+[//]: # (28/36)
 
 ### navegação
 
@@ -3232,7 +3002,7 @@ ngOnInit(): void {
 
 --
 
-[//]: # (31/37)
+[//]: # (28/37)
 
 ### navegação
 
@@ -3248,7 +3018,7 @@ getHero(id: number): Promise<Hero> {
 
 --
 
-[//]: # (31/38)
+[//]: # (28/38)
 
 ### navegação
 
@@ -3264,7 +3034,7 @@ goBack(): void {
 
 --
 
-[//]: # (31/39)
+[//]: # (28/39)
 
 ### navegação
 
@@ -3285,7 +3055,7 @@ goBack(): void {
 
 --
 
-[//]: # (31/40)
+[//]: # (28/40)
 
 ### navegação
 
@@ -3300,7 +3070,7 @@ goBack(): void {
 
 --
 
-[//]: # (31/41)
+[//]: # (28/41)
 
 ### navegação
 
@@ -3313,7 +3083,7 @@ goBack(): void {
 
 --
 
-[//]: # (31/42)
+[//]: # (28/42)
 
 ### navegação
 
@@ -3327,7 +3097,7 @@ goBack(): void {
 
 --
 
-[//]: # (31/43)
+[//]: # (28/43)
 
 ### navegação
 
@@ -3357,7 +3127,7 @@ export class AppRoutingModule {}
 
 --
 
-[//]: # (31/44)
+[//]: # (28/44)
 
 ### navegação
 
@@ -3372,7 +3142,7 @@ export class AppRoutingModule {}
 
 --
 
-[//]: # (31/45)
+[//]: # (28/45)
 
 ### navegação
 
@@ -3383,7 +3153,7 @@ export class AppRoutingModule {}
 
 --
 
-[//]: # (31/46)
+[//]: # (28/46)
 
 ### navegação
 
@@ -3406,7 +3176,7 @@ template: `
 
 --
 
-[//]: # (31/47)
+[//]: # (28/47)
 
 ### navegação
 
@@ -3426,7 +3196,7 @@ template: `
 
 --
 
-[//]: # (31/48)
+[//]: # (28/48)
 
 ### navegação
 
@@ -3439,7 +3209,7 @@ template: `
 
 --
 
-[//]: # (31/49)
+[//]: # (28/49)
 
 ### navegação
 
@@ -3456,7 +3226,7 @@ template: `
 
 --
 
-[//]: # (31/50)
+[//]: # (28/50)
 
 ### navegação
 
@@ -3472,7 +3242,7 @@ gotoDetail(): void {
 
 --
 
-[//]: # (31/51)
+[//]: # (28/51)
 
 ### navegação
 
@@ -3507,7 +3277,7 @@ export class HeroesComponent implements OnInit {
 
 --
 
-[//]: # (31/52)
+[//]: # (28/52)
 
 ### navegação
 
@@ -3523,7 +3293,7 @@ export class HeroesComponent implements OnInit {
 
 --
 
-[//]: # (31/53)
+[//]: # (28/53)
 
 ### navegação
 
@@ -3564,7 +3334,7 @@ button:disabled {
 
 --
 
-[//]: # (31/54)
+[//]: # (28/54)
 
 ### navegação
 
@@ -3640,7 +3410,7 @@ h4 {
 
 --
 
-[//]: # (31/55)
+[//]: # (28/55)
 
 ### navegação
 
@@ -3680,7 +3450,7 @@ nav a.active {
 
 --
 
-[//]: # (31/56)
+[//]: # (28/56)
 
 ### navegação
 
@@ -3700,7 +3470,7 @@ template: `
 
 --
 
-[//]: # (31/57)
+[//]: # (28/57)
 
 ### navegação
 
@@ -3712,7 +3482,7 @@ template: `
 
 --
 
-[//]: # (31/58)
+[//]: # (28/58)
 
 ### navegação
 
@@ -3790,7 +3560,7 @@ nav a.active {
 
 --
 
-[//]: # (31/59)
+[//]: # (28/59)
 
 ### o que aprendemos
 
@@ -3802,7 +3572,7 @@ nav a.active {
 
 ---
 
-[//]: # (32)
+[//]: # (29)
 
 ### [exercício 07](../exercicios/exercicio-07)
 
@@ -3811,7 +3581,7 @@ nav a.active {
 
 ---
 
-[//]: # (33)
+[//]: # (30)
 
 ### http
 
@@ -3828,7 +3598,7 @@ npm start
 
 --
 
-[//]: # (33/2)
+[//]: # (30/2)
 
 ### http
 
@@ -3840,7 +3610,7 @@ npm start
 
 --
 
-[//]: # (33/3)
+[//]: # (30/3)
 
 ### http
 
@@ -3856,7 +3626,7 @@ npm install -g json-server
 
 --
 
-[//]: # (33/4)
+[//]: # (30/4)
 
 ### http
 
@@ -3883,7 +3653,7 @@ echo '{
 
 --
 
-[//]: # (33/5)
+[//]: # (30/5)
 
 Para simular um contexto para a aplicação api vamos definir uma rota customizada com o nome de '/api'
 
@@ -3901,7 +3671,7 @@ json-server --watch --routes routes.json db.json
 
 --
 
-[//]: # (33/6)
+[//]: # (30/6)
 
 Após a subida do servidor, pode-se fazer requisições do tipo:
 
@@ -3923,7 +3693,7 @@ curl http://localhost:3000/api/heroes/19
 
 --
 
-[//]: # (33/7)
+[//]: # (30/7)
 
 ### http
 
@@ -3964,7 +3734,7 @@ export class AppModule {}
 
 --
 
-[//]: # (33/8)
+[//]: # (30/8)
 
 ### http
 
@@ -3978,7 +3748,7 @@ getHeroes(): Promise<Hero[]> {
 
 --
 
-[//]: # (33/9)
+[//]: # (30/9)
 
 ### http
 
@@ -4003,7 +3773,7 @@ getHeroes(): Promise<Hero[]> {
 
 --
 
-[//]: # (33/10)
+[//]: # (30/10)
 
 ### http
 
@@ -4015,7 +3785,7 @@ import { HttpClient } from "@angular/common/http";
 
 --
 
-[//]: # (33/11)
+[//]: # (30/11)
 
 ### http
 
@@ -4030,7 +3800,7 @@ new Observable().toPromise();
 
 --
 
-[//]: # (33/12)
+[//]: # (30/12)
 
 ### http
 
@@ -4041,7 +3811,7 @@ new Observable().toPromise();
 
 --
 
-[//]: # (33/13)
+[//]: # (30/13)
 
 ### http
 
@@ -4061,7 +3831,7 @@ private handleError(error: any): Promise<any> {
 
 --
 
-[//]: # (33/14)
+[//]: # (30/14)
 
 ### http
 
@@ -4073,7 +3843,7 @@ private handleError(error: any): Promise<any> {
 
 --
 
-[//]: # (33/15)
+[//]: # (30/15)
 
 ### http
 
@@ -4088,7 +3858,7 @@ getHero(id: number): Promise<Hero> {
 
 --
 
-[//]: # (33/16)
+[//]: # (30/16)
 
 ### http
 
@@ -4099,7 +3869,7 @@ getHero(id: number): Promise<Hero> {
 
 --
 
-[//]: # (33/17)
+[//]: # (30/17)
 
 ### http
 
@@ -4114,7 +3884,7 @@ getHero(id: number): Promise<Hero> {
 
 --
 
-[//]: # (33/18)
+[//]: # (30/18)
 
 ### http
 
@@ -4135,7 +3905,7 @@ save(): void {
 
 --
 
-[//]: # (33/19)
+[//]: # (30/19)
 
 ### http
 
@@ -4151,7 +3921,7 @@ update(hero: Hero): Promise<Hero> {
 
 --
 
-[//]: # (33/20)
+[//]: # (30/20)
 
 ### http
 
@@ -4164,7 +3934,7 @@ update(hero: Hero): Promise<Hero> {
 
 --
 
-[//]: # (33/21)
+[//]: # (30/21)
 
 ### http
 
@@ -4181,7 +3951,7 @@ update(hero: Hero): Promise<Hero> {
 
 --
 
-[//]: # (33/22)
+[//]: # (30/22)
 
 ### http
 
@@ -4201,7 +3971,7 @@ add(name: string): void {
 
 --
 
-[//]: # (33/23)
+[//]: # (30/23)
 
 ### http
 
@@ -4220,7 +3990,7 @@ create(name: string): Promise<Hero> {
 
 --
 
-[//]: # (33/24)
+[//]: # (30/24)
 
 ### http
 
@@ -4238,7 +4008,7 @@ create(name: string): Promise<Hero> {
 
 --
 
-[//]: # (33/25)
+[//]: # (30/25)
 
 ### http
 
@@ -4257,7 +4027,7 @@ delete(hero: Hero): void {
 
 --
 
-[//]: # (33/26)
+[//]: # (30/26)
 
 ### http
 
@@ -4275,7 +4045,7 @@ button.delete {
 
 --
 
-[//]: # (33/27)
+[//]: # (30/27)
 
 ### http
 
@@ -4290,7 +4060,7 @@ delete(id: number): Promise<void> {
 
 --
 
-[//]: # (33/28)
+[//]: # (30/28)
 
 ### http
 
@@ -4305,7 +4075,7 @@ delete(id: number): Promise<void> {
 
 --
 
-[//]: # (33/29)
+[//]: # (30/29)
 
 ### http
 
@@ -4318,7 +4088,7 @@ delete(id: number): Promise<void> {
 
 --
 
-[//]: # (33/30)
+[//]: # (30/30)
 
 ### http
 
@@ -4338,7 +4108,7 @@ search(term: string): Observable<Hero[]> {
 
 --
 
-[//]: # (33/31)
+[//]: # (30/31)
 
 ### http
 
@@ -4349,7 +4119,7 @@ search(term: string): Observable<Hero[]> {
 
 --
 
-[//]: # (33/32)
+[//]: # (30/32)
 
 ### http
 
@@ -4359,7 +4129,7 @@ search(term: string): Observable<Hero[]> {
 
 --
 
-[//]: # (33/33)
+[//]: # (30/33)
 
 
 ### http
@@ -4383,7 +4153,7 @@ Crie, então, o arquivo `hero-search.component.html` com o seguinte conteúdo:
 
 --
 
-[//]: # (33/34)
+[//]: # (30/34)
 
 Opcionalmente, poderíamos usar CLI do angular para criarmos o nosso arquivo:
 
@@ -4403,7 +4173,7 @@ update src/app/app.module.ts (404 bytes)
 
 --
 
-[//]: # (33/35)
+[//]: # (30/35)
 
 ### http
 
@@ -4416,7 +4186,7 @@ update src/app/app.module.ts (404 bytes)
 
 --
 
-[//]: # (33/36)
+[//]: # (30/36)
 
 ### http
 
@@ -4447,7 +4217,7 @@ update src/app/app.module.ts (404 bytes)
 
 --
 
-[//]: # (33/37)
+[//]: # (30/37)
 
 ### http
 
@@ -4510,7 +4280,7 @@ export class HeroSearchComponent implements OnInit {
 
 --
 
-[//]: # (33/38)
+[//]: # (30/38)
 
 ### http
 
@@ -4521,7 +4291,7 @@ export class HeroSearchComponent implements OnInit {
 
 --
 
-[//]: # (33/39)
+[//]: # (30/39)
 
 ### http
 
@@ -4551,7 +4321,7 @@ ngOnInit(): void {
 
 --
 
-[//]: # (33/40)
+[//]: # (30/40)
 
 ### http
 
@@ -4562,7 +4332,7 @@ ngOnInit(): void {
 
 --
 
-[//]: # (33/41)
+[//]: # (30/41)
 
 ### http
 
@@ -4582,7 +4352,7 @@ ngOnInit(): void {
 
 --
 
-[//]: # (33/42)
+[//]: # (30/42)
 
 ### http
 
@@ -4602,7 +4372,7 @@ declarations: [
 
 --
 
-[//]: # (33/43)
+[//]: # (30/43)
 
 ### http
 
@@ -4614,7 +4384,7 @@ declarations: [
 
 ---
 
-[//]: # (34)
+[//]: # (31)
 
 ### [exercício 08](../exercicios/exercicio-08)
 
@@ -4623,7 +4393,7 @@ declarations: [
 
 ---
 
-[//]: # (35)
+[//]: # (32)
 
 ### aprofundando os conceitos
 
@@ -4638,7 +4408,7 @@ declarations: [
 
 ---
 
-[//]: # (36)
+[//]: # (33)
 
 ### templates & data binding
 
@@ -4652,7 +4422,7 @@ declarations: [
 
 --
 
-[//]: # (36/2)
+[//]: # (33/2)
 
 ### templates & data binding
 
@@ -4664,7 +4434,7 @@ declarations: [
 
 --
 
-[//]: # (36/3)
+[//]: # (33/3)
 ### templates & data binding
 
 - Tipos de **binding**
@@ -4676,7 +4446,7 @@ declarations: [
 
 --
 
-[//]: # (36/4)
+[//]: # (33/4)
 
 ### templates & data binding
 
@@ -4690,7 +4460,7 @@ declarations: [
 
 --
 
-[//]: # (36/5)
+[//]: # (33/5)
 
 ### templates & data binding
 
@@ -4704,7 +4474,7 @@ Alvos do **binding**
 
 --
 
-[//]: # (36/6)
+[//]: # (33/6)
 
 ### templates & data binding
 
@@ -4717,7 +4487,7 @@ Alvos do **binding**
 
 --
 
-[//]: # (36/7)
+[//]: # (33/7)
 ### templates & data binding
 
 Alvos do **binding**
@@ -4729,7 +4499,7 @@ Alvos do **binding**
 
 --
 
-[//]: # (36/8)
+[//]: # (33/8)
 
 ### templates & data binding
 
@@ -4744,7 +4514,7 @@ Alvos do **binding**
 
 --
 
-[//]: # (36/9)
+[//]: # (33/9)
 
 ### templates & data binding
 
@@ -4767,7 +4537,7 @@ input.getAttribute('value') \\ retorna "Bob"
 
 --
 
-[//]: # (36/10)
+[//]: # (33/10)
 
 ### templates & data binding
 
@@ -4796,7 +4566,7 @@ Can't bind to 'colspan' since it isn't a known native property
 
 --
 
-[//]: # (36/11)
+[//]: # (33/11)
 
 ### templates & data binding
 
@@ -4818,7 +4588,7 @@ Can't bind to 'colspan' since it isn't a known native property
 
 --
 
-[//]: # (36/12)
+[//]: # (33/12)
 
 ### templates & data binding
 
@@ -4838,7 +4608,7 @@ The null hero's name is {{nullHero?.name}}
 
 --
 
-[//]: # (36/13)
+[//]: # (33/13)
 ### templates & data binding
 
 - Non-null assertion (`!`): suspende o _strict null check_ do TypeScript
@@ -4852,7 +4622,7 @@ The null hero's name is {{nullHero?.name}}
 
 ---
 
-[//]: # (37)
+[//]: # (34)
 
 ### lifecycle hooks
 
@@ -4866,7 +4636,7 @@ The null hero's name is {{nullHero?.name}}
 
 --
 
-[//]: # (37/2)
+[//]: # (34/2)
 
 ### lifecycle hooks
 
@@ -4888,7 +4658,7 @@ export class PeekABoo implements OnInit {
 
 --
 
-[//]: # (37/3)
+[//]: # (34/3)
 
 ### lifecycle hooks
 
@@ -4900,7 +4670,7 @@ export class PeekABoo implements OnInit {
 
 --
 
-[//]: # (37/4)
+[//]: # (34/4)
 
 ### lifecycle hooks
 
@@ -4912,7 +4682,7 @@ export class PeekABoo implements OnInit {
 
 --
 
-[//]: # (37/5)
+[//]: # (34/5)
 
 ### lifecycle hooks
 
@@ -4924,7 +4694,7 @@ export class PeekABoo implements OnInit {
 
 --
 
-[//]: # (37/6)
+[//]: # (34/6)
 
 ### lifecycle hooks
 
@@ -4936,7 +4706,7 @@ export class PeekABoo implements OnInit {
 
 --
 
-[//]: # (37/7)
+[//]: # (34/7)
 
 ### lifecycle hooks
 
@@ -4948,7 +4718,7 @@ export class PeekABoo implements OnInit {
 
 --
 
-[//]: # (37/8)
+[//]: # (34/8)
 
 ### lifecycle hooks
 
@@ -4960,7 +4730,7 @@ export class PeekABoo implements OnInit {
 
 --
 
-[//]: # (37/9)
+[//]: # (34/9)
 
 ### lifecycle hooks
 
@@ -4972,7 +4742,7 @@ export class PeekABoo implements OnInit {
 
 --
 
-[//]: # (37/10)
+[//]: # (34/10)
 
 ### lifecycle hooks
 
@@ -4984,7 +4754,7 @@ export class PeekABoo implements OnInit {
 
 ---
 
-[//]: # (38)
+[//]: # (35)
 
 ### [exercício 09](../exercicios/exercicio-09)
 
@@ -4993,7 +4763,7 @@ export class PeekABoo implements OnInit {
 
 ---
 
-[//]: # (39)
+[//]: # (36)
 
 ### interação entre componentes
 
@@ -5006,7 +4776,7 @@ export class PeekABoo implements OnInit {
 
 --
 
-[//]: # (39/2)
+[//]: # (36/2)
 
 ### interação entre componentes
 
@@ -5028,7 +4798,7 @@ export class HeroChildComponent {
 
 --
 
-[//]: # (39/3)
+[//]: # (36/3)
 
 ### interação entre componentes
 
@@ -5053,7 +4823,7 @@ export class HeroParentComponent {
 
 --
 
-[//]: # (39/4)
+[//]: # (36/4)
 
 ### interação entre componentes
 
@@ -5079,7 +4849,7 @@ export class NameChildComponent {
 
 --
 
-[//]: # (39/5)
+[//]: # (36/5)
 
 ### interação entre componentes
 
@@ -5102,7 +4872,7 @@ export class NameParentComponent {
 
 --
 
-[//]: # (39/6)
+[//]: # (36/6)
 
 ### interação entre componentes
 
@@ -5144,7 +4914,7 @@ export class VersionChildComponent implements OnChanges {
 
 --
 
-[//]: # (39/7)
+[//]: # (36/7)
 
 ### interação entre componentes
 
@@ -5178,7 +4948,7 @@ export class VersionParentComponent {
 
 --
 
-[//]: # (39/8)
+[//]: # (36/8)
 
 ### interação entre componentes
 
@@ -5209,7 +4979,7 @@ export class VoterComponent {
 
 --
 
-[//]: # (39/9)
+[//]: # (36/9)
 
 ### interação entre componentes
 
@@ -5242,7 +5012,7 @@ export class VoteTakerComponent {
 
 --
 
-[//]: # (39/10)
+[//]: # (36/10)
 
 ### interação entre componentes
 
@@ -5288,7 +5058,7 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
 
 --
 
-[//]: # (39/11)
+[//]: # (36/11)
 
 ### interação entre componentes
 
@@ -5312,7 +5082,7 @@ export class CountdownLocalVarParentComponent {}
 
 --
 
-[//]: # (39/12)
+[//]: # (36/12)
 
 ### interação entre componentes
 
@@ -5352,7 +5122,7 @@ export class CountdownViewChildParentComponent implements AfterViewInit {
 
 --
 
-[//]: # (39/13)
+[//]: # (36/13)
 
 ### interação entre componentes
 
@@ -5384,7 +5154,7 @@ export class MissionService {
 
 --
 
-[//]: # (39/14)
+[//]: # (36/14)
 
 ### interação entre componentes
 
@@ -5433,7 +5203,7 @@ export class MissionControlComponent {
 
 --
 
-[//]: # (39/15)
+[//]: # (36/15)
 
 ### interação entre componentes
 
@@ -5484,7 +5254,7 @@ export class AstronautComponent implements OnDestroy {
 
 ---
 
-[//]: # (40)
+[//]: # (37)
 
 ### [exercício 10](../exercicios/exercicio-10)
 
@@ -5493,7 +5263,7 @@ export class AstronautComponent implements OnDestroy {
 
 ---
 
-[//]: # (41)
+[//]: # (38)
 
 ### diretivas estruturais
 
@@ -5509,7 +5279,7 @@ export class AstronautComponent implements OnDestroy {
 
 --
 
-[//]: # (41/2)
+[//]: # (38/2)
 
 ### diretivas estruturais
 
@@ -5532,7 +5302,7 @@ export class AstronautComponent implements OnDestroy {
 
 --
 
-[//]: # (41/3)
+[//]: # (38/3)
 
 ### diretivas estruturais
 
@@ -5551,7 +5321,7 @@ export class AstronautComponent implements OnDestroy {
 
 --
 
-[//]: # (41/4)
+[//]: # (38/4)
 
 ### diretivas estruturais
 
@@ -5574,7 +5344,7 @@ export class AstronautComponent implements OnDestroy {
 
 --
 
-[//]: # (41/5)
+[//]: # (38/5)
 
 ### diretivas estruturais
 
@@ -5596,7 +5366,7 @@ export class AstronautComponent implements OnDestroy {
 
 --
 
-[//]: # (41/6)
+[//]: # (38/6)
 
 ### diretivas estruturais
 
@@ -5615,7 +5385,7 @@ export class AstronautComponent implements OnDestroy {
 
 --
 
-[//]: # (41/7)
+[//]: # (38/7)
 
 ### diretivas estruturais
 
@@ -5639,7 +5409,7 @@ export class AstronautComponent implements OnDestroy {
 
 --
 
-[//]: # (41/8)
+[//]: # (38/8)
 
 ### diretivas estruturais
 
@@ -5661,7 +5431,7 @@ export class AstronautComponent implements OnDestroy {
 
 --
 
-[//]: # (41/9)
+[//]: # (38/9)
 
 ### diretivas estruturais
 
@@ -5686,7 +5456,7 @@ export class UnlessDirective {
 
 ---
 
-[//]: # (42)
+[//]: # (39)
 
 ### [exercício 11](../exercicios/exercicio-11)
 
@@ -5695,7 +5465,7 @@ export class UnlessDirective {
 
 ---
 
-[//]: # (43)
+[//]: # (40)
 
 ### diretivas de atributo
 
@@ -5705,7 +5475,7 @@ export class UnlessDirective {
 
 --
 
-[//]: # (43/2)
+[//]: # (40/2)
 
 ### diretivas de atributo
 
@@ -5717,7 +5487,7 @@ export class UnlessDirective {
 
 --
 
-[//]: # (43/3)
+[//]: # (40/3)
 
 ### diretivas de atributo
 
@@ -5740,7 +5510,7 @@ setCurrentClasses() {
 
 --
 
-[//]: # (43/4)
+[//]: # (40/4)
 
 ### diretivas de atributo
 
@@ -5754,7 +5524,7 @@ setCurrentClasses() {
 
 --
 
-[//]: # (43/5)
+[//]: # (40/5)
 
 ### diretivas de atributo
 
@@ -5779,7 +5549,7 @@ setCurrentStyles() {
 
 --
 
-[//]: # (43/6)
+[//]: # (40/6)
 
 ### diretivas de atributo
 
@@ -5798,7 +5568,7 @@ setCurrentStyles() {
 
 --
 
-[//]: # (43/7)
+[//]: # (40/7)
 
 ### diretivas de atributo
 
@@ -5819,7 +5589,7 @@ export class HighlightDirective {
 
 ---
 
-[//]: # (44)
+[//]: # (41)
 
 ### [exercício 12](../exercicios/exercicio-12)
 
@@ -5828,7 +5598,7 @@ export class HighlightDirective {
 
 ---
 
-[//]: # (45)
+[//]: # (42)
 
 ### pipes
 
@@ -5841,7 +5611,7 @@ export class HighlightDirective {
 
 --
 
-[//]: # (45/2)
+[//]: # (42/2)
 
 ### pipes
 
@@ -5856,7 +5626,7 @@ export class HighlightDirective {
 
 --
 
-[//]: # (45/3)
+[//]: # (42/3)
 
 ### pipes
 
@@ -5872,7 +5642,7 @@ export class HighlightDirective {
 
 --
 
-[//]: # (45/4)
+[//]: # (42/4)
 
 ### pipes
 
@@ -5888,7 +5658,7 @@ The chained hero's birthday is
 
 --
 
-[//]: # (45/5)
+[//]: # (42/5)
 
 ### pipes
 
@@ -5916,7 +5686,7 @@ export class ExponentialStrengthPipe implements PipeTransform {
 
 --
 
-[//]: # (45/6)
+[//]: # (42/6)
 
 ### pipes
 
@@ -5928,7 +5698,7 @@ export class ExponentialStrengthPipe implements PipeTransform {
 
 --
 
-[//]: # (45/7)
+[//]: # (42/7)
 
 ### pipes
 
@@ -5943,7 +5713,7 @@ export class ExponentialStrengthPipe implements PipeTransform {
 
 --
 
-[//]: # (45/8)
+[//]: # (42/8)
 
 ### pipes
 
@@ -5955,7 +5725,7 @@ export class ExponentialStrengthPipe implements PipeTransform {
 
 --
 
-[//]: # (45/9)
+[//]: # (42/9)
 
 ### pipes
 
@@ -5975,7 +5745,7 @@ export class FlyingHeroesImpurePipe extends FlyingHeroesPipe {}
 
 --
 
-[//]: # (45/10)
+[//]: # (42/10)
 
 ### pipes
 
@@ -5990,7 +5760,7 @@ export class FlyingHeroesImpurePipe extends FlyingHeroesPipe {}
 
 ---
 
-[//]: # (46)
+[//]: # (43)
 
 ### [exercício 13](../exercicios/exercicio-13)
 
@@ -5999,7 +5769,7 @@ export class FlyingHeroesImpurePipe extends FlyingHeroesPipe {}
 
 ---
 
-[//]: # (47)
+[//]: # (44)
 
 ### formulários
 
@@ -6009,7 +5779,7 @@ export class FlyingHeroesImpurePipe extends FlyingHeroesPipe {}
 
 --
 
-[//]: # (47/2)
+[//]: # (44/2)
 
 ### formulários
 
@@ -6023,7 +5793,7 @@ export class FlyingHeroesImpurePipe extends FlyingHeroesPipe {}
 
 --
 
-[//]: # (47/3)
+[//]: # (44/3)
 
 ### formulários
 
@@ -6038,7 +5808,7 @@ export class FlyingHeroesImpurePipe extends FlyingHeroesPipe {}
 
 --
 
-[//]: # (47/4)
+[//]: # (44/4)
 
 ### formulários
 
@@ -6052,7 +5822,7 @@ export class FlyingHeroesImpurePipe extends FlyingHeroesPipe {}
 
 --
 
-[//]: # (47/5)
+[//]: # (44/5)
 
 ### formulários
 
@@ -6065,7 +5835,7 @@ export class FlyingHeroesImpurePipe extends FlyingHeroesPipe {}
 
 --
 
-[//]: # (47/6)
+[//]: # (44/6)
 
 ### formulários
 
@@ -6077,7 +5847,7 @@ export class FlyingHeroesImpurePipe extends FlyingHeroesPipe {}
 
 --
 
-[//]: # (47/7)
+[//]: # (44/7)
 
 ### formulários
 
@@ -6090,7 +5860,7 @@ export class FlyingHeroesImpurePipe extends FlyingHeroesPipe {}
 
 --
 
-[//]: # (47/8)
+[//]: # (44/8)
 
 ### formulários
 
@@ -6111,7 +5881,7 @@ export class Hero {
 
 --
 
-[//]: # (47/9)
+[//]: # (44/9)
 
 ### formulários
 
@@ -6147,7 +5917,7 @@ export class HeroFormComponent {
 
 --
 
-[//]: # (47/10)
+[//]: # (44/10)
 
 ### formulários
 
@@ -6172,7 +5942,7 @@ export class AppModule {}
 
 --
 
-[//]: # (47/11)
+[//]: # (44/11)
 
 ### formulários
 
@@ -6200,7 +5970,7 @@ export class AppModule {}
 
 --
 
-[//]: # (47/12)
+[//]: # (44/12)
 
 ### formulários
 
@@ -6218,7 +5988,7 @@ export class AppModule {}
 
 --
 
-[//]: # (47/13)
+[//]: # (44/13)
 
 ### formulários
 
@@ -6231,7 +6001,7 @@ export class AppModule {}
 
 --
 
-[//]: # (47/14)
+[//]: # (44/14)
 
 ### formulários
 
@@ -6265,7 +6035,7 @@ export class AppModule {}
 
 --
 
-[//]: # (47/15)
+[//]: # (44/15)
 
 ### formulários
 
@@ -6278,7 +6048,7 @@ export class AppModule {}
 
 --
 
-[//]: # (47/16)
+[//]: # (44/16)
 
 ### formulários
 
@@ -6293,7 +6063,7 @@ export class AppModule {}
 
 --
 
-[//]: # (47/17)
+[//]: # (44/17)
 
 ### formulários
 
@@ -6311,7 +6081,7 @@ export class AppModule {}
 
 --
 
-[//]: # (47/18)
+[//]: # (44/18)
 
 ### formulários
 
@@ -6331,7 +6101,7 @@ export class AppModule {}
 
 --
 
-[//]: # (47/19)
+[//]: # (44/19)
 
 ### formulários
 
@@ -6345,7 +6115,7 @@ export class AppModule {}
 
 --
 
-[//]: # (47/20)
+[//]: # (44/20)
 
 ### formulários
 
@@ -6363,7 +6133,7 @@ export class AppModule {}
 
 --
 
-[//]: # (47/21)
+[//]: # (44/21)
 
 ### formulários
 
@@ -6383,7 +6153,7 @@ export class AppModule {}
 
 ---
 
-[//]: # (48)
+[//]: # (45)
 
 ### [exercício 14](../exercicios/exercicio-14)
 
@@ -6392,7 +6162,7 @@ export class AppModule {}
 
 ---
 
-[//]: # (49)
+[//]: # (46)
 
 ### formulários
 
@@ -6404,7 +6174,7 @@ export class AppModule {}
 
 --
 
-[//]: # (49/2)
+[//]: # (46/2)
 
 ### formulários
 
@@ -6416,7 +6186,7 @@ export class AppModule {}
 
 --
 
-[//]: # (49/3)
+[//]: # (46/3)
 
 ### formulários
 
@@ -6428,7 +6198,7 @@ export class AppModule {}
 
 --
 
-[//]: # (49/4)
+[//]: # (46/4)
 
 ### formulários
 
@@ -6440,7 +6210,7 @@ export class AppModule {}
 
 --
 
-[//]: # (49/5)
+[//]: # (46/5)
 
 ### formulários
 
@@ -6463,7 +6233,7 @@ export class HeroDetailComponent1 {
 
 --
 
-[//]: # (49/6)
+[//]: # (46/6)
 
 ### formulários
 
@@ -6473,7 +6243,7 @@ export class HeroDetailComponent1 {
 
 --
 
-[//]: # (49/7)
+[//]: # (46/7)
 
 ### formulários
 
@@ -6503,7 +6273,7 @@ export class HeroDetailComponent2 {
 
 --
 
-[//]: # (49/8)
+[//]: # (46/8)
 
 ### formulários
 
@@ -6513,7 +6283,7 @@ export class HeroDetailComponent2 {
 
 --
 
-[//]: # (49/9)
+[//]: # (46/9)
 
 ### formulários
 
@@ -6522,7 +6292,7 @@ export class HeroDetailComponent2 {
 
 --
 
-[//]: # (49/10)
+[//]: # (46/10)
 
 ### formulários
 
@@ -6548,7 +6318,7 @@ export class HeroDetailComponent3 {
 
 --
 
-[//]: # (49/11)
+[//]: # (46/11)
 
 ### formulários
 
@@ -6567,7 +6337,7 @@ this.heroForm = this.fb.group({
 
 --
 
-[//]: # (49/12)
+[//]: # (46/12)
 
 ### formulários
 
@@ -6577,7 +6347,7 @@ this.heroForm = this.fb.group({
 
 --
 
-[//]: # (49/13)
+[//]: # (46/13)
 
 ### formulários
 
@@ -6608,7 +6378,7 @@ export class HeroDetailComponent4 {
 
 --
 
-[//]: # (49/14)
+[//]: # (46/14)
 
 ### formulários
 
@@ -6664,7 +6434,7 @@ export class HeroDetailComponent4 {
 
 --
 
-[//]: # (49/15)
+[//]: # (46/15)
 
 ### formulários
 
@@ -6697,7 +6467,7 @@ export class HeroDetailComponent5 {
 
 --
 
-[//]: # (49/16)
+[//]: # (46/16)
 
 ### formulários
 
@@ -6733,7 +6503,7 @@ export class HeroDetailComponent5 {
 
 --
 
-[//]: # (49/17)
+[//]: # (46/17)
 
 ### formulários
 
@@ -6749,7 +6519,7 @@ export class HeroDetailComponent5 {
 
 --
 
-[//]: # (49/18)
+[//]: # (46/18)
 
 ### formulários
 
@@ -6762,7 +6532,7 @@ export class HeroDetailComponent5 {
 
 ---
 
-[//]: # (50)
+[//]: # (47)
 
 ### [exercício 15](../exercicios/exercicio-15)
 
@@ -6771,7 +6541,7 @@ export class HeroDetailComponent5 {
 
 ---
 
-[//]: # (51)
+[//]: # (48)
 
 ### segurança
 
@@ -6783,7 +6553,7 @@ export class HeroDetailComponent5 {
 
 --
 
-[//]: # (51/2)
+[//]: # (48/2)
 
 ### segurança
 
@@ -6796,7 +6566,7 @@ export class HeroDetailComponent5 {
 
 --
 
-[//]: # (51/3)
+[//]: # (48/3)
 
 ### segurança
 
@@ -6809,7 +6579,7 @@ export class HeroDetailComponent5 {
 
 --
 
-[//]: # (51/4)
+[//]: # (48/4)
 
 ### segurança
 
@@ -6824,7 +6594,7 @@ export class HeroDetailComponent5 {
 
 --
 
-[//]: # (51/5)
+[//]: # (48/5)
 
 ### segurança
 
@@ -6837,7 +6607,7 @@ export class HeroDetailComponent5 {
 
 --
 
-[//]: # (51/6)
+[//]: # (48/6)
 
 ### segurança
 
@@ -6860,7 +6630,7 @@ export class InnerHtmlBindingComponent {
 
 --
 
-[//]: # (51/7)
+[//]: # (48/7)
 
 ### segurança
 
@@ -6874,7 +6644,7 @@ export class InnerHtmlBindingComponent {
 
 --
 
-[//]: # (51/8)
+[//]: # (48/8)
 
 ### segurança
 
@@ -6887,7 +6657,7 @@ export class InnerHtmlBindingComponent {
 
 --
 
-[//]: # (51/9)
+[//]: # (48/9)
 
 ### segurança
 
@@ -6901,7 +6671,7 @@ export class InnerHtmlBindingComponent {
 
 --
 
-[//]: # (51/10)
+[//]: # (48/10)
 
 ### segurança
 
@@ -6920,7 +6690,7 @@ constructor(private sanitizer: DomSanitizer) {
 
 --
 
-[//]: # (51/11)
+[//]: # (48/11)
 
 ### segurança
 
@@ -6928,7 +6698,7 @@ constructor(private sanitizer: DomSanitizer) {
 
 --
 
-[//]: # (51/12)
+[//]: # (48/12)
 
 ### segurança
 
@@ -6937,7 +6707,7 @@ constructor(private sanitizer: DomSanitizer) {
 
 --
 
-[//]: # (51/13)
+[//]: # (48/13)
 
 ### segurança
 
@@ -6951,7 +6721,7 @@ constructor(private sanitizer: DomSanitizer) {
 
 --
 
-[//]: # (51/14)
+[//]: # (48/14)
 
 ### segurança
 
@@ -6964,7 +6734,7 @@ constructor(private sanitizer: DomSanitizer) {
 
 ---
 
-[//]: # (52)
+[//]: # (49)
 
 ### publicação
 
@@ -6976,7 +6746,7 @@ constructor(private sanitizer: DomSanitizer) {
 
 --
 
-[//]: # (52/2)
+[//]: # (49/2)
 
 ### visão geral
 
@@ -6987,7 +6757,7 @@ constructor(private sanitizer: DomSanitizer) {
 
 --
 
-[//]: # (52/3)
+[//]: # (49/3)
 
 ### a publicação mais simples possível
 
@@ -7003,7 +6773,7 @@ ng build
 
 --
 
-[//]: # (52/4)
+[//]: # (49/4)
 
 ### otimização para ambientes produtivos
 
@@ -7015,7 +6785,7 @@ ng build
 
 --
 
-[//]: # (52/5)
+[//]: # (49/5)
 
 ### otimização para ambientes produtivos
 
@@ -7030,7 +6800,7 @@ ng build
 
 --
 
-[//]: # (52/6)
+[//]: # (49/6)
 
 ### otimização para ambientes produtivos
 
@@ -7043,7 +6813,7 @@ ng build
 
 --
 
-[//]: # (52/7)
+[//]: # (49/7)
 
 ### otimização para ambientes produtivos
 
@@ -7056,7 +6826,7 @@ ng build
 
 --
 
-[//]: # (52/8)
+[//]: # (49/8)
 
 ### otimização para ambientes produtivos
 
@@ -7070,7 +6840,7 @@ ng build
 
 --
 
-[//]: # (52/9)
+[//]: # (49/9)
 
 <!--
   ATENÇÃO: no angular-cli 6 tivemos as seguintes mudanças no `ng build`:
@@ -7101,7 +6871,7 @@ ng build --prod
 
 --
 
-[//]: # (52/10)
+[//]: # (49/10)
 
 ### pro-tip - build
 
@@ -7126,7 +6896,7 @@ npm run build:hom
 
 ---
 
-[//]: # (53)
+[//]: # (50)
 
 ### configuração no lado cliente
 
@@ -7142,7 +6912,7 @@ npm run build:hom
 
 --
 
-[//]: # (53/2)
+[//]: # (50/2)
 
 ### configuração no lado cliente
 
@@ -7165,7 +6935,7 @@ if (!/localhost/.test(document.location.host)) {
 
 --
 
-[//]: # (53/3)
+[//]: # (50/3)
 
 ### configuração no lado cliente
 
@@ -7177,7 +6947,7 @@ if (!/localhost/.test(document.location.host)) {
 
 --
 
-[//]: # (53/4)
+[//]: # (50/4)
 
 ### configuração no lado cliente
 
@@ -7197,7 +6967,7 @@ if (!/localhost/.test(document.location.host)) {
 
 --
 
-[//]: # (53/5)
+[//]: # (50/5)
 
 ### configuração no lado cliente
 
@@ -7208,7 +6978,7 @@ if (!/localhost/.test(document.location.host)) {
 
 --
 
-[//]: # (53/6)
+[//]: # (50/6)
 
 ### configuração no lado cliente
 
@@ -7223,7 +6993,7 @@ if (!/localhost/.test(document.location.host)) {
 
 --
 
-[//]: # (53/7)
+[//]: # (50/7)
 
 ### configuração no lado cliente
 
@@ -7239,7 +7009,7 @@ RouterModule.forRoot(appRoutes, {
 
 ---
 
-[//]: # (54)
+[//]: # (51)
 
 ### configuração no lado servidor
 <!--
@@ -7257,7 +7027,7 @@ RouterModule.forRoot(appRoutes, {
 
 --
 
-[//]: # (54/2)
+[//]: # (51/2)
 
 ### configuração no lado servidor
 
@@ -7276,7 +7046,7 @@ RewriteRule ^ /index.html
 
 --
 
-[//]: # (54/3)
+[//]: # (51/3)
 
 ### configuração no lado servidor
 
@@ -7288,7 +7058,7 @@ try_files $uri $uri/ /index.html;
 
 --
 
-[//]: # (54/4)
+[//]: # (51/4)
 
 ### configuração no lado servidor
 
@@ -7303,7 +7073,7 @@ try_files $uri $uri/ /index.html;
 
 --
 
-[//]: # (54/5)
+[//]: # (51/5)
 
 ### configuração no lado servidor
 
@@ -7315,7 +7085,7 @@ Header set Access-Control-Allow-Origin "*"
 
 --
 
-[//]: # (54/6)
+[//]: # (51/6)
 
 ### configuração no lado servidor
 
@@ -7358,7 +7128,7 @@ location / {
 
 --
 
-[//]: # (54/7)
+[//]: # (51/7)
 
 ### configuração no lado servidor
 
@@ -7376,7 +7146,7 @@ demoiselle.security.paramsHeaderCors.Access-Control-Max-Age=86400
 
 ---
 
-[//]: # (55)
+[//]: # (52)
 ### tópicos complementares
 
 - [Stories](https://github.com/angular/angular-cli/wiki/stories)
@@ -7387,7 +7157,7 @@ demoiselle.security.paramsHeaderCors.Access-Control-Max-Age=86400
 
 ---
 
-[//]: # (56)
+[//]: # (53)
 
 ### referências
 
@@ -7398,7 +7168,7 @@ demoiselle.security.paramsHeaderCors.Access-Control-Max-Age=86400
 
 ---
 
-[//]: # (57)
+[//]: # (54)
 
 ### perguntas
 
@@ -7407,6 +7177,10 @@ demoiselle.security.paramsHeaderCors.Access-Control-Max-Age=86400
 <div class="center">
     <i class="fa fa-question fa-8x fa-spin"></i>
 </div>
+
+
+
+
 
 
 

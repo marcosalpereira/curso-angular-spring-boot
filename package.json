@@ -1,7 +1,7 @@
 {
   "name": "curso-angular",
   "version": "1.7.0",
-  "description": "Curso de Angular",
+  "description": "Curso de Angular + Spring Boot",
   "main": "index.js",
   "author": "Serpro <contato@serpro.gov.br>",
   "license": "MIT",
