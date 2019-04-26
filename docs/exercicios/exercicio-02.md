@@ -6,10 +6,6 @@
 * Criar a primeira aplicação Angular
 * Executar a aplicação
 
-## Duração
-
-15 minutos
-
 ## Instalando o Angular CLI
 
 Para instalar o Angular CLI, execute:
@@ -159,6 +155,3 @@ O resultado esperado é:
 
 * Angular CLI: [https://cli.angular.io/](https://cli.angular.io/)
 
-## Próximo passo
-
-[Exercício 03](exercicio-03.md)

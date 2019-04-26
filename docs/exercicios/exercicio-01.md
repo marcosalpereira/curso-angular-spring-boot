@@ -4,10 +4,6 @@
 
 * Instalar NVM, Node.js e NPM
 
-## Duração
-
-15 minutos
-
 ---
 
 !!! warning "ATENÇÃO! Antes de começar:"
@@ -105,6 +101,3 @@ Adicionalmente, instale os seguintes plugins recomendados:
 * NVM (*Node Version Manager*): [https://github.com/creationix/nvm](https://github.com/creationix/nvm)
 * Node Release Schedule: [https://github.com/nodejs/Release#lts_schedule](https://github.com/nodejs/Release#lts_schedule)
 
-## Próximo passo
-
-[Exercício 02](exercicio-02.md)
