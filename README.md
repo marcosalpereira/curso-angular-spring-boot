@@ -1,49 +1,32 @@
-# Curso Angular
+# Angular + Spring Boot
 
-Este curso visa explorar o *Framework* Angular o suficiente para você projetar e implementar aplicações web modernas e complexas (*enterprise*).
+![Angular](img/angular.png)
 
-O curso é baseado no material oficial do Angular - [Tutorial: Tour of Heroes](https://angular.io/tutorial). Porém, com alguns complementos e melhorias (a11y).
+## Angular
+* Angular: o que é
+* Arquiteturas Web Modernas
+* nvm/node.js/npm/Angular CLI
+* Módulos
+* Componentes
+* Templates
+* Metadata
+* Data Binding
+* Diretivas
+* Pipes
+* Serviços
+* Rotas
+* Guardas
+* RxJs
 
+## Spring Boot
+* O que é
+* JWT
+* Design de API REST
+* Implementação API REST
+* Persistencia
+* Tratamento de Exceções
+* Segurança
 
-**Objetivos** - Ao final do curso você deverá ser capaz de:
-
-- Construir aplicações web modernas e escaláveis com Angular 6
-- Conhecer conceitos e fundamentos do Angular 6
-- Entender e explorar a arquitetura do Angular 6
-- Implementar componentes e bibliotecas para projetos em Angular
-- Implementar testes automatizados (*unit* e *e2e*)
-- Diagnosticar e resolver erros comuns
-
-## Agenda
-
-- Introdução a Web Apps
-- Introdução ao Angular - Tutorial _Tour of Heroes_
-- Tópicos específicos:
-    - Ciclo de Vida de Componentes
-    - Interação entre Componentes
-    - Diretivas Estruturais
-    - Diretivas de Atributos
-    - Pipes puros e impuros
-    - Forms - Template Driven
-    - Forms - Reactive
-- Deploy - Publicando em produção
-- Bônus?
-    - Libraries and Projects
-    - TDD
-    - Debugging
-    - CLI Stories
-    - Documentação (Compodocs)
-
-## Links Rápidos
-
-- Site - https://dedat.gitpages.serpro/deat3/cursos/angular
-- Apresentação - [versão web](https://dedat.gitpages.serpro/deat3/cursos/angular/slides/index.html) [versão .odp](docs/exercicios/assets/introducao-framework-angular.odp)
-- Exercícios - [versão web](https://dedat.gitpages.serpro/deat3/cursos/angular/exercicios/exercicio-01/)
-
-
-## Outros Links
-
-- https://devdocs.io - documentação fácil e offline
-- https://stackblitz.com - editor online (bom para experimentos rápidos)
-- https://compodoc.app/ - documentação
-- Awesome Lists
+## Exercícios:
+* [01 - Instalação](exercicios/exercicio-01.md)
+* [02 - Primeira Aplicação Angular](exercicios/exercicio-02.md)
