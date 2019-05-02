@@ -2,6 +2,7 @@
 
 ## Objetivo
 
+### Linux
 * Instalar NVM, Node.js e NPM
 
 ---
@@ -12,7 +13,7 @@
 
 ---
 
-## NVM
+#### NVM
 
 
 Para instalar (ou atualizar) o NVM, você deve executar o script de instalação, usando cURL:
@@ -45,7 +46,7 @@ nvm: command not found
 Feche e abra novamente seu terminal e tente verificar novamente.
 
 
-## Node.js e NPM
+#### Node.js e NPM
 
 Para instalar o Node.js **LTS** (*Long Term Support*), execute o comando:
 
@@ -61,7 +62,7 @@ Para confirmar a instalação do Node.js, execute:
 node --version
 ```
 
-O resultado esperado é:
+O resultado esperado é (na época em que isso foi escrito):
 
 ```bash
 v8.11.3
@@ -76,11 +77,17 @@ Para confirmar a instalação do NPM, execute:
 ```bash
 npm --version
 
-# o resultado esperado é:
-5.6.0
+# o resultado esperado é (na época em que isso foi escrito):
+5.6.0 
 ```
 
-## Visual Studio Code
+### Windows
+
+#### Node
+
+Baixe o arquivo [de Instalação](https://nodejs.org/en/download/) execute e siga as etapas.
+
+### Visual Studio Code
 
 Para instalar o VS Code, baixe a versão apropriada (.deb ou .rpm) de acordo com a sua distribuição Linux no endereço: [https://code.visualstudio.com/](https://code.visualstudio.com/)
 

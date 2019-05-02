@@ -451,70 +451,6 @@ import { AppModule } from "./app/app.module";
 platformBrowserDynamic().bootstrapModule(AppModule);
 ```
 
---
-
-[//]: # (11/5)
-
-### módulos
-
-- JavaScript também tem seu sistema de modularização
-  - É totalmente diferente e independente da modularização do Angular
-- No JavaScript, cada arquivo é um módulo
-  - Todos os objetos definidos no arquivo pertencem ao módulo
-  - Um objeto é público quando é marcado com a palavra-chave **export**
-  - Um módulo acessa os objetos públicos de outros módulos usando a expressão **import**
-- Os dois sistemas de modularização são complementares e são utilizados em conjunto para escrever uma aplicação Angular
-
---
-
-[//]: # (11/6)
-
-### módulos
-
-- O Angular é embarcado com uma coleção de módulos JavaScript (biblioteca Angular)
-  - Prefixo **@angular**
-  - São instaladas com **npm** e declaradas com a expressão **import**
-
-```javascript
-import { Component } from "@angular/core";
-```
-
---
-
-[//]: # (11/7)
-
-### módulos frequentes - part 1
-
-<!-- TODO: transformar em tabela -->
-<!-- - https://angular.io/guide/frequent-ngmodules -->
-
-| NgModule | Importado de | Quando usar? |
-|-|-|-|
-| `BrowserModule` | `@angular/platform-browser` | Quando você for executar seu app em navegadores |
-| `CommonModule` | `@angular/common` | Quando for usar `NgIf`, `NgFor` |
-
---
-
-[//]: # (11/8)
-
-### módulos frequentes - part 2
-
-| NgModule | Importado de | Quando usar? |
-|-|-|-|
-| `FormsModule` | `@angular/forms` | Quando for construir forms orientados a template (com `NgModel`) |
-| `ReactiveFormsModule` | `@angular/forms` | Quando for construir forms reativos |
-
---
-
-[//]: # (11/9)
-
-### módulos frequentes - part 3
-
-| NgModule | Importado de | Quando usar? |
-|-|-|-|
-| `RouterModule` | `@angular/router` | Quando for usar `RouterLink`, `.forRoot()`, and `.forChild()` |
-| `HttpClientModule` | `@angular/common/http` | Quando for se comunicar com servidores |
-
 ---
 
 [//]: # (12)
@@ -7177,6 +7113,7 @@ demoiselle.security.paramsHeaderCors.Access-Control-Max-Age=86400
 <div class="center">
     <i class="fa fa-question fa-8x fa-spin"></i>
 </div>
+
 
 
 

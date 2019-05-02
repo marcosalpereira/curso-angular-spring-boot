@@ -2,6 +2,8 @@
 
 ![Angular](img/angular.png)
 
+## [Acessar Slides](slides/index.html)
+
 ## Angular
 * Angular: o que é
 * Arquiteturas Web Modernas

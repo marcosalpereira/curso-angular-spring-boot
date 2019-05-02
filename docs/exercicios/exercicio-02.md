@@ -71,10 +71,6 @@ ng new app-exemplo
 
 Esse comando irá criar a aplicação "app-exemplo" numa pasta com mesmo nome, e instalar as dependências necessárias.
 
-!!! warning "Nome do projeto"
-
-    O "app-exemplo" é apenas uma sugestão. O nome escolhido aqui deve ser o mesmo até o exercício 08.
-
 
 O resultado esperado é algo como:
 
