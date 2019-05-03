@@ -40,6 +40,14 @@ h3 {
     text-shadow: 2px 2px 4px #242121a2 !important;
   }
 
+.slide-menu-button a, 
+.chalkboard-button a, 
+.toggle-notes a {
+    color: #0e60a7 !important;
+    text-shadow: 2px 2px 4px #242121a2 !important;
+  }
+
+  
 
 .print-pdf .slide-menu,
 .print-pdf .slide-menu-overlay,
@@ -66,7 +74,7 @@ h3 {
 }
 
 .reveal {
-    font-size: 38px !important;
+    font-size: 34px !important;
 }
 
 .reveal td code {
