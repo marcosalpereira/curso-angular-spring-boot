@@ -3,7 +3,7 @@
   "version": "1.7.0",
   "description": "Curso de Angular + Spring Boot",
   "main": "index.js",
-  "author": "Serpro <contato@serpro.gov.br>",
+  "author": "Marcos <marcosalpereira@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
