@@ -1,0 +1,25 @@
+<h2>Estruturais</h2>
+<div *ngFor="let valor of valores">
+    <span *ngIf="valor != 4">{{valor}} </span>
+    <ng-container [ngSwitch]="valor">
+        <span *ngSwitchCase="1">Um</span>
+        <span *ngSwitchCase="2">Dois</span>
+        <span *ngSwitchDefault>Outros</span>
+    </ng-container>
+  </div>
+
+<h3>De atributo - Ex: ngClass</h3>
+<h4>String</h4>
+<span *ngFor="let valor of valores">
+  <span [ngClass]="'numero'">{{valor}} </span>  
+</span>
+
+<h4>Array de String</h4>
+<span *ngFor="let valor of valores">
+  <span [ngClass]="['numero', 'lista']">{{valor}} </span>  
+</span>
+
+<h4>Objeto</h4>
+<span *ngFor="let valor of valores">
+  <span [ngClass]="{'numero': true, 'impar': valor % 2 != 0, 'par': valor %2 == 0}">{{valor}} </span>  
+</span>

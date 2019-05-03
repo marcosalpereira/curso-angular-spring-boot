@@ -461,18 +461,12 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 - O **componente** interage com a visão através de propriedades e métodos
 
 ```javascript
-export class HeroListComponent implements OnInit {
-  heroes: Hero[];
-  selectedHero: Hero;
+export class CursoComponent {
+  titulo = 'Curso Angular + Spring Boot';
+  subtitulo = '';
 
-  constructor(private heroService: HeroService) { }
-
-  ngOnInit() {
-    this.heroes = this.heroService.getHeroes();
-  }
-
-  onSelect(hero: Hero) {
-    this.selectedHero = hero;
+  onClick() {
+    this.subtitulo = 'Construção de uma aplicação';
   }
 }
 ```
@@ -488,19 +482,21 @@ export class HeroListComponent implements OnInit {
 - **ngOnInit, ngOnChanges, ngOnDestroy...**
 
 ```javascript
-export class PeekABoo implements OnInit {
-  constructor(private logger: LoggerService) { }
+export class CursoComponent implements OnInit {
+  titulo = 'Curso Angular + Spring Boot';
+  subtitulo = '??';
 
-  // implement OnInit's `ngOnInit` method
-  ngOnInit() { this.logIt(`OnInit`); }
+  ngOnInit() {
+    this.subtitulo = '?';
+  }
 
-  logIt(msg: string) {
-    this.logger.log(`#${nextId++} ${msg}`);
+  onClick() {
+    this.subtitulo = 'Construção de uma aplicação';
   }
 }
 ```
 
----
+--
 
 [//]: # (13)
 
@@ -510,16 +506,10 @@ export class PeekABoo implements OnInit {
 - É semelhante a um HTML simples, mas pode ter marcações próprias do Angular
 
 ```html
-<h2>Lista de Heróis</h2>
-<p>Selecione um herói da lista abaixo:</p>
-<ul>
-  <li *ngFor="let hero of heroes">
-    <span>{{hero.name}}</span>
-    <button type="button" (click)="selectHero(hero)">Selecionar</button>
-  </li>
-</ul>
-<hero-detail *ngIf="selectedHero" [hero]="selectedHero"></hero-detail>
-```
+<h1>{{titulo}}</h1>
+<h2>{{subtitulo}}</h2>
+<button (click)="onClick()">Clique</button>
+ ```
 
 --
 
@@ -536,16 +526,14 @@ export class PeekABoo implements OnInit {
 - Geralmente, a expressão é uma propriedade do **componente**
 
 ```html
-<h3>
-    {{title}}
-</h3>
+<h1>{{titulo}}</h1>
 ```
 
 - A expressão também pode invocar métodos do **componente**
 
 ```html
 <h3>
-    {{getTitle()}}
+    {{getTitulo()}}
 </h3>
 ```
 
@@ -580,58 +568,7 @@ export class PeekABoo implements OnInit {
   - Proibido: new; incremento e decremento (++ e –); operadores de atribuição (+=, -=, …)
   - Permitido: atribuição básica (=); encadeamento de expressões (; ou ,)
 
----
-
-[//]: # (14)
-
-### metadados
-
-- Os **metadados** descrevem como o Angular deve processar uma classe
-  - Um **componente** na verdade é uma simples classe JavaScript
-  - Só é de fato um **componente** quando é decorado com os **metadados** do Angular
-
-```javascript
-@Component({
-  selector: 'hero-list', // uso: <hero-list></hero-list>
-  templateUrl: '/hero-list.component.html'.
-  providers: [ HeroService ]
-})
-export class HeroListComponent implements OnInit {
-/* ... */
-}
-```
-
 --
-
-[//]: # (14/2)
- PAREI AQUI
-### metadados
-
-- `@Component`
-  - **selector**: nome do elemento customizado (seletor CSS) que diz ao Angular onde criar e inserir uma instância do componente
-  - **templateUrl**: caminho para o template do componente
-  - **providers**: array de "fábricas" dos serviços utilizados pelo componente
-- Outros **metadados** comuns:
-  - `@Injectable`: marca uma classe como "disponível" para instanciação pelo Angular
-  - `@Input`: usada na comunicação entre componentes (pai → filho)
-  - `@Output`: usada na comunicação entre componentes (filho → pai)
-
---
-
-[//]: # (14/3)
-
-### metadados
-
-- Juntos, o **template**, os **metadados** e o **componente** formam uma **visão**
-
-<div class="center">
-  ![Metadados](img/57.png)
-</div>
-
-
----
-
-[//]: # (15)
 
 ### data binding
 
@@ -649,43 +586,21 @@ export class HeroListComponent implements OnInit {
 ### data binding
 
 ```html
-<li>{{hero.name}}</li>
-<hero-detail [hero]="selectedHero"></hero-detail>
-<button type="button" (click)="selectHero(hero)">Selecionar</button>
+Valor Atual:{{valor}}
+<div>one-way</div>
+<input name="valor" [ngModel]="valor" type="number">
+<div>two-way</div>
+<input name="valor" [(ngModel)]="valor" type="number">
+<button (click)="dobrar()">dobrar</button>
 ```
 
-- A expressão **{{hero.name}}** é uma **interpolação**
-  - O valor da propriedade **hero.name** do componente é exibida no DOM
-- A expressão **[hero]** é um **binding de propriedade**
-  - O valor da propriedade **selectedHero** do componente é passado para a propriedade **hero** do componente filho
-- A expressão **(click)** é um **binding de evento**
-  - O método **selectHero** é invocado quando o usuário clica no elemento `<button>`
-
---
-
-[//]: # (15/3)
-
-### data binding
-
-```html
-<input [(ngModel)]="hero.name">
-```
-
+- A expressão **{{valor}}** é uma **interpolação**
 - A expressão **[(ngModel)]** é um **two-way data binding**
-- Combina o **binding de propriedade** e o **binding de evento** em uma notação única
-- O valor da propriedade **hero.name** do componente é exibida no elemento **input**
-- As mudanças no valor do elemento **input** são enviadas de volta ao componente
-
---
-
-[//]: # (15/4)
-
-### data binding
-
-- O **data binding** tem um importante papel na comunicação entre **template** e **componente**
-- O **data binding** também é importante na comunicação entre componentes pai e filho
-
-  <img src="img/61-1.png" /> <img src="img/61-2.png" width="358px" height="219px"/>
+  - Combina o **binding de propriedade** e o **binding de evento** em uma notação única
+  - O valor da propriedade **valor** do componente é exibida no elemento **input**
+  - As mudanças no valor do elemento **input** são enviadas de volta ao componente
+- A expressão **(click)** é um **binding de evento**
+  - O método **dobrar** é invocado quando o usuário clica no elemento `<button>`
 
 ---
 
@@ -710,39 +625,19 @@ export class HeroListComponent implements OnInit {
 - **ngFor** cria um elemento para cada item de uma lista
 - **ngIf** inclui (ou não) um elemento no DOM
 - **ngSwitch** inclui um único elemento a partir de uma lista de possíveis elementos
+- valores = [1, 2, 3, 4, 5, 6, 7];
 
 ```html
-<li *ngFor="let hero of heroes">{{hero.name}}</li>
-<hero-detail *ngIf="selectedHero"></hero-detail>
-<div [ngSwitch]="hero?.emotion">
-  <app-happy-hero    *ngSwitchCase="'happy'"    [hero]="hero"></app-happy-hero>
-  <app-sad-hero      *ngSwitchCase="'sad'"      [hero]="hero"></app-sad-hero>
-  <app-confused-hero *ngSwitchCase="'confused'" [hero]="hero"></app-confused-hero>
-  <app-unknown-hero  *ngSwitchDefault           [hero]="hero"></app-unknown-hero>
-</div>
+                                                   // Resultado
+  <div *ngFor="let valor of valores">              // 1 Um
+    <span *ngIf="valor != 4">{{valor}} </span>     // 2 Dois
+    <ng-container [ngSwitch]="valor">              // 3 Outros
+        <span *ngSwitchCase="1">Um</span>          // Outros
+        <span *ngSwitchCase="2">Dois</span>        // 6 Outros
+        <span *ngSwitchDefault>Outros</span>       // 7 Outros
+    </ng-container>
+  </div>
 ```
-
---
-
-[//]: # (16/3)
-
-### diretivas
-
-O asterisco é um **_Syntactic Sugar_**. Uma sintaxe mais simples que é traduzida para uma construção mais complexa. [Exemplo](https://stackblitz.com/edit/angular-syntax-sugar)
-
-```html
-<!-- usar o syntactic sugar: -->
-<div *ngIf="hero" >{{hero.name}}</div>
-
-<!-- é igual a isso: -->
-<div template="ngIf hero">{{hero.name}}</div>
-
-<!-- e igual a isso: -->
-<ng-template [ngIf]="hero">
-  <div>{{hero.name}}</div>
-</ng-template>
-```
-
 --
 
 [//]: # (16/4)
@@ -755,10 +650,21 @@ O asterisco é um **_Syntactic Sugar_**. Uma sintaxe mais simples que é traduzi
 - **ngClass**: atribuição dinâmica de classes CSS em um elemento
 
 ```html
-<div [ngStyle]="currentStyles">
-  This div is initially italic, normal weight, and extra large (24px).
-</div>
-<div [ngClass]="currentClasses">This div is initially saveable, unchanged, and special</div>
+<h3>De atributo</h3>
+<h4>String</h4>
+<span *ngFor="let valor of valores">
+  <span [ngClass]="'numero'">{{valor}} </span>  
+</span>
+
+<h4>Array de String</h4>
+<span *ngFor="let valor of valores">
+  <span [ngClass]="['numero', 'lista']">{{valor}} </span>  
+</span>
+
+<h4>Objeto</h4>
+<span *ngFor="let valor of valores">
+  <span [ngClass]="{'numero': true, 'impar': valor % 2 != 0, 'par': valor %2 == 0}">{{valor}} </span>  
+</span>
 ```
 
 --
