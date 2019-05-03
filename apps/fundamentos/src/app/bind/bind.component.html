@@ -1,9 +1,13 @@
 <h3>Data Binding</h3>
+
 Valor Atual:{{valor}}
+<br><br>
 <div>one way - [ngModel]="valor"</div>
 <input name="valor" [ngModel]="valor" type="number">
 
+<br><br>
 <div>two way - [(ngModel)]="valor"</div>
 <input name="valor" [(ngModel)]="valor" type="number">
 
+<br><br>
 <button (click)="dobrar()">dobrar</button>

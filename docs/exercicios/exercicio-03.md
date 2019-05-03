@@ -2,227 +2,223 @@
 
 ## Objetivos
 
-* Evoluir nossa aplicação para fazer a aplicação exemplo do Angular **Tour Of Heroes**
-* Exibir os detalhes de um herói
-* Criar um formulário de edição de um herói
+* Fixar nosso conhecimento dos elementos básicos do angular
+  * Componentes
+  * Diretivas
+  * Servicos
+  * Injeção de depêndencias
 
-## Duração
+## Requisitos
+Aparência:
 
-30 minutos
+![Exercicio 3](img/ex3.png)
 
-## Preparando o ambiente
+Criar um componente de nome `Contador` que:
 
->Esse exercício evolui o Exercício 2. Se não conseguiu terminá-lo, use a versão que está na pasta `./workspace/exercicio-02-helloworld/`
+- tenha uma propridade `nome` e exiba ela na página;
+- mostra o valor atual de um contador;
+- um botão que incrementa em 1 o valor do contador;
+- um campo texto que somente aceita números;
+- um botão que altera o valor do contador com o campo texto acima
+- o valor exibido pelo componente deve ser encapsulado num serviço a parte com nome `ContadorService`
 
->Se estiver usando o GIT, para descartar alguma alteração local faça:
->```
->git reset && git checkout -- .
->```
+Criar um componente:
 
-Deixe a aplicação rodando:
+- colocar nele dois `ContadorComponent`
 
-```bash
-cd app-exemplo
-npm run start
+- Após terminar altere para que o próprio componente `ContadorComponent` faça o provider do `ContadorService` e observe os efeitos dessas alteração.
+
+## Resposta
+
+### deixe a aplicação executando
+
+```
+npm start
 ```
 
-O comando `npm run start` iniciará um servidor local para desenvolvimento em "_watch mode_", ou seja, qualquer edição nos arquivos, irá recompilar e recarregar a aplicação no browser. Acesse sua app no endereço local: [http://localhost:4200/](http://localhost:4200/).
+### abra o terminal e gere os arquivos necessários
 
-## Exibindo os detalhes de um herói
+```
+# container para colocar os contadores
+ng g component ex3/exercicio3
 
-Abra o arquivo `app.component.ts` e adicione duas novas propriedades:
+# criar o componente contador
+ng g component ex3/contador
 
-* **title**: o nome da aplicação;
-* **hero**: o herói “Hulk”;
+# criar um servico para encapsular o contador
+ng g service ex3/contador
 
-A classe `AppComponent` deve ficar como abaixo:
+# criar uma diretiva para deixar apenas numeros sejam inseridos
+ng g directive ex3/sonumeros
+```
+
+A aplicação deve ter esses arquivos:
+```
+├── app.component.css
+├── app.component.html
+├── app.component.spec.ts
+├── app.component.ts
+├── app.module.ts
+├── ex3
+│   ├── contador
+│   │   ├── contador.component.css
+│   │   ├── contador.component.html
+│   │   ├── contador.component.spec.ts
+│   │   └── contador.component.ts
+│   ├── contador.service.spec.ts
+│   ├── contador.service.ts
+│   ├── exercicio3
+│   │   ├── exercicio3.component.css
+│   │   ├── exercicio3.component.html
+│   │   ├── exercicio3.component.spec.ts
+│   │   └── exercicio3.component.ts
+│   ├── sonumeros.directive.spec.ts
+│   └── sonumeros.directive.ts
+└── introducao
+    ├── introducao.component.css
+    ├── introducao.component.html
+    └── introducao.component.ts
+```
+
+#### Serviço que gerencia o contador
+
+Basicamente precisamos definir uma propriedade pública para guardar o valor e um método para incrementá-lo.
+
+Altere o arquivo `src/app/ex3/contador.service.ts`
 
 ```javascript
-export class AppComponent {
-  title = 'Tour of Heroes';
-  hero = 'Hulk';
-}
-```
+import { Injectable } from '@angular/core';
 
-Em seguida substitua todo o conteúdo do arquivo de  template descrito no `templateUrl` do decorador `@Component` do **AppComponent** pelo conteúdo abaixo:
-
-```html
-<h1>{{title}}</h1>
-<h2>{{hero}} details!</h2>
-```
-
-O navegador deve recarregar a aplicação e mostrar o **título** e o **nome do herói**.
-
-As chaves duplas `{{}}` é a sintaxe para a **interpolação** do Angular. A interpolação apresenta as propriedades **title** e **hero** do componente **AppComponent** como strings no HTML.
-
-### A classe Hero
-
-O herói precisa de mais propriedades. Converta a propriedade `hero` de uma string para uma classe.
-
-Crie a classe `Hero` com as propriedades `id` e `name` no arquivo `app.component.ts`, logo após os import:
-
-```javascript
-export class Hero {
-  id: number;
-  name: string;
-}
-```
-
-Na classe `AppComponent`, refatore a propriedade `hero` para o tipo `Hero`, e inicialize o `id` e o `name`:
-
-```javascript
-hero: Hero = {
-  id: 1,
-  name: 'Hulk'
-};
-```
-
-Atualize, agora, o template para mostrar as propriedades `id` e `name`:
-
-```html
-<h1>{{title}}</h1>
-<h2>{{hero.name}} details!</h2>
-<div>id: {{hero.id}}</div>
-<div>nome: {{hero.name}}</div>
-```
-
-O navegador deve recarregar a aplicação e continuar mostrando o nome do herói.
-
-!!! warning "Templates com múltiplas linhas"
-
-    No curos original, é apresentado o uso da propriedade `template` do decorator (ao invés da `templateUrl`).
-    Porém, na prática não utilizamos esta abordagem pois pode dificultar a manutenção do código.
-    Se você leu isso e o tutor(a) não explicou ainda, peça para que explique!
-
-
-## Editando o nome do herói
-
-Para editar o nome do herói, vamos usar um `<input>`. A caixa de texto deve tanto *exibir* a propriedade `name` do herói, quanto *atualizar* o valor dessa propriedade na medida em que o usuário modifica seu valor.
-
-Isto é, precisamos de um **_two-way binding_** entre o elemento `<input>` e a propriedade `hero.name`.
-
-!!! warning "Acessibilidade: Labels"
-
-    Sempre que possível, use elementos de `label` para associar e descrever um campo de formulário.
-    O atributo `for` do label **deve** existir e ser igual ao `id` do campo em questão.
-    Referência: [Técnica H44 do WCAG 2.0](https://www.w3.org/WAI/GL/WCAG20-TECHS/html.html#H44)
-
-### Two-way binding
-
-Refatore o nome do herói no template para ficar como abaixo:
-
-```html
-<div>
-  <label for="hero-name">Nome:</label>
-  <input id="hero-name" [(ngModel)]="hero.name" placeholder="Nome do herói">
-</div>
-```
-
-O `[(ngModel)]` é a sintaxe Angular para o *two-way binding* entre o elemento `<input>` e a propriedade `hero.name`. Os dados fluem nas duas direções: a partir da propriedade para a caixa de texto, e da caixa de texto para a propriedade.
-
-Logo após essa alteração, a aplicação quebra. Se você olhar o console do navegador, você verá algo como:
-
-```
-ngModel ... isn't a known property of input.
-```
-
-Apesar do `ngModel` ser uma diretiva válida do Angular, ela não está disponível por default. Ela pertence ao módulo opcional `FormsModule`.
-
-### Importando o FormsModule
-
-Abra o arquivo `app.module.ts` e importe o módulo `FormsModule` da biblioteca `@angular/forms`.
-
-Para fazer isso, adicione o `FormsModule` no array `imports` do `@NgModule`. Esse array contém a lista de todos os módulos Angular externos que a aplicação usa.
-
-O `AppModule` deve ficar como abaixo:
-
-```javascript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // Passo 1) Importe o FormsModule (javascript) 
-
-import { AppComponent } from './app.component';
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule // Passo 2) Importe o FormsModule (angular)
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+@Injectable({
+  providedIn: 'root'
 })
-export class AppModule { }
+export class ContadorService {
+  valor = 0;
+  incrementar() {
+    this.valor++;
+  }
+}
 ```
 
-Quando o navegador atualizar, a aplicação deve voltar a funcionar. Você pode editar o nome do herói e ver as mudanças refletirem imediatamente no `<h2>` da página.
+#### Mostrar/gerenciar um contador
 
-## Resumo
-
-O que aprendemos:
-
-* One-way Data Binding para a interpolação de dados (`{{}}`)
-* Two-way data Binding para a edição de dados (`[(ngModel)]`)
-* <del title="Motivo explicado no curso: pode dificultar a manutenção (caso geral).">Template com múltiplas linhas</del> ( ` )
-
-Veja como deve estar o conteúdo do arquivo `app.component.ts` nesse momento:
-
+- precisamos de uma propriedade nome:
 ```javascript
-import { Component } from '@angular/core';
+@Input() nome: string;
+```
 
-export class Hero {
-  id: number;
-  name: string;
+- precisamos alterar o valor do contador, precisamos de uma propriedade para fazermos um two-way databind na página
+```javascript
+novoValor: number;
+```
+
+- precisamos injetar o servico do contador no componente:
+```javascript
+constructor(private contador: ContadorService) { }
+```
+
+- precisamos que o template acesse o valor do contador que está no serviço. Vamos definir um método acessor.
+```javascript
+get valor(): number {
+  return this.contador.valor;
 }
+```
+
+- precisamos de métodos para incrementar e alterar o valor do contador:
+```javascript
+  incrementarValor() {
+    this.contador.incrementar();
+  }
+
+  alterarValor() {
+    this.contador.valor = this.novoValor;
+  }
+```
+
+- resumindo altere o arquivo `src/app/ex3/contador/contador.component.ts` para:
+```javascript
+import { ContadorService } from './../contador.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-contador',
+  templateUrl: './contador.component.html',
+  styleUrls: ['./contador.component.css'],
 })
-export class AppComponent {
-  title = 'Tour of Heroes';
-  hero: Hero = {
-    id: 1,
-    name: "Hulk"
-  };
+export class ContadorComponent {
+  @Input() nome: string;
+
+  novoValor: number;
+
+  constructor(private contador: ContadorService) { }
+
+  get valor(): number {
+    return this.contador.valor;
+  }
+
+  incrementarValor() {
+    this.contador.incrementar();
+  }
+
+  alterarValor() {
+    this.contador.valor = this.novoValor;
+  }
 }
+
 ```
 
-E o arquivo `app.component.html` deve estar (mais ou menos) assim:
+Para o template do contador devemos:
+
+- Mostrar o nome do contador. Vamos usar o elemento `fieldset` e fazer uma interpolação no elemento `legend`
 
 ```html
-<h1>{{title}}</h1>
-<h2>{{hero.name}} details!</h2>
-<div>id: {{hero.id}}</div>
-<div>
-  <label for="hero-name">Nome:</label>
-  <input id="hero-name" [(ngModel)]="hero.name" placeholder="Nome do herói">
-</div>
+<fieldset>
+  <legend>{{nome}}</legend>
+  <!-- ... -->
+</fieldset>
 ```
 
-## Revisando a estrutura da aplicação
-
-Nesse momento, a sua aplicação deve ter a seguinte estrutura:
-
-```
-app-exemplo
-├── node_modules
-│   ├── ...
-├── package.json
-├── src
-│   ├── app
-│   │   ├── app.component.css
-│   │   ├── app.component.html
-│   │   ├── app.component.ts
-│   │   └── app.module.ts
-│   ├── main.ts
-│   ├── styles.css
-│   ├── ...
+- mostrar o valor atual
+```html
+Valor Atual: {{valor}}
 ```
 
-## Próximo passo
+- botão para icrementar o valor. Façamos um bind para o evento `click` chamando o método que definimos anteriormente no componente.
+```html<button (click)="incrementarValor()">Incrementar</button>
+```
 
-[Exercício 04](exercicio-04.md)
+- possibilitar que o valor do contador seja alterado. Vamos criar um input text fazendo um two way data binding com a propriedade do componente `novoValor`. Coloque no input a diretiva que irá evitar que sejam digitados caracteres não numéricos. Obs. Por enquanto ela não faz isso ainda.
+```html
+<input size="5" appSonumeros type="text" [(ngModel)]="novoValor">
+```html
+
+
+- alterar o valor digitado através do bind com o evento click de um botão
+```html
+<button (click)="alterarValor()">Alterar</button>
+```
+
+- Resumindo, altere o `src/app/ex3/contador/contador.component.html`
+```html
+<fieldset>
+  <legend>{{nome}}</legend>
+  Valor Atual: {{valor}}
+  <button (click)="incrementarValor()">Incrementar</button>
+
+  <div>
+    <input size="5" appSonumeros type="text" [(ngModel)]="novoValor">
+    <button (click)="alterarValor()">Alterar</button>
+  </div>
+</fieldset>
+```
+
+#### Diretiva para filtrar caracteres somente numéricos
+- para filtrar os caracteres digitados no campo texto, precisamos interceptar o evento de tecla pressionada. Se não for um caractere de 0 a 9 fazemos o browser dispensar o evento.
+```javascript
+  @HostListener('keydown', ['$event'])
+  onKeyDown(e: KeyboardEvent) {
+    if ('0123456789'.indexOf(e.key) === -1) {
+      e.preventDefault();
+    }
+  }
+```

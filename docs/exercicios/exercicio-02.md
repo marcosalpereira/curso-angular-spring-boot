@@ -124,29 +124,6 @@ Você deverá ver algo como:
 
 ![](img/app-works.png)
 
-Modifique o arquivo `src/app/app.component.ts`:
-
-```javascript
-export class AppComponent {
-    title = 'My First Angular App';
-}
-```
-
-Abra o arquivo `src/app/app.component.css` e inclua a seguinte regra de estilo CSS:
-
-```css
-h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
-}
-```
-
-O resultado esperado é:
-
-![](img/my-first-app.png)
-
-
 ## Referências
 
 * Angular CLI: [https://cli.angular.io/](https://cli.angular.io/)

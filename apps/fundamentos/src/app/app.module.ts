@@ -7,12 +7,16 @@ import { BindComponent } from './bind/bind.component';
 import { DiretivasComponent } from './diretivas/diretivas.component';
 import { IntroducaoComponent } from './introducao/introducao.component';
 import { RouterModule, Route } from '@angular/router';
+import { ContadorComponent } from './ex3/contador/contador.component';
+import { SonumerosDirective } from './ex3/sonumeros.directive';
+import { Exercicio3Component } from './ex3/exercicio3/exercicio3.component';
 
 const rotas: Route[] = [
   { path: '', pathMatch: 'full', redirectTo: '/intro' },
   { path: 'intro', component: IntroducaoComponent},
   { path: 'bind', component: BindComponent},
-  { path: 'diretivas', component: DiretivasComponent}
+  { path: 'diretivas', component: DiretivasComponent},
+  { path: 'ex3', component: Exercicio3Component},
 
 ];
 
@@ -22,6 +26,9 @@ const rotas: Route[] = [
     BindComponent,
     DiretivasComponent,
     IntroducaoComponent,
+    ContadorComponent,
+    SonumerosDirective,
+    Exercicio3Component,
   ],
   imports: [
     BrowserModule, FormsModule, RouterModule.forRoot(rotas)

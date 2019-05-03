@@ -1,0 +1,10 @@
+<fieldset>
+  <legend>{{nome}}</legend>
+  Valor Atual: {{valor}}
+  <button (click)="incrementarValor()">Incrementar</button>
+
+  <div>
+    <input size="5" appSonumeros type="text" [(ngModel)]="novoValor">
+    <button (click)="alterarValor()">Alterar</button>
+  </div>
+</fieldset>
