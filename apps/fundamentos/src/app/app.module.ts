@@ -16,8 +16,8 @@ const rotas: Route[] = [
   { path: 'intro', component: IntroducaoComponent},
   { path: 'bind', component: BindComponent},
   { path: 'diretivas', component: DiretivasComponent},
+  { path: 'ex3/:valorInicial', component: Exercicio3Component},
   { path: 'ex3', component: Exercicio3Component},
-
 ];
 
 @NgModule({

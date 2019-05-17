@@ -864,50 +864,127 @@ constructor(private service: ContadorService) {}
 ---
 
 [//]: # (16)
-### tópicos complementares
+### Navegação com Rotas
 
-- [Stories](https://github.com/angular/angular-cli/wiki/stories)
-- [Library](https://github.com/angular/angular-cli/wiki/stories-create-library) | +nexus
-- [Múltiplos Projetos](https://github.com/angular/angular-cli/wiki/stories-multiple-projects) (sub-apps)
-- UI - [Bootstrap](https://github.com/angular/angular-cli/wiki/stories-include-bootstrap) | [Angular Material](https://github.com/angular/angular-cli/wiki/stories-include-angular-material)
-- TDD - [Code Coverage](https://github.com/angular/angular-cli/wiki/stories-code-coverage)
+- Uma rota define qual é o componente que deve ser exibida de acordo com a URL
+- O usuário pode clicar em um link ou colar a URL na barra de navegação do browser
+- As rotas são definidas por um array
+- Normalmente define-se para cada elemento do array as propriedades:
+  - **path**: o router checa esse caminho com a URL na barra de navegação do browser
+  - **component**: define o componente que deve ser criado quando se navega para essa rota
 
----
+--
+
+[//]: # (16/2)
+### Navegação com Rotas - definição
+
+```javascript
+import { RouterModule, Route } from '@angular/router';
+// ...
+
+const rotas: Route[] = [
+  { path: '', pathMatch: 'full', redirectTo: '/intro' },
+  { path: 'intro', component: IntroducaoComponent},
+  { path: 'bind', component: BindComponent},
+  { path: 'diretivas', component: DiretivasComponent}
+];
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    IntroducaoComponent,
+    BindComponent,
+    DiretivasComponent,
+    ContadorComponent
+  ],
+  imports: [
+    BrowserModule, RouterModule.forRoot(rotas)
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+--
+
+[//]: # (16/3)
+### Navegação com Rotas
+
+- Para exibir os componentes na navegação, adicione a tag **&lt;router-outlet&gt;** no template
+  - O **RouterOutlet** é uma diretiva do **RouterModule**
+  - É abaixo desse elemento que o router exibe o componente associado à rota
+- Para navegar entre as visões, adicione um atributo **routerLink** nos elementos **&lt;a&gt;**
+  - O **RouterLink** também é uma diretiva do **RouterModule**
+  - O valor do atributo deve ser o **path** da rota de navegação
+
+--
+
+[//]: # (16/4)
+### Navegação com Rotas - uso
+
+- Sem rotas
+
+```html
+<!-- <app-introducao></app-introducao> -->
+<!-- <app-bind></app-bind> -->
+<app-app-diretivas></app-diretivas>
+```
+
+- com rotas
+
+```html
+<a [routerLink]="['/intro']">Introdução</a>
+<a [routerLink]="['/bind']">Data Binding</a>
+<a [routerLink]="['/diretivas']">Diretivas</a>
+<router-outlet></router-outlet>
+```
+
+--
 
 [//]: # (17)
+### Navegação com Rotas Parametrizadas
 
-### referências
+- Pode-se passar valores para os componentes roteados.
 
-- Angular Docs: [https://angular.io/docs](https://angular.io/docs)
-- Angular CLI: [https://cli.angular.io](https://cli.angular.io)
-- Stackblits
-- Compodocs
+Exemplo:
+```
+{ path: 'turmas/:id', component: TurmaComponent},
+```
+
+- Esse valores podem ser acessado dessa forma:
+
+```
+export class TurmaComponent implements OnInit {
+
+  constructor(private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    // usar o id para chamar um serviço
+  }
+}
+```
 
 ---
 
-[//]: # (18)
+### Pipes
 
-### perguntas
+- Um pipe transforma dados de entrada para uma saída com um formato desejado
+- Um pipe pode aceitar qualquer número de parâmetros opcionais
+- Para passar parâmetros para um pipe, utiliza-se os dois-pontos (`:`) após o nome do pipe, seguido pelo valor do parâmetro
+- Se o pipe aceitar múltiplos parâmetros, os valores são separados por dois-pontos
 
-## placeholder
+```html
+ 12345678.12 | currency                              --> $12,345,678.12
+ 12345678.12 | currency : 'BRL' : 'symbol'           --> R$12,345,678.12
+ 12345678.12 | currency : 'BRL' : 'symbol' : '1.2-2' --> R$12,345,678.12
+ 12345678.1  | currency : 'BRL' : 'symbol' : '1.2-2' --> R$12,345,678.10
+         .12 | currency : 'BRL' : 'symbol' : '1.2-2' --> R$0.12
+          .1 | currency : 'BRL' : 'symbol' : '1.2-2' --> R$0.10
+      .12345 | currency : 'BRL' : 'symbol' : '1.2-3' --> R$0.123
+```
 
-<div class="center">
-    <i class="fa fa-question fa-8x fa-spin"></i>
-</div>
+---
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+### FIM
