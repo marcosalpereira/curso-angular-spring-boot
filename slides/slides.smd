@@ -942,7 +942,7 @@ export class AppModule { }
 
 --
 
-[//]: # (17)
+[//]: # (16/5)
 ### Navegação com Rotas Parametrizadas
 
 - Pode-se passar valores para os componentes roteados.
@@ -968,12 +968,14 @@ export class TurmaComponent implements OnInit {
 
 ---
 
+[//]: # (17)
 ### Pipes
 
 - Um pipe transforma dados de entrada para uma saída com um formato desejado
 - Um pipe pode aceitar qualquer número de parâmetros opcionais
 - Para passar parâmetros para um pipe, utiliza-se os dois-pontos (`:`) após o nome do pipe, seguido pelo valor do parâmetro
 - Se o pipe aceitar múltiplos parâmetros, os valores são separados por dois-pontos
+- Pipes disponíveis: *Date*, *UpperCase*, *LowerCase*, *Currency* e *Percent*
 
 ```html
  12345678.12 | currency                              --> $12,345,678.12
@@ -985,6 +987,168 @@ export class TurmaComponent implements OnInit {
       .12345 | currency : 'BRL' : 'symbol' : '1.2-3' --> R$0.123
 ```
 
+--
+
+[//]: # (17/2)
+### Pipes - Personalizados
+
+**Gerar:**
+
+```sh
+ng generate pipe pipes/par
+```
+
+**Código:**
+
+```javascript
+import { Pipe, PipeTransform } from '@angular/core';
+@Pipe( { name: 'par' } )
+export class ParPipe implements PipeTransform {
+  transform(numeros: number[]): number[] {
+    return numeros.filter(n => n % 2 === 0);
+  }
+}
+```
+
+**Uso:**
+
+```html
+{{ [1,2,3,4,5,6,7,8,9,10] | par }}
+```
+
 ---
 
-### FIM
+### Backend - Spring Boot
+
+# Backend
+
+---
+
+### Protocolo HTTP - Métodos
+
+- GET
+
+```
+GET alunos
+GET alunos/1
+```
+
+- POST
+
+```
+POST alunos
+{ "nome": "oto", "sede": {"id": 1}}
+
+```
+
+- PUT
+
+```
+PUT alunos/1
+{ "nome": "ivo" }
+
+```
+
+- DELETE
+
+```
+DELETE alunos/1
+```
+
+--
+
+### Protocolo HTTP - Headers
+
+Requisição
+
+```
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYUBuYS5jb20uYnIiLCJleHAiOjE1NTEwNDQ0NDAsIlJPTEVTIjoiUk9MRV9BRE1JTiJ9.TsXR5aA9KPt1VX37IDiZkmfcx1t6FW_V-0sdii78YJrtXyiVqTET6enJbtM-rlT9bl5mW2cijw4usthhihIVKw
+```
+
+Resposta
+
+```
+HTTP/1.1 200 OK
+Date: Fri, 17 May 2019 22:32:00 GMT
+Content-Type: text/html; charset=ISO-8859-1
+```
+
+--
+
+### Protocolo HTTP - Códigos de Resposta
+
+- 200 **OK** - Deve ser usado para indicar sucesso não específico.
+- 201 **Created** - Deve ser usado para indicar a criação bem-sucedida de recursos
+- 204 **No Content** - Deve ser usado quando o corpo da resposta for intencionalmente vazio
+- 400 **Bad Request** pode ser usado para indicar falha não específica
+- 401 **Unauthorized** - Deve ser usado quando há um problema com as credenciais do cliente
+- 403 **Forbidden** - Deve ser usado para proibir o acesso independentemente estado de autorização
+- 404 **Not found** - Deve ser usado quando não existir um recurso no URI informado pelo cliente
+- 500 **Internal Server Error** - Deve ser usado para indicar erro do lado da API (servidor)
+
+---
+
+### Design de API REST
+
+- Versionamento
+
+```
+https://nafortaleza.com.br:8443/pedagogia/api/v1/materias
+```
+
+- Sublinhados (_) não devem ser usados em URIs
+- Os caminhos devem ser definidos com letras minúsculas
+```
+https://nafortaleza.com.br:8443/pedagogia/api/v1/turmas
+```
+
+- Os caminhos devem ser definidos em spinal case
+```
+https://nafortaleza.com.br:8443/pedagogia/api/v1/entregas-tema
+```
+
+- Os caminhos devem conter a forma plural de recursos e o método HTTP deve definir o tipo de ação a ser executada no recurso
+```
+GET https://nafortaleza.com.br:8443/pedagogia/api/v1/turmas/1
+DELETE https://nafortaleza.com.br:8443/pedagogia/api/v1/turmas/1
+
+```
+
+---
+
+### Spring Boot - O que é?
+
+- *Spring Boot* torna fácil criar uma aplicação *Spring stand-alone*;
+- Ele toma uma série de decisões inteligentes por nós, tanto para os elementos da plataforma Spring como para as bibliotecas de terceiros;
+- Normalmente, as aplicações Spring Boot, precisam de muito poucas configurações;
+- Servidor Web embutido (Tomcat, Jetty or Undertow)
+- Início rápido - https://start.spring.io
+- IDE de desenvolvimento - https://spring.io/tools
+
+---
+
+### Agenda
+
+- Criar uma aplicação
+-
+
+
+---
+
+---
+[//]: # (18)
+
+### Aprofundando os estudos
+
+<div class="center shadow">
+<i class="fa fa-graduation-cap fa-8x"></i>
+</div>
+
+- [https://angular.io](https://angular.io/)
+- [https://cli.angular.io](https://cli.angular.io/)
+- [https://material.angular.io](https://material.angular.io/)
+- [https://blog.angular-university.io/](https://blog.angular-university.io/)
+- [https://youtube.com](https://youtube.com/)
+- [https://spring.io/projects/spring-boot](https://spring.io/projects/spring-boot)
+

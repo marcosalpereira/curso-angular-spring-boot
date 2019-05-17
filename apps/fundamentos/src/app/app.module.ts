@@ -10,12 +10,15 @@ import { RouterModule, Route } from '@angular/router';
 import { ContadorComponent } from './ex3/contador/contador.component';
 import { SonumerosDirective } from './ex3/sonumeros.directive';
 import { Exercicio3Component } from './ex3/exercicio3/exercicio3.component';
+import { ParPipe } from './pipes/par.pipe';
+import { PipesComponent as PipesComponent } from './pipes/pipes/pipes.component';
 
 const rotas: Route[] = [
   { path: '', pathMatch: 'full', redirectTo: '/intro' },
   { path: 'intro', component: IntroducaoComponent},
   { path: 'bind', component: BindComponent},
   { path: 'diretivas', component: DiretivasComponent},
+  { path: 'pipes', component: PipesComponent},
   { path: 'ex3/:valorInicial', component: Exercicio3Component},
   { path: 'ex3', component: Exercicio3Component},
 ];
@@ -29,6 +32,8 @@ const rotas: Route[] = [
     ContadorComponent,
     SonumerosDirective,
     Exercicio3Component,
+    ParPipe,
+    PipesComponent,
   ],
   imports: [
     BrowserModule, FormsModule, RouterModule.forRoot(rotas)

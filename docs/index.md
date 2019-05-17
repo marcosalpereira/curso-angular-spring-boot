@@ -4,7 +4,7 @@
 
 ## [Acessar Slides](slides/index.html)
 
-## Angular
+## Frontend - Angular
 * Angular: o que é
 * Arquiteturas Web Modernas
 * nvm/node.js/npm/Angular CLI
@@ -20,14 +20,16 @@
 * Guardas
 * RxJs
 
-## Spring Boot
-* O que é
-* JWT
+## Backend - Spring Boot
+
+* Protocolo HTTP
 * Design de API REST
+* O que é
 * Implementação API REST
 * Persistencia
 * Tratamento de Exceções
 * Segurança
+* JWT
 
 ## Exercícios:
 * [01 - Instalação](exercicios/exercicio-01.md)
