@@ -518,6 +518,79 @@ Esse comando gera um componente de nome `Aluno` na pasta `src/app/aluno` com um 
 --
 
 [//]: # (12/4)
+### Componentes - propriedade de entrada
+
+- Definindo propriedade de entrada
+
+```javascript
+@Input() nome: string;
+```
+
+```html
+<fieldset>
+  <legend>{{nome}}</legend>
+</fieldset>
+```
+
+- Uso
+
+```html
+<my-component [nome]="nome"></my-component>
+```
+
+--
+
+[//]: # (12/5)
+### Componentes - eventos de saída
+
+- Definindo eventos de saída
+
+```javascript
+@Output() itemSelecionado = new EventEmitter<string>();
+
+// ...
+
+onEventSelecao(item) {
+  this.itemSelecionado.emit(item);
+}
+
+```
+
+- Uso
+
+```html
+<my-component (itemSelecionado)="onSelected($event)"></my-component>
+```
+
+```javascript
+onSelected(item) {
+  console.log({item});
+}
+
+```
+
+
+--
+
+[//]: # (12/6)
+### Componentes - two-way data binding
+
+- Suportando o two-way data binding
+
+```javascript
+@Input() nome: string;
+@Output() nomeChange = new EventEmitter<string>();
+```
+
+- Uso
+
+```html
+<my-component [(nome)]="nome"></my-component>
+```
+
+--
+
+[//]: # (12/7)
 
 ### templates
 
@@ -532,7 +605,7 @@ Esse comando gera um componente de nome `Aluno` na pasta `src/app/aluno` com um 
 
 --
 
-[//]: # (12/5)
+[//]: # (12/8)
 
 ### templates
 
@@ -558,7 +631,7 @@ Esse comando gera um componente de nome `Aluno` na pasta `src/app/aluno` com um 
 
 --
 
-[//]: # (12/6)
+[//]: # (12/9)
 
 ### templates
 
@@ -568,7 +641,7 @@ Esse comando gera um componente de nome `Aluno` na pasta `src/app/aluno` com um 
 
 --
 
-[//]: # (12/7)
+[//]: # (12/10)
 
 ### templates
 
@@ -586,7 +659,7 @@ Esse comando gera um componente de nome `Aluno` na pasta `src/app/aluno` com um 
 
 --
 
-[//]: # (12/8)
+[//]: # (12/11)
 ### data binding
 
 - **Data binding** é um mecanismo para coordenar a interação entre **template** e **componente**
@@ -598,7 +671,7 @@ Esse comando gera um componente de nome `Aluno` na pasta `src/app/aluno` com um 
 
 --
 
-[//]: # (12/9)
+[//]: # (12/12)
 
 ### data binding
 
@@ -731,6 +804,7 @@ onKeyDown(e: KeyboardEvent) {
 
 --
 
+[//]: # (13/6)
 ### diretivas
 
 ```bash
@@ -1020,12 +1094,14 @@ export class ParPipe implements PipeTransform {
 
 ---
 
+[//]: # (18)
 ### Backend - Spring Boot
 
 # Backend
 
 ---
 
+[//]: # (19)
 ### Protocolo HTTP - Métodos
 
 - GET
@@ -1059,6 +1135,7 @@ DELETE alunos/1
 
 --
 
+[//]: # (19/2)
 ### Protocolo HTTP - Headers
 
 Requisição
@@ -1078,6 +1155,7 @@ Content-Type: text/html; charset=ISO-8859-1
 
 --
 
+[//]: # (19/3)
 ### Protocolo HTTP - Códigos de Resposta
 
 - 200 **OK** - Deve ser usado para indicar sucesso não específico.
@@ -1091,6 +1169,7 @@ Content-Type: text/html; charset=ISO-8859-1
 
 ---
 
+[//]: # (20)
 ### Design de API REST
 
 - Versionamento
@@ -1119,6 +1198,7 @@ DELETE https://nafortaleza.com.br:8443/pedagogia/api/v1/turmas/1
 
 ---
 
+[//]: # (21)
 ### Spring Boot - O que é?
 
 - *Spring Boot* torna fácil criar uma aplicação *Spring stand-alone*;
@@ -1130,6 +1210,7 @@ DELETE https://nafortaleza.com.br:8443/pedagogia/api/v1/turmas/1
 
 ---
 
+[//]: # (22)
 ### Agenda
 
 - Criar uma aplicação
@@ -1138,8 +1219,10 @@ DELETE https://nafortaleza.com.br:8443/pedagogia/api/v1/turmas/1
 
 ---
 
+[//]: # (23)
 ---
-[//]: # (18)
+
+[//]: # (24)
 
 ### Aprofundando os estudos
 
@@ -1153,4 +1236,6 @@ DELETE https://nafortaleza.com.br:8443/pedagogia/api/v1/turmas/1
 - [https://blog.angular-university.io/](https://blog.angular-university.io/)
 - [https://youtube.com](https://youtube.com/)
 - [https://spring.io/projects/spring-boot](https://spring.io/projects/spring-boot)
+
+
 
