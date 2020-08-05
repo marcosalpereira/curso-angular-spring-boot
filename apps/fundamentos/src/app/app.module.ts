@@ -13,6 +13,7 @@ import { ParPipe } from './pipes/par.pipe';
 import { PipesComponent as PipesComponent } from './pipes/pipes/pipes.component';
 import { AppRoutingModule } from './rotas/app-routing.module';
 import { RotasComponent } from './rotas/rotas.component';
+import { ServicosComponent } from './servicos/servicos.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { RotasComponent } from './rotas/rotas.component';
     ParPipe,
     PipesComponent,
     RotasComponent,
+    ServicosComponent,
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule

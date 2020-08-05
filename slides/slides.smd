@@ -880,6 +880,7 @@ export class SonumerosDirective {
 
 --
 
+[//]: # (14/8)
 ### diretivas - passando atributos
 
 ```javascript
@@ -899,6 +900,7 @@ permitido 0123456789 (default)
 
 --
 
+[//]: # (14/9)
 ### diretivas - passando atributos com alias
 
 ```javascript
@@ -922,6 +924,7 @@ permitido 0123456789 (default)
 
 --
 
+[//]: # (14/10)
 ### diretivas - seletor mais complexo
 
 ```javascript
@@ -1002,13 +1005,13 @@ constructor(private service: ContadorService) {}
 
 ### injeção de dependências
 
-- O Angular mantém um container de instâncias de **serviços** criadas anteriormente
+- O Angular mantém um container das instâncias de **serviços** criadas
 - Quando um **componente** é criado, seus **serviços** são recuperados desse **container**
 - Você deve dizer ao Angular como criar novas instâncias de um **serviço**
 - Isto é, você deve registrar uma fábrica do **serviço**
 - A fábrica é algo que pode criar ou retornar uma instância do **serviço**
 - Você pode registrar a fábrica em **módulos** ou em **componentes**
-  - Em um **módulo**, a mesma instância do **serviço** é disponível para todos os **componentes** desse **módulo** (_singleton_)
+  - Em um **módulo**, a mesma instância do **serviço** é disponível para todos os **componentes** desse **módulo**
   - Em um **componente**, uma nova instância do **serviço** será criada para cada nova instância do **componente**
 
 --
@@ -1045,7 +1048,7 @@ constructor(private service: ContadorService) {}
 [//]: # (16)
 ### Navegação com Rotas
 
-- Uma rota define qual é o componente que deve ser exibida de acordo com a URL
+- Uma rota define qual é o componente que deve ser exibido de acordo com a URL
 - O usuário pode clicar em um link ou colar a URL na barra de navegação do browser
 - As rotas são definidas por um array
 - Normalmente define-se para cada elemento do array as propriedades:
@@ -1350,6 +1353,8 @@ DELETE https://nafortaleza.com.br:8443/pedagogia/api/v1/turmas/1
 - [https://blog.angular-university.io/](https://blog.angular-university.io/)
 - [https://youtube.com](https://youtube.com/)
 - [https://spring.io/projects/spring-boot](https://spring.io/projects/spring-boot)
+
+
 
 
 
