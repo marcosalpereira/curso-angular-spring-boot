@@ -11,15 +11,24 @@
 <h3>De atributo - Ex: ngClass</h3>
 <h4>String</h4>
 <span *ngFor="let valor of valores">
-  <span [ngClass]="'numero'">{{valor}} </span>  
+  <span [ngClass]="'numero'">{{valor}} </span>
 </span>
 
 <h4>Array de String</h4>
 <span *ngFor="let valor of valores">
-  <span [ngClass]="['numero', 'lista']">{{valor}} </span>  
+  <span [ngClass]="['numero', 'lista']">{{valor}} </span>
 </span>
 
 <h4>Objeto</h4>
 <span *ngFor="let valor of valores">
-  <span [ngClass]="{'numero': true, 'impar': valor % 2 != 0, 'par': valor %2 == 0}">{{valor}} </span>  
+  <span [ngClass]="{'numero': true, 'impar': valor % 2 != 0, 'par': valor %2 == 0}">{{valor}} </span>
+</span>
+
+<h4>Outra forma de customizar classe CSS ou atributo</h4>
+<span *ngFor="let valor of [0, 1, 2, 3, 4, 5, 6, 7]">
+  <span
+      [attr.zero]="valor === 0 ? '' : null"
+      [class.par]="valor != 0 && valor % 2 === 0"
+    [class.impar]="valor % 2 !== 0">{{valor}}
+  </span>
 </span>

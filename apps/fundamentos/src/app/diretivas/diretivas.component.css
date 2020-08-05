@@ -8,3 +8,7 @@
 .par {
     color: blue;
 }
+
+span[zero] {
+    color: red;
+}
