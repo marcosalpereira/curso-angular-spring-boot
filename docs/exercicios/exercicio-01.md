@@ -32,8 +32,9 @@ Depois de rodar o script de instalação, execute o comando abaixo para verifica
 
 ```bash
 nvm --version
-
-# resultado esperado:
+```
+O resultado esperado é (na época em que isso foi escrito):
+```
 0.33.11
 ```
 
@@ -76,9 +77,10 @@ Para confirmar a instalação do NPM, execute:
 
 ```bash
 npm --version
-
-# o resultado esperado é (na época em que isso foi escrito):
-5.6.0 
+```
+O resultado esperado é (na época em que isso foi escrito):
+```
+5.6.0
 ```
 
 ### Windows
@@ -92,19 +94,23 @@ Baixe o arquivo [de Instalação](https://nodejs.org/en/download/) execute e sig
 Para instalar o VS Code, baixe a versão apropriada (.deb ou .rpm) de acordo com a sua distribuição Linux no endereço: [https://code.visualstudio.com/](https://code.visualstudio.com/)
 
 
-### Plugins
+### Extensões
 
-Adicionalmente, instale os seguintes plugins recomendados:
+Opcionalmente, instale as seguintes extensões:
+> VS Code Quick Open <kbd>Ctrl</kbd> <kbd>P</kbd>, cole os comandos e pressione <kbd>ENTER</kbd>
 
-* `ext install Angular.ng-template` | Ref.: [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template)
-* `ext install pavellev.Angular2` | Ref.: [Angular v5 Snippets](https://marketplace.visualstudio.com/items?itemName=pavellev.Angular2)
-* `ext install msjsdiag.debugger-for-chrome` | Ref.: [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
-* `ext install EditorConfig.EditorConfig` | Ref.: [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
-* `ext install rbbit.typescript-hero` | Ref.: [TypeScript Hero](https://marketplace.visualstudio.com/items?itemName=rbbit.typescript-hero)
-* <del>Terminal</del> Não precisa mais. Já vem por padrão no vscode.
+| Comando | Extensão |
+| ------- | -------- |
+| `ext install angular.ng-template` | [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template) |
+| `ext install coenraads.bracket-pair-colorizer-2` | [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2) |
+| `ext install msjsdiag.debugger-for-chrome` | [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) |
+| `ext install formulahendry.auto-rename-tag` | [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag) |
+| `ext install esbenp.prettier-vscode` | [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) |
+| `ext install aeschli.vscode-css-formatter` | [CSS Formatter](https://marketplace.visualstudio.com/items?itemName=aeschli.vscode-css-formatter) |
+| `ext install eamodio.gitlens` | [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) |
+| `ext install databyne.theme-monokai-hc` | [Monokai - High Contrast](https://marketplace.visualstudio.com/items?itemName=DataByne.theme-monokai-hc) |
 
 ## Referências
-
+* Marketplace [https://marketplace.visualstudio.com/](https://marketplace.visualstudio.com/)
 * NVM (*Node Version Manager*): [https://github.com/creationix/nvm](https://github.com/creationix/nvm)
 * Node Release Schedule: [https://github.com/nodejs/Release#lts_schedule](https://github.com/nodejs/Release#lts_schedule)
-

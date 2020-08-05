@@ -96,6 +96,7 @@
   - Linguagem de programação
   - É um super-conjunto do JavaScript com suporte a tipificação
   - Browsers não executam TypeScript, por isso o código deve ser **transpilado** para JavaScript
+  - Open source, mantida pela Microsoft e pela comunidade
 - Mantido pela Google e por uma comunidade de indivíduos e organizações
 - É o resultado da reescrita total do AngularJS
 
@@ -140,10 +141,10 @@
 
 - Node.js
   - Ambiente de execução JavaScript
-    - Assíncrono e orientado a eventos
   - Versão v8.9.x ou superior
     - `$ node -v`
 - npm: Node Package Manager
+  - Gerenciador de pacotes default (outros yarn)
   - Gestão de dependências e bibliotecas JavaScript
   - Versão 5.x.x ou superior
     - `$ npm -v`
@@ -190,13 +191,13 @@
 ### a anatomia da aplicação
 
 - O projeto criado pelo Angular CLI possui vários arquivos
-  - Os arquivos mais importantes estão nas pastas **src** e **e2e**
+  - Os arquivos mais importantes estão nas pastas **src**
   - Os outros arquivos configuram o ambiente de desenvolvimento e raramente mudam
 - Pasta **src**
-  - Contém o código-fonte da aplicação (arquivos TypeScript, HTML, CSS)
-- Pasta **e2e**
-  - Pasta com os testes ponto-a-ponto (end-to-end) da aplicação
-  - Testes e2e são escritos em Jasmine e são executados com protractor
+  - Contém o código-fonte da aplicação
+      - arquivos TypeScript
+      - HTML
+      - CSS
 
 --
 
@@ -224,23 +225,11 @@
 | src/index.html   | A página única da aplicação. Carrega alguns scripts essenciais em uma ordem pré-definida e depois carrega a aplicação Angular. |
 | src/favicon.ico  | O ícone da aplicação que aparece na aba do browser.                                                                            |
 | src/polyfills.ts | Arquivo que configura os Polyfills utilizados pela aplicação.                                                                  |
+| src/test.ts            | Arquivos de configuração para a execução de testes unitários com Karma.                                                     |
 
 --
 
 [//]: # (7/4)
-
-### a anatomia da aplicação
-
-| ARQUIVO                | DESCRIÇÃO                                                                                                                   |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| src/main.ts            | Arquivo que configura a compilação da aplicação com o compilador JIT e inicializa o módulo principal da aplicação.          |
-| src/test.ts            | Arquivos de configuração para a execução de testes unitários com Karma.                                                     |
-| src/tsconfig.app.json  | Descreve como o compilador TypeScript transpila o código-fonte para JavaScript.                                             |
-| src/tsconfig.spec.json | Descreve como o compilador TypeScript transpila o código-fonte para JavaScript (usado para a execução de testes unitários). |
-
---
-
-[//]: # (7/5)
 
 ### a anatomia da aplicação
 
@@ -253,7 +242,7 @@
 
 --
 
-[//]: # (7/6)
+[//]: # (7/5)
 
 ### a anatomia da aplicação
 
@@ -261,19 +250,19 @@
 | ----------------- | ------------------------------------------------------------------------------------------------------------------ |
 | e2e/              | Pasta com os testes ponto-a-ponto (end-to-end) da aplicação, escritos em Jasmine e executados com protractor.       |
 | protractor.conf.js | Configuração do protractor (para a execução de testes e2e).                                                         |
-| README.md         | Instruções básicas de como usar o Angular CLI para desenvolver a aplicação.                                        |
-| tsconfig.json     | Descreve como o compilador TypeScript transpila o código-fonte para JavaScript (usado para a integração com IDEs). |
+| README.md         | Documentação da aplicação    |
+| tsconfig.json     | Descreve como o compilador TypeScript transpila o código-fonte para JavaScript |
 
 --
 
-[//]: # (7/7)
+[//]: # (7/6)
 
 ### a anatomia da aplicação
 
-| ARQUIVO      | DESCRIÇÃO                                                                                                                              |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| ARQUIVO      | DESCRIÇÃO |
+| - | - |
 | tslint.json  | Arquivo de configuração do validador de código-fonte TypeScript. Define regras de validação de acordo com o guia de estilo do Angular. |
-| angular.json | Arquivo de configuração do Angular CLI.                                                                                                |
+| angular.json | Arquivo de configuração do Angular CLI. |
 
 ---
 
@@ -291,8 +280,17 @@
 ### suporte a browsers
 
 - Angular suporta a maioria dos browsers mais recentes
-  ![](img/suporte-browsers.png)
-- A integração contínua do Angular roda testes unitários em todos esses browsers
+
+| Browser | Supported versions |
+| - | - |
+| Chrome | latest |
+| Firefox | latest and extended support release (ESR) |
+| Edge | 2 most recent major versions |
+| IE |   11, 10*, 9* ("compatibility view" mode not supported). *deprecated in v10. |
+| IE Mobile* | 11, *deprecated in v10 |
+| Safari | 2 most recent major versions |
+| iOS | 2 most recent major versions |
+| Android | X (10.0), Pie (9.0), Oreo (8.0), Nougat (7.0)    |
 
 --
 
@@ -300,6 +298,9 @@
 
 ### suporte a browsers
 
+- A integração contínua do Angular roda testes unitários em todos esses browsers
+- https://angular.io/guide/browser-support
+- https://angular.io/guide/deprecations
 - Angular é construído baseado nos padrões mais modernos da plataforma Web
   - Nem todos os browsers suportam essas funcionalidades
 - _Polyfills_
@@ -315,7 +316,13 @@
 
 - Polyfills obrigatórios para rodar uma aplicação Angular, de acordo com o browser:
 
-  ![](img/polyf-req.png)
+## placeholder
+
+| Browsers (Desktop & Mobile) |Polyfills Required |
+| - | - |
+| Chrome, Firefox, Edge, Safari, Android, IE 10+ | ES2015 |
+| IE 9 | ES2015, classList |
+
 
 --
 
@@ -324,7 +331,14 @@
 ### suporte a browsers
 
 - Polyfills opcionais de acordo com a funcionalidade e browser:
-  ![](img/polyf-opc.png)
+
+| Feature | Polyfill | Browsers (Desktop & Mobile) |
+| - | - | - |
+| AnimationBuilder. (Animação padrão não precisa) | Web Animations | Enables scrubbing support<br>for IE/Edge and Safari.<br>(Chrome and Firefox support this natively). |
+| NgClass on SVG elements | classList | IE 10, IE 11 |
+| Http sending/receiving binary data | Typed Array, Blob, FormData | IE 9 |
+| Router para hash-based routing | ES7/array | IE 11  |
+
 
 ---
 
@@ -332,7 +346,6 @@
 
 ### arquitetura
 
-<!-- Ref: https://angular.io/guide/architecture -->
 
 - Visão Geral
 - Módulos
@@ -344,9 +357,12 @@
 - Serviços
 - Injeção de Dependências
 
---
+Note:
+https://angular.io/guide/architecture
 
-[//]: # (10/2)
+---
+
+[//]: # (11)
 
 ### visão geral
 
@@ -359,7 +375,7 @@
 
 --
 
-[//]: # (10/3)
+[//]: # (11/2)
 
 ### visão geral
 
@@ -371,7 +387,7 @@
 
 --
 
-[//]: # (10/4)
+[//]: # (11/3)
 
 ### visão geral
 
@@ -381,7 +397,7 @@
 
 ---
 
-[//]: # (11)
+[//]: # (12)
 
 ### módulos
 
@@ -395,7 +411,7 @@
 
 --
 
-[//]: # (11/2)
+[//]: # (12/2)
 
 ### módulos
 
@@ -409,7 +425,7 @@
 
 --
 
-[//]: # (11/3)
+[//]: # (12/3)
 
 ### módulos
 
@@ -437,7 +453,7 @@ export class AppModule {}
 
 --
 
-[//]: # (11/4)
+[//]: # (12/4)
 
 ### módulos
 
@@ -453,7 +469,7 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 
 ---
 
-[//]: # (12)
+[//]: # (13)
 
 ### componentes
 
@@ -473,7 +489,7 @@ export class CursoComponent {
 
 --
 
-[//]: # (12/2)
+[//]: # (13/2)
 
 ### componentes
 
@@ -498,7 +514,7 @@ export class CursoComponent implements OnInit {
 
 --
 
-[//]: # (12/3)
+[//]: # (13/3)
 ### Componentes
 
 Podemos gerar um componente pelo Angular CLI
@@ -517,7 +533,21 @@ Esse comando gera um componente de nome `Aluno` na pasta `src/app/aluno` com um 
 
 --
 
-[//]: # (12/4)
+[//]: # (13/4)
+### Opções úteis para angular cli
+
+## placeholder
+
+| Opção | Significado |
+| - | - |
+| --flat | não gera a pasta
+| --inlineStyle | css embutido
+| --inlineTemplate | template embutido
+| --skipTests | não gera classe de teste
+
+--
+
+[//]: # (13/5)
 ### Componentes - propriedade de entrada
 
 - Definindo propriedade de entrada
@@ -540,7 +570,7 @@ Esse comando gera um componente de nome `Aluno` na pasta `src/app/aluno` com um 
 
 --
 
-[//]: # (12/5)
+[//]: # (13/6)
 ### Componentes - eventos de saída
 
 - Definindo eventos de saída
@@ -572,7 +602,7 @@ onSelected(item) {
 
 --
 
-[//]: # (12/6)
+[//]: # (13/7)
 ### Componentes - two-way data binding
 
 - Suportando o two-way data binding
@@ -590,7 +620,7 @@ onSelected(item) {
 
 --
 
-[//]: # (12/7)
+[//]: # (13/8)
 
 ### templates
 
@@ -605,7 +635,7 @@ onSelected(item) {
 
 --
 
-[//]: # (12/8)
+[//]: # (13/9)
 
 ### templates
 
@@ -631,7 +661,7 @@ onSelected(item) {
 
 --
 
-[//]: # (12/9)
+[//]: # (13/10)
 
 ### templates
 
@@ -641,7 +671,7 @@ onSelected(item) {
 
 --
 
-[//]: # (12/10)
+[//]: # (13/11)
 
 ### templates
 
@@ -659,7 +689,7 @@ onSelected(item) {
 
 --
 
-[//]: # (12/11)
+[//]: # (13/12)
 ### data binding
 
 - **Data binding** é um mecanismo para coordenar a interação entre **template** e **componente**
@@ -671,7 +701,7 @@ onSelected(item) {
 
 --
 
-[//]: # (12/12)
+[//]: # (13/13)
 
 ### data binding
 
@@ -694,7 +724,7 @@ Valor Atual:{{valor}}
 
 ---
 
-[//]: # (13)
+[//]: # (14)
 
 ### diretivas
 
@@ -707,7 +737,7 @@ Valor Atual:{{valor}}
 
 --
 
-[//]: # (13/2)
+[//]: # (14/2)
 
 ### diretivas
 
@@ -731,7 +761,7 @@ Valor Atual:{{valor}}
 
 --
 
-[//]: # (13/3)
+[//]: # (14/3)
 
 ### diretivas
 
@@ -755,7 +785,7 @@ Valor Atual:{{valor}}
 
 --
 
-[//]: # (13/4)
+[//]: # (14/4)
 
 ### diretivas
 
@@ -783,7 +813,7 @@ export class SonumerosDirective {
 
 --
 
-[//]: # (13/5)
+[//]: # (14/5)
 
 ### diretivas
 
@@ -804,7 +834,7 @@ onKeyDown(e: KeyboardEvent) {
 
 --
 
-[//]: # (13/6)
+[//]: # (14/6)
 ### diretivas
 
 ```bash
@@ -832,7 +862,7 @@ export class SonumerosDirective {
 
 ---
 
-[//]: # (14)
+[//]: # (15)
 
 ### serviços
 
@@ -846,7 +876,7 @@ export class SonumerosDirective {
 
 --
 
-[//]: # (14/2)
+[//]: # (15/2)
 
 ### serviços
 
@@ -874,7 +904,7 @@ export class ContadorService {
 
 --
 
-[//]: # (14/3)
+[//]: # (15/3)
 
 ### injeção de dependências
 
@@ -888,7 +918,7 @@ constructor(private service: ContadorService) {}
 
 --
 
-[//]: # (14/4)
+[//]: # (15/4)
 
 ### injeção de dependências
 
@@ -903,7 +933,7 @@ constructor(private service: ContadorService) {}
 
 --
 
-[//]: # (14/5)
+[//]: # (15/5)
 
 ### injeção de dependências
 
@@ -1091,21 +1121,21 @@ export class ParPipe implements PipeTransform {
 
 ---
 
-[//]: # (15)
+[//]: # (18)
 ### [exercício 03](../exercicios/exercicio-03)
 
 - Objetivo: Fixar conhecimento de componentes, diretivas e serviços
 
 ---
 
-[//]: # (18)
+[//]: # (19)
 ### Backend - Spring Boot
 
 # Backend
 
 ---
 
-[//]: # (19)
+[//]: # (20)
 ### Protocolo HTTP - Métodos
 
 - GET
@@ -1139,7 +1169,7 @@ DELETE alunos/1
 
 --
 
-[//]: # (19/2)
+[//]: # (20/2)
 ### Protocolo HTTP - Headers
 
 Requisição
@@ -1159,7 +1189,7 @@ Content-Type: text/html; charset=ISO-8859-1
 
 --
 
-[//]: # (19/3)
+[//]: # (20/3)
 ### Protocolo HTTP - Códigos de Resposta
 
 - 200 **OK** - Deve ser usado para indicar sucesso não específico.
@@ -1173,7 +1203,7 @@ Content-Type: text/html; charset=ISO-8859-1
 
 ---
 
-[//]: # (20)
+[//]: # (21)
 ### Design de API REST
 
 - Versionamento
@@ -1202,7 +1232,7 @@ DELETE https://nafortaleza.com.br:8443/pedagogia/api/v1/turmas/1
 
 ---
 
-[//]: # (21)
+[//]: # (22)
 ### Spring Boot - O que é?
 
 - *Spring Boot* torna fácil criar uma aplicação *Spring stand-alone*;
@@ -1214,7 +1244,7 @@ DELETE https://nafortaleza.com.br:8443/pedagogia/api/v1/turmas/1
 
 ---
 
-[//]: # (22)
+[//]: # (23)
 ### Agenda
 
 - Criar uma aplicação
@@ -1223,10 +1253,10 @@ DELETE https://nafortaleza.com.br:8443/pedagogia/api/v1/turmas/1
 
 ---
 
-[//]: # (23)
+[//]: # (24)
 ---
 
-[//]: # (24)
+[//]: # (25)
 
 ### Aprofundando os estudos
 
@@ -1240,6 +1270,8 @@ DELETE https://nafortaleza.com.br:8443/pedagogia/api/v1/turmas/1
 - [https://blog.angular-university.io/](https://blog.angular-university.io/)
 - [https://youtube.com](https://youtube.com/)
 - [https://spring.io/projects/spring-boot](https://spring.io/projects/spring-boot)
+
+
 
 
 

@@ -113,8 +113,15 @@
                 {
                     src: 'reveal.js/plugin/chalk_board/chalkboard.js'
                 }
+            ],
+            keyboard: {
+                80: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'p' is pressed
+                81: function() { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'q' is pressed
+                // 46: function() { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
+                // 8: function() { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
+                // 68: function() { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
+	        },
 
-            ]
         });
 
         function copyToClipboard(text) {
@@ -165,10 +172,17 @@
         }
 
         Reveal.addEventListener( 'ready', function( event ) {
-            //adptar icones do chalkboard
-            document.getElementsByClassName('fa fa-pencil-square-o')[0].className = 'far fa-edit';
-            document.getElementsByClassName('fa fa-pencil')[0].className = 'fa fa-pencil-alt';
 
+            // Ajustes para o plugin chalkboard
+            var edit = document.getElementsByClassName('fa fa-pencil-square-o')[0]
+            edit.className = 'far fa-edit';
+            edit.title = 'Quadro'
+
+            var pencil = document.getElementsByClassName('fa fa-pencil')[0]
+            pencil.title = 'Pincelq'
+            pencil.className = 'fa fa-pencil-alt';
+
+            // Copiar texto para clipboard
             configCopyToCliboard();
         });
     </script>
