@@ -1,2 +1,3 @@
-<app-contador nome='Contador 1' [valorInicial]="valorInicial"></app-contador>
-<app-contador nome='Contador 2' [valorInicial]="valorInicial"></app-contador>
+<app-contador
+    *ngFor="let item of [].constructor(contadores); let i = index"
+    nome="Contador {{i+1}}"></app-contador>

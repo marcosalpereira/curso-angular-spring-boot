@@ -1,7 +1,13 @@
-<a [routerLink]="['/intro']">Introdução</a>
-<a [routerLink]="['/bind']">Data Binding</a>
-<a [routerLink]="['/diretivas']">Diretivas</a>
-<a [routerLink]="['/pipes']">Pipes</a>
-<a [routerLink]="['/ex3']">Exercício 3</a>
+<a href="#" (click)="active = 'intro'">Introdução</a>
+<a href="#" (click)="active = 'bind'">Data Binding</a>
+<a href="#" (click)="active = 'diretivas'">Diretivas</a>
+<a href="#" (click)="active = 'pipes'">Pipes</a>
+<a href="#" (click)="active = 'rotas'">Rotas</a>
+<a href="#" (click)="active = 'ex3'">Exercício 3</a>
 <hr>
-<router-outlet></router-outlet>
+<app-introducao *ngIf="active == 'intro'"></app-introducao>
+<app-bind *ngIf="active == 'bind'"></app-bind>
+<app-diretivas  *ngIf="active == 'diretivas'"></app-diretivas>
+<app-pipes *ngIf="active == 'pipes'"></app-pipes>
+<app-exercicio3 *ngIf="active == 'ex3'"></app-exercicio3>
+<app-rotas *ngIf="active == 'rotas'"></app-rotas>

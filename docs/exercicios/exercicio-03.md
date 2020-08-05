@@ -6,7 +6,9 @@
   * Componentes
   * Diretivas
   * Servicos
-  * Injeção de depêndencias
+  * Injeção de dependências
+  * Pipes
+  * Rotas
 
 ## Requisitos
 Aparência:
@@ -18,8 +20,8 @@ Criar um componente de nome `Contador` que:
 - tenha uma propridade `nome` e exiba ela na página;
 - mostra o valor atual de um contador;
 - um botão que incrementa em 1 o valor do contador;
-- um campo texto que somente aceita números;
-- um botão que altera o valor do contador com o campo texto acima
+- um *input* que somente aceita números;
+- um botão que altera o valor do contador com o *input* acima
 - o valor exibido pelo componente deve ser encapsulado num serviço a parte com nome `ContadorService`
 
 Criar um componente:

@@ -932,13 +932,6 @@ constructor(private service: ContadorService) {}
 
 ---
 
-[//]: # (15)
-### [exercício 03](../exercicios/exercicio-03)
-
-- Objetivo: Fixar conhecimento de componentes, diretivas e serviços
-
----
-
 [//]: # (16)
 ### Navegação com Rotas
 
@@ -1025,21 +1018,25 @@ export class AppModule { }
 
 Exemplo:
 ```
-{ path: 'turmas/:id', component: TurmaComponent},
+{ path: 'ex3',             component: Exercicio3Component},
+{ path: 'ex3/:contadores', component: Exercicio3Component},
 ```
 
 - Esse valores podem ser acessado dessa forma:
 
 ```
-export class TurmaComponent implements OnInit {
+export class Exercicio3Component implements OnInit {
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    // usar o id para chamar um serviço
+      this.route.params.subscribe(params => {
+        this.contadores = +params.contadores || 2;
+      });
   }
+
 }
+
 ```
 
 ---
@@ -1091,6 +1088,13 @@ export class ParPipe implements PipeTransform {
 ```html
 {{ [1,2,3,4,5,6,7,8,9,10] | par }}
 ```
+
+---
+
+[//]: # (15)
+### [exercício 03](../exercicios/exercicio-03)
+
+- Objetivo: Fixar conhecimento de componentes, diretivas e serviços
 
 ---
 

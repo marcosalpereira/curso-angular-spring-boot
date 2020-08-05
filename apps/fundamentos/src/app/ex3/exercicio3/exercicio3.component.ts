@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -7,13 +7,15 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./exercicio3.component.css']
 })
 export class Exercicio3Component implements OnInit {
-  valorInicial = 0;
+
+  @Input() contadores: number;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    const valorNaRota = this.route.snapshot.paramMap.get('valorInicial');
-    this.valorInicial = +valorNaRota;
+      this.route.params.subscribe(params => {
+        this.contadores = +params.contadores || 2;
+      });
   }
 
 }

@@ -6,22 +6,13 @@ import { AppComponent } from './app.component';
 import { BindComponent } from './bind/bind.component';
 import { DiretivasComponent } from './diretivas/diretivas.component';
 import { IntroducaoComponent } from './introducao/introducao.component';
-import { RouterModule, Route } from '@angular/router';
 import { ContadorComponent } from './ex3/contador/contador.component';
 import { SonumerosDirective } from './ex3/sonumeros.directive';
 import { Exercicio3Component } from './ex3/exercicio3/exercicio3.component';
 import { ParPipe } from './pipes/par.pipe';
 import { PipesComponent as PipesComponent } from './pipes/pipes/pipes.component';
-
-const rotas: Route[] = [
-  { path: '', pathMatch: 'full', redirectTo: '/intro' },
-  { path: 'intro', component: IntroducaoComponent},
-  { path: 'bind', component: BindComponent},
-  { path: 'diretivas', component: DiretivasComponent},
-  { path: 'pipes', component: PipesComponent},
-  { path: 'ex3/:valorInicial', component: Exercicio3Component},
-  { path: 'ex3', component: Exercicio3Component},
-];
+import { AppRoutingModule } from './rotas/app-routing.module';
+import { RotasComponent } from './rotas/rotas.component';
 
 @NgModule({
   declarations: [
@@ -34,9 +25,10 @@ const rotas: Route[] = [
     Exercicio3Component,
     ParPipe,
     PipesComponent,
+    RotasComponent,
   ],
   imports: [
-    BrowserModule, FormsModule, RouterModule.forRoot(rotas)
+    BrowserModule, FormsModule, AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
