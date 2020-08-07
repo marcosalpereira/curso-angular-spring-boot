@@ -29,16 +29,16 @@ O resultado esperado é:
   / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
  /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
                 |___/
-    
+
 
 Angular CLI: 6.0.8
 Node: 8.11.3
 OS: linux x64
-Angular: 
-... 
+Angular:
+...
 
 Package                      Version
-------------------------------------------------------
+-
 @angular-devkit/architect    0.6.8
 @angular-devkit/core         0.6.8
 @angular-devkit/schematics   0.6.8
@@ -116,7 +116,7 @@ cd app-exemplo
 ng serve --open
 ```
 
-O comando `ng serve` executa um servidor Web local e "observa" os arquivos da sua aplicação, reconstruindo-a sempre que um arquivo é modificado (*hot-reload*). 
+O comando `ng serve` executa um servidor Web local e "observa" os arquivos da sua aplicação, reconstruindo-a sempre que um arquivo é modificado (*hot-reload*).
 
 A flag `--open` vai abrir automaticamente um browser no endereço: ```http://localhost:4200/```.
 

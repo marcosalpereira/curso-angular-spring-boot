@@ -100,7 +100,7 @@ Opcionalmente, instale as seguintes extensões:
 > VS Code Quick Open <kbd>Ctrl</kbd> <kbd>P</kbd>, cole os comandos e pressione <kbd>ENTER</kbd>
 
 | Comando | Extensão |
-| ------- | -------- |
+| - | - |
 | `ext install angular.ng-template` | [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template) |
 | `ext install coenraads.bracket-pair-colorizer-2` | [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2) |
 | `ext install msjsdiag.debugger-for-chrome` | [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) |
@@ -109,6 +109,44 @@ Opcionalmente, instale as seguintes extensões:
 | `ext install aeschli.vscode-css-formatter` | [CSS Formatter](https://marketplace.visualstudio.com/items?itemName=aeschli.vscode-css-formatter) |
 | `ext install eamodio.gitlens` | [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) |
 | `ext install databyne.theme-monokai-hc` | [Monokai - High Contrast](https://marketplace.visualstudio.com/items?itemName=DataByne.theme-monokai-hc) |
+
+## VS Code - Truqes
+
+### Emmet
+
+```html
+div.div${div$}*4
+div.div${div$}*4
+
+div.row>div.col-md-3*4
+div.row>div.col-md-3*4
+
+lorem5*4
+lorem5*4
+
+div.container>lorem10*3
+div.container>lorem10*3
+
+div.item{$}*5
+div.item{$}*5
+```
+- Wrap with abreviation
+
+### vscode
+
+- copiar em bloco (demonstrar)
+
+```
+um
+dois
+tres
+quatro
+cinco
+```
+
+- trocar ocorrencias <kbd>ctrl</kbd> <kbd>d</kbd> e <kbd>shitf</kbd> <kbd>L</kbd>
+
+
 
 ## Referências
 * Marketplace [https://marketplace.visualstudio.com/](https://marketplace.visualstudio.com/)

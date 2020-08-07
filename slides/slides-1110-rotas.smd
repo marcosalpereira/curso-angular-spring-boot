@@ -1,0 +1,118 @@
+[//]: # (11)
+### Rotas
+
+- Uma rota define qual é o componente que deve ser exibido de acordo com a URL
+- O usuário pode clicar em um link ou colar a URL na barra de navegação do browser
+- As rotas são definidas por um array
+- Normalmente define-se para cada elemento do array as propriedades:
+  - **path**: o router checa esse caminho com a URL na barra de navegação do browser
+  - **component**: define o componente que deve ser criado quando se navega para essa rota
+
+--
+
+[//]: # (11/2)
+### Rotas - definição
+
+```javascript
+import { RouterModule, Route } from '@angular/router';
+// ...
+
+const rotas: Route[] = [
+  { path: '', pathMatch: 'full', redirectTo: '/intro' },
+  { path: 'intro', component: IntroducaoComponent},
+  { path: 'bind', component: BindComponent},
+  { path: 'diretivas', component: DiretivasComponent}
+];
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    IntroducaoComponent,
+    BindComponent,
+    DiretivasComponent,
+    ContadorComponent
+  ],
+  imports: [
+    BrowserModule, RouterModule.forRoot(rotas)
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+--
+
+[//]: # (11/3)
+### Rotas - Uso
+
+- Para exibir os componentes na navegação, adicione a tag **&lt;router-outlet&gt;** no template
+  - O **RouterOutlet** é uma diretiva do **RouterModule**
+  - É abaixo desse elemento que o router exibe o componente associado à rota
+- Para navegar entre as visões, adicione um atributo **routerLink** nos elementos **&lt;a&gt;**
+  - O **RouterLink** também é uma diretiva do **RouterModule**
+  - O valor do atributo deve ser o **path** da rota de navegação
+
+--
+
+[//]: # (11/4)
+### Rotas - uso
+
+- Sem rotas
+
+```html
+<!-- <app-introducao></app-introducao> -->
+<!-- <app-bind></app-bind> -->
+<app-app-diretivas></app-diretivas>
+```
+
+- com rotas
+
+```html
+<a [routerLink]="['/intro']">Introdução</a>
+<a [routerLink]="['/bind']">Data Binding</a>
+<a [routerLink]="['/diretivas']">Diretivas</a>
+<router-outlet></router-outlet>
+```
+
+--
+
+[//]: # (11/5)
+### Rotas Parametrizadas
+
+- Pode-se passar valores para os componentes roteados.
+
+Exemplo:
+```
+{ path: 'ex3',             component: Exercicio3Component},
+{ path: 'ex3/:contadores', component: Exercicio3Component},
+```
+
+- Esse valores podem ser acessado dessa forma:
+
+```
+export class Exercicio3Component implements OnInit {
+
+  constructor(private route: ActivatedRoute) { }
+
+  ngOnInit() {
+      this.route.params.subscribe(params => {
+        this.contadores = +params.contadores || 2;
+      });
+  }
+
+}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+

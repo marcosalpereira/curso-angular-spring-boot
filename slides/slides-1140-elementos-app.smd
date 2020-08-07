@@ -1,0 +1,20 @@
+[//]: # (14)
+
+### Elementos de uma Aplicação Completa
+
+- Modularização
+  - Lazy loading
+- Segurança
+  - Autenticação
+  - Rotas públicas, autenticadas e com perfil específico
+- Comunicação com Backend
+  - Tratamento de Erros
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,178 @@
+[//]: # (16)
+### Fim
+
+## placeholder
+
+<div class="center">
+<i  class="fa fa-smile fa-8x shadow"></i>
+</div>
+
+---
+
+[//]: # (17)
+### Backend - Spring Boot
+
+# Backend
+
+---
+
+[//]: # (18)
+### Protocolo HTTP - Métodos
+
+- GET
+
+```
+GET alunos
+GET alunos/1
+```
+
+- POST
+
+```
+POST alunos
+{ "nome": "oto", "sede": {"id": 1}}
+
+```
+
+- PUT
+
+```
+PUT alunos/1
+{ "nome": "ivo" }
+
+```
+
+- DELETE
+
+```
+DELETE alunos/1
+```
+
+--
+
+[//]: # (18/2)
+### Protocolo HTTP - Headers
+
+Requisição
+
+```
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYUBuYS5jb20uYnIiLCJleHAiOjE1NTEwNDQ0NDAsIlJPTEVTIjoiUk9MRV9BRE1JTiJ9.TsXR5aA9KPt1VX37IDiZkmfcx1t6FW_V-0sdii78YJrtXyiVqTET6enJbtM-rlT9bl5mW2cijw4usthhihIVKw
+```
+
+Resposta
+
+```
+HTTP/1.1 200 OK
+Date: Fri, 17 May 2019 22:32:00 GMT
+Content-Type: text/html; charset=ISO-8859-1
+```
+
+--
+
+[//]: # (18/3)
+### Protocolo HTTP - Códigos de Resposta
+
+- 200 **OK** - Deve ser usado para indicar sucesso não específico.
+- 201 **Created** - Deve ser usado para indicar a criação bem-sucedida de recursos
+- 204 **No Content** - Deve ser usado quando o corpo da resposta for intencionalmente vazio
+- 400 **Bad Request** pode ser usado para indicar falha não específica
+- 401 **Unauthorized** - Deve ser usado quando há um problema com as credenciais do cliente
+- 403 **Forbidden** - Deve ser usado para proibir o acesso independentemente estado de autorização
+- 404 **Not found** - Deve ser usado quando não existir um recurso no URI informado pelo cliente
+- 500 **Internal Server Error** - Deve ser usado para indicar erro do lado da API (servidor)
+
+---
+
+[//]: # (19)
+### Design de API REST
+
+- Versionamento
+
+```
+/api/v1/frases
+```
+
+- Sublinhados (_) não devem ser usados em URIs
+- Os caminhos devem ser definidos com letras minúsculas
+```
+/api/v1/turmas
+```
+
+- Os caminhos compostos devem ser definidos em spinal case
+```
+/api/v1/servicos-externos
+```
+
+- Os caminhos devem conter a forma plural de recursos e o método HTTP deve definir o tipo de ação a ser executada no recurso
+```
+GET /api/v1/turmas/1
+DELETE /api/v1/turmas/1
+
+```
+
+---
+
+[//]: # (20)
+### Spring Boot - O que é?
+
+- *Spring Boot* torna fácil criar uma aplicação *Spring stand-alone*;
+- Ele toma uma série de decisões inteligentes por nós, tanto para os elementos da plataforma Spring como para as bibliotecas de terceiros;
+- Normalmente, as aplicações Spring Boot, precisam de muito poucas configurações;
+- Servidor Web embutido (Tomcat, Jetty or Undertow)
+- Início rápido - https://start.spring.io
+- IDE de desenvolvimento - https://spring.io/tools
+
+---
+
+[//]: # (21)
+### Agenda
+
+- Criar uma aplicação
+-
+
+
+---
+
+[//]: # (22)
+---
+
+[//]: # (23)
+
+### Aprofundando os estudos
+
+<div class="center shadow">
+<i class="fa fa-graduation-cap fa-8x"></i>
+</div>
+
+- [https://spring.io/projects/spring-boot](https://spring.io/projects/spring-boot)
+
+
+--
+
+[//]: # (23/2)
+### Fim
+
+## placeholder
+
+<div class="center">
+<i  class="fa fa-smile fa-8x shadow"></i>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

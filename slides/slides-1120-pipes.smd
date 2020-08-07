@@ -1,0 +1,66 @@
+[//]: # (12)
+### Pipes
+
+- Um pipe transforma dados de entrada para uma saída com um formato desejado
+- Um pipe pode aceitar qualquer número de parâmetros opcionais
+- Para passar parâmetros para um pipe, utiliza-se os dois-pontos (`:`) após o nome do pipe, seguido pelo valor do parâmetro
+- Se o pipe aceitar múltiplos parâmetros, os valores são separados por dois-pontos
+- Pipes disponíveis: *Date*, *UpperCase*, *LowerCase*, *Currency* e *Percent*
+
+```html
+ 12345678.12 | currency                              --> $12,345,678.12
+ 12345678.12 | currency : 'BRL' : 'symbol'           --> R$12,345,678.12
+ 12345678.12 | currency : 'BRL' : 'symbol' : '1.2-2' --> R$12,345,678.12
+ 12345678.1  | currency : 'BRL' : 'symbol' : '1.2-2' --> R$12,345,678.10
+         .12 | currency : 'BRL' : 'symbol' : '1.2-2' --> R$0.12
+          .1 | currency : 'BRL' : 'symbol' : '1.2-2' --> R$0.10
+      .12345 | currency : 'BRL' : 'symbol' : '1.2-3' --> R$0.123
+```
+
+--
+
+[//]: # (12/2)
+### Pipes - Personalizados
+
+**Gerar:**
+
+```sh
+ng generate pipe pipes/par
+```
+
+**Código:**
+
+```javascript
+import { Pipe, PipeTransform } from '@angular/core';
+@Pipe( { name: 'par' } )
+export class ParPipe implements PipeTransform {
+  transform(numeros: number[]): number[] {
+    return numeros.filter(n => n % 2 === 0);
+  }
+}
+```
+
+**Uso:**
+
+```html
+{{ [1,2,3,4,5,6,7,8,9,10] | par }}
+```
+
+--
+
+[//]: # (12/3)
+### [exercício 03](../exercicios/exercicio-03)
+
+- Objetivo: Fixar conhecimento de componentes, diretivas e serviços
+
+
+
+
+
+
+
+
+
+
+
+

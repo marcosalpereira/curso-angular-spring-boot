@@ -7,8 +7,6 @@
   * Diretivas
   * Servicos
   * Injeção de dependências
-  * Pipes
-  * Rotas
 
 ## Requisitos
 Aparência:
