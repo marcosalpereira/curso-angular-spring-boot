@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IntroducaoComponent implements OnInit {
 
-  titulo = 'Curso Angular + Spring Boot';
+  titulo = 'Curso Angular Básico';
   subtitulo = '??';
 
   ngOnInit() {

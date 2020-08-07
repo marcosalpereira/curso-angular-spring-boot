@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { BindComponent } from './bind/bind.component';
@@ -14,6 +14,9 @@ import { PipesComponent as PipesComponent } from './pipes/pipes/pipes.component'
 import { AppRoutingModule } from './rotas/app-routing.module';
 import { RotasComponent } from './rotas/rotas.component';
 import { ServicosComponent } from './servicos/servicos.component';
+import { FormsComponent } from './forms/forms.component';
+import { EditReactiveComponent } from './forms/reactive/edit-reactive.component';
+import { EditComponent } from './forms/template-driven/edit.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,12 @@ import { ServicosComponent } from './servicos/servicos.component';
     PipesComponent,
     RotasComponent,
     ServicosComponent,
+    FormsComponent,
+    EditReactiveComponent,
+    EditComponent,
   ],
   imports: [
-    BrowserModule, FormsModule, AppRoutingModule
+    BrowserModule, FormsModule, AppRoutingModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

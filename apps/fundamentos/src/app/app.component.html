@@ -5,6 +5,7 @@
 <a href="#" (click)="active = 'pipes'">Pipes</a>
 <a href="#" (click)="active = 'rotas'">Rotas</a>
 <a href="#" (click)="active = 'ex3'">Exercício 3</a>
+<a href="#" (click)="active = 'forms'">Formulários</a>
 <hr>
 <app-introducao *ngIf="active == 'intro'"></app-introducao>
 <app-bind *ngIf="active == 'bind'"></app-bind>
@@ -13,3 +14,4 @@
 <app-exercicio3 *ngIf="active == 'ex3'"></app-exercicio3>
 <app-rotas *ngIf="active == 'rotas'"></app-rotas>
 <app-servicos *ngIf="active == 'servicos'"></app-servicos>
+<app-forms *ngIf="active == 'forms'"></app-forms>

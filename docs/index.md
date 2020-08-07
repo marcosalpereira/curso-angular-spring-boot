@@ -1,4 +1,4 @@
-# Angular + Spring Boot
+# Angular Básico
 
 ![Angular](img/angular.png)
 

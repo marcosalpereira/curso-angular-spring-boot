@@ -1,4 +1,4 @@
-site_name: Angular + Spring Boot
+site_name: Curso Angular Básico
 repo_url: 'https://github.com/marcosalpereira/curso-angular-spring-boot'
 docs_dir: 'docs'
 site_url: 'https://marcosalpereira.github.io/curso-angular-spring-boot/'

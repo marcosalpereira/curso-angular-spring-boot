@@ -1,0 +1,27 @@
+<form [formGroup]="form" #ngForm="ngForm" (ngSubmit)="submit()">
+  <div class="row">
+    <div class="col-sm-9">
+      <label>Nome
+        <input formControlName="nome">
+      </label>
+      <div class="errors" *ngIf="form.controls.nome.invalid && (ngForm.submitted || form.controls.nome.touched)">
+        <div>Valor requerido</div>
+      </div>
+      <div class="col-sm-3">
+        <label>Salário
+          <input formControlName="salario">
+          <div class="errors" *ngIf="form.controls.salario.invalid && (ngForm.submitted || form.controls.salario.touched)">
+            <div *ngIf="form.controls.salario.errors.required">Valor requerido</div>
+            <div *ngIf="form.controls.salario.errors.min">Valor minimo: {{form.controls.salario.errors.min.min}} </div>
+            <div *ngIf="form.controls.salario.errors.max">Valor maximo: {{form.controls.salario.errors.max.max}} </div>
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <button type="submit">Salvar</button>
+    </div>
+  </div>
+</form>

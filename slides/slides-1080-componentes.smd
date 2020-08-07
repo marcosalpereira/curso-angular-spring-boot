@@ -6,7 +6,7 @@
 
 ```javascript
 export class CursoComponent {
-  titulo = 'Curso Angular + Spring Boot';
+  titulo = 'Curso Angular Básico';
   subtitulo = '';
 
   onClick() {
@@ -27,7 +27,7 @@ export class CursoComponent {
 
 ```javascript
 export class CursoComponent implements OnInit {
-  titulo = 'Curso Angular + Spring Boot';
+  titulo = 'Curso Angular Básico';
   subtitulo = '??';
 
   ngOnInit() {
