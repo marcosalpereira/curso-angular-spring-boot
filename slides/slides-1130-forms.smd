@@ -12,6 +12,7 @@
 
 --
 
+[//]: # (13/2)
 ### formulários
 
 - Para desenvolver um bom formulário, você deve ter habilidade no design de aplicações Web
@@ -23,6 +24,7 @@
 
 --
 
+[//]: # (13/3)
 ### formulários
 
 - Angular oferece duas tecnologias de construção de formulários:
@@ -36,6 +38,7 @@
 
 --
 
+[//]: # (13/4)
 ### formulários - Reactive
 
 - Provê acesso direto ao modelo dos objetos do formulario
@@ -45,6 +48,7 @@
 
 --
 
+[//]: # (13/5)
 ### formulários - Template-driven
 
 - Usa-se diretivas para manipular os objetos do formulário
@@ -53,6 +57,7 @@
 
 --
 
+[//]: # (13/6)
 ### formulários - Reactive - Exemplo
 
 ```html
@@ -75,6 +80,7 @@
 
 --
 
+[//]: # (13/7)
 ### formulários - Reactive - Exemplo
 
 ```javascript
@@ -110,6 +116,7 @@ export class ProfessorEditComponent implements OnInit {
 
 --
 
+[//]: # (13/8)
 ### formulários - Template-driven - Exemplo
 
 ```html
@@ -132,6 +139,7 @@ export class ProfessorEditComponent implements OnInit {
 
 --
 
+[//]: # (13/9)
 ### formulários - Template-driven - Exemplo
 
 ```javascript
@@ -159,6 +167,7 @@ export class TurmaEditComponent implements OnInit {
 
 --
 
+[//]: # (13/10)
 ### formulários - Classes de Estado do Input
 
 | Estado                              | `true`     | `false`      |
@@ -169,6 +178,7 @@ export class TurmaEditComponent implements OnInit {
 
 --
 
+[//]: # (13/11)
 ### formulários - Validators embutidos
 
 Validadores adicionam seus erros no mapa: `control.errors`
@@ -186,6 +196,7 @@ Validadores adicionam seus erros no mapa: `control.errors`
 
 --
 
+[//]: # (13/12)
 ### formulários - Validators - Mostrar mensagens de erro
 
 ```html
@@ -209,3 +220,4 @@ Validadores adicionam seus erros no mapa: `control.errors`
     </div>
 
 ```
+

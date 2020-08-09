@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. ~/.venv/bin/activate
+
 # remover links simbolicos
 find . -type l -delete
 

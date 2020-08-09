@@ -17,6 +17,7 @@ import { ServicosComponent } from './servicos/servicos.component';
 import { FormsComponent } from './forms/forms.component';
 import { EditReactiveComponent } from './forms/reactive/edit-reactive.component';
 import { EditComponent } from './forms/template-driven/edit.component';
+import { ValidationEditReactiveComponent } from './forms/validation/reactive/edit-reactive.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { EditComponent } from './forms/template-driven/edit.component';
     RotasComponent,
     ServicosComponent,
     FormsComponent,
-    EditReactiveComponent,
+    EditReactiveComponent, ValidationEditReactiveComponent,
     EditComponent,
   ],
   imports: [

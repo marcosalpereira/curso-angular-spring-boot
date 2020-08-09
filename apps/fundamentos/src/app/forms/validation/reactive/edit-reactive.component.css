@@ -1,0 +1,7 @@
+.errors div{
+    color: red;
+}
+
+/* input.ng-invalid.ng-touched + .error {
+     display: inline-block;
+} */
