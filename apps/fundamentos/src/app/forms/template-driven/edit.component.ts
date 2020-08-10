@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Turma } from 'src/app/model/turma';
 
 @Component({
   selector: 'app-edit',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditComponent implements OnInit {
 
+  turma: Turma;
+
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.turma = {};
+  }
+
+  submit(): void {
+    console.log(this.turma);
   }
 
 }

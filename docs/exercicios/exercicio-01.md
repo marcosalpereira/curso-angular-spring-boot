@@ -110,7 +110,7 @@ Opcionalmente, instale as seguintes extensões:
 | `ext install eamodio.gitlens` | [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) |
 | `ext install databyne.theme-monokai-hc` | [Monokai - High Contrast](https://marketplace.visualstudio.com/items?itemName=DataByne.theme-monokai-hc) |
 
-## VS Code - Truqes
+## VS Code - Truques
 
 ### Emmet
 

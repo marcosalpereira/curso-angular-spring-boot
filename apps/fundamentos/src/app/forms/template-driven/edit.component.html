@@ -1,3 +1,19 @@
-<p>
-  edit works!
-</p>
+<form *ngIf="turma" (ngSubmit)="submit()">
+  <div class="row">
+    <div class="col-sm-9">
+      <label>Nome
+        <input name="nome" [(ngModel)]="turma.nome">
+      </label>
+      <div class="col-sm-3">
+        <label>Capacidade
+          <input name="capacidade" [(ngModel)]="turma.capacidade">
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <button type="submit">Salvar</button>
+    </div>
+  </div>
+</form>

@@ -18,6 +18,8 @@ import { FormsComponent } from './forms/forms.component';
 import { EditReactiveComponent } from './forms/reactive/edit-reactive.component';
 import { EditComponent } from './forms/template-driven/edit.component';
 import { ValidationEditReactiveComponent } from './forms/validation/reactive/edit-reactive.component';
+import { ValidationEditComponent } from './forms/validation/template-driven/edit.component';
+import { RangeValidatorDirective } from './validators/range.directive';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,7 @@ import { ValidationEditReactiveComponent } from './forms/validation/reactive/edi
     ServicosComponent,
     FormsComponent,
     EditReactiveComponent, ValidationEditReactiveComponent,
-    EditComponent,
+    EditComponent, ValidationEditComponent, RangeValidatorDirective,
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule, ReactiveFormsModule

@@ -10,6 +10,7 @@
     "resync": "node resync-slides.js slides/slides*.smd",
     "build": "./build.sh",
     "serve:build": "node_modules/http-server/bin/http-server -a 0.0.0.0 -p 8080 public",
+    "start": "./docs-serve.sh",
     "serve:docs": "./docs-serve.sh",
     "deploy": "mkdocs gh-deploy"
   },

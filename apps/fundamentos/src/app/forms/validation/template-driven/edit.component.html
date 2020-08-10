@@ -1,3 +1,30 @@
-<p>
-  edit works!
-</p>
+<form #ngForm="ngForm" (ngSubmit)="submit()">
+  <div class="row">
+    <div class="col-sm-9">
+      <label>Nome
+        <input #turmaCtl="ngModel" name="nome" [(ngModel)]="turma.nome"
+          required>
+      </label>
+      <div class="errors" *ngIf="turmaCtl.invalid && (ngForm.submitted || turmaCtl.touched)">
+        <div>Valor requerido</div>
+      </div>
+
+      <div class="col-sm-3">
+        <label>Capacidade
+          <input #capacidadeCtl="ngModel" name="capacidade" [(ngModel)]="turma.capacidade"
+            required appRange min="10" max="50">
+        </label>
+        <div class="errors" *ngIf="capacidadeCtl.invalid && (ngForm.submitted || capacidadeCtl.touched)">
+          <div *ngIf="capacidadeCtl.errors.required">Valor requerido</div>
+          <div *ngIf="capacidadeCtl.errors.min">Valor minimo: {{capacidadeCtl.errors.min.min}} </div>
+          <div *ngIf="capacidadeCtl.errors.max">Valor maximo: {{capacidadeCtl.errors.max.max}} </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <button type="submit">Salvar</button>
+    </div>
+  </div>
+</form>
