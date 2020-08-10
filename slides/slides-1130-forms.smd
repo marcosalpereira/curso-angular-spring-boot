@@ -1,0 +1,223 @@
+[//]: # (13)
+### formulários
+
+- Formulários são os pilares das aplicações comerciais.
+- São usados para:
+    - fazer login
+    - fazer um pedido
+    - reservar um vôo
+    - agendar uma reunião
+    - e inúmeras outras tarefas.
+- Um formulário deve guiar o usuário de forma eficiente e eficaz no processo de entrada de dados.
+
+--
+
+[//]: # (13/2)
+### formulários
+
+- Para desenvolver um bom formulário, você deve ter habilidade no design de aplicações Web
+- O suporte do Angular no desenvolvimento de formulários envolve técnicas como:
+  - _Two-way data binding_
+  - Rastramento de mudanças
+  - Validação
+  - Tratamento de erros
+
+--
+
+[//]: # (13/3)
+### formulários
+
+- Angular oferece duas tecnologias de construção de formulários:
+  - _Template-driven_
+  - _Reactive_
+- As duas tecnologias pertencem à mesma biblioteca e até compartilham um conjunto comum de classes para o controle de formulários
+- Divergem na filosofia, no estilo e na técnica de programação.
+- Biblioteca `@angular/forms`
+  - `ReactiveFormsModule`
+  - `FormsModule`
+
+--
+
+[//]: # (13/4)
+### formulários - Reactive
+
+- Provê acesso direto ao modelo dos objetos do formulario
+- Mais robusto
+- Mais escalável
+- Mais testável
+
+--
+
+[//]: # (13/5)
+### formulários - Template-driven
+
+- Usa-se diretivas para manipular os objetos do formulário
+- São mais simples
+- Não escalam muito bem
+
+--
+
+[//]: # (13/6)
+### formulários - Reactive - Exemplo
+
+```html
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="row">
+    <div class="col-sm-9">
+      <br-input formControlName="nome" label="Nome"></br-input>
+    </div>
+    <div class="col-sm-3">
+      <br-input formControlName="salario" label="Salário"></br-input>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <button type="submit">Salvar</button>
+    </div>
+  </div>
+</form>
+```
+
+--
+
+[//]: # (13/7)
+### formulários - Reactive - Exemplo
+
+```javascript
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ProfessorService } from '../../professor.service';
+
+@Component(...)
+export class ProfessorEditComponent implements OnInit {
+
+  form: FormGroup;
+
+  constructor(
+    private professorService: ProfessorService,
+    private formBuilder: FormBuilder,
+  ) { }
+
+  ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      nome: this.formBuilder.control('', [Validators.required]),
+      salario: this.formBuilder.control('', [Validators.max(5000), Validators.min(1000)]),
+    });
+  }
+
+  submit(): void {
+    this.professorService
+        .update(this.form.value);
+  }
+
+}
+
+```
+
+--
+
+[//]: # (13/8)
+### formulários - Template-driven - Exemplo
+
+```html
+<form (ngSubmit)="submit()">
+    <div class="row">
+      <div class="col-sm-10">
+        <br-input name="nome" label="Nome" required="true" [(ngModel)]="turma.nome"></br-input>
+      </div>
+      <div class="col-sm-2">
+        <br-input name="capacidade" label="Capacidade" required="true" [(ngModel)]="turma.capacidade" [min]="10" [max]="50"></br-input>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <button type="submit" class="br-button is-primary">Salvar</button>
+      </div>
+    </div>
+  </form>
+```
+
+--
+
+[//]: # (13/9)
+### formulários - Template-driven - Exemplo
+
+```javascript
+import { Component, OnInit } from '@angular/core';
+import { Turma } from '../../../shared/model/turma';
+import { TurmaService } from '../../turma.service';
+
+@Component(...)
+export class TurmaEditComponent implements OnInit {
+
+  turma: Turma;
+
+  constructor(
+    private turmaService: TurmaService,
+  ) { }
+
+  ngOnInit(): void {}
+
+  submit(): void {
+    this.turmaService.update(this.turma);
+  }
+}
+
+```
+
+--
+
+[//]: # (13/10)
+### formulários - Classes de Estado do Input
+
+| Estado                              | `true`     | `false`      |
+| ----------------------------------- | ---------- | ------------ |
+| O controle foi visitado?            | ng-touched | ng-untouched |
+| O valor do controle foi modificado? | ng-dirty   | ng-pristine  |
+| O valor do controle é válido?       | ng-valid   | ng-invalid   |
+
+--
+
+[//]: # (13/11)
+### formulários - Validators embutidos
+
+Validadores adicionam seus erros no mapa: `control.errors`
+
+- min
+- max
+- required
+- requiredTrue
+- email
+- minLength
+- maxLength
+- pattern
+- compose
+- composeAsync
+
+--
+
+[//]: # (13/12)
+### formulários - Validators - Mostrar mensagens de erro
+
+```html
+    <div class="col-sm-9">
+      <label>Nome
+        <input formControlName="nome">
+      </label>
+      <div class="errors" *ngIf="form.controls.nome.invalid && (ngForm.submitted || form.controls.nome.touched)">
+        <div>Valor requerido</div>
+      </div>
+      <div class="col-sm-3">
+        <label>Salário
+          <input formControlName="salario">
+          <div class="errors" *ngIf="form.controls.salario.invalid && (ngForm.submitted || form.controls.salario.touched)">
+            <div *ngIf="form.controls.salario.errors.required">Valor requerido</div>
+            <div *ngIf="form.controls.salario.errors.min">Valor minimo: {{form.controls.salario.errors.min.min}} </div>
+            <div *ngIf="form.controls.salario.errors.max">Valor maximo: {{form.controls.salario.errors.max.max}} </div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+```
+

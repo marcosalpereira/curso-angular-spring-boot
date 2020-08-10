@@ -38,7 +38,7 @@
     
     
       
-        <title>01 - Instalação - Angular + Spring Boot</title>
+        <title>01 - Instalação - Curso Angular Básico</title>
       
     
     
@@ -103,7 +103,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://marcosalpereira.github.io/curso-angular-spring-boot/" title="Angular + Spring Boot" class="md-header-nav__button md-logo">
+        <a href="https://marcosalpereira.github.io/curso-angular-spring-boot/" title="Curso Angular Básico" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -117,7 +117,7 @@
           
             
               <span class="md-header-nav__topic">
-                Angular + Spring Boot
+                Curso Angular Básico
               </span>
               <span class="md-header-nav__topic">
                 01 - Instalação
@@ -199,12 +199,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://marcosalpereira.github.io/curso-angular-spring-boot/" title="Angular + Spring Boot" class="md-nav__button md-logo">
+    <a href="https://marcosalpereira.github.io/curso-angular-spring-boot/" title="Curso Angular Básico" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    Angular + Spring Boot
+    Curso Angular Básico
   </label>
   
     <div class="md-nav__source">
@@ -359,8 +359,35 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#plugins" title="Plugins" class="md-nav__link">
-    Plugins
+  <a href="#extensoes" title="Extensões" class="md-nav__link">
+    Extensões
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vs-code-truqes" title="VS Code - Truqes" class="md-nav__link">
+    VS Code - Truqes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#emmet" title="Emmet" class="md-nav__link">
+    Emmet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vscode" title="vscode" class="md-nav__link">
+    vscode
   </a>
   
 </li>
@@ -500,8 +527,35 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#plugins" title="Plugins" class="md-nav__link">
-    Plugins
+  <a href="#extensoes" title="Extensões" class="md-nav__link">
+    Extensões
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vs-code-truqes" title="VS Code - Truqes" class="md-nav__link">
+    VS Code - Truqes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#emmet" title="Emmet" class="md-nav__link">
+    Emmet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vscode" title="vscode" class="md-nav__link">
+    vscode
   </a>
   
 </li>
@@ -561,16 +615,13 @@
 </td></tr></table>
 
 <p>Depois de rodar o script de instalação, execute o comando abaixo para verificar a instalação:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>nvm --version
-
-<span class="c1"># resultado esperado:</span>
-<span class="m">0</span>.33.11
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>nvm --version
 </pre></div>
 </td></tr></table>
-
+O resultado esperado é (na época em que isso foi escrito):
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>0.33.11
+</pre></div>
+</td></tr></table></p>
 <p>Se você não tiver nenhuma resposta, ou se aparecer o erro:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>nvm: <span class="nb">command</span> not found
 </pre></div>
@@ -599,33 +650,119 @@
 <p>Se você já tem uma versão de node instalada (ex. v6.x.y) e quer atualizar para a v8,<br>execute: <code>nvm install 8 --reinstall-packages-from=6</code>. Assim, todos os pacotes <strong>globais</strong> serão reinstalados também na nova versão.</p>
 </div>
 <p>Para confirmar a instalação do NPM, execute:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>npm --version
-
-<span class="c1"># o resultado esperado é (na época em que isso foi escrito):</span>
-<span class="m">5</span>.6.0 
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>npm --version
 </pre></div>
 </td></tr></table>
-
+O resultado esperado é (na época em que isso foi escrito):
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>5.6.0
+</pre></div>
+</td></tr></table></p>
 <h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
 <h4 id="node">Node<a class="headerlink" href="#node" title="Permanent link">&para;</a></h4>
 <p>Baixe o arquivo <a href="https://nodejs.org/en/download/">de Instalação</a> execute e siga as etapas.</p>
 <h3 id="visual-studio-code">Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permanent link">&para;</a></h3>
 <p>Para instalar o VS Code, baixe a versão apropriada (.deb ou .rpm) de acordo com a sua distribuição Linux no endereço: <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p>
-<h3 id="plugins">Plugins<a class="headerlink" href="#plugins" title="Permanent link">&para;</a></h3>
-<p>Adicionalmente, instale os seguintes plugins recomendados:</p>
+<h3 id="extensoes">Extensões<a class="headerlink" href="#extensoes" title="Permanent link">&para;</a></h3>
+<p>Opcionalmente, instale as seguintes extensões:</p>
+<blockquote>
+<p>VS Code Quick Open <kbd>Ctrl</kbd> <kbd>P</kbd>, cole os comandos e pressione <kbd>ENTER</kbd></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>Extensão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ext install angular.ng-template</code></td>
+<td><a href="https://marketplace.visualstudio.com/items?itemName=Angular.ng-template">Angular Language Service</a></td>
+</tr>
+<tr>
+<td><code>ext install coenraads.bracket-pair-colorizer-2</code></td>
+<td><a href="https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2">Bracket Pair Colorizer 2</a></td>
+</tr>
+<tr>
+<td><code>ext install msjsdiag.debugger-for-chrome</code></td>
+<td><a href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome">Debugger for Chrome</a></td>
+</tr>
+<tr>
+<td><code>ext install formulahendry.auto-rename-tag</code></td>
+<td><a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag">Auto Rename Tag</a></td>
+</tr>
+<tr>
+<td><code>ext install esbenp.prettier-vscode</code></td>
+<td><a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">Prettier - Code formatter</a></td>
+</tr>
+<tr>
+<td><code>ext install aeschli.vscode-css-formatter</code></td>
+<td><a href="https://marketplace.visualstudio.com/items?itemName=aeschli.vscode-css-formatter">CSS Formatter</a></td>
+</tr>
+<tr>
+<td><code>ext install eamodio.gitlens</code></td>
+<td><a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens — Git supercharged</a></td>
+</tr>
+<tr>
+<td><code>ext install databyne.theme-monokai-hc</code></td>
+<td><a href="https://marketplace.visualstudio.com/items?itemName=DataByne.theme-monokai-hc">Monokai - High Contrast</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="vs-code-truqes">VS Code - Truqes<a class="headerlink" href="#vs-code-truqes" title="Permanent link">&para;</a></h2>
+<h3 id="emmet">Emmet<a class="headerlink" href="#emmet" title="Permanent link">&para;</a></h3>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>div.div${div$}*4
+div.div${div$}*4
+
+div.row&gt;div.col-md-3*4
+div.row&gt;div.col-md-3*4
+
+lorem5*4
+lorem5*4
+
+div.container&gt;lorem10*3
+div.container&gt;lorem10*3
+
+div.item{$}*5
+div.item{$}*5
+</pre></div>
+</td></tr></table>
+- Wrap with abreviation</p>
+<h3 id="vscode">vscode<a class="headerlink" href="#vscode" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>ext install Angular.ng-template</code> | Ref.: <a href="https://marketplace.visualstudio.com/items?itemName=Angular.ng-template">Angular Language Service</a></li>
-<li><code>ext install pavellev.Angular2</code> | Ref.: <a href="https://marketplace.visualstudio.com/items?itemName=pavellev.Angular2">Angular v5 Snippets</a></li>
-<li><code>ext install msjsdiag.debugger-for-chrome</code> | Ref.: <a href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome">Debugger for Chrome</a></li>
-<li><code>ext install EditorConfig.EditorConfig</code> | Ref.: <a href="https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig">EditorConfig for VS Code</a></li>
-<li><code>ext install rbbit.typescript-hero</code> | Ref.: <a href="https://marketplace.visualstudio.com/items?itemName=rbbit.typescript-hero">TypeScript Hero</a></li>
-<li><del>Terminal</del> Não precisa mais. Já vem por padrão no vscode.</li>
+<li>copiar em bloco (demonstrar)</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>um
+dois
+tres
+quatro
+cinco
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li>trocar ocorrencias <kbd>ctrl</kbd> <kbd>d</kbd> e <kbd>shitf</kbd> <kbd>L</kbd></li>
 </ul>
 <h2 id="referencias">Referências<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
 <ul>
+<li>Marketplace <a href="https://marketplace.visualstudio.com/">https://marketplace.visualstudio.com/</a></li>
 <li>NVM (<em>Node Version Manager</em>): <a href="https://github.com/creationix/nvm">https://github.com/creationix/nvm</a></li>
 <li>Node Release Schedule: <a href="https://github.com/nodejs/Release#lts_schedule">https://github.com/nodejs/Release#lts_schedule</a></li>
 </ul>

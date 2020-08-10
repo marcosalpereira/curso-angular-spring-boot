@@ -8,7 +8,7 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
 
-    <title>Curso Angular + Spring Boot</title>
+    <title>Curso Angular Básico</title>
 
     <base target="_blank" />
 
@@ -33,19 +33,40 @@
     <div id='status-bar'></div>
     <div class="reveal">
         <div class="slides">
-
-            <!-- data-background-image="img/background.png"
-            data-background-size="100% 100%"
-            data-background-position="top"
-            data-background-size="contain" -->
-            <section
-                data-markdown="slides.smd"
-                data-separator="^\n---\n$"
-                data-separator-vertical="^\n--\n$"></section>
-            </section>
-
+            <section data-markdown="slides-1010-introducao.smd"             data-separator="^\n---\n$" data-separator-vertical="^\n--\n$"></section>
+            <section data-markdown="slides-1020-arquiteturas.smd"           data-separator="^\n---\n$" data-separator-vertical="^\n--\n$"></section>
+            <section data-markdown="slides-1030-angular.smd"            data-separator="^\n---\n$" data-separator-vertical="^\n--\n$"></section>
+            <section data-markdown="slides-1040-instalacao.smd"             data-separator="^\n---\n$" data-separator-vertical="^\n--\n$"></section>
+            <section data-markdown="slides-1050-angular-cli.smd"            data-separator="^\n---\n$" data-separator-vertical="^\n--\n$"></section>
+            <section data-markdown="slides-1060-overview.smd"           data-separator="^\n---\n$" data-separator-vertical="^\n--\n$"></section>
+            <section data-markdown="slides-1070-modulos.smd"            data-separator="^\n---\n$" data-separator-vertical="^\n--\n$"></section>
+            <section data-markdown="slides-1080-componentes.smd"            data-separator="^\n---\n$" data-separator-vertical="^\n--\n$"></section>
+            <section data-markdown="slides-1090-diretivas.smd"          data-separator="^\n---\n$" data-separator-vertical="^\n--\n$"></section>
+            <section data-markdown="slides-1100-servicos.smd"           data-separator="^\n---\n$" data-separator-vertical="^\n--\n$"></section>
+            <section data-markdown="slides-1110-rotas.smd"          data-separator="^\n---\n$" data-separator-vertical="^\n--\n$"></section>
+            <section data-markdown="slides-1120-pipes.smd"          data-separator="^\n---\n$" data-separator-vertical="^\n--\n$"></section>
+            <section data-markdown="slides-1130-forms.smd"          data-separator="^\n---\n$" data-separator-vertical="^\n--\n$"></section>
+            <section data-markdown="slides-1140-elementos-app.smd"          data-separator="^\n---\n$" data-separator-vertical="^\n--\n$"></section>
+            <section data-markdown="slides-1150-fim-angular.smd"            data-separator="^\n---\n$" data-separator-vertical="^\n--\n$"></section>
+            <!-- <section data-markdown="slides-2000-spring-boot.smd"            data-separator="^\n---\n$" data-separator-vertical="^\n--\n$"></section> -->
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <script src="reveal.js/lib/js/head.min.js"></script>
     <script src="reveal.js/js/reveal.js"></script>
@@ -113,8 +134,15 @@
                 {
                     src: 'reveal.js/plugin/chalk_board/chalkboard.js'
                 }
+            ],
+            keyboard: {
+                80: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'p' is pressed
+                81: function() { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'q' is pressed
+                // 46: function() { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
+                // 8: function() { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
+                // 68: function() { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
+	        },
 
-            ]
         });
 
         function copyToClipboard(text) {
@@ -165,10 +193,17 @@
         }
 
         Reveal.addEventListener( 'ready', function( event ) {
-            //adptar icones do chalkboard
-            document.getElementsByClassName('fa fa-pencil-square-o')[0].className = 'far fa-edit';
-            document.getElementsByClassName('fa fa-pencil')[0].className = 'fa fa-pencil-alt';
 
+            // Ajustes para o plugin chalkboard
+            var edit = document.getElementsByClassName('fa fa-pencil-square-o')[0]
+            edit.className = 'far fa-edit';
+            edit.title = 'Quadro'
+
+            var pencil = document.getElementsByClassName('fa fa-pencil')[0]
+            pencil.title = 'Pincelq'
+            pencil.className = 'fa fa-pencil-alt';
+
+            // Copiar texto para clipboard
             configCopyToCliboard();
         });
     </script>

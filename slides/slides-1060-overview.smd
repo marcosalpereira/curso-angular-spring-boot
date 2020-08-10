@@ -1,0 +1,64 @@
+[//]: # (6)
+### Tópicos
+
+- Visão Geral
+- Módulos
+- Componentes
+  - Data Binding
+- Diretivas
+- Serviços
+  - Injeção de Dependências
+- Rotas
+- Pipes
+- Formulários (Template driven, Reativos)
+- Elementos de uma Aplicação Completa
+
+Note:
+https://angular.io/guide/architecture
+
+--
+
+[//]: # (6/2)
+### visão geral
+
+- Para escrever uma aplicação Angular, você compõe **templates** HTML, que são gerenciados por **componentes**, que por sua vez se comunicam com **serviços**.
+- Os **templates** são compostos por **diretivas** e expressões especiais próprias do Angular
+- Os **componentes** gerenciam o comportamento dos **templates** por meio do **data binding**
+  - Propriedades e eventos
+- Os **serviços** são responsáveis por tarefas específicas e bem-definidas da aplicação
+  - Componentes são mantidos "limpos"
+
+--
+
+[//]: # (6/3)
+
+### visão geral
+
+- Os **templates**, **componentes** e **serviços** são empacotados em **módulos**
+  - Blocos coesos e dedicados a um conjunto de funcionalidades relacionadas
+- **Metadados** são decoradores TypeScript que descrevem como o Angular deve processar as classes, identificando-as como **componentes**, **diretivas** e **módulos**.
+- **Serviços** são instanciados pelo mecanismo de **injeção de dependências**
+  - Esse mecanismo mantém um container de instâncias criadas e as reusa apropriadamente
+
+--
+
+[//]: # (6/4)
+
+### visão geral
+
+<div class="center">
+  ![](img/angular-arch.png)
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

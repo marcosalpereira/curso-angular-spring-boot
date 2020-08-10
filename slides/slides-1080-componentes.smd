@@ -1,0 +1,264 @@
+[//]: # (8)
+### componentes
+
+- Um **componente** é uma classe JavaScript que controla um pedaço da tela chamada **visão**
+- O **componente** interage com a visão através de propriedades e métodos
+
+```javascript
+export class CursoComponent {
+  titulo = 'Curso Angular Básico';
+  subtitulo = '';
+
+  onClick() {
+    this.subtitulo = 'Construção de uma aplicação';
+  }
+}
+```
+
+--
+
+[//]: # (8/2)
+
+### componentes
+
+- Os **componentes** são criados, atualizados e destruídos pelo Angular conforme a necessidade
+- A aplicação pode agir em cada um desses momentos com os **lifecycle hooks**
+- **ngOnInit, ngOnChanges, ngOnDestroy...**
+
+```javascript
+export class CursoComponent implements OnInit {
+  titulo = 'Curso Angular Básico';
+  subtitulo = '??';
+
+  ngOnInit() {
+    this.subtitulo = '?';
+  }
+
+  onClick() {
+    this.subtitulo = 'Construção de uma aplicação';
+  }
+}
+```
+
+--
+
+[//]: # (8/3)
+### Componentes
+
+Podemos gerar um componente pelo Angular CLI
+```bash
+ng generate component aluno
+```
+
+```bash
+CREATE src/app/aluno/aluno.component.css (0 bytes)
+CREATE src/app/aluno/aluno.component.html (24 bytes)
+CREATE src/app/aluno/aluno.component.spec.ts (621 bytes)
+CREATE src/app/aluno/aluno.component.ts (265 bytes)
+UPDATE src/app/app.module.ts (1040 bytes)
+```
+Esse comando gera um componente de nome `Aluno` na pasta `src/app/aluno` com um arquivo de template e um arquivo de CSS associados. Além disso, ele já declara o componente no módulo apropriado.
+
+--
+
+[//]: # (8/4)
+### Opções úteis para angular cli
+
+## placeholder
+
+| Opção | Significado |
+| - | - |
+| --flat | não gera a pasta
+| --inlineStyle | css embutido
+| --inlineTemplate | template embutido
+| --skipTests | não gera classe de teste
+
+--
+
+[//]: # (8/5)
+### Componentes - propriedade de entrada
+
+- Definindo propriedade de entrada
+
+```javascript
+@Input() nome: string;
+```
+
+```html
+<fieldset>
+  <legend>{{nome}}</legend>
+</fieldset>
+```
+
+- Uso
+
+```html
+<my-component [nome]="nome"></my-component>
+```
+
+--
+
+[//]: # (8/6)
+### Componentes - eventos de saída
+
+- Definindo eventos de saída
+
+```javascript
+@Output() itemSelecionado = new EventEmitter<string>();
+
+// ...
+
+onEventSelecao(item) {
+  this.itemSelecionado.emit(item);
+}
+
+```
+
+- Uso
+
+```html
+<my-component (itemSelecionado)="onSelected($event)"></my-component>
+```
+
+```javascript
+onSelected(item) {
+  console.log({item});
+}
+
+```
+
+
+--
+
+[//]: # (8/7)
+### Componentes - two-way data binding
+
+- Suportando o two-way data binding
+
+```javascript
+@Input() nome: string;
+@Output() nomeChange = new EventEmitter<string>();
+```
+
+- Uso
+
+```html
+<my-component [(nome)]="nome"></my-component>
+```
+
+--
+
+[//]: # (8/8)
+
+### componentes - templates
+
+- O **template** define como o Angular deve renderizar o **componente**
+- É semelhante a um HTML simples, mas pode ter marcações próprias do Angular
+
+```html
+<h1>{{titulo}}</h1>
+<h2>{{subtitulo}}</h2>
+<button (click)="onClick()">Clique</button>
+ ```
+
+--
+
+[//]: # (8/9)
+
+### componentes - templates
+
+- A **interpolação** avalia uma expressão e a converte para uma string
+
+```html
+<p>A soma de 1 + 1 é {{1 + 1}}</p>
+```
+
+- Geralmente, a expressão é uma propriedade do **componente**
+
+```html
+<h1>{{titulo}}</h1>
+```
+
+- A expressão também pode invocar métodos do **componente**
+
+```html
+<h3>
+    {{getTitulo()}}
+</h3>
+```
+
+--
+
+[//]: # (8/10)
+
+### componentes - templates
+
+- As **expressões** não produzem efeitos colaterais (além de atualizar a propriedade, é claro)
+- Sintaxe semelhante ao JavaScript
+- Proibido: new; incremento e decremento (++ e –-); atribuições (=, +=, -=, …); encadeamento de expressões (; ou ,);
+
+--
+
+[//]: # (8/11)
+
+### componentes - templates
+
+- Uma **ação** (_statement_) responde a um evento
+
+```html
+<button (click)="onClick()">Clique</button>
+```
+
+- As **ações** produzem efeitos colaterais
+  - Atualizam o _estado da aplicação_ a partir da interação do usuário
+- Sintaxe semelhante ao JavaScript
+  - Proibido: new; incremento e decremento (++ e –); operadores de atribuição (+=, -=, …)
+  - Permitido: atribuição básica (=); encadeamento de expressões (; ou ,)
+
+--
+
+[//]: # (8/12)
+### componentes - data binding
+
+- **Data binding** é um mecanismo para coordenar a interação entre **template** e **componente**
+- Existem 4 formas de se fazer **data binding** e cada forma tem uma direção
+
+<div class="center">
+  ![Formas Data Binding](img/formas-data-bind.png)
+</div>
+
+--
+
+[//]: # (8/13)
+
+### componentes - data binding
+
+```html
+Valor Atual:{{valor}}
+<div>one-way</div>
+<input name="valor" [ngModel]="valor" type="number">
+<div>two-way</div>
+<input name="valor" [(ngModel)]="valor" type="number">
+<button (click)="dobrar()">dobrar</button>
+```
+
+- A expressão **{{valor}}** é uma **interpolação**
+- A expressão **[(ngModel)]** é um **two-way data binding**
+  - Combina o **binding de propriedade** e o **binding de evento** em uma notação única
+  - O valor da propriedade **valor** do componente é exibida no elemento **input**
+  - As mudanças no valor do elemento **input** são enviadas de volta ao componente
+- A expressão **(click)** é um **binding de evento**
+  - O método **dobrar** é invocado quando o usuário clica no elemento `<button>`
+
+
+
+
+
+
+
+
+
+
+
+
+

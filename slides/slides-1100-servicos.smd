@@ -1,0 +1,109 @@
+[//]: # (10)
+### serviços
+
+- Os **serviços** encapsulam um valor, função ou funcionalidade de que a aplicação precisa
+  - Ou seja: quase tudo pode ser um **serviço**!
+- Um **serviço** é tipicamente uma classe com uma responsabilidade bem-definida
+  - Exemplos: logging, recuperação de dados, cálculo de taxas etc
+- Os **componentes** são grandes consumidores de **serviços**
+  - Um **componente** deve ser "enxuto" e, por isso, delega tarefas não triviais para os **serviços**
+  - Os **serviços** estão disponíveis para uso pelos **componentes** através da **injeção de dependências**
+
+--
+
+[//]: # (10/2)
+
+### serviços
+
+Gerando um serviço
+
+```bash
+ng g service contador
+```
+
+```bash
+CREATE src/app/contador.service.spec.ts (343 bytes)
+CREATE src/app/contador.service.ts (137 bytes)
+```
+
+```javascript
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ContadorService {
+  constructor() { }
+}
+```
+
+--
+
+[//]: # (10/3)
+
+### injeção de dependências
+
+- A **injeção de dependências** é uma forma de, ao se criar uma nova instância de uma classe, prover instâncias das dependências dessa classe
+- Comumente, o Angular usa a **injeção de dependências** para prover aos **componentes** os **serviços** dos quais necessitam
+- O Angular sabe quais são esses **serviços** pela assinatura do construtor do **componente**
+
+```javascript
+constructor(private service: ContadorService) {}
+```
+
+--
+
+[//]: # (10/4)
+
+### injeção de dependências
+
+- O Angular mantém um container das instâncias de **serviços** criadas
+- Quando um **componente** é criado, seus **serviços** são recuperados desse **container**
+- Você deve dizer ao Angular como criar novas instâncias de um **serviço**
+- Isto é, você deve registrar uma fábrica do **serviço**
+- A fábrica é algo que pode criar ou retornar uma instância do **serviço**
+- Você pode registrar a fábrica em **módulos** ou em **componentes**
+  - Em um **módulo**, a mesma instância do **serviço** é disponível para todos os **componentes** desse **módulo**
+  - Em um **componente**, uma nova instância do **serviço** será criada para cada nova instância do **componente**
+
+--
+
+[//]: # (10/5)
+
+### injeção de dependências
+
+- Fábrica no nível de **módulo**
+
+```javascript
+@NgModule({
+  // ...
+  providers: [
+    BackendService,
+    ContadorService
+  ],
+  // ...
+})
+```
+
+- Fábrica no nível de **componente**
+
+```javascript
+@Component({
+  selector: 'app-contador',
+  templateUrl: './contador.component.html',
+  providers: [ ContadorService ]
+})
+```
+
+
+
+
+
+
+
+
+
+
+
+
+

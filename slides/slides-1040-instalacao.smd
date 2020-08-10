@@ -1,0 +1,56 @@
+[//]: # (4)
+### instalação
+
+- Pré-requisitos
+- Angular CLI
+- A Anatomia de uma Aplicação Angular
+- Suporte a Browsers
+
+--
+
+[//]: # (4/2)
+
+### pré-requisitos
+
+- Node.js
+  - Ambiente de execução JavaScript
+  - Versão v8.9.x ou superior
+    - `$ node -v`
+- npm: Node Package Manager
+  - Gerenciador de pacotes default (outros yarn)
+  - Gestão de dependências e bibliotecas JavaScript
+  - Versão 5.x.x ou superior
+    - `$ npm -v`
+
+--
+
+[//]: # (4/3)
+
+### pré-requisitos
+
+- nvm: Node Version Manager
+  - Script para a gestão de múltiplas versões do Node.js e npm
+  - `$ nvm --version`
+
+--
+
+[//]: # (4/4)
+
+### [exercício 01](../exercicios/exercicio-01)
+
+- Objetivo: instalar nvm, Node.js e npm
+- Tempo: [15’](https://e.ggtimer.com/15minutes)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

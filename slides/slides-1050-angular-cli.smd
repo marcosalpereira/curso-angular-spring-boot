@@ -1,0 +1,111 @@
+[//]: # (5)
+### angular cli
+
+- Ferramentas CLI são uma tendência no desenvolvimento de aplicações Frontend
+  - Scaffolding, scripting, automação de processos etc
+- Angular CLI permite criar aplicações Angular rapidamente
+  - Funcionalidades para facilitar o desenvolvimento (por exemplo: hot-reload, serve, test etc)
+  - Seguindo as boas práticas e convenções
+- Para instalar o Angular CLI:
+  - `$ npm install -g @angular/cli`
+- Para criar uma novo projeto Angular:
+  - `$ ng new app-exemplo`
+
+--
+
+[//]: # (5/2)
+
+### a anatomia da aplicação
+
+- O projeto criado pelo Angular CLI possui vários arquivos
+  - Os arquivos mais importantes estão nas pastas **src**
+  - Os outros arquivos configuram o ambiente de desenvolvimento e raramente mudam
+- Pasta **src**
+  - Contém o código-fonte da aplicação
+      - arquivos TypeScript
+      - HTML
+      - CSS
+
+--
+
+[//]: # (5/3)
+
+### a anatomia da aplicação
+
+| ARQUIVO           | DESCRIÇÃO                                                                                                               |
+| - | - |
+| src/app/          | Arquivos da aplicação Angular. Ex: app.component.ts, app.module.ts                                                      |
+| node_modules/     | Bibliotecas JavaScript instaladas via npm.                                                                              |
+| package.json      | Identifica as dependências npm do projeto. Lista também os comandos para executar a aplicação, testes unitários e mais. |
+| src/assets/       | Arquivos estáticos importados pela aplicação (por exemplo: CSS, imagens, fontes etc).                                   |
+| src/environments/ | Arquivos de definição de variáveis de ambientes utilizadas no processo de construção da aplicação.                      |
+
+--
+
+[//]: # (5/4)
+
+### a anatomia da aplicação
+
+| ARQUIVO          | DESCRIÇÃO                                                                                                                      |
+| - | - |
+| src/styles.css   | Descreve as regras de estilo CSS globais da aplicação.                                                                         |
+| src/index.html   | A página única da aplicação. Carrega alguns scripts essenciais em uma ordem pré-definida e depois carrega a aplicação Angular. |
+| src/favicon.ico  | O ícone da aplicação que aparece na aba do browser.                                                                            |
+| src/polyfills.ts | Arquivo que configura os Polyfills utilizados pela aplicação.                                                                  |
+| src/test.ts            | Arquivos de configuração para a execução de testes unitários com Karma.                                                     |
+
+--
+
+[//]: # (5/5)
+
+### a anatomia da aplicação
+
+| ARQUIVO          | DESCRIÇÃO                                                                                                |
+| - | - |
+| src/typings.d.ts | Arquivo de definição de tipos TypeScript para as bibliotecas JavaScript que não definiram seus tipos.    |
+| karma.conf.js    | Arquivo de configuração para a execução de testes unitários com Karma.                                   |
+| .editorconfig    | Configurações padronizadas usadas por diversos editores de código. [Veja mais.](http://editorconfig.org) |
+| .gitignore       | Arquivos e pastas que o GIT deve ignorar.                                                                |
+
+--
+
+[//]: # (5/6)
+
+### a anatomia da aplicação
+
+| ARQUIVO           | DESCRIÇÃO                                                                                                          |
+| - | - |
+| e2e/              | Pasta com os testes ponto-a-ponto (end-to-end) da aplicação, escritos em Jasmine e executados com protractor.       |
+| protractor.conf.js | Configuração do protractor (para a execução de testes e2e).                                                         |
+| README.md         | Documentação da aplicação    |
+| tsconfig.json     | Descreve como o compilador TypeScript transpila o código-fonte para JavaScript |
+
+--
+
+[//]: # (5/7)
+
+### a anatomia da aplicação
+
+| ARQUIVO      | DESCRIÇÃO |
+| - | - |
+| tslint.json  | Arquivo de configuração do validador de código-fonte TypeScript. Define regras de validação de acordo com o guia de estilo do Angular. |
+| angular.json | Arquivo de configuração do Angular CLI. |
+
+--
+
+[//]: # (5/8)
+
+### [exercício 02](../exercicios/exercicio-02)
+
+- Objetivo: instalar o Angular CLI, criar e rodar a primeira aplicação Angular
+- Tempo: [15’](https://e.ggtimer.com/15minutes)
+
+
+
+
+
+
+
+
+
+

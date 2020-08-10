@@ -1,0 +1,230 @@
+[//]: # (9)
+### diretivas
+
+- Uma **diretiva** é uma classe com o decorador `@Directive`
+- As **diretivas** transformam o **template**, dando seu caráter dinâmico
+- Um **componente** é uma **diretiva** com um **template**!
+- As **diretivas** podem ser classificadas em dois tipos:
+  - **Estruturais**: alteram o DOM adicionando, removendo ou trocando elementos
+  - **De Atributo**: alteram a aparência ou comportamento de um elemento que já existe
+
+--
+
+[//]: # (9/2)
+
+### diretivas
+
+- **ngFor**, **ngIf** e **ngSwitch** são **diretivas** **estruturais** embarcadas com o Angular
+- **ngFor** cria um elemento para cada item de uma lista
+- **ngIf** inclui (ou não) um elemento no DOM
+- **ngSwitch** inclui um único elemento a partir de uma lista de possíveis elementos
+- valores = [1, 2, 3, 4, 5, 6, 7];
+
+```html
+                                                   // Resultado
+  <div *ngFor="let valor of valores">              // 1 Um
+    <span *ngIf="valor != 4">{{valor}} </span>     // 2 Dois
+    <ng-container [ngSwitch]="valor">              // 3 Outros
+        <span *ngSwitchCase="1">Um</span>          // Outros
+        <span *ngSwitchCase="2">Dois</span>        // 6 Outros
+        <span *ngSwitchDefault>Outros</span>       // 7 Outros
+    </ng-container>
+  </div>
+```
+
+--
+
+[//]: # (9/3)
+
+### diretivas
+
+- **ngModel**, **ngStyle** e **ngClass** são **diretivas de atributo** embarcadas com o Angular
+- **ngModel**: implementa o **two-way data binding** em um elemento
+- **ngStyle**: definição dinâmica de regras CSS (inline) em um elemento
+- **ngClass**: atribuição dinâmica de classes CSS em um elemento
+
+```html
+<h3>De atributo</h3>
+<h4>String, também pode se usar um array de strings ['numero', 'lista']</h4>
+<span *ngFor="let valor of valores">
+  <span [ngClass]="'numero'">{{valor}} </span>
+</span>
+
+<h4>Objeto</h4>
+<span *ngFor="let valor of valores">
+  <span [ngClass]="{'numero': true, 'impar': valor % 2 != 0, 'par': valor %2 == 0}">{{valor}} </span>
+</span>
+```
+
+--
+
+[//]: # (9/4)
+### Anote aí...
+
+Outra forma de customizar classe CSS ou atributo
+
+```html
+<span *ngFor="let valor of [0, 1, 2, 3, 4, 5, 6, 7]">
+  <span
+      [attr.zero]="valor === 0 ? '' : null"
+      [class.par]="valor != 0 && valor % 2 === 0"
+    [class.impar]="valor % 2 !== 0">{{valor}}
+  </span>
+</span>
+
+```
+
+--
+
+[//]: # (9/5)
+
+### diretivas
+
+- Você pode criar suas próprias **diretivas** customizadas
+- As **diretivas** customizadas devem ser declaradas em um **módulo** da aplicação
+- Ao nomear suas **diretivas**, sempre utilize um prefixo (o prefixo "ng" já é reservado)
+
+```html
+<input type="text" appSonumeros>
+```
+
+```javascript
+import { Directive, HostListener } from '@angular/core';
+
+@Directive({selector: '[appSonumeros]'})
+export class SonumerosDirective {
+
+  @HostListener('keydown', ['$event'])
+  onKeyDown(e: KeyboardEvent) {
+    // ...
+  }
+}
+
+```
+
+--
+
+[//]: # (9/6)
+
+### diretivas
+
+- As **diretivas** customizadas podem responder a eventos do elemento "hospedeiro"
+
+```javascript
+import { Directive, HostListener } from '@angular/core';
+
+@HostListener('keydown', ['$event'])
+onKeyDown(e: KeyboardEvent) {
+  // ...
+}
+
+@HostListener('mouseenter') onMouseEnter() {
+  // ...
+}
+```
+
+--
+
+[//]: # (9/7)
+### diretivas
+
+```bash
+ng generate directive sonumeros
+```
+
+```bash
+CREATE src/app/sonumeros.directive.spec.ts (236 bytes)
+CREATE src/app/sonumeros.directive.ts (147 bytes)
+UPDATE src/app/app.module.ts (1124 bytes)
+```
+
+```javascript
+import { Directive } from '@angular/core';
+
+@Directive({
+  selector: '[appSonumeros]'
+})
+export class SonumerosDirective {
+
+  constructor() { }
+
+}
+```
+
+--
+
+[//]: # (9/8)
+### diretivas - passando atributos
+
+```javascript
+export class SonumerosDirective {
+  @Input() numerosPermitidos = '0123456789';
+}
+```
+
+permitido 123
+```html
+<input appSonumeros numerosPermitidos="123">
+```
+permitido 0123456789 (default)
+```html
+<input appSonumeros>
+```
+
+--
+
+[//]: # (9/9)
+### diretivas - passando atributos com alias
+
+```javascript
+export class SonumerosDirective {
+  private numerosPermitidos;
+
+  @Input('appSonumeros')
+  set setNumerosPermitidos(v) {
+    this.numerosPermitidos = v ? v : '0123456789';
+  }
+}
+```
+
+```html
+<input appSonumeros="123">
+<input appSonumeros>
+```
+permitido 123
+permitido 0123456789 (default)
+
+
+--
+
+[//]: # (9/10)
+### diretivas - seletor mais complexo
+
+```javascript
+@Directive({
+  selector: '[appSonumeros][par][impar],[appSonumeros][par],[appSonumeros][impar]',
+})
+export class SonumerosDirective {
+  @Input() par;
+  @Input() impar;
+```
+
+```html
+<input appSonumeros par >
+<input appSonumeros impar >
+<input appSonumeros par impar>
+<input appSonumeros impar par>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+

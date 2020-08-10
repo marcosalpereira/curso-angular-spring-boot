@@ -1,0 +1,89 @@
+[//]: # (2)
+### arquiteturas web - tradicionais
+
+<div class="center" style="margin: 0 auto; max-width: 80%;">
+  ![Legacy](img/legacy-arch.png)
+</div>
+
+--
+
+[//]: # (2/2)
+
+### arquiteturas web - tradicionais - desvantagens
+
+- Servidor Web é responsável pela construção das páginas Web e pela lógica de negócio
+- O estado do cliente (sessão) é mantido no servidor
+- Maior uso de recursos computacionais (processamento e memória)
+- Quanto maior o número de clientes, maior o tempo de resposta
+- **Baixa escalabilidade**
+
+--
+
+[//]: # (2/3)
+
+### arquiteturas web - modernas
+
+- SPA: *Single Page Application* ou **Aplicação de uma Única Página**
+- Todos os recursos (HTML, Javascript, CSS) são recuperados de uma única vez ou carregados dinamicamente conforme a necessidade (em resposta à ação do usuário)
+- Não há **_reloads_** ou transferência de controle para outra página
+- A ideia é prover uma **UX similar** a de uma **aplicação nativa** (desktop / mobile)
+- Frameworks Javascripts
+  - AngularJS, Angular, ReactJS, Vue.js, Ember.js, Meteor.js (...)
+
+--
+
+[//]: # (2/4)
+
+### arquiteturas web - modernas
+
+- Servidor delega a lógica de construção das páginas Web para o cliente
+  - Renderização dinâmica de páginas HTML
+  - Fluxos e navegação entre páginas e etc.
+- Somente a lógica de negócio é implementada no lado servidor
+  - Regras de negócio, persistência, segurança e etc
+- Padrão de-facto para aplicações na nuvem
+
+--
+
+[//]: # (2/5)
+
+### arquiteturas web - modernas - imagem
+
+<div class="center">
+  ![](img/modern-app.png)
+</div>
+
+--
+
+[//]: # (2/6)
+
+### arquiteturas web - modernas
+
+- Servidor Web é responsável somente pela lógica de negócio
+- Melhor UX: depois do download da aplicação, somente dados são trafegados
+- Maior interoperabilidade e reuso de serviços (APIs)
+- **Alta escalabilidade**
+
+--
+
+[//]: # (2/7)
+
+### arquiteturas web - escalabilidade
+
+<div class="center">
+  ![](img/vertical_vs_horizontal_scaling.png)
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

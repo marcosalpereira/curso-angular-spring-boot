@@ -1,0 +1,113 @@
+[//]: # (3)
+### angular: o que é?
+
+- É uma plataforma open-source para o desenvolvimento front-end de aplicações Web
+  - Framework para a implementação de SPA
+- Baseado em TypeScript
+  - Linguagem de programação
+  - É um super-conjunto do JavaScript com suporte a tipificação
+  - Browsers não executam TypeScript, por isso o código deve ser **transpilado** para JavaScript
+  - Open source, mantida pela Microsoft e pela comunidade
+- Mantido pela Google e por uma comunidade de indivíduos e organizações
+- É o resultado da reescrita total do AngularJS
+
+--
+
+[//]: # (3/2)
+
+### angular: visão geral da arquitetura
+
+- Uma aplicação Angular é composta por:
+  - **Templates:** HTML com sintaxe Angular;
+  - **Components:** controlam a visão e a interação com o usuário;
+  - **Services:** encapsulam um valor, função ou funcionalidade;
+  - **Modules:** empacotam tudo isso de uma forma coesa.
+
+--
+
+[//]: # (3/3)
+### angular: visão geral da arquitetura
+
+
+<div class="center">
+  ![](img/angular-arch.png)
+</div>
+
+--
+
+[//]: # (3/4)
+### suporte a browsers
+
+- Angular suporta a maioria dos browsers mais recentes
+
+| Browser | Supported versions |
+| - | - |
+| Chrome | latest |
+| Firefox | latest and extended support release (ESR) |
+| Edge | 2 most recent major versions |
+| IE |   11, 10*, 9* ("compatibility view" mode not supported). *deprecated in v10. |
+| IE Mobile* | 11, *deprecated in v10 |
+| Safari | 2 most recent major versions |
+| iOS | 2 most recent major versions |
+| Android | X (10.0), Pie (9.0), Oreo (8.0), Nougat (7.0)    |
+
+--
+
+[//]: # (3/5)
+
+### suporte a browsers
+
+- A integração contínua do Angular roda testes unitários em todos esses browsers
+- https://angular.io/guide/browser-support
+- https://angular.io/guide/deprecations
+- Angular é construído baseado nos padrões mais modernos da plataforma Web
+  - Nem todos os browsers suportam essas funcionalidades
+- _Polyfills_
+  - Scripts que implementam as funcionalidades que não são suportadas pelo browser
+  - Dependendo do browser alvo e das funcionalidades do Angular que sua aplicação precisa, você irá carregar um ou mais polyfills
+  - Polyfills não transformam um navegador lento e antigo em um navegador rápido e moderno!
+
+--
+
+[//]: # (3/6)
+
+### suporte a browsers
+
+- Polyfills obrigatórios para rodar uma aplicação Angular, de acordo com o browser:
+
+## placeholder
+
+| Browsers (Desktop & Mobile) |Polyfills Required |
+| - | - |
+| Chrome, Firefox, Edge, Safari, Android, IE 10+ | ES2015 |
+| IE 9 | ES2015, classList |
+
+
+--
+
+[//]: # (3/7)
+
+### suporte a browsers
+
+- Polyfills opcionais de acordo com a funcionalidade e browser:
+
+| Feature | Polyfill | Browsers (Desktop & Mobile) |
+| - | - | - |
+| AnimationBuilder. (Animação padrão não precisa) | Web Animations | Enables scrubbing support<br>for IE/Edge and Safari.<br>(Chrome and Firefox support this natively). |
+| NgClass on SVG elements | classList | IE 10, IE 11 |
+| Http sending/receiving binary data | Typed Array, Blob, FormData | IE 9 |
+| Router para hash-based routing | ES7/array | IE 11  |
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,81 @@
+[//]: # (7)
+### módulos
+
+- O Angular possui um sistema próprio de modularização
+  - Angular Modules ou NgModules
+- Toda aplicação Angular possui pelo menos um módulo (chamado de "**root module**")
+  - Por padrão, é o **AppModule**
+- Em aplicações pequenas, o **AppModule** pode ser o único módulo da aplicação
+- Em aplicações maiores, é comum que existam vários módulos
+  - Cada módulo é responsável por um conjunto de funcionalidades (domínio)
+
+--
+
+[//]: # (7/2)
+
+### módulos
+
+- Um módulo é uma classe com o decorador `@NgModule`, que descreve o módulo
+- As principais propriedades do decorador `@NgModule` são:
+  - **declarations**: declara as classes de visão (componentes, diretivas ou pipes) do módulo;
+  - **exports**: um subconjunto do **declarations** que pode ser usado em outros módulos;
+  - **imports**: declara os módulos cujas classes exportadas são utilizadas neste módulo;
+  - **providers**: declara como instanciar os serviços que são utilizados em toda a aplicação;
+  - **bootstrap**: declara a visão principal da aplicação ("**root** **component**")
+
+--
+
+[//]: # (7/3)
+
+### módulos
+
+- Exemplo de um **root module**
+
+```javascript
+// src/app/app.module.ts
+
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule } from "@angular/forms"; // <-- o "NgModel" faz parte do "FormsModule"
+
+import { AppComponent } from "./app.component";
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule // <-- importe o "FormsModule"
+  ],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
+
+--
+
+[//]: # (7/4)
+
+### módulos
+
+- Para executar a aplicação, é feito o **_bootstrap_** do **_root module_** como abaixo
+
+```javascript
+// src/main.ts
+
+import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+import { AppModule } from "./app/app.module";
+platformBrowserDynamic().bootstrapModule(AppModule);
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
