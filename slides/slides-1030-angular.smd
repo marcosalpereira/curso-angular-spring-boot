@@ -28,7 +28,6 @@
 [//]: # (3/3)
 ### angular: visão geral da arquitetura
 
-
 <div class="center">
   ![](img/angular-arch.png)
 </div>
@@ -82,7 +81,6 @@
 | Chrome, Firefox, Edge, Safari, Android, IE 10+ | ES2015 |
 | IE 9 | ES2015, classList |
 
-
 --
 
 [//]: # (3/7)
@@ -97,17 +95,4 @@
 | NgClass on SVG elements | classList | IE 10, IE 11 |
 | Http sending/receiving binary data | Typed Array, Blob, FormData | IE 9 |
 | Router para hash-based routing | ES7/array | IE 11  |
-
-
-
-
-
-
-
-
-
-
-
-
-
 

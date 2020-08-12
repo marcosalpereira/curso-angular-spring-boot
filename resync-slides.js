@@ -19,9 +19,21 @@ if (process.argv.length < 2) {
 
 	console.log({slide, inputFileName})
 
+	let previouEmptyLine = false;
+
 	fs.readFileSync(inputFileName)
 	  .toString()
 	  .split('\n')
+	  .filter(line => {
+			const empty = line.trim().length === 0;
+			if (empty) {
+				if (previouEmptyLine) {
+					return false;
+				}
+			}
+			previouEmptyLine = empty;
+			return true;
+	  	})
 	  .forEach(function(line) {
 		if (ignoreLine || line.startsWith('[//]:')) {
 		  ignoreLine = false;

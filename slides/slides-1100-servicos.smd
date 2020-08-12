@@ -95,15 +95,3 @@ constructor(private service: ContadorService) {}
 })
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
