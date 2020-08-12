@@ -194,7 +194,6 @@ export class SonumerosDirective {
 permitido 123
 permitido 0123456789 (default)
 
-
 --
 
 [//]: # (9/10)
@@ -215,16 +214,4 @@ export class SonumerosDirective {
 <input appSonumeros par impar>
 <input appSonumeros impar par>
 ```
-
-
-
-
-
-
-
-
-
-
-
-
 

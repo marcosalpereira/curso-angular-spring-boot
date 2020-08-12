@@ -53,15 +53,3 @@ export class ParPipe implements PipeTransform {
 
 - Objetivo: Fixar conhecimento de componentes, diretivas e serviços
 
-
-
-
-
-
-
-
-
-
-
-
-
