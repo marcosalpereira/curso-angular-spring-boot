@@ -778,30 +778,30 @@ ng g directive ex3/sonumeros
 </td></tr></table></p>
 </li>
 <li>
-<p>botão para icrementar o valor. Façamos um bind para o evento <code>click</code> chamando o método que definimos anteriormente no componente.
-```html<button (click)="incrementarValor()">Incrementar</button>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>- possibilitar que o valor do contador seja alterado. Vamos criar um input text fazendo um two way data binding com a propriedade do componente `novoValor`. Coloque no input a diretiva que irá evitar que sejam digitados caracteres não numéricos. Obs. Por enquanto ela não faz isso ainda.
-```html
-<span class="nt">&lt;input</span> <span class="na">size=</span><span class="s">&quot;5&quot;</span> <span class="err">appSonumeros</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="err">[(ngModel)]=&quot;novoValor&quot;</span><span class="nt">&gt;</span>
-```html
-
-
-- alterar o valor digitado através do bind com o evento click de um botão
-```html
-<span class="nt">&lt;button</span> <span class="err">(click)=&quot;alterarValor()&quot;</span><span class="nt">&gt;</span>Alterar<span class="nt">&lt;/button&gt;</span>
-</pre></div>
-</td></tr></table></p>
+<p>botão para icrementar o valor. Façamos um bind para o evento <code>click</code> chamando o método que definimos anteriormente no componente.</p>
 </li>
-<li>
-<p>Resumindo, altere o <code>src/app/ex3/contador/contador.component.html</code>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">button</span> <span class="err">(</span><span class="na">click</span><span class="err">)=&quot;</span><span class="na">incrementarValor</span><span class="err">()&quot;</span><span class="p">&gt;</span>Incrementar<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li>possibilitar que o valor do contador seja alterado. Vamos criar um input text fazendo um two way data binding com a propriedade do componente <code>novoValor</code>. Coloque no input a diretiva que irá evitar que sejam digitados caracteres não numéricos. Obs. Por enquanto ela não faz isso ainda.</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">size</span><span class="o">=</span><span class="s">&quot;5&quot;</span> <span class="na">appSonumeros</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]=&quot;</span><span class="na">novoValor</span><span class="err">&quot;</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li>alterar o valor digitado através do bind com o evento click de um botão</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">button</span> <span class="err">(</span><span class="na">click</span><span class="err">)=&quot;</span><span class="na">alterarValor</span><span class="err">()&quot;</span><span class="p">&gt;</span>Alterar<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li>Resumindo, altere o <code>src/app/ex3/contador/contador.component.html</code></li>
+</ul>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -822,9 +822,8 @@ ng g directive ex3/sonumeros
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">fieldset</span><span class="p">&gt;</span>
 </pre></div>
-</td></tr></table></p>
-</li>
-</ul>
+</td></tr></table>
+
 <h4 id="diretiva-para-filtrar-caracteres-somente-numericos">Diretiva para filtrar caracteres somente numéricos<a class="headerlink" href="#diretiva-para-filtrar-caracteres-somente-numericos" title="Permanent link">&para;</a></h4>
 <ul>
 <li>para filtrar os caracteres digitados no campo texto, precisamos interceptar o evento de tecla pressionada. Se não for um caractere de 0 a 9 fazemos o browser dispensar o evento.
