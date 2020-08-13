@@ -184,21 +184,26 @@ Valor Atual: {{valor}}
 ```
 
 - botão para icrementar o valor. Façamos um bind para o evento `click` chamando o método que definimos anteriormente no componente.
-```html<button (click)="incrementarValor()">Incrementar</button>
+
+```html
+<button (click)="incrementarValor()">Incrementar</button>
 ```
 
 - possibilitar que o valor do contador seja alterado. Vamos criar um input text fazendo um two way data binding com a propriedade do componente `novoValor`. Coloque no input a diretiva que irá evitar que sejam digitados caracteres não numéricos. Obs. Por enquanto ela não faz isso ainda.
+
 ```html
 <input size="5" appSonumeros type="text" [(ngModel)]="novoValor">
-```html
+```
 
 
 - alterar o valor digitado através do bind com o evento click de um botão
+
 ```html
 <button (click)="alterarValor()">Alterar</button>
 ```
 
 - Resumindo, altere o `src/app/ex3/contador/contador.component.html`
+
 ```html
 <fieldset>
   <legend>{{nome}}</legend>
