@@ -2,11 +2,11 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Turma } from 'src/app/model/turma';
 
 @Component({
-  selector: 'app-validation-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css']
+  selector: 'app-edit-validation',
+  templateUrl: './validation.component.html',
+  styleUrls: ['./validation.component.css']
 })
-export class ValidationEditComponent implements OnInit {
+export class EditValidationComponent implements OnInit {
 
   turma: Turma = {};
 

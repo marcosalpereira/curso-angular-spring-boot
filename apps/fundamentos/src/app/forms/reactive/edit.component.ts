@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-validation-edit-reactive',
-  templateUrl: './edit-reactive.component.html',
-  styleUrls: ['./edit-reactive.component.css']
+  selector: 'app-edit-reactive',
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.css']
 })
-export class ValidationEditReactiveComponent implements OnInit {
+export class ReactiveEditComponent implements OnInit {
 
   form: FormGroup;
 
@@ -16,8 +16,8 @@ export class ValidationEditReactiveComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      nome: this.formBuilder.control('', [Validators.required]),
-      salario: this.formBuilder.control('', [Validators.required, Validators.max(5000), Validators.min(1000)]),
+      nome: this.formBuilder.control(''),
+      salario: this.formBuilder.control(''),
     });
   }
 

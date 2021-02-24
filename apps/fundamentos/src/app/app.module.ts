@@ -14,12 +14,12 @@ import { PipesComponent as PipesComponent } from './pipes/pipes/pipes.component'
 import { AppRoutingModule } from './rotas/app-routing.module';
 import { RotasComponent } from './rotas/rotas.component';
 import { ServicosComponent } from './servicos/servicos.component';
-import { FormsComponent } from './forms/forms.component';
-import { EditReactiveComponent } from './forms/reactive/edit-reactive.component';
-import { EditComponent } from './forms/template-driven/edit.component';
-import { ValidationEditReactiveComponent } from './forms/validation/reactive/edit-reactive.component';
-import { ValidationEditComponent } from './forms/validation/template-driven/edit.component';
 import { RangeValidatorDirective } from './validators/range.directive';
+import { FormulariosComponent } from './forms/formularios.component';
+import { ReactiveEditComponent } from './forms/reactive/edit.component';
+import { ReactiveEditValidationComponent } from './forms/reactive/validation.component';
+import { EditComponent } from './forms/template-driven/edit.component';
+import { EditValidationComponent } from './forms/template-driven/validation.component';
 
 @NgModule({
   declarations: [
@@ -34,12 +34,18 @@ import { RangeValidatorDirective } from './validators/range.directive';
     PipesComponent,
     RotasComponent,
     ServicosComponent,
-    FormsComponent,
-    EditReactiveComponent, ValidationEditReactiveComponent,
-    EditComponent, ValidationEditComponent, RangeValidatorDirective,
+    RangeValidatorDirective,
+
+    FormulariosComponent,
+    ReactiveEditComponent, ReactiveEditValidationComponent,
+    EditComponent, EditValidationComponent
+
   ],
   imports: [
-    BrowserModule, FormsModule, AppRoutingModule, ReactiveFormsModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
