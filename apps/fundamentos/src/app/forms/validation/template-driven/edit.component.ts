@@ -8,12 +8,11 @@ import { Turma } from 'src/app/model/turma';
 })
 export class ValidationEditComponent implements OnInit {
 
-  turma: Turma;
+  turma: Turma = {};
 
   constructor() { }
 
   ngOnInit(): void {
-    this.turma = {};
   }
 
   submit(): void {

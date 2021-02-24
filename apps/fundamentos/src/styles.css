@@ -1,8 +1,23 @@
-a {
+/* You can add global styles to this file, and also import other style files */
+
+.topico {
     text-decoration: none;
     border: 1px solid gray ;
     display: inline-block;
     margin-right: 5px;
     background-color: lightgray;
     padding: 5px;
+    border-radius: 5px;
+}
+
+label {
+    font-size: 80%;
+}
+label > input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.erros div {
+    color: red
 }

@@ -18,7 +18,7 @@
 - Para desenvolver um bom formulário, você deve ter habilidade no design de aplicações Web
 - O suporte do Angular no desenvolvimento de formulários envolve técnicas como:
   - _Two-way data binding_
-  - Rastramento de mudanças
+  - Rastreamento de mudanças
   - Validação
   - Tratamento de erros
 

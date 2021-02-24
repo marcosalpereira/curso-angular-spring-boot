@@ -1,8 +1,7 @@
 import { Directive, Input } from '@angular/core';
-import { NG_VALIDATORS, Validator, AbstractControl, ValidationErrors, Validators, ValidatorFn } from '@angular/forms';
-
+import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator, Validators } from '@angular/forms';
 @Directive({
-  selector: '[appRange][min],[appRange][max],[appRange][min][max]',
+  selector: '[appRange][min][max]',
   providers: [{provide: NG_VALIDATORS, useExisting: RangeValidatorDirective, multi: true}]
 })
 export class RangeValidatorDirective implements Validator {
@@ -11,29 +10,11 @@ export class RangeValidatorDirective implements Validator {
 
   constructor() { }
 
-  validate(control: AbstractControl): ValidationErrors {
-    let min: ValidationErrors;
-    let max: ValidationErrors;
-
-    if (this.min) {
-      const minValidationFn = Validators.min(this.min);
-      min = minValidationFn(control);
-    }
-    if (this.max) {
-      max = Validators.max(this.max)(control);
-    }
-
-    let errors: ValidationErrors = null;
-    if (min || max) {
-      errors = {};
-      if (min) {
-        errors['min'] = min['min'];
-      }
-      if (max) {
-        errors['max'] = max['max'];
-      }
-    }
-    return errors;
+  validate(control: AbstractControl): ValidationErrors | null {
+    return {
+      ...Validators.min(this.min)(control),
+      ...Validators.max(this.max)(control)
+    };
   }
 
 }
