@@ -6,6 +6,8 @@
 <a class="topico" href="#" (click)="active = 'rotas'">Rotas</a>
 <a class="topico" href="#" (click)="active = 'ex3'">Exercício 3</a>
 <a class="topico" href="#" (click)="active = 'forms'">Formulários</a>
+
+
 <hr>
 <app-introducao  *ngIf="active == 'intro'"></app-introducao>
 <app-bind        *ngIf="active == 'bind'"></app-bind>
@@ -15,3 +17,5 @@
 <app-rotas       *ngIf="active == 'rotas'"></app-rotas>
 <app-servicos    *ngIf="active == 'servicos'"></app-servicos>
 <app-formularios *ngIf="active == 'forms'"></app-formularios>
+
+<router-outlet></router-outlet>

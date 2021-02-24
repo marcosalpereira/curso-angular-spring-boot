@@ -36,3 +36,8 @@ label > input {
     border-color: white;
     box-shadow: 0 0 14px rgba(58, 91, 199, 0.8);
 }
+
+
+hr {
+	color: lightgray;
+}
