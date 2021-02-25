@@ -50,20 +50,3 @@ import { AppComponent } from "./app.component";
 })
 export class AppModule {}
 ```
-
---
-
-[//]: # (7/4)
-
-### módulos
-
-- Para executar a aplicação, é feito o **_bootstrap_** do **_root module_** como abaixo
-
-```javascript
-// src/main.ts
-
-import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
-import { AppModule } from "./app/app.module";
-platformBrowserDynamic().bootstrapModule(AppModule);
-```
-

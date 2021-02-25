@@ -2,7 +2,7 @@
   "_args": [
     [
       "reveal.js-chalkboard@1.0.0",
-      "/home/54706424372/tmp/courses-quick-start"
+      "/home/54706424372/dev/git/ml/hub/curso-angular-spring-boot"
     ]
   ],
   "_from": "reveal.js-chalkboard@1.0.0",
@@ -26,7 +26,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/reveal.js-chalkboard/-/reveal.js-chalkboard-1.0.0.tgz",
   "_spec": "1.0.0",
-  "_where": "/home/54706424372/tmp/courses-quick-start",
+  "_where": "/home/54706424372/dev/git/ml/hub/curso-angular-spring-boot",
   "author": {
     "name": "Asvin Goel"
   },

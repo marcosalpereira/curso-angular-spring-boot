@@ -48,7 +48,7 @@ export class ParPipe implements PipeTransform {
 
 ---
 
-[//]: # (12/3)
+[//]: # (13)
 ### [exercício 03](../exercicios/exercicio-03)
 
 - Objetivo: Fixar conhecimento de componentes, diretivas e serviços
