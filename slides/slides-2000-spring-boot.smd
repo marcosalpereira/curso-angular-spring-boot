@@ -1,4 +1,4 @@
-[//]: # (16)
+[//]: # (17)
 ### Fim
 
 ## placeholder
@@ -9,14 +9,14 @@
 
 ---
 
-[//]: # (17)
+[//]: # (18)
 ### Backend - Spring Boot
 
 # Backend
 
 ---
 
-[//]: # (18)
+[//]: # (19)
 ### Protocolo HTTP - Métodos
 
 - GET
@@ -50,7 +50,7 @@ DELETE alunos/1
 
 --
 
-[//]: # (18/2)
+[//]: # (19/2)
 ### Protocolo HTTP - Headers
 
 Requisição
@@ -70,7 +70,7 @@ Content-Type: text/html; charset=ISO-8859-1
 
 --
 
-[//]: # (18/3)
+[//]: # (19/3)
 ### Protocolo HTTP - Códigos de Resposta
 
 - 200 **OK** - Deve ser usado para indicar sucesso não específico.
@@ -84,7 +84,7 @@ Content-Type: text/html; charset=ISO-8859-1
 
 ---
 
-[//]: # (19)
+[//]: # (20)
 ### Design de API REST
 
 - Versionamento
@@ -113,7 +113,7 @@ DELETE /api/v1/turmas/1
 
 ---
 
-[//]: # (20)
+[//]: # (21)
 ### Spring Boot - O que é?
 
 - *Spring Boot* torna fácil criar uma aplicação *Spring stand-alone*;
@@ -125,7 +125,7 @@ DELETE /api/v1/turmas/1
 
 ---
 
-[//]: # (21)
+[//]: # (22)
 ### Agenda
 
 - Criar uma aplicação
@@ -133,10 +133,10 @@ DELETE /api/v1/turmas/1
 
 ---
 
-[//]: # (22)
+[//]: # (23)
 ---
 
-[//]: # (23)
+[//]: # (24)
 
 ### Aprofundando os estudos
 
@@ -148,7 +148,7 @@ DELETE /api/v1/turmas/1
 
 --
 
-[//]: # (23/2)
+[//]: # (24/2)
 ### Fim
 
 ## placeholder
