@@ -9,6 +9,7 @@ export class IntroducaoComponent implements OnInit {
 
   titulo = 'Curso Angular Básico';
   subtitulo = '??';
+  data = new Date();
 
   ngOnInit() {
     this.subtitulo = '?';

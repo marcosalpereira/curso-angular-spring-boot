@@ -12,7 +12,7 @@
     "serve:build": "node_modules/http-server/bin/http-server -a 0.0.0.0 -p 8080 public",
     "start": "./docs-serve.sh",
     "serve:docs": "./docs-serve.sh",
-    "deploy": "mkdocs gh-deploy"
+    "deploy": ". ~/.venv/bin/activate && mkdocs gh-deploy"
   },
   "dependencies": {
     "reveal.js": "^3.7.0",

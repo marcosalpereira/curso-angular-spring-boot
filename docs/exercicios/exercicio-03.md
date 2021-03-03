@@ -9,24 +9,29 @@
   * Injeção de dependências
 
 ## Requisitos
-Aparência:
+### Aparência:
 
 ![Exercicio 3](img/ex3.png)
 
-Criar um componente de nome `Contador` que:
+### Comportamento:
 
-- tenha uma propridade `nome` e exiba ela na página;
+- um componente de nome `Contador`
+- que tenha uma propridade `nome` e exiba ela na página;
 - mostra o valor atual de um contador;
 - um botão que incrementa em 1 o valor do contador;
 - um *input* que somente aceita números;
 - um botão que altera o valor do contador com o *input* acima
+
 - o valor exibido pelo componente deve ser encapsulado num serviço a parte com nome `ContadorService`
 
-Criar um componente:
+- Criar um outro componente, ou usar o proprio `AppComponente` para colocar dois `ContadorComponent`
+- Implemente os requisitos acima e teste o comportamento da aplicação
+- Após terminar altere para que o próprio componente `ContadorComponent` faça o provider do `ContadorService` e observe os efeitos dessas alteração. Observando pricipalmente o que acontece com os valores do contador mostrado pelos os outros componentes `Contador`
 
-- colocar nele dois `ContadorComponent`
-
-- Após terminar altere para que o próprio componente `ContadorComponent` faça o provider do `ContadorService` e observe os efeitos dessas alteração.
+## 2a. sprint
+- o componente deve ter um campo de saida (emitir um evento) sempre que o valor do contador sofrer alteração.
+- o serviço não deve aceitar o valor 33 para o valor tanto na alteração como no incremento, o usuário deve ser notificado sobre esse valor inválido.
+- sempre que o contador sofra alteração, o serviço deve emitir um evento informando o novo valor
 
 ## Resposta
 
@@ -39,17 +44,18 @@ npm start
 ### abra o terminal e gere os arquivos necessários
 
 ```
-# container para colocar os contadores
-ng g component ex3/exercicio3
+# criar a aplicação
+ng new exercicio3
+cd exercicio3
 
 # criar o componente contador
-ng g component ex3/contador
+ng g component contador
 
 # criar um servico para encapsular o contador
-ng g service ex3/contador
+ng g service contador
 
 # criar uma diretiva para deixar apenas numeros sejam inseridos
-ng g directive ex3/sonumeros
+ng g directive so-numeros
 ```
 
 A aplicação deve ter esses arquivos:
@@ -59,32 +65,22 @@ A aplicação deve ter esses arquivos:
 ├── app.component.spec.ts
 ├── app.component.ts
 ├── app.module.ts
-├── ex3
-│   ├── contador
-│   │   ├── contador.component.css
-│   │   ├── contador.component.html
-│   │   ├── contador.component.spec.ts
-│   │   └── contador.component.ts
-│   ├── contador.service.spec.ts
-│   ├── contador.service.ts
-│   ├── exercicio3
-│   │   ├── exercicio3.component.css
-│   │   ├── exercicio3.component.html
-│   │   ├── exercicio3.component.spec.ts
-│   │   └── exercicio3.component.ts
-│   ├── sonumeros.directive.spec.ts
-│   └── sonumeros.directive.ts
-└── introducao
-    ├── introducao.component.css
-    ├── introducao.component.html
-    └── introducao.component.ts
+├── contador
+│   ├── contador.component.css
+│   ├── contador.component.html
+│   ├── contador.component.spec.ts
+│   └── contador.component.ts
+├── contador.service.spec.ts
+├── contador.service.ts
+├── sonumeros.directive.spec.ts
+└── sonumeros.directive.ts
 ```
 
 #### Serviço que gerencia o contador
 
-Basicamente precisamos definir uma propriedade pública para guardar o valor e um método para incrementá-lo.
+Basicamente precisamos definir uma propriedade para guardar o valor e um método para incrementá-lo e outro para alterá-lo.
 
-Altere o arquivo `src/app/ex3/contador.service.ts`
+Altere o arquivo `src/app/contador.service.ts`
 
 ```javascript
 import { Injectable } from '@angular/core';
@@ -93,9 +89,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ContadorService {
-  valor = 0;
+  private valor = 0;
   incrementar() {
     this.valor++;
+  }
+  alterar(novoValor: number) {
+    this.valor = novoValor;
   }
 }
 ```
@@ -135,7 +134,7 @@ get valor(): number {
   }
 ```
 
-- resumindo altere o arquivo `src/app/ex3/contador/contador.component.ts` para:
+- resumindo altere o arquivo `src/app/contador/contador.component.ts` para:
 ```javascript
 import { ContadorService } from './../contador.service';
 import { Component, Input } from '@angular/core';
@@ -202,7 +201,7 @@ Valor Atual: {{valor}}
 <button (click)="alterarValor()">Alterar</button>
 ```
 
-- Resumindo, altere o `src/app/ex3/contador/contador.component.html`
+- Resumindo, altere o `src/app/contador/contador.component.html`
 
 ```html
 <fieldset>

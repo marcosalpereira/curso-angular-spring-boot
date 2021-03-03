@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Route, RouterModule, Routes } from '@angular/router';
 import { IntroducaoComponent } from '../introducao/introducao.component';
 import { BindComponent } from '../bind/bind.component';
 import { DiretivasComponent } from '../diretivas/diretivas.component';
