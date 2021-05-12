@@ -15,7 +15,7 @@
     "deploy": "mkdocs gh-deploy"
   },
   "dependencies": {
-    "reveal.js": "^3.7.0",
+    "reveal.js": "^3.9.2",
     "reveal.js-chalkboard": "^1.0.0",
     "reveal.js-menu": "^1.2.0"
   },
